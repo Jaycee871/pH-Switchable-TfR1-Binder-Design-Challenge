@@ -1,0 +1,49 @@
+name: Phase 4 Boltz2 Cross-Species Smoke
+
+on:
+  push:
+    paths:
+      - ".github/workflows/phase4-boltz2-cross-species.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  boltz2-cross-species:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Prepare target FASTAs
+        run: python scripts/prepare_targets.py
+
+      - name: Predict human and mouse complexes
+        run: python scripts/nvidia_boltz2_cross_species_smoke.py
+
+      - name: Show summaries
+        shell: bash
+        run: |
+          set -euxo pipefail
+          cat predictions/family_A_A29_03/cross_species_summary.json
+          test -s predictions/family_A_A29_03/human/structure_1.cif
+          test -s predictions/family_A_A29_03/mouse/structure_1.cif
+
+      - name: Upload Boltz2 predictions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-A29-03-boltz2-human-mouse
+          path: predictions/family_A_A29_03/
+          if-no-files-found: warn
+          retention-days: 14
