@@ -195,8 +195,8 @@ def main():
                 "mechanism": "single_His_interface_scan",
             })
 
-        # Doubles: only among the top 6, avoid adjacent positions and require at
-        # least one position with a favourable basic-target contact.
+        # Doubles: only among the top 6, avoid tightly adjacent positions and
+        # require at least one position with a favourable basic-target contact.
         top = ranked[:6]
         for i in range(len(top)):
             for j in range(i+1, len(top)):
@@ -218,6 +218,36 @@ def main():
                     ),
                     "mechanism": "double_His_interface_scan",
                 })
+
+        # Triples: literature on pH-sensitive TfR binders shows that clustered
+        # histidines can act cooperatively. Keep this search deliberately small:
+        # top 5 interface sites only, at least one basic-target contact, and
+        # reject combinations dominated by acidic/risk contacts.
+        tri = ranked[:5]
+        for i in range(len(tri)):
+            for j in range(i+1, len(tri)):
+                for k in range(j+1, len(tri)):
+                    trio = [tri[i], tri[j], tri[k]]
+                    if not any(x["basic_favour_contacts"] for x in trio):
+                        continue
+                    acidic_n = sum(bool(x["acidic_avoid_contacts"]) for x in trio)
+                    risk_n = sum(bool(x["species_risk_contacts"]) for x in trio)
+                    if acidic_n > 1 or risk_n > 1:
+                        continue
+                    positions = sorted(int(x["binder_position"]) for x in trio)
+                    variants.append({
+                        "parent_id": cid,
+                        "variant_id": (
+                            f"{cid}_H{positions[0]}_H{positions[1]}_H{positions[2]}"
+                        ),
+                        "positions": positions,
+                        "mutations": [x["mutation"] for x in trio],
+                        "sequence": mutate(sequence, positions),
+                        "priority_score": round(
+                            sum(x["heuristic_priority_score"] for x in trio), 3
+                        ),
+                        "mechanism": "triple_His_interface_cluster_scan",
+                    })
 
     (OUT / "interface_histidine_positions.json").write_text(
         json.dumps(all_ranked, indent=2) + "\n"
