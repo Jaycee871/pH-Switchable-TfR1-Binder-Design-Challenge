@@ -1,0 +1,92 @@
+{
+  "confidence": 0.7646621465682983,
+  "ptm": 0.8456894755363464,
+  "protein_iptm": 0.1827089786529541,
+  "complex_plddt": 0.910150408744812,
+  "complex_iplddt": 0.871396005153656,
+  "complex_pde": 0.706341564655304,
+  "complex_ipde": 16.2828311920166,
+  "pair_chains_iptm": [
+    {
+      "0": {
+        "0": 0.9060896635055542,
+        "1": 0.13688971102237701
+      },
+      "1": {
+        "0": 0.1827089786529541,
+        "1": 0.8056777715682983
+      }
+    }
+  ],
+  "contacts": {
+    "cutoff_A": 5.0,
+    "target_contacts_uniprot": [
+      507,
+      525,
+      526,
+      527,
+      530,
+      615,
+      616,
+      619,
+      622,
+      623,
+      626,
+      629,
+      630,
+      633,
+      637,
+      638,
+      639,
+      640,
+      641,
+      643,
+      644,
+      646,
+      647,
+      650,
+      651
+    ],
+    "binder_contact_positions": [
+      1,
+      4,
+      5,
+      8,
+      9,
+      12,
+      15,
+      16,
+      19,
+      23,
+      38,
+      41,
+      42,
+      44,
+      45,
+      46,
+      48,
+      49,
+      51,
+      52,
+      53,
+      56
+    ],
+    "preferred_core": [
+      343,
+      344,
+      347
+    ],
+    "preferred_core_contacts": [],
+    "risk_core": [
+      348
+    ],
+    "risk_core_contacts": [],
+    "preferred_core_retained": false
+  },
+  "apical_contact": false,
+  "pose_gate": {
+    "min_protein_iptm": 0.5,
+    "requires_preferred_core_retained": true,
+    "pass": false
+  }
+}
