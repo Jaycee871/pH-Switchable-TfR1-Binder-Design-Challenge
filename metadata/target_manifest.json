@@ -1,0 +1,80 @@
+{
+  "challenge": "Challenge 04: TfR1",
+  "human": {
+    "accession": "P02786-1",
+    "residues": [
+      121,
+      760
+    ],
+    "length": 640,
+    "sha256": "5345f9f5333fd71cdc0ccfdccab7ef27645c89a437e871af6672470a98b16f93",
+    "structure": "11QC"
+  },
+  "mouse": {
+    "accession": "Q62351",
+    "residues": [
+      123,
+      763
+    ],
+    "length": 641,
+    "sha256": "4e8e439fe989a0726bbe4b4dbe8b133c4b34e74ca541a566f2e97bbd203eb5b2"
+  },
+  "reference_complex": "11RN",
+  "official_hotspot_correspondence": [
+    {
+      "human": "D204",
+      "mouse": "Q207"
+    },
+    {
+      "human": "R208",
+      "mouse": "N211"
+    },
+    {
+      "human": "V210",
+      "mouse": "D213"
+    },
+    {
+      "human": "Y211",
+      "mouse": "P214"
+    },
+    {
+      "human": "L212",
+      "mouse": null
+    },
+    {
+      "human": "N348",
+      "mouse": "K350"
+    },
+    {
+      "human": "K371",
+      "mouse": "Q373"
+    }
+  ],
+  "design_states": {
+    "positive": [
+      "human_pH7.4",
+      "mouse_pH7.4"
+    ],
+    "negative": [
+      "human_pH6.0"
+    ]
+  },
+  "pdb_downloads": {
+    "11QC": {
+      "downloaded": true,
+      "sha256": "7810246bdb2c5457064854558c530511bdabd77e80c4b83d3c24946cb36032b1",
+      "bytes": 863784
+    },
+    "11RN": {
+      "downloaded": true,
+      "sha256": "539f9bbd7a562be8ee7702ce0d0956f4dab3e6f2888b480b78eec3d700a4689c",
+      "bytes": 949725
+    }
+  },
+  "sources": {
+    "human_fasta": "https://rest.uniprot.org/uniprotkb/P02786.fasta",
+    "mouse_fasta": "https://rest.uniprot.org/uniprotkb/Q62351.fasta",
+    "11QC": "https://files.rcsb.org/download/11QC.pdb",
+    "11RN": "https://files.rcsb.org/download/11RN.pdb"
+  }
+}
