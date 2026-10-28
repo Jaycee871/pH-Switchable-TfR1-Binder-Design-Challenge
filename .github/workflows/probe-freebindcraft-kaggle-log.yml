@@ -32,7 +32,14 @@ jobs:
           KERNEL="packkwanlow/tfr1-freebindcraft-smoke-v1"
           kaggle kernels status "$KERNEL" > analysis/freebindcraft_live_probe/status.txt 2>&1 || true
           kaggle kernels logs "$KERNEL" > analysis/freebindcraft_live_probe/live.log 2>&1 || true
+          rm -rf /tmp/fbc_running_output
+          mkdir -p /tmp/fbc_running_output
+          kaggle kernels output "$KERNEL" -p /tmp/fbc_running_output -o > analysis/freebindcraft_live_probe/output_probe.txt 2>&1 || true
+          find /tmp/fbc_running_output -type f -printf '%P %s bytes\n' | sort > analysis/freebindcraft_live_probe/output_files.txt || true
           tail -n 200 analysis/freebindcraft_live_probe/live.log || true
+          echo "--- output probe ---"
+          cat analysis/freebindcraft_live_probe/output_probe.txt || true
+          cat analysis/freebindcraft_live_probe/output_files.txt || true
       - name: Commit probe
         shell: bash
         run: |
