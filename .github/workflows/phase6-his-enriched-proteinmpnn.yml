@@ -1,0 +1,67 @@
+name: Phase 6 His-Enriched ProteinMPNN
+
+on:
+  push:
+    paths:
+      - ".github/workflows/phase6-his-enriched-proteinmpnn.yml"
+      - "scripts/nvidia_proteinmpnn_his_enriched.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  his-enriched-design:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # The gated seed-20261102 backbone is committed to the repository, so
+      # this phase has no dependency on an expiring Actions artifact.
+      - name: Confirm gated backbone is present
+        shell: bash
+        run: |
+          set -euxo pipefail
+          test -s structures/rfdiffusion/compact_apical/selected_backbone.pdb
+          python - <<'PY'
+          import json
+          qc = json.load(open("structures/rfdiffusion/compact_apical/selection_summary.json"))
+          sel = qc["selected"]
+          assert sel["seed"] == 20261102, sel["seed"]
+          assert sel["qc"]["scientific_pass"] is True
+          print("backbone seed", sel["seed"], "scientific_pass", sel["qc"]["scientific_pass"])
+          PY
+
+      - name: Design histidine-enriched binder sequences
+        env:
+          BACKBONE_PDB: ${{ github.workspace }}/structures/rfdiffusion/compact_apical/selected_backbone.pdb
+        run: python scripts/nvidia_proteinmpnn_his_enriched.py
+
+      - name: Validate candidates
+        shell: bash
+        run: |
+          set -euxo pipefail
+          OUT=designs/family_C_pH_switch/his_enriched_seed20261102
+          test -s "$OUT/candidates.csv"
+          test -s "$OUT/result_summary.json"
+          cat "$OUT/result_summary.json"
+          head -n 30 "$OUT/candidates.csv"
+
+      - name: Upload candidates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-his-enriched-seed20261102-proteinmpnn
+          path: designs/family_C_pH_switch/his_enriched_seed20261102/
+          if-no-files-found: warn
+          retention-days: 14
