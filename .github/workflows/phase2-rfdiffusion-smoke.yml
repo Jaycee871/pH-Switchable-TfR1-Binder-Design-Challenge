@@ -2,10 +2,6 @@ name: Phase 2 RFdiffusion Smoke Test
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "scripts/nvidia_rfdiffusion_smoke.py"
-      - ".github/workflows/phase2-rfdiffusion-smoke.yml"
 
 permissions:
   contents: read
@@ -38,13 +34,14 @@ jobs:
           set -euxo pipefail
           test -s designs/family_A_conserved/smoke/rfdiffusion_backbone_002.pdb
           test -s designs/family_A_conserved/smoke/result_summary_002.json
-          cat designs/family_A_conserved/smoke/result_summary.json
+          cat designs/family_A_conserved/smoke/result_summary_002.json
 
       - name: Upload smoke-test result
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: tfr1-rfdiffusion-smoke
+          name: tfr1-rfdiffusion-smoke-002
           path: |
             designs/family_A_conserved/smoke/
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 14

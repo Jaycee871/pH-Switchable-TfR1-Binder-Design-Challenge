@@ -1,0 +1,71 @@
+name: Phase 3 RFdiffusion to ProteinMPNN
+
+on:
+  push:
+    paths:
+      - ".github/workflows/phase3-rfdiffusion-proteinmpnn.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backbone-to-sequence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Prepare TfR1 target
+        run: python scripts/prepare_targets.py
+
+      - name: Generate reproducible conserved-apical backbone
+        run: python scripts/nvidia_rfdiffusion_smoke.py
+
+      - name: Enforce cross-species contact gate
+        shell: bash
+        run: |
+          set -euxo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("designs/family_A_conserved/smoke/result_summary_002.json")
+          d = json.loads(p.read_text())
+          qc = d["contact_analysis"]["qc"]
+          print(json.dumps(d["contact_analysis"], indent=2))
+          if not qc["advance_to_sequence_design"]:
+              raise SystemExit("RFdiffusion backbone failed the cross-species contact gate")
+          PY
+
+      - name: Design binder sequences with ProteinMPNN
+        run: python scripts/nvidia_proteinmpnn_smoke.py
+
+      - name: Validate sequence outputs
+        shell: bash
+        run: |
+          set -euxo pipefail
+          test -s designs/family_A_conserved/smoke/rfdiffusion_backbone_002.pdb
+          test -s designs/family_A_conserved/proteinmpnn_002/designed_sequences.fasta
+          test -s designs/family_A_conserved/proteinmpnn_002/candidates.csv
+          cat designs/family_A_conserved/proteinmpnn_002/result_summary.json
+          head -n 12 designs/family_A_conserved/proteinmpnn_002/candidates.csv
+
+      - name: Upload Phase 3 artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-phase3-backbone-and-sequences
+          path: |
+            designs/family_A_conserved/smoke/
+            designs/family_A_conserved/proteinmpnn_002/
+          if-no-files-found: warn
+          retention-days: 14
