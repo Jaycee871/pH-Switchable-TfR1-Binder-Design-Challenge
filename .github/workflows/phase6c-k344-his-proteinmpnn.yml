@@ -1,0 +1,85 @@
+name: Phase 6C K344-Facing Histidine ProteinMPNN
+
+on:
+  push:
+    paths:
+      - ".github/workflows/phase6c-k344-his-proteinmpnn.yml"
+      - "scripts/nvidia_proteinmpnn_k344_his.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  k344-his-design:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      NVIDIA_API_KEY1: ${{ secrets.NVIDIA_API_KEY1 }}
+      NVIDIA_API_TOKEN: ${{ secrets.NVIDIA_API_TOKEN }}
+      NGC_API_KEY: ${{ secrets.NGC_API_KEY }}
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Confirm gated backbone and K344-facing geometry
+        shell: bash
+        run: |
+          set -euxo pipefail
+          test -s structures/rfdiffusion/compact_apical/selected_backbone.pdb
+          python - <<'PY'
+          import json
+          qc=json.load(open("structures/rfdiffusion/compact_apical/selection_summary.json"))
+          assert qc["selected"]["seed"] == 20261102
+          assert qc["selected"]["qc"]["scientific_pass"] is True
+          assert 344 in qc["selected"]["qc"]["preferred_contacts"]
+          print("seed 20261102 retains preferred human K344 contact")
+          PY
+
+      - name: Generate K344-facing histidine designs
+        env:
+          BACKBONE_PDB: ${{ github.workspace }}/structures/rfdiffusion/compact_apical/selected_backbone.pdb
+        run: python scripts/nvidia_proteinmpnn_k344_his.py
+
+      - name: Inspect results
+        shell: bash
+        run: |
+          set -euxo pipefail
+          OUT=designs/family_C_pH_switch/k344_facing_his_seed20261102
+          test -s "$OUT/candidates.csv"
+          test -s "$OUT/result_summary.json"
+          cat "$OUT/result_summary.json"
+          cat "$OUT/candidates_passing.csv"
+
+      - name: Commit Phase 6C results
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add designs/family_C_pH_switch/k344_facing_his_seed20261102
+          if git diff --cached --quiet; then
+            echo "No Phase 6C output changes."
+            exit 0
+          fi
+          git commit -m "Add Phase 6C K344-facing histidine candidates"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Upload Phase 6C candidates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-k344-facing-his-seed20261102
+          path: designs/family_C_pH_switch/k344_facing_his_seed20261102/
+          if-no-files-found: warn
+          retention-days: 14
