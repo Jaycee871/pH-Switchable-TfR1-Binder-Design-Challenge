@@ -159,3 +159,16 @@ Phase 4E backoff pattern, and batches should be kept to roughly 6-8 calls per ru
 
 If Phases 6-8 yield nothing that retains the designed pose, a submission should still be made
 from the best-characterised candidates with their metrics reported honestly.
+
+
+## Update — Phase 6B / 6C / 7A
+
+Subsequent work sharpened the conclusion above.
+
+- **Phase 6B:** lowering histidine bias to +2.0/+1.3 at a non-contiguous set of interface positions produced **0 histidines in 24/24 sequences**. The scaffold therefore shows a steep histidine-selection threshold rather than a smooth dose response.
+- **Phase 6C:** +4.0 bias at binder position 2 alone still produced **V2 in 24/24 sequences**. Position-2 histidine seen occasionally in the broad Phase-6 batch was context-dependent, not a stable local ProteinMPNN preference.
+- **Phase 7A:** two explicitly engineered V2H mutants were validated against full human and mouse TfR1. All four predictions again collapsed to the distal ~507-657 surface, with protein ipTM **0.143-0.183**, no preferred apical-core contacts, and no apical pose pass.
+
+**Decision:** the compact seed-20261102 / C57 lane is closed as the primary route. New work is pose-first: independent apical-domain RFdiffusion backbones must pass a strict conserved-contact/risk/compactness gate, then survive full human/mouse apical pose validation before any pH-switch chemistry is engineered.
+
+See `analysis/PHASE7A_K344_V2H_2026-10-28.md`.
