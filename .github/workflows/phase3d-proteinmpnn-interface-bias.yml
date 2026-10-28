@@ -1,0 +1,60 @@
+name: Phase 3D Interface-Biased ProteinMPNN
+
+on:
+  push:
+    paths:
+      - ".github/workflows/phase3d-proteinmpnn-interface-bias.yml"
+      - "scripts/nvidia_proteinmpnn_interface_bias.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  interface-biased-design:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Recover RFdiffusion seed 20261029
+        uses: actions/download-artifact@v4
+        with:
+          name: tfr1-phase3-seeded-backbone-and-sequences
+          path: recovered
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: 40681815723
+
+      - name: Run position-biased ProteinMPNN
+        env:
+          BACKBONE_PDB: ${{ github.workspace }}/recovered/seeded_selection/rfdiffusion_seed_20261029.pdb
+        run: python scripts/nvidia_proteinmpnn_interface_bias.py
+
+      - name: Validate candidates
+        shell: bash
+        run: |
+          set -euxo pipefail
+          test -s designs/family_A_conserved/proteinmpnn_interface_biased_seed29/candidates.csv
+          cat designs/family_A_conserved/proteinmpnn_interface_biased_seed29/result_summary.json
+          head -n 20 designs/family_A_conserved/proteinmpnn_interface_biased_seed29/candidates.csv
+
+      - name: Upload biased candidates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-seed20261029-proteinmpnn-interface-biased
+          path: |
+            recovered/seeded_selection/rfdiffusion_seed_20261029.pdb
+            designs/family_A_conserved/proteinmpnn_interface_biased_seed29/
+          if-no-files-found: warn
+          retention-days: 14
