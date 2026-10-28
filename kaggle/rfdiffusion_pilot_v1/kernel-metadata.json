@@ -1,0 +1,15 @@
+{
+  "id": "packkwanlow/tfr1-rfdiffusion-pilot-v1",
+  "title": "TfR1 RFdiffusion Pilot V1",
+  "code_file": "tfr1_rfdiffusion_pilot.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}
