@@ -1,0 +1,84 @@
+name: Phase 6B Tuned Histidine ProteinMPNN
+
+on:
+  push:
+    paths:
+      - ".github/workflows/phase6b-his-tuned-proteinmpnn.yml"
+      - "scripts/nvidia_proteinmpnn_his_tuned.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  tuned-his-design:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      NVIDIA_API_KEY1: ${{ secrets.NVIDIA_API_KEY1 }}
+      NVIDIA_API_TOKEN: ${{ secrets.NVIDIA_API_TOKEN }}
+      NGC_API_KEY: ${{ secrets.NGC_API_KEY }}
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Confirm gated backbone
+        shell: bash
+        run: |
+          set -euxo pipefail
+          test -s structures/rfdiffusion/compact_apical/selected_backbone.pdb
+          python - <<'PY'
+          import json
+          qc=json.load(open("structures/rfdiffusion/compact_apical/selection_summary.json"))
+          assert qc["selected"]["seed"] == 20261102
+          assert qc["selected"]["qc"]["scientific_pass"] is True
+          print("validated parent backbone: seed 20261102")
+          PY
+
+      - name: Generate tuned histidine designs
+        env:
+          BACKBONE_PDB: ${{ github.workspace }}/structures/rfdiffusion/compact_apical/selected_backbone.pdb
+        run: python scripts/nvidia_proteinmpnn_his_tuned.py
+
+      - name: Inspect results
+        shell: bash
+        run: |
+          set -euxo pipefail
+          OUT=designs/family_C_pH_switch/his_tuned_seed20261102
+          test -s "$OUT/candidates.csv"
+          test -s "$OUT/result_summary.json"
+          cat "$OUT/result_summary.json"
+          cat "$OUT/candidates_passing.csv"
+
+      - name: Commit compact Phase 6B results
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add designs/family_C_pH_switch/his_tuned_seed20261102
+          if git diff --cached --quiet; then
+            echo "No Phase 6B output changes."
+            exit 0
+          fi
+          git commit -m "Add Phase 6B tuned histidine candidates"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Upload Phase 6B candidates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-his-tuned-seed20261102
+          path: designs/family_C_pH_switch/his_tuned_seed20261102/
+          if-no-files-found: warn
+          retention-days: 14
