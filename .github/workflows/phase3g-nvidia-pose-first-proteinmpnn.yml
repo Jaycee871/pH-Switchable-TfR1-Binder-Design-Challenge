@@ -1,0 +1,74 @@
+name: Phase 3G Pose-First ProteinMPNN on NVIDIA Backbones
+
+on:
+  push:
+    paths:
+      - "structures/rfdiffusion/nvidia_apical_only/**"
+      - "scripts/nvidia_proteinmpnn_nvidia_apical_pose_first.py"
+      - ".github/workflows/phase3g-nvidia-pose-first-proteinmpnn.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  design:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      NVIDIA_API_KEY1: ${{ secrets.NVIDIA_API_KEY1 }}
+      NVIDIA_API_TOKEN: ${{ secrets.NVIDIA_API_TOKEN }}
+      NGC_API_KEY: ${{ secrets.NGC_API_KEY }}
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check selected NVIDIA backbones
+        id: selected
+        shell: bash
+        run: |
+          if [[ -s structures/rfdiffusion/nvidia_apical_only/selection_summary.json ]] && \
+             python - <<'PY'
+          import json
+          x=json.load(open("structures/rfdiffusion/nvidia_apical_only/selection_summary.json"))
+          raise SystemExit(0 if x.get("selected_count",0)>0 else 1)
+          PY
+          then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "No selected NVIDIA apical-only backbone yet."
+          fi
+
+      - name: Run pose-first ProteinMPNN
+        if: steps.selected.outputs.present == 'true'
+        run: python scripts/nvidia_proteinmpnn_nvidia_apical_pose_first.py
+
+      - name: Commit sequence-design outputs
+        if: steps.selected.outputs.present == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add designs/family_A_conserved/nvidia_apical_pose_first
+          if git diff --cached --quiet; then
+            echo "No Phase 3G output changes."
+            exit 0
+          fi
+          git commit -m "Add pose-first sequences for NVIDIA apical backbones"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Upload sequence-design artifact
+        if: always() && steps.selected.outputs.present == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-nvidia-apical-pose-first-proteinmpnn
+          path: designs/family_A_conserved/nvidia_apical_pose_first/
+          if-no-files-found: warn
+          retention-days: 14
