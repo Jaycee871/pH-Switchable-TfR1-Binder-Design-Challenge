@@ -1,0 +1,360 @@
+{
+  "campaign": "nvidia_apical_only_v1",
+  "generation_target": "11QC chain A residues 189-383 only",
+  "contigs": "A189-383/0 60-90",
+  "families": {
+    "conserved_loop": [
+      "A206",
+      "A209",
+      "A214",
+      "A231"
+    ],
+    "conserved_343": [
+      "A343",
+      "A344",
+      "A347",
+      "A350"
+    ],
+    "bridge": [
+      "A209",
+      "A214",
+      "A343",
+      "A347"
+    ]
+  },
+  "seeds": {
+    "conserved_loop": [
+      20261121,
+      20261122
+    ],
+    "conserved_343": [
+      20261123,
+      20261124
+    ],
+    "bridge": [
+      20261125,
+      20261126
+    ]
+  },
+  "preferred_residues": [
+    206,
+    207,
+    209,
+    214,
+    231,
+    343,
+    344,
+    347,
+    350,
+    374
+  ],
+  "risk_residues": [
+    204,
+    208,
+    210,
+    211,
+    212,
+    348,
+    371
+  ],
+  "attempt_count": 6,
+  "passing_count": 1,
+  "selected_count": 1,
+  "selected": [
+    {
+      "family": "conserved_343",
+      "hotspots": [
+        "A343",
+        "A344",
+        "A347",
+        "A350"
+      ],
+      "seed": 20261124,
+      "elapsed_ms": 19742,
+      "pdb": "structures/rfdiffusion/nvidia_apical_only/conserved_343/conserved_343_seed_20261124.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "B",
+        "binder_length": 86,
+        "target_length": 195,
+        "human_target_contacts_5A": [
+          209,
+          210,
+          347,
+          361,
+          362
+        ],
+        "preferred_contacts": [
+          209,
+          347
+        ],
+        "risk_contacts": [
+          210
+        ],
+        "severe_clashes_lt_2A": 0,
+        "compactness": {
+          "radius_of_gyration_A": 17.048,
+          "max_CA_span_A": 54.222
+        },
+        "checks": {
+          "binder_length_60_90": true,
+          "preferred_contacts_ge_2": true,
+          "risk_contacts_le_1": true,
+          "rg_le_18A": true,
+          "ca_span_le_60A": true,
+          "clashes_le_10": true
+        },
+        "scientific_pass": true
+      },
+      "selected_copy": "structures/rfdiffusion/nvidia_apical_only/selected/selected_01_conserved_343_seed_20261124.pdb"
+    }
+  ],
+  "attempts": [
+    {
+      "family": "conserved_loop",
+      "hotspots": [
+        "A206",
+        "A209",
+        "A214",
+        "A231"
+      ],
+      "seed": 20261121,
+      "elapsed_ms": 19618,
+      "pdb": "structures/rfdiffusion/nvidia_apical_only/conserved_loop/conserved_loop_seed_20261121.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "B",
+        "binder_length": 90,
+        "target_length": 195,
+        "human_target_contacts_5A": [],
+        "preferred_contacts": [],
+        "risk_contacts": [],
+        "severe_clashes_lt_2A": 0,
+        "compactness": {
+          "radius_of_gyration_A": 28.62,
+          "max_CA_span_A": 73.477
+        },
+        "checks": {
+          "binder_length_60_90": true,
+          "preferred_contacts_ge_2": false,
+          "risk_contacts_le_1": true,
+          "rg_le_18A": false,
+          "ca_span_le_60A": false,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "family": "conserved_loop",
+      "hotspots": [
+        "A206",
+        "A209",
+        "A214",
+        "A231"
+      ],
+      "seed": 20261122,
+      "elapsed_ms": 17884,
+      "pdb": "structures/rfdiffusion/nvidia_apical_only/conserved_loop/conserved_loop_seed_20261122.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "B",
+        "binder_length": 78,
+        "target_length": 195,
+        "human_target_contacts_5A": [
+          196,
+          209,
+          319,
+          321,
+          322,
+          323
+        ],
+        "preferred_contacts": [
+          209
+        ],
+        "risk_contacts": [],
+        "severe_clashes_lt_2A": 0,
+        "compactness": {
+          "radius_of_gyration_A": 32.541,
+          "max_CA_span_A": 107.778
+        },
+        "checks": {
+          "binder_length_60_90": true,
+          "preferred_contacts_ge_2": false,
+          "risk_contacts_le_1": true,
+          "rg_le_18A": false,
+          "ca_span_le_60A": false,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "family": "conserved_343",
+      "hotspots": [
+        "A343",
+        "A344",
+        "A347",
+        "A350"
+      ],
+      "seed": 20261123,
+      "elapsed_ms": 18853,
+      "pdb": "structures/rfdiffusion/nvidia_apical_only/conserved_343/conserved_343_seed_20261123.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "B",
+        "binder_length": 84,
+        "target_length": 195,
+        "human_target_contacts_5A": [
+          210,
+          347,
+          348
+        ],
+        "preferred_contacts": [
+          347
+        ],
+        "risk_contacts": [
+          210,
+          348
+        ],
+        "severe_clashes_lt_2A": 0,
+        "compactness": {
+          "radius_of_gyration_A": 18.838,
+          "max_CA_span_A": 62.342
+        },
+        "checks": {
+          "binder_length_60_90": true,
+          "preferred_contacts_ge_2": false,
+          "risk_contacts_le_1": false,
+          "rg_le_18A": false,
+          "ca_span_le_60A": false,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "family": "conserved_343",
+      "hotspots": [
+        "A343",
+        "A344",
+        "A347",
+        "A350"
+      ],
+      "seed": 20261124,
+      "elapsed_ms": 19742,
+      "pdb": "structures/rfdiffusion/nvidia_apical_only/conserved_343/conserved_343_seed_20261124.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "B",
+        "binder_length": 86,
+        "target_length": 195,
+        "human_target_contacts_5A": [
+          209,
+          210,
+          347,
+          361,
+          362
+        ],
+        "preferred_contacts": [
+          209,
+          347
+        ],
+        "risk_contacts": [
+          210
+        ],
+        "severe_clashes_lt_2A": 0,
+        "compactness": {
+          "radius_of_gyration_A": 17.048,
+          "max_CA_span_A": 54.222
+        },
+        "checks": {
+          "binder_length_60_90": true,
+          "preferred_contacts_ge_2": true,
+          "risk_contacts_le_1": true,
+          "rg_le_18A": true,
+          "ca_span_le_60A": true,
+          "clashes_le_10": true
+        },
+        "scientific_pass": true
+      },
+      "selected_copy": "structures/rfdiffusion/nvidia_apical_only/selected/selected_01_conserved_343_seed_20261124.pdb"
+    },
+    {
+      "family": "bridge",
+      "hotspots": [
+        "A209",
+        "A214",
+        "A343",
+        "A347"
+      ],
+      "seed": 20261125,
+      "elapsed_ms": 19160,
+      "pdb": "structures/rfdiffusion/nvidia_apical_only/bridge/bridge_seed_20261125.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "B",
+        "binder_length": 87,
+        "target_length": 195,
+        "human_target_contacts_5A": [
+          291
+        ],
+        "preferred_contacts": [],
+        "risk_contacts": [],
+        "severe_clashes_lt_2A": 0,
+        "compactness": {
+          "radius_of_gyration_A": 19.227,
+          "max_CA_span_A": 61.21
+        },
+        "checks": {
+          "binder_length_60_90": true,
+          "preferred_contacts_ge_2": false,
+          "risk_contacts_le_1": true,
+          "rg_le_18A": false,
+          "ca_span_le_60A": false,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "family": "bridge",
+      "hotspots": [
+        "A209",
+        "A214",
+        "A343",
+        "A347"
+      ],
+      "seed": 20261126,
+      "elapsed_ms": 17331,
+      "pdb": "structures/rfdiffusion/nvidia_apical_only/bridge/bridge_seed_20261126.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "B",
+        "binder_length": 75,
+        "target_length": 195,
+        "human_target_contacts_5A": [
+          210
+        ],
+        "preferred_contacts": [],
+        "risk_contacts": [
+          210
+        ],
+        "severe_clashes_lt_2A": 0,
+        "compactness": {
+          "radius_of_gyration_A": 16.92,
+          "max_CA_span_A": 55.212
+        },
+        "checks": {
+          "binder_length_60_90": true,
+          "preferred_contacts_ge_2": false,
+          "risk_contacts_le_1": true,
+          "rg_le_18A": true,
+          "ca_span_le_60A": true,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    }
+  ]
+}
