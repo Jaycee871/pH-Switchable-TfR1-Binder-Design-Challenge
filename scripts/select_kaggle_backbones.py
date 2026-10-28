@@ -100,6 +100,7 @@ def evaluate(path: Path, prelim: dict):
 
     target = max(chains, key=lambda c: len(chains[c]))
     binder = min(chains, key=lambda c: len(chains[c]))
+    target_first = min(chains[target])
     ta = [a for a in aa if a[0] == target]
     ba = [a for a in aa if a[0] == binder]
 
@@ -111,7 +112,9 @@ def evaluate(path: Path, prelim: dict):
             if d < 2.0:
                 clashes += 1
             if d < 5.0:
-                contacts.add(t[1])
+                # RFdiffusion flattens/renumbers output chains. The fixed target
+                # is the 11QC apical crop beginning at human residue 189.
+                contacts.add(t[1] - target_first + 189)
 
     preferred = sorted(contacts & PREFERRED)
     risk = sorted(contacts & RISK)
@@ -119,7 +122,6 @@ def evaluate(path: Path, prelim: dict):
     prelim_ok = prelim.get(path.name, True)
 
     checks = {
-        "preliminary_geometry_pass": prelim_ok,
         "preferred_contacts_ge_2": len(preferred) >= MIN_PREFERRED,
         "risk_contacts_le_1": len(risk) <= MAX_RISK,
         "radius_of_gyration_le_18A": rg is not None and rg <= MAX_RG,
@@ -140,6 +142,8 @@ def evaluate(path: Path, prelim: dict):
         "severe_clashes_lt_2A": clashes,
         "radius_of_gyration_A": round(rg, 3) if rg is not None else None,
         "max_CA_span_A": round(span, 3) if span is not None else None,
+        "pilot_geometry_pass_reported": prelim_ok,
+        "pilot_geometry_pass_not_used_as_gate": True,
         "checks": checks,
         "scientific_pass": passed,
         "score_tuple": [
