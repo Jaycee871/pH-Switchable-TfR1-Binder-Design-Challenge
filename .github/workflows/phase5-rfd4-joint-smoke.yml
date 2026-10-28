@@ -1,0 +1,60 @@
+name: Phase 5 RFD4-Proteina Joint Design Smoke
+
+on:
+  push:
+    paths:
+      - ".github/workflows/phase5-rfd4-joint-smoke.yml"
+      - "scripts/rfd4_prepare_tfr1_target.py"
+      - "scripts/nvidia_rfd4_tfr1_smoke.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rfd4-joint-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install mmCIF preparation dependency
+        run: pip install biopython
+
+      - name: Prepare canonical target assets
+        run: python scripts/prepare_targets.py
+
+      - name: Build RFD4 TfR1 apical target crop
+        run: python scripts/rfd4_prepare_tfr1_target.py
+
+      - name: Run one RFD4-Proteina joint-design request
+        run: python scripts/nvidia_rfd4_tfr1_smoke.py
+
+      - name: Validate returned artifacts
+        shell: bash
+        run: |
+          set -euxo pipefail
+          test -s designs/rfd4_joint/smoke_001/transport.json
+          test -s designs/rfd4_joint/smoke_001/summary.json
+          test -s designs/rfd4_joint/smoke_001/design_0000.cif
+          cat designs/rfd4_joint/smoke_001/summary.json
+
+      - name: Upload RFD4 smoke-test artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-rfd4-joint-smoke-001
+          path: |
+            structures/rfd4/
+            designs/rfd4_joint/smoke_001/
+          if-no-files-found: warn
+          retention-days: 14
