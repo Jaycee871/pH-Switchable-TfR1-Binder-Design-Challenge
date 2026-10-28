@@ -1,0 +1,74 @@
+name: Phase 3F Pose-First ProteinMPNN on Kaggle Backbones
+
+on:
+  push:
+    paths:
+      - "structures/rfdiffusion/kaggle_pilot_selected/**"
+      - "scripts/nvidia_proteinmpnn_kaggle_pose_first.py"
+      - ".github/workflows/phase3f-kaggle-pose-first-proteinmpnn.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  design:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      NVIDIA_API_KEY1: ${{ secrets.NVIDIA_API_KEY1 }}
+      NVIDIA_API_TOKEN: ${{ secrets.NVIDIA_API_TOKEN }}
+      NGC_API_KEY: ${{ secrets.NGC_API_KEY }}
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check selected backbones
+        id: selected
+        shell: bash
+        run: |
+          if [[ -s structures/rfdiffusion/kaggle_pilot_selected/selection_summary.json ]] && \
+             python - <<'PY'
+          import json
+          x=json.load(open("structures/rfdiffusion/kaggle_pilot_selected/selection_summary.json"))
+          raise SystemExit(0 if x.get("passing_count",0)>0 else 1)
+          PY
+          then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "No strict-gate Kaggle backbone yet."
+          fi
+
+      - name: Run pose-first ProteinMPNN
+        if: steps.selected.outputs.present == 'true'
+        run: python scripts/nvidia_proteinmpnn_kaggle_pose_first.py
+
+      - name: Commit ProteinMPNN outputs
+        if: steps.selected.outputs.present == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add designs/family_A_conserved/kaggle_pose_first
+          if git diff --cached --quiet; then
+            echo "No pose-first design changes."
+            exit 0
+          fi
+          git commit -m "Add pose-first ProteinMPNN designs from Kaggle backbones"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Upload outputs
+        if: always() && steps.selected.outputs.present == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-kaggle-pose-first-proteinmpnn
+          path: designs/family_A_conserved/kaggle_pose_first/
+          if-no-files-found: warn
+          retention-days: 14
