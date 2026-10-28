@@ -1,0 +1,64 @@
+{
+  "candidate_count": 12,
+  "candidate_lengths": [
+    57
+  ],
+  "input_rows_excluded": 1,
+  "core_interface_positions": [
+    1,
+    2,
+    5
+  ],
+  "secondary_contact_positions": [
+    41,
+    45
+  ],
+  "shell_positions": [
+    3,
+    4,
+    6,
+    44
+  ],
+  "histidine_counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "aromatic_counts": [
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    2,
+    1,
+    1
+  ],
+  "hydrophobic_counts": [
+    13,
+    11,
+    14,
+    14,
+    12,
+    14,
+    14,
+    12,
+    11,
+    13,
+    14,
+    12
+  ]
+}

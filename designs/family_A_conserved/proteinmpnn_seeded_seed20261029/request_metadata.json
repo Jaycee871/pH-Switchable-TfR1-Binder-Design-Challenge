@@ -1,0 +1,16 @@
+{
+  "endpoint": "https://health.api.nvidia.com/v1/biology/ipd/proteinmpnn/predict",
+  "backbone": "/home/runner/work/pH-Switchable-TfR1-Binder-Design-Challenge/pH-Switchable-TfR1-Binder-Design-Challenge/recovered/seeded_selection/rfdiffusion_seed_20261029.pdb",
+  "designed_chain": "A",
+  "fixed_target_chain": "B",
+  "num_seq_per_target": 8,
+  "sampling_temp": [
+    0.1,
+    0.2
+  ],
+  "use_soluble_model": true,
+  "omit_AAs": [
+    "C"
+  ],
+  "random_seed": 20261028
+}

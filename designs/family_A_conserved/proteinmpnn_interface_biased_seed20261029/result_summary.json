@@ -1,0 +1,50 @@
+{
+  "candidate_count": 12,
+  "candidate_lengths": [
+    87
+  ],
+  "input_rows_excluded": 1,
+  "core_G347": [
+    14
+  ],
+  "core_209_210": [
+    67,
+    70,
+    71
+  ],
+  "shell": [
+    15,
+    17,
+    18,
+    72,
+    74
+  ],
+  "histidine_counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "interface_histidine_counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

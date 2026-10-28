@@ -1,0 +1,11 @@
+{
+  "backbone": "recovered/seeded_selection/rfdiffusion_seed_20261029.pdb",
+  "designed_chain": "A",
+  "candidate_count": 17,
+  "candidate_lengths": [
+    87
+  ],
+  "scores_returned": 16,
+  "output_fasta": "designs/family_A_conserved/proteinmpnn_seeded/designed_sequences.fasta",
+  "output_csv": "designs/family_A_conserved/proteinmpnn_seeded/candidates.csv"
+}

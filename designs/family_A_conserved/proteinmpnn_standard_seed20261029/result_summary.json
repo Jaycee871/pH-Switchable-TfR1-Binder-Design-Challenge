@@ -1,0 +1,27 @@
+{
+  "candidate_count": 16,
+  "candidate_lengths": [
+    87
+  ],
+  "input_rows_excluded": 1,
+  "use_soluble_model": false,
+  "histidine_counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "output_csv": "designs/family_A_conserved/proteinmpnn_standard_seed29/candidates.csv"
+}

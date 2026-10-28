@@ -1,0 +1,31 @@
+{
+  "backbone": "/home/runner/work/pH-Switchable-TfR1-Binder-Design-Challenge/pH-Switchable-TfR1-Binder-Design-Challenge/recovered/selected_backbone.pdb",
+  "designed_chain": "A",
+  "fixed_target_chain": "B",
+  "binder_length": 57,
+  "num_seq_per_target": 6,
+  "sampling_temp": [
+    0.1,
+    0.2
+  ],
+  "use_soluble_model": false,
+  "omit_AAs": [
+    "C"
+  ],
+  "random_seed": 20261102,
+  "core_interface_positions": [
+    1,
+    2,
+    5
+  ],
+  "secondary_contact_positions": [
+    41,
+    45
+  ],
+  "shell_positions": [
+    3,
+    4,
+    6,
+    44
+  ]
+}
