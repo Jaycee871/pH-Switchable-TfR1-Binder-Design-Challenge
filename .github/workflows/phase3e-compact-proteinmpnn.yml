@@ -1,0 +1,61 @@
+name: Phase 3E Compact Backbone ProteinMPNN
+
+on:
+  push:
+    paths:
+      - ".github/workflows/phase3e-compact-proteinmpnn.yml"
+      - "scripts/nvidia_proteinmpnn_compact_apical.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  compact-proteinmpnn:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Recover compact RFdiffusion backbone
+        uses: actions/download-artifact@v4
+        with:
+          name: tfr1-compact-apical-rfdiffusion
+          path: recovered
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: 40685364707
+
+      - name: Design compact binder sequences
+        env:
+          BACKBONE_PDB: ${{ github.workspace }}/recovered/selected_backbone.pdb
+        run: python scripts/nvidia_proteinmpnn_compact_apical.py
+
+      - name: Validate candidates
+        shell: bash
+        run: |
+          set -euxo pipefail
+          test -s designs/family_A_conserved/compact_seed20261102_proteinmpnn/candidates.csv
+          cat designs/family_A_conserved/compact_seed20261102_proteinmpnn/result_summary.json
+          head -n 20 designs/family_A_conserved/compact_seed20261102_proteinmpnn/candidates.csv
+
+      - name: Upload candidates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-compact-seed20261102-proteinmpnn
+          path: |
+            recovered/selected_backbone.pdb
+            recovered/selection_summary.json
+            designs/family_A_conserved/compact_seed20261102_proteinmpnn/
+          if-no-files-found: warn
+          retention-days: 14
