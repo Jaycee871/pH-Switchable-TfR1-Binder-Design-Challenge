@@ -1,0 +1,57 @@
+name: Phase 4E Retry C57_12 Boltz2
+
+on:
+  push:
+    paths:
+      - ".github/workflows/phase4e-retry-c57-12.yml"
+      - "scripts/nvidia_boltz2_retry_c57_12.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  retry-c57-12:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Biopython
+        run: pip install biopython
+
+      - name: Prepare targets
+        run: python scripts/prepare_targets.py
+
+      - name: Recover compact RFdiffusion backbone
+        uses: actions/download-artifact@v4
+        with:
+          name: tfr1-compact-apical-rfdiffusion
+          path: recovered
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: 40685364707
+
+      - name: Run rate-limit-safe C57_12 validation
+        env:
+          RF_PDB: ${{ github.workspace }}/recovered/selected_backbone.pdb
+        run: python scripts/nvidia_boltz2_retry_c57_12.py
+
+      - name: Show result
+        run: cat predictions/C57_12_retry/summary.json
+
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-C57-12-boltz2-retry
+          path: predictions/C57_12_retry/
+          if-no-files-found: warn
+          retention-days: 14
