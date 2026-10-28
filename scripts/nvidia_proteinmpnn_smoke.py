@@ -107,7 +107,9 @@ def main() -> None:
     designed = [
         (h, s)
         for h, s in records
-        if "native" not in h.lower() and "wt" not in h.lower()
+        if not h.lower().startswith("input")
+        and "native" not in h.lower()
+        and not h.lower().startswith("wt")
     ]
     scores = result.get("scores", [])
 
@@ -116,12 +118,19 @@ def main() -> None:
         # ProteinMPNN may separate chains with '/' in FASTA output.
         parts = [p for p in sequence.split("/") if p]
         binder = parts[0] if parts else sequence
+        score_match = re.search(r"(?:^|, )score=([0-9.]+)", header)
+        global_match = re.search(r"global_score=([0-9.]+)", header)
+        temp_match = re.search(r"T=([0-9.]+)", header)
+        sample_match = re.search(r"sample=(\\d+)", header)
         rows.append(
             {
-                "candidate_id": f"TFR1_A002_MPNN_{i:02d}",
+                "candidate_id": f"TFR1_A29_MPNN_{i:02d}",
                 "binder_sequence": binder,
                 "binder_length": len(binder),
-                "score": scores[i - 1] if i - 1 < len(scores) else "",
+                "temperature": temp_match.group(1) if temp_match else "",
+                "sample": sample_match.group(1) if sample_match else "",
+                "mpnn_score": score_match.group(1) if score_match else "",
+                "global_score": global_match.group(1) if global_match else "",
                 "header": header,
             }
         )
@@ -139,7 +148,7 @@ def main() -> None:
         "designed_chain": "A",
         "candidate_count": len(rows),
         "candidate_lengths": sorted(set(r["binder_length"] for r in rows)),
-        "scores_returned": len(scores),
+        "scores_returned": len(scores),\n        "input_rows_excluded": len(records) - len(designed),
         "output_fasta": str((OUTDIR / "designed_sequences.fasta").relative_to(ROOT)),
         "output_csv": str((OUTDIR / "candidates.csv").relative_to(ROOT)),
     }
