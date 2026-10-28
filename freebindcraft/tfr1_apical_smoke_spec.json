@@ -1,0 +1,74 @@
+{
+  "method": "FreeBindCraft",
+  "stage": "smoke_test",
+  "target": {
+    "file": "structures/targets/tfr1_apical_189_383_chainA.pdb",
+    "chain": "A",
+    "residues": "human TfR1 P02786 residues 189-383",
+    "hotspots": "343,344,347,350",
+    "rationale": "Conserved apical 343-350 cluster; avoids the highly species-variable Tyr211-centered patch while retaining the complete apical structural domain."
+  },
+  "binder": {
+    "length_range": [
+      55,
+      75
+    ],
+    "molecule_class": "protein",
+    "final_design_target": 1
+  },
+  "proto_input": {
+    "target_chain": "A",
+    "target_hotspot_residues": "343,344,347,350",
+    "binder_lengths": [
+      55,
+      75
+    ],
+    "binder_name": "TFR1_FBC343",
+    "number_of_final_designs": 1
+  },
+  "proto_config_smoke": {
+    "design_algorithm": "4stage",
+    "use_multimer_design": true,
+    "excluded_amino_acids": [
+      "C"
+    ],
+    "force_reject_AA": true,
+    "use_i_ptm_loss": true,
+    "weights_iptm": 0.1,
+    "use_rg_loss": true,
+    "weights_rg": 0.4,
+    "enable_mpnn": true,
+    "mpnn_fix_interface": true,
+    "num_seqs": 8,
+    "max_mpnn_sequences": 2,
+    "max_trajectories": 20,
+    "enable_rejection_check": false,
+    "timeout": 7200
+  },
+  "downstream_gate": {
+    "note": "FreeBindCraft acceptance is not sufficient. Every design must be revalidated against full human and mouse TfR1 using the existing homologous-epitope pose gate before pH engineering.",
+    "min_protein_iptm": 0.5,
+    "require_same_homologous_apical_epitope": true,
+    "human_preferred_residues": [
+      206,
+      207,
+      209,
+      214,
+      231,
+      343,
+      344,
+      347,
+      350,
+      374
+    ],
+    "human_risk_residues": [
+      204,
+      208,
+      210,
+      211,
+      212,
+      348,
+      371
+    ]
+  }
+}
