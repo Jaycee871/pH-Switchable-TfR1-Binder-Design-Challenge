@@ -1,0 +1,49 @@
+{
+  "challenge": "Anthropic x Adaptyv Protein Design Competition 2026 - Challenge 04 TfR1",
+  "retrieved_utc": "2026-10-28",
+  "human": {
+    "gene": "TFRC",
+    "protein": "Transferrin receptor protein 1",
+    "uniprot": "P02786-1",
+    "construct": "121-760",
+    "length_aa": 640,
+    "oligomeric_state": "homodimer",
+    "structure_reference": "11QC",
+    "structure_chains": ["A", "B"],
+    "recommended_epitope": "apical domain"
+  },
+  "mouse": {
+    "gene": "Tfrc",
+    "protein": "Transferrin receptor protein 1",
+    "uniprot": "Q62351-1",
+    "refseq": "NP_035768.1",
+    "construct": "123-763",
+    "length_aa": 641,
+    "oligomeric_state": "homodimer"
+  },
+  "challenge_objectives": {
+    "positive_states": [
+      "human TfR1 pH 7.4",
+      "mouse TfR1 pH 7.4"
+    ],
+    "negative_release_state": "human TfR1 pH 6.0",
+    "ranking_priority": [
+      "pH-selective binding",
+      "mouse cross-reactivity",
+      "human affinity"
+    ]
+  },
+  "notes": [
+    "Use the challenge-provided human sequence as the assay construct ground truth.",
+    "Mouse construct is canonical Q62351-1 residues 123-763.",
+    "11QC and 11RN match human UniProt P02786 at modeled residues.",
+    "Older TfR1 structures may carry Ser142; the challenge construct and P02786 carry Gly142.",
+    "Residue mapping near the Tyr211 apical patch contains an indel ambiguity; challenge-specified hotspot correspondences override naive global-alignment mappings."
+  ],
+  "sources": [
+    "https://proteinbase.com/competitions/anthropic-adaptyv-2026/challenges/tfr1",
+    "https://www.rcsb.org/structure/11QC",
+    "https://www.uniprot.org/uniprotkb/P02786",
+    "https://www.uniprot.org/uniprotkb/Q62351"
+  ]
+}
