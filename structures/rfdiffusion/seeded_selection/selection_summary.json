@@ -1,0 +1,71 @@
+{
+  "hotspot_res": [
+    "A343",
+    "A344",
+    "A347",
+    "A350",
+    "A374"
+  ],
+  "contigs": "A122-760/0 70-90",
+  "seeds_requested": [
+    20261028,
+    20261029
+  ],
+  "attempts_run": 2,
+  "attempts": [
+    {
+      "seed": 20261028,
+      "elapsed_ms": 121741,
+      "pdb": "designs/family_A_conserved/seeded_selection/rfdiffusion_seed_20261028.pdb",
+      "contact_analysis": {
+        "binder_chain": "A",
+        "binder_length": 89,
+        "target_chain": "B",
+        "target_length": 639,
+        "contact_cutoff_A": 5.0,
+        "human_equivalent_contacts": [
+          210,
+          347
+        ],
+        "tier_A_contacts": [
+          347
+        ],
+        "risk_contacts": [
+          210
+        ],
+        "strict_cross_species_pass": false
+      }
+    },
+    {
+      "seed": 20261029,
+      "elapsed_ms": 120357,
+      "pdb": "designs/family_A_conserved/seeded_selection/rfdiffusion_seed_20261029.pdb",
+      "contact_analysis": {
+        "binder_chain": "A",
+        "binder_length": 87,
+        "target_chain": "B",
+        "target_length": 639,
+        "contact_cutoff_A": 5.0,
+        "human_equivalent_contacts": [
+          196,
+          209,
+          210,
+          347
+        ],
+        "tier_A_contacts": [
+          209,
+          347
+        ],
+        "risk_contacts": [
+          210
+        ],
+        "strict_cross_species_pass": false
+      }
+    }
+  ],
+  "selected": null,
+  "strict_gate": {
+    "requires_tier_A_contact": true,
+    "max_risk_contacts": 0
+  }
+}

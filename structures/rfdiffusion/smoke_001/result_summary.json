@@ -1,0 +1,24 @@
+{
+  "elapsed_ms": 120100,
+  "output_pdb": "designs/family_A_conserved/smoke/rfdiffusion_backbone_001.pdb",
+  "output_structure_summary": {
+    "A": {
+      "residue_count": 82,
+      "first_residue": 1,
+      "last_residue": 82
+    },
+    "B": {
+      "residue_count": 639,
+      "first_residue": 83,
+      "last_residue": 721
+    }
+  },
+  "hotspot_res": [
+    "A206",
+    "A209",
+    "A214",
+    "A344",
+    "A374"
+  ],
+  "contigs": "A122-760/0 70-90"
+}

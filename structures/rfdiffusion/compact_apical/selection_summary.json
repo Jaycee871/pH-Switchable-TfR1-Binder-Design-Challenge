@@ -1,0 +1,154 @@
+{
+  "hotspots": [
+    "A343",
+    "A344",
+    "A347",
+    "A350"
+  ],
+  "contigs": "A122-760/0 55-70",
+  "seeds": [
+    20261031,
+    20261101,
+    20261102
+  ],
+  "gate": {
+    "binder_length": "55-70",
+    "min_subcluster_contacts": 2,
+    "min_preferred_contacts": 1,
+    "max_risk_contacts": 1,
+    "max_radius_of_gyration_A": 17.0,
+    "max_CA_span_A": 55.0
+  },
+  "attempts": [
+    {
+      "seed": 20261031,
+      "elapsed_ms": 112274,
+      "pdb": "designs/family_A_conserved/compact_apical_backbones/compact_apical_seed_20261031.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "binder_length": 64,
+        "target_chain": "B",
+        "target_length": 639,
+        "contact_cutoff_A": 5.0,
+        "human_target_contacts": [
+          209,
+          210,
+          347
+        ],
+        "subcluster_343_350_contacts": [
+          347
+        ],
+        "preferred_contacts": [
+          347
+        ],
+        "risk_contacts": [
+          210
+        ],
+        "compactness": {
+          "radius_of_gyration_A": 19.571,
+          "max_CA_span_A": 66.264,
+          "end_to_end_A": 40.052
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "seed": 20261101,
+      "elapsed_ms": 109314,
+      "pdb": "designs/family_A_conserved/compact_apical_backbones/compact_apical_seed_20261101.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "binder_length": 57,
+        "target_chain": "B",
+        "target_length": 639,
+        "contact_cutoff_A": 5.0,
+        "human_target_contacts": [
+          210
+        ],
+        "subcluster_343_350_contacts": [],
+        "preferred_contacts": [],
+        "risk_contacts": [
+          210
+        ],
+        "compactness": {
+          "radius_of_gyration_A": 16.507,
+          "max_CA_span_A": 50.23,
+          "end_to_end_A": 22.965
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "seed": 20261102,
+      "elapsed_ms": 109884,
+      "pdb": "designs/family_A_conserved/compact_apical_backbones/compact_apical_seed_20261102.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "binder_length": 57,
+        "target_chain": "B",
+        "target_length": 639,
+        "contact_cutoff_A": 5.0,
+        "human_target_contacts": [
+          344,
+          347,
+          348,
+          362
+        ],
+        "subcluster_343_350_contacts": [
+          344,
+          347,
+          348
+        ],
+        "preferred_contacts": [
+          344,
+          347
+        ],
+        "risk_contacts": [
+          348
+        ],
+        "compactness": {
+          "radius_of_gyration_A": 14.882,
+          "max_CA_span_A": 51.019,
+          "end_to_end_A": 20.475
+        },
+        "scientific_pass": true
+      }
+    }
+  ],
+  "selected": {
+    "seed": 20261102,
+    "elapsed_ms": 109884,
+    "pdb": "designs/family_A_conserved/compact_apical_backbones/compact_apical_seed_20261102.pdb",
+    "qc": {
+      "binder_chain": "A",
+      "binder_length": 57,
+      "target_chain": "B",
+      "target_length": 639,
+      "contact_cutoff_A": 5.0,
+      "human_target_contacts": [
+        344,
+        347,
+        348,
+        362
+      ],
+      "subcluster_343_350_contacts": [
+        344,
+        347,
+        348
+      ],
+      "preferred_contacts": [
+        344,
+        347
+      ],
+      "risk_contacts": [
+        348
+      ],
+      "compactness": {
+        "radius_of_gyration_A": 14.882,
+        "max_CA_span_A": 51.019,
+        "end_to_end_A": 20.475
+      },
+      "scientific_pass": true
+    }
+  }
+}

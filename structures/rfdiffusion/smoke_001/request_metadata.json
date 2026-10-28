@@ -1,0 +1,15 @@
+{
+  "endpoint": "https://health.api.nvidia.com/v1/biology/ipd/rfdiffusion/generate",
+  "contigs": "A122-760/0 70-90",
+  "hotspot_res": [
+    "A206",
+    "A209",
+    "A214",
+    "A344",
+    "A374"
+  ],
+  "diffusion_steps": 50,
+  "target": "11QC chain A",
+  "family": "A_conserved_apical",
+  "purpose": "single-backbone smoke test"
+}
