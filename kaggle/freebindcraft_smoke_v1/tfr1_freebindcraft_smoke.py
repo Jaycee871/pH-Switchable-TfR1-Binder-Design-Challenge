@@ -57,7 +57,8 @@ def setup_freebindcraft(conda):
             "bash","install_bindcraft.sh",
             "--pkg_manager","conda",
             "--env-name","BindCraft",
-            "--no-pyrosetta"
+            "--no-pyrosetta",
+            "--skip-gpu-check"
         ],cwd=FBC,env=env)
     else:
         print("FreeBindCraft environment/weights already present.",flush=True)
@@ -149,6 +150,17 @@ if __name__=="__main__":
     print("Host Python",sys.version,flush=True)
     conda=setup_conda()
     env=setup_freebindcraft(conda)
+    # The installer GPU probe relies on nvidia-smi visibility inside the conda
+    # environment, which can fail on Kaggle even when the host GPU is healthy.
+    # Verify the actual JAX backend directly before spending hallucination time.
+    gpu_probe=[
+        str(conda),"run","--no-capture-output","-n","BindCraft",
+        "python","-c",
+        "import jax; print('JAX devices:', jax.devices()); "
+        "assert any(d.platform == 'gpu' for d in jax.devices()), 'JAX GPU backend unavailable'"
+    ]
+    run(gpu_probe,cwd=FBC,env=env)
+
     target=prepare_target()
     settings,advanced=prepare_settings(target)
 
