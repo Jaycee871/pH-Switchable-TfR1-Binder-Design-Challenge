@@ -1,0 +1,141 @@
+name: Kaggle TfR1 RFdiffusion Pilot
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "kaggle/rfdiffusion_pilot_v1/**"
+      - "config/tfr1_design_v1.json"
+      - ".github/workflows/kaggle-rfdiffusion-pilot.yml"
+
+concurrency:
+  group: tfr1-kaggle-rfdiffusion-pilot
+  cancel-in-progress: true
+
+jobs:
+  run-kaggle-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Kaggle CLI
+        run: python -m pip install --upgrade kaggle
+
+      - name: Submit and wait for Kaggle GPU kernel
+        id: kaggle
+        continue-on-error: true
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p kaggle_outputs
+
+          {
+            kaggle --version
+            if [[ -z "${KAGGLE_API_TOKEN:-}" ]]; then
+              echo "Repository secret KAGGLE_TOKEN is missing or empty."
+              exit 1
+            fi
+
+            KERNEL="packkwanlow/tfr1-rfdiffusion-pilot-v1"
+            KERNEL_DIR="kaggle/rfdiffusion_pilot_v1"
+
+            kaggle kernels list --mine --page-size 3 --sort-by dateRun || true
+            kaggle kernels push -p "${KERNEL_DIR}" --accelerator NvidiaTeslaT4 --timeout 10800
+
+            completed=0
+            for i in $(seq 1 180); do
+              status="$(kaggle kernels status "${KERNEL}" 2>&1 || true)"
+              echo "[poll ${i}] ${status}"
+              if echo "${status}" | grep -Eqi 'complete|completed'; then
+                completed=1
+                break
+              fi
+              if echo "${status}" | grep -Eqi 'error|failed|cancelled'; then
+                kaggle kernels logs "${KERNEL}" || true
+                exit 1
+              fi
+              sleep 60
+            done
+
+            if [[ "${completed}" != "1" ]]; then
+              kaggle kernels logs "${KERNEL}" || true
+              exit 1
+            fi
+
+            kaggle kernels output "${KERNEL}" -p kaggle_outputs -o
+            kaggle kernels logs "${KERNEL}" > kaggle_outputs/kaggle-run.log || true
+            find kaggle_outputs -maxdepth 3 -type f -printf '%p %s bytes\n' | sort
+          } 2>&1 | tee kaggle_outputs/kaggle-driver.log
+
+      - name: Record workflow outcome
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p kaggle_outputs
+          {
+            echo "kaggle_step_outcome=${{ steps.kaggle.outcome }}"
+            echo "workflow_sha=${GITHUB_SHA}"
+            echo "workflow_run_id=${GITHUB_RUN_ID}"
+            date -u +"utc=%Y-%m-%dT%H:%M:%SZ"
+          } > kaggle_outputs/workflow-status.txt
+
+      - name: Upload pilot outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-rfdiffusion-pilot-v1
+          path: kaggle_outputs/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Sync compact outputs back to repository
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+
+          DEST="predictions/rfdiffusion_pilot_v1/kaggle"
+          rm -rf "${DEST}"
+          mkdir -p "${DEST}"
+
+          if [[ -d kaggle_outputs/tfr1_rfdiffusion_pilot_v1 ]]; then
+            cp -R kaggle_outputs/tfr1_rfdiffusion_pilot_v1/. "${DEST}/"
+          fi
+
+          for f in kaggle_outputs/tfr1_rfdiffusion_pilot_v1.zip kaggle_outputs/kaggle-run.log kaggle_outputs/kaggle-driver.log kaggle_outputs/workflow-status.txt
+          do
+            if [[ -f "${f}" ]]; then
+              cp "${f}" "${DEST}/"
+            fi
+          done
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${DEST}"
+
+          if git diff --cached --quiet; then
+            echo "No new Kaggle outputs."
+          else
+            git commit -m "Record TfR1 RFdiffusion Kaggle pilot run"
+            git push origin HEAD:main
+          fi
+
+      - name: Fail workflow if Kaggle execution failed
+        if: steps.kaggle.outcome != 'success'
+        run: exit 1
