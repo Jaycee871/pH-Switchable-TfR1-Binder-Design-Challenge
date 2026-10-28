@@ -273,7 +273,10 @@ def main():
     with CANDIDATES.open(newline="", encoding="utf-8") as fh:
         rows = list(csv.DictReader(fh))
     rows = [r for r in rows if str(r.get("prefilter_pass","")).lower() in {"true","1","yes"}]
-    selected = select_one_per_backbone(rows)
+    # Rescue batch is intentionally tiny (two sequences from one backbone).
+    # Validate every prefiltered rescue sequence rather than collapsing to one
+    # representative per backbone as the generic Phase-4F screen does.
+    selected = rows[:4]
     if not selected:
         raise SystemExit("No prefiltered pose-screen candidate available")
 
