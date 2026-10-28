@@ -64,6 +64,75 @@ def setup_freebindcraft(conda):
         print("FreeBindCraft environment/weights already present.",flush=True)
     return env
 
+def restore_driver_library_path():
+    """Keep pip CUDA user-space libs, but restore host NVIDIA driver libraries.
+
+    FreeBindCraft intentionally unsets LD_LIBRARY_PATH in its conda activation
+    script. Kaggle exposes the NVIDIA driver through host-mounted driver library
+    directories, so removing all of LD_LIBRARY_PATH makes cuInit fail even
+    though nvidia-smi works in the parent process.
+    """
+    candidates = []
+
+    # Prefer directories from the host LD_LIBRARY_PATH that actually contain libcuda.
+    for raw in os.environ.get("LD_LIBRARY_PATH", "").split(":"):
+        if not raw:
+            continue
+        p = Path(raw)
+        if p.exists() and any((p / name).exists() for name in ("libcuda.so.1", "libcuda.so")):
+            candidates.append(str(p))
+
+    # Also ask the system dynamic linker for the actual driver locations.
+    probe = subprocess.run(
+        ["bash", "-lc",
+         "ldconfig -p 2>/dev/null | "
+         "grep -E 'libcuda\\.so\\.1|libnvidia-ptxjitcompiler\\.so\\.1|libnvidia-nvvm\\.so' || true"],
+        capture_output=True, text=True, check=False,
+    )
+    print("Driver library probe:\n" + probe.stdout, flush=True)
+    for line in probe.stdout.splitlines():
+        if "=>" not in line:
+            continue
+        p = Path(line.split("=>", 1)[1].strip()).parent
+        if p.exists():
+            candidates.append(str(p))
+
+    for fallback in (
+        "/usr/local/nvidia/lib64",
+        "/usr/local/nvidia/lib",
+        "/usr/lib/x86_64-linux-gnu",
+    ):
+        p = Path(fallback)
+        if p.exists() and any((p / name).exists() for name in ("libcuda.so.1", "libcuda.so")):
+            candidates.append(str(p))
+
+    driver_dirs = []
+    for p in candidates:
+        if p not in driver_dirs:
+            driver_dirs.append(p)
+    if not driver_dirs:
+        raise RuntimeError("Could not locate Kaggle NVIDIA driver libraries")
+
+    driver_path = ":".join(driver_dirs)
+    activation = MINICONDA / "envs/BindCraft/etc/conda/activate.d/freebindcraft-cuda.sh"
+    text = activation.read_text()
+    old = "unset LD_LIBRARY_PATH\nexport JAX_PLATFORMS=cuda"
+    new = f'export LD_LIBRARY_PATH="{driver_path}"\nexport JAX_PLATFORMS=cuda'
+    if old not in text:
+        raise RuntimeError("Unexpected FreeBindCraft activation script; LD_LIBRARY_PATH hook not found")
+    activation.write_text(text.replace(old, new, 1))
+    print("Patched FreeBindCraft driver path:", driver_path, flush=True)
+
+    # Record diagnostics that survive even if the later JAX probe fails.
+    (OUT / "driver_library_probe.txt").write_text(
+        "host_LD_LIBRARY_PATH=" + os.environ.get("LD_LIBRARY_PATH", "") + "\n"
+        + "selected_driver_path=" + driver_path + "\n"
+        + probe.stdout,
+        encoding="utf-8",
+    )
+    return driver_path
+
+
 def prepare_target():
     full=TMP/"11QC.pdb"
     if not full.exists():
@@ -153,10 +222,13 @@ if __name__=="__main__":
     # The installer GPU probe relies on nvidia-smi visibility inside the conda
     # environment, which can fail on Kaggle even when the host GPU is healthy.
     # Verify the actual JAX backend directly before spending hallucination time.
+    driver_path=restore_driver_library_path()
     gpu_probe=[
         str(conda),"run","--no-capture-output","-n","BindCraft",
         "python","-c",
-        "import jax; print('JAX devices:', jax.devices()); "
+        "import os, jax; "
+        "print('LD_LIBRARY_PATH:', os.environ.get('LD_LIBRARY_PATH')); "
+        "print('JAX devices:', jax.devices()); "
         "assert any(d.platform == 'gpu' for d in jax.devices()), 'JAX GPU backend unavailable'"
     ]
     run(gpu_probe,cwd=FBC,env=env)
