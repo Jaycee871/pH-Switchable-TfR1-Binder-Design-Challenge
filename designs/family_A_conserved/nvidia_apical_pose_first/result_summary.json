@@ -1,0 +1,17 @@
+{
+  "policy": "pose-first",
+  "backbones_used": 1,
+  "candidate_count": 8,
+  "pose_screen_candidate_count": 1,
+  "pose_screen_ids": [
+    "TFR1_NB01_conserved_343_s20261124_08"
+  ],
+  "backbones": [
+    {
+      "backbone_id": "NB01_conserved_343_s20261124",
+      "source": "structures/rfdiffusion/nvidia_apical_only/selected/selected_01_conserved_343_seed_20261124.pdb",
+      "candidate_count": 8,
+      "prefilter_pass_count": 1
+    }
+  ]
+}

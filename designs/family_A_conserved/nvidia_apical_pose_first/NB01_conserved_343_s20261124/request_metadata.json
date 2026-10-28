@@ -1,0 +1,50 @@
+{
+  "source_backbone": "structures/rfdiffusion/nvidia_apical_only/selected/selected_01_conserved_343_seed_20261124.pdb",
+  "source_family": "conserved_343",
+  "source_seed": 20261124,
+  "source_qc": {
+    "binder_chain": "A",
+    "target_chain": "B",
+    "binder_length": 86,
+    "target_length": 195,
+    "human_target_contacts_5A": [
+      209,
+      210,
+      347,
+      361,
+      362
+    ],
+    "preferred_contacts": [
+      209,
+      347
+    ],
+    "risk_contacts": [
+      210
+    ],
+    "severe_clashes_lt_2A": 0,
+    "compactness": {
+      "radius_of_gyration_A": 17.048,
+      "max_CA_span_A": 54.222
+    },
+    "checks": {
+      "binder_length_60_90": true,
+      "preferred_contacts_ge_2": true,
+      "risk_contacts_le_1": true,
+      "rg_le_18A": true,
+      "ca_span_le_60A": true,
+      "clashes_le_10": true
+    },
+    "scientific_pass": true
+  },
+  "chain_order": [
+    "A",
+    "B"
+  ],
+  "chain_lengths": {
+    "A": 86,
+    "B": 195
+  },
+  "designed_binder_chain": "A",
+  "fixed_target_chain": "B",
+  "policy": "pose-first; no forced histidine"
+}
