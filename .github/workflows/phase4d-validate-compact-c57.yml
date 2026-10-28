@@ -1,0 +1,59 @@
+name: Phase 4D Validate Compact C57 Candidates
+
+on:
+  push:
+    paths:
+      - ".github/workflows/phase4d-validate-compact-c57.yml"
+      - "scripts/nvidia_boltz2_validate_compact_c57.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate-c57:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install structural-analysis dependency
+        run: pip install biopython
+
+      - name: Prepare targets
+        run: python scripts/prepare_targets.py
+
+      - name: Recover compact RFdiffusion backbone
+        uses: actions/download-artifact@v4
+        with:
+          name: tfr1-compact-apical-rfdiffusion
+          path: recovered
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: 40685364707
+
+      - name: Validate C57_02, C57_05, C57_12
+        env:
+          RF_PDB: ${{ github.workspace }}/recovered/selected_backbone.pdb
+        run: python scripts/nvidia_boltz2_validate_compact_c57.py
+
+      - name: Show batch summary
+        run: cat predictions/compact_C57_validation/batch_summary.json
+
+      - name: Upload predictions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-compact-C57-boltz2-validation
+          path: predictions/compact_C57_validation/
+          if-no-files-found: warn
+          retention-days: 14
