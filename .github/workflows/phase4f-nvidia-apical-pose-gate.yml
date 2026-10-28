@@ -79,3 +79,5 @@ jobs:
           path: predictions/nvidia_apical_pose_screen/
           if-no-files-found: warn
           retention-days: 14
+
+# Triggered after Phase 3G pose-screen candidate became available.
