@@ -1,0 +1,247 @@
+{
+  "campaign": "zero_risk_compact_refine_v1",
+  "contigs": "A189-383/0 45-60",
+  "families": {
+    "pair_343_347": [
+      "A343",
+      "A347"
+    ],
+    "pair_344_350": [
+      "A344",
+      "A350"
+    ],
+    "triplet_343_347_350": [
+      "A343",
+      "A347",
+      "A350"
+    ]
+  },
+  "seeds": {
+    "pair_343_347": [
+      20261311,
+      20261312
+    ],
+    "pair_344_350": [
+      20261313,
+      20261314
+    ],
+    "triplet_343_347_350": [
+      20261315,
+      20261316
+    ]
+  },
+  "gate": {
+    "preferred_ge_2": true,
+    "risk_eq_0": true,
+    "rg_le_15_5": true,
+    "span_le_50": true
+  },
+  "attempt_count": 6,
+  "passing_count": 0,
+  "selected_count": 0,
+  "selected": [],
+  "attempts": [
+    {
+      "family": "pair_343_347",
+      "hotspots": [
+        "A343",
+        "A347"
+      ],
+      "seed": 20261311,
+      "elapsed_ms": 15107,
+      "pdb": "structures/rfdiffusion/nvidia_zero_risk_compact_refine/pair_343_347/pair_343_347_seed_20261311.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "B",
+        "binder_length": 53,
+        "target_length": 195,
+        "contacts": [
+          291
+        ],
+        "preferred_contacts": [],
+        "risk_contacts": [],
+        "radius_of_gyration_A": 23.059,
+        "max_CA_span_A": 78.788,
+        "severe_clashes_lt_2A": 0,
+        "checks": {
+          "binder_45_60": true,
+          "preferred_ge_2": false,
+          "risk_eq_0": true,
+          "rg_le_15_5": false,
+          "span_le_50": false,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "family": "pair_343_347",
+      "hotspots": [
+        "A343",
+        "A347"
+      ],
+      "seed": 20261312,
+      "elapsed_ms": 14731,
+      "pdb": "structures/rfdiffusion/nvidia_zero_risk_compact_refine/pair_343_347/pair_343_347_seed_20261312.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "B",
+        "binder_length": 55,
+        "target_length": 195,
+        "contacts": [
+          347
+        ],
+        "preferred_contacts": [
+          347
+        ],
+        "risk_contacts": [],
+        "radius_of_gyration_A": 12.906,
+        "max_CA_span_A": 40.508,
+        "severe_clashes_lt_2A": 0,
+        "checks": {
+          "binder_45_60": true,
+          "preferred_ge_2": false,
+          "risk_eq_0": true,
+          "rg_le_15_5": true,
+          "span_le_50": true,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "family": "pair_344_350",
+      "hotspots": [
+        "A344",
+        "A350"
+      ],
+      "seed": 20261313,
+      "elapsed_ms": 14463,
+      "pdb": "structures/rfdiffusion/nvidia_zero_risk_compact_refine/pair_344_350/pair_344_350_seed_20261313.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "B",
+        "binder_length": 53,
+        "target_length": 195,
+        "contacts": [],
+        "preferred_contacts": [],
+        "risk_contacts": [],
+        "radius_of_gyration_A": 22.514,
+        "max_CA_span_A": 76.262,
+        "severe_clashes_lt_2A": 0,
+        "checks": {
+          "binder_45_60": true,
+          "preferred_ge_2": false,
+          "risk_eq_0": true,
+          "rg_le_15_5": false,
+          "span_le_50": false,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "family": "pair_344_350",
+      "hotspots": [
+        "A344",
+        "A350"
+      ],
+      "seed": 20261314,
+      "elapsed_ms": 14775,
+      "pdb": "structures/rfdiffusion/nvidia_zero_risk_compact_refine/pair_344_350/pair_344_350_seed_20261314.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "B",
+        "binder_length": 54,
+        "target_length": 195,
+        "contacts": [
+          361
+        ],
+        "preferred_contacts": [],
+        "risk_contacts": [],
+        "radius_of_gyration_A": 12.747,
+        "max_CA_span_A": 40.988,
+        "severe_clashes_lt_2A": 0,
+        "checks": {
+          "binder_45_60": true,
+          "preferred_ge_2": false,
+          "risk_eq_0": true,
+          "rg_le_15_5": true,
+          "span_le_50": true,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "family": "triplet_343_347_350",
+      "hotspots": [
+        "A343",
+        "A347",
+        "A350"
+      ],
+      "seed": 20261315,
+      "elapsed_ms": 14410,
+      "pdb": "structures/rfdiffusion/nvidia_zero_risk_compact_refine/triplet_343_347_350/triplet_343_347_350_seed_20261315.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "B",
+        "binder_length": 52,
+        "target_length": 195,
+        "contacts": [
+          210
+        ],
+        "preferred_contacts": [],
+        "risk_contacts": [
+          210
+        ],
+        "radius_of_gyration_A": 22.379,
+        "max_CA_span_A": 75.725,
+        "severe_clashes_lt_2A": 0,
+        "checks": {
+          "binder_45_60": true,
+          "preferred_ge_2": false,
+          "risk_eq_0": false,
+          "rg_le_15_5": false,
+          "span_le_50": false,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "family": "triplet_343_347_350",
+      "hotspots": [
+        "A343",
+        "A347",
+        "A350"
+      ],
+      "seed": 20261316,
+      "elapsed_ms": 13934,
+      "pdb": "structures/rfdiffusion/nvidia_zero_risk_compact_refine/triplet_343_347_350/triplet_343_347_350_seed_20261316.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "B",
+        "binder_length": 53,
+        "target_length": 195,
+        "contacts": [
+          291
+        ],
+        "preferred_contacts": [],
+        "risk_contacts": [],
+        "radius_of_gyration_A": 22.824,
+        "max_CA_span_A": 76.344,
+        "severe_clashes_lt_2A": 0,
+        "checks": {
+          "binder_45_60": true,
+          "preferred_ge_2": false,
+          "risk_eq_0": true,
+          "rg_le_15_5": false,
+          "span_le_50": false,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    }
+  ]
+}
