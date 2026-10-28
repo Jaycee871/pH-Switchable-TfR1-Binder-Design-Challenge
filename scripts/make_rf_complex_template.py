@@ -19,6 +19,8 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
+from Bio.PDB import MMCIFIO, PDBParser
+
 ROOT = Path(__file__).resolve().parents[1]
 
 BINDER_SEQUENCE = (
@@ -34,6 +36,7 @@ AA3 = {
 
 DEFAULT_INPUT = ROOT / "recovered/seeded_selection/rfdiffusion_seed_20261029.pdb"
 DEFAULT_OUTPUT = ROOT / "predictions/templates/A29_03_rf_seed20261029_template.pdb"
+DEFAULT_CIF = ROOT / "predictions/templates/A29_03_rf_seed20261029_template.cif"
 
 
 def rewrite_atom_line(line: str, new_chain: str, new_resid: int, new_resname: str | None = None) -> str:
@@ -94,7 +97,15 @@ def main() -> None:
         encoding="utf-8",
     )
 
-    print(f"Wrote template: {dst}")
+    cif_dst = Path(os.getenv("TEMPLATE_CIF", str(DEFAULT_CIF)))
+    structure = PDBParser(QUIET=True).get_structure("A29_03_template", str(dst))
+    io = MMCIFIO()
+    io.set_structure(structure)
+    cif_dst.parent.mkdir(parents=True, exist_ok=True)
+    io.save(str(cif_dst))
+
+    print(f"Wrote PDB template: {dst}")
+    print(f"Wrote CIF template: {cif_dst}")
     print(f"  target atoms: {len(target_lines)}")
     print(f"  binder atoms: {len(binder_lines)}")
     print("  target template query positions: 2-640")
