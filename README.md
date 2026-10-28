@@ -132,10 +132,17 @@ see [`analysis/ARTIFACT_PROVENANCE.md`](analysis/ARTIFACT_PROVENANCE.md).
    explicit mmCIF template. High overall confidence and complex pLDDT in these runs reflect
    confident folding of the individual chains, not a correct docking pose.
 
-2. **No pH-switch mechanism exists yet.** Not one of the 60+ designed sequences contains a
-   histidine. The Phase 3D interface bias left histidine *available* but never *rewarded* it, so
-   ProteinMPNN never selected it. Since histidine protonation is the proposed switch mechanism,
-   the designs currently have no physical basis for pH selectivity.
+2. **Histidines now exist, but a pH switch has not been demonstrated.** None of the original
+   60+ designed sequences contained a histidine: the Phase 3D interface bias left histidine
+   *available* but never *rewarded* it, so ProteinMPNN never selected it. Phase 6
+   (run 40691292024) fixed that with a positive histidine bias and produced 24 designs carrying
+   4-10 histidines each, 18 of which pass the filter. The bias overshot, however: positions 1
+   and 5 are histidine in 24/24 designs, which is saturation rather than structural selection,
+   and the contiguous core/rim tiers produced an N-terminal poly-histidine stretch that
+   resembles an affinity tag more than a cooperative network. The recurring 41/44/45 `HLEHH`
+   motif is the one genuinely promising element. None of these sequences has been structurally
+   validated, and no pH 6.0 evaluation exists, so pH selectivity remains unproven.
+   See `analysis/PHASE6_HIS_ENRICHED_2026-10-28.md`.
 
 A third point deserves emphasis because the raw numbers are misleading: `TFR1_C57_02` and
 `TFR1_C57_05` show the project's highest mouse interface pTM (0.425 / 0.433), but their predicted
@@ -145,7 +152,8 @@ interface (507-651). That is not cross-reactivity; it is two unrelated docking a
 ### Still missing
 
 - a validated binding pose for any candidate;
-- histidine-containing designs;
+- structural validation of the Phase 6 histidine designs (none has been predicted);
+- a re-run of Phase 6 at a lower, non-contiguous histidine bias (+4.0 saturated the interface);
 - a pH 6.0 negative-state evaluation (requires new code — nothing in the pipeline evaluates pH 6.0);
 - structural diversity (all designs trace back to just two backbones);
 - developability filters (pI, net charge, aggregation, low-complexity);
@@ -165,6 +173,8 @@ design round.
 - [x] Build human-mouse residue mapping (Proteinbase structure-aware correspondence)
 - [x] Define conserved apical epitope masks (Tier A / Tier B / RISK)
 - [x] Generate first design library (60+ sequences across the A29, BIAS and C57 families)
+- [x] Introduce histidine at the interface (Phase 6: 24 designs, 18 passing, 4-10 His each)
+      - *caveat: the +4.0 bias saturated rather than selected, and the designs are unvalidated*
 - [ ] Run multi-state structural evaluation - *partial: human and mouse pH 7.4 done for 6
   candidates; the pH 6.0 negative state is not implemented*
 - [ ] Rank and cluster candidates - *blocked: no candidate currently passes the interface pose

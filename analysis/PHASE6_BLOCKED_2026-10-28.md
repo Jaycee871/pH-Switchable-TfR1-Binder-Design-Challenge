@@ -1,4 +1,12 @@
-# Phase 6 — prepared but not run (2026-10-28)
+# Phase 6 — authentication blocker (RESOLVED) (2026-10-28)
+
+> **SUPERSEDED 2026-10-28.** This blocker is resolved. The `workflow` OAuth scope was
+> granted, `.github/workflows/phase6-his-enriched-proteinmpnn.yml` was pushed in commit
+> `13136a1`, and Phase 6 ran successfully as GitHub Actions run **40691292024**.
+> Results and assessment: `analysis/PHASE6_HIS_ENRICHED_2026-10-28.md` and
+> `designs/family_C_pH_switch/his_enriched_seed20261102/`.
+> The document below is retained only as a record of the authentication problem and how it
+> was fixed. **Phase 6 is not blocked.**
 
 Phase 6 (histidine-enriched ProteinMPNN) is **written, validated offline, and committed, but has
 not been executed.** No design sequences exist yet and no assessment of them can be made.
