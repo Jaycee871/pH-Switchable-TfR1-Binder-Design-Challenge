@@ -1,0 +1,30 @@
+{
+  "version": "tfr1-pilot-v1",
+  "target": {
+    "generation_structure": "PDB 11QC chain A cropped to residues 189-383",
+    "generation_domain": "apical domain",
+    "full_assay_human_construct": "P02786-1 121-760",
+    "full_assay_mouse_construct": "Q62351-1 123-763"
+  },
+  "binder": {
+    "molecule_class": "protein",
+    "length_range_aa": [70, 100],
+    "rf_diffusion_designs_per_family": 2
+  },
+  "reference_interface": {
+    "source": "PDB 11RN / Lee et al. Nature Communications 2026",
+    "human_contact_residues": [202, 208, 209, 210, 211, 212, 348, 371]
+  },
+  "generation_families": {
+    "cross_species_loop_5": [202, 206, 209, 213, 214],
+    "cross_species_edge_5": [202, 209, 214, 219, 346],
+    "functional_patch_mixed_5": [202, 208, 209, 348, 371]
+  },
+  "strategy_notes": [
+    "Families 1 and 2 bias generation toward conserved/adjacent apical positions rather than the strongly species-variable Tyr211-centred footprint.",
+    "Family 3 intentionally samples the experimentally validated functional footprint despite species-variable residues.",
+    "pH selectivity is engineered and ranked after backbone/sequence generation; RFdiffusion itself is not treated as a pH predictor.",
+    "All generated sequences must later be screened against both full human and full mouse TfR1 constructs.",
+    "Proteinbase challenge hotspot correspondences override naive sequence alignment near the 202-215 indel."
+  ]
+}
