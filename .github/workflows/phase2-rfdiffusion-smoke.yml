@@ -36,8 +36,8 @@ jobs:
         shell: bash
         run: |
           set -euxo pipefail
-          test -s designs/family_A_conserved/smoke/rfdiffusion_backbone_001.pdb
-          test -s designs/family_A_conserved/smoke/result_summary.json
+          test -s designs/family_A_conserved/smoke/rfdiffusion_backbone_002.pdb
+          test -s designs/family_A_conserved/smoke/result_summary_002.json
           cat designs/family_A_conserved/smoke/result_summary.json
 
       - name: Upload smoke-test result
