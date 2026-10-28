@@ -99,7 +99,7 @@ def main() -> None:
         encoding="utf-8",
     )
 
-    result = post_json(URL, payload, api_key)
+    result = post_json(payload, api_key)
     mfasta = result.get("mfasta", "")
     if not mfasta.strip():
         raise RuntimeError(f"No mfasta returned; keys={sorted(result.keys())}")
