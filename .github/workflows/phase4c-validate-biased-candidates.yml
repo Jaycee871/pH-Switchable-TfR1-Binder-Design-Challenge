@@ -1,0 +1,59 @@
+name: Phase 4C Validate Interface-Biased Candidates
+
+on:
+  push:
+    paths:
+      - ".github/workflows/phase4c-validate-biased-candidates.yml"
+      - "scripts/nvidia_boltz2_validate_biased.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate-biased:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install structural-analysis dependency
+        run: pip install biopython
+
+      - name: Prepare targets
+        run: python scripts/prepare_targets.py
+
+      - name: Recover RFdiffusion seed 20261029
+        uses: actions/download-artifact@v4
+        with:
+          name: tfr1-phase3-seeded-backbone-and-sequences
+          path: recovered
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: 40681815723
+
+      - name: Validate BIAS_02 and BIAS_04
+        env:
+          RF_PDB: ${{ github.workspace }}/recovered/seeded_selection/rfdiffusion_seed_20261029.pdb
+        run: python scripts/nvidia_boltz2_validate_biased.py
+
+      - name: Show batch summary
+        run: cat predictions/interface_biased_validation/batch_summary.json
+
+      - name: Upload predictions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-interface-biased-boltz2-validation
+          path: predictions/interface_biased_validation/
+          if-no-files-found: warn
+          retention-days: 14
