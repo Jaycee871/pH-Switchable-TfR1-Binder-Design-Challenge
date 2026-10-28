@@ -3,6 +3,6 @@ human_position,human_aa,mouse_position,mouse_aa,status,source_note
 208,R,211,N,substitution,Challenge page explicit correspondence
 210,V,213,D,substitution,Challenge page explicit correspondence
 211,Y,214,P,substitution,Challenge page explicit correspondence
-212,L,,GAP,no_counterpart,Challenge page states human L212 has no mouse counterpart
+212,L,,,no_counterpart,Challenge page states human L212 has no mouse counterpart
 348,N,350,K,substitution,Challenge page explicit correspondence
 371,K,373,Q,substitution,Challenge page explicit correspondence
