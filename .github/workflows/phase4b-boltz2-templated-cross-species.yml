@@ -26,6 +26,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install template conversion dependency
+        run: pip install biopython
+
       - name: Prepare target FASTAs
         run: python scripts/prepare_targets.py
 
@@ -41,11 +44,12 @@ jobs:
         env:
           RF_PDB: ${{ github.workspace }}/recovered/seeded_selection/rfdiffusion_seed_20261029.pdb
           TEMPLATE_PDB: ${{ github.workspace }}/predictions/templates/A29_03_rf_seed20261029_template.pdb
+          TEMPLATE_CIF: ${{ github.workspace }}/predictions/templates/A29_03_rf_seed20261029_template.cif
         run: python scripts/make_rf_complex_template.py
 
       - name: Run templated human and mouse Boltz2
         env:
-          TEMPLATE_PDB: ${{ github.workspace }}/predictions/templates/A29_03_rf_seed20261029_template.pdb
+          TEMPLATE_PDB: ${{ github.workspace }}/predictions/templates/A29_03_rf_seed20261029_template.cif
         run: python scripts/nvidia_boltz2_templated_cross_species.py
 
       - name: Validate outputs
@@ -53,6 +57,7 @@ jobs:
         run: |
           set -euxo pipefail
           test -s predictions/templates/A29_03_rf_seed20261029_template.pdb
+          test -s predictions/templates/A29_03_rf_seed20261029_template.cif
           test -s predictions/family_A_A29_03_templated/human/structure_1.cif
           test -s predictions/family_A_A29_03_templated/mouse/structure_1.cif
           cat predictions/family_A_A29_03_templated/cross_species_summary.json
@@ -64,6 +69,7 @@ jobs:
           name: tfr1-A29-03-boltz2-templated-human-mouse
           path: |
             predictions/templates/A29_03_rf_seed20261029_template.pdb
+            predictions/templates/A29_03_rf_seed20261029_template.cif
             predictions/family_A_A29_03_templated/
           if-no-files-found: warn
           retention-days: 14
