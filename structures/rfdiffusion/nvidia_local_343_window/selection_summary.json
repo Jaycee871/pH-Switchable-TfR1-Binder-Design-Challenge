@@ -1,0 +1,431 @@
+{
+  "campaign": "local_343_window_v1",
+  "fixed_target_window": [
+    330,
+    383
+  ],
+  "contigs": "A330-383/0 45-60",
+  "families": {
+    "core4": [
+      "A343",
+      "A344",
+      "A347",
+      "A350"
+    ],
+    "core3": [
+      "A343",
+      "A347",
+      "A350"
+    ],
+    "inner_pair": [
+      "A344",
+      "A347"
+    ]
+  },
+  "seeds": {
+    "core4": [
+      20261401,
+      20261402
+    ],
+    "core3": [
+      20261403,
+      20261404
+    ],
+    "inner_pair": [
+      20261405,
+      20261406
+    ]
+  },
+  "gate": {
+    "preferred_ge_2": true,
+    "risk_eq_0": true,
+    "edge_contacts_le_1": true,
+    "rg_le_16_5": true,
+    "span_le_52": true
+  },
+  "attempt_count": 6,
+  "passing_count": 0,
+  "selected_count": 0,
+  "selected": [],
+  "attempts": [
+    {
+      "family": "core4",
+      "hotspots": [
+        "A343",
+        "A344",
+        "A347",
+        "A350"
+      ],
+      "seed": 20261401,
+      "elapsed_ms": 5282,
+      "pdb": "structures/rfdiffusion/nvidia_local_343_window/core4/core4_seed_20261401.pdb",
+      "qc": {
+        "binder_chain": "B",
+        "target_chain": "A",
+        "binder_length": 54,
+        "target_length": 58,
+        "contacts": [
+          330,
+          331,
+          334,
+          345
+        ],
+        "preferred_contacts": [],
+        "risk_contacts": [],
+        "edge_contacts": [
+          330,
+          331,
+          334
+        ],
+        "radius_of_gyration_A": 14.364,
+        "max_CA_span_A": 45.531,
+        "severe_clashes_lt_2A": 0,
+        "checks": {
+          "binder_45_60": true,
+          "preferred_ge_2": false,
+          "risk_eq_0": true,
+          "edge_contacts_le_1": false,
+          "rg_le_16_5": true,
+          "span_le_52": true,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "family": "core4",
+      "hotspots": [
+        "A343",
+        "A344",
+        "A347",
+        "A350"
+      ],
+      "seed": 20261402,
+      "elapsed_ms": 5250,
+      "pdb": "structures/rfdiffusion/nvidia_local_343_window/core4/core4_seed_20261402.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "B",
+        "binder_length": 47,
+        "target_length": 54,
+        "contacts": [
+          330
+        ],
+        "preferred_contacts": [],
+        "risk_contacts": [],
+        "edge_contacts": [
+          330
+        ],
+        "radius_of_gyration_A": 20.346,
+        "max_CA_span_A": 68.685,
+        "severe_clashes_lt_2A": 0,
+        "checks": {
+          "binder_45_60": true,
+          "preferred_ge_2": false,
+          "risk_eq_0": true,
+          "edge_contacts_le_1": true,
+          "rg_le_16_5": false,
+          "span_le_52": false,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "family": "core3",
+      "hotspots": [
+        "A343",
+        "A347",
+        "A350"
+      ],
+      "seed": 20261403,
+      "elapsed_ms": 5141,
+      "pdb": "structures/rfdiffusion/nvidia_local_343_window/core3/core3_seed_20261403.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "A",
+        "binder_length": 54,
+        "target_length": 54,
+        "contacts": [
+          330,
+          331,
+          332,
+          333,
+          334,
+          335,
+          336,
+          337,
+          338,
+          339,
+          340,
+          341,
+          342,
+          343,
+          344,
+          345,
+          346,
+          347,
+          348,
+          349,
+          350,
+          351,
+          352,
+          353,
+          354,
+          355,
+          356,
+          357,
+          358,
+          359,
+          360,
+          361,
+          362,
+          363,
+          364,
+          365,
+          366,
+          367,
+          368,
+          369,
+          370,
+          371,
+          372,
+          373,
+          374,
+          375,
+          376,
+          377,
+          378,
+          379,
+          380,
+          381,
+          382,
+          383
+        ],
+        "preferred_contacts": [
+          343,
+          344,
+          347,
+          350,
+          374
+        ],
+        "risk_contacts": [
+          348,
+          371
+        ],
+        "edge_contacts": [
+          330,
+          331,
+          332,
+          333,
+          334,
+          379,
+          380,
+          381,
+          382,
+          383
+        ],
+        "radius_of_gyration_A": 13.118,
+        "max_CA_span_A": 42.64,
+        "severe_clashes_lt_2A": 646,
+        "checks": {
+          "binder_45_60": true,
+          "preferred_ge_2": true,
+          "risk_eq_0": false,
+          "edge_contacts_le_1": false,
+          "rg_le_16_5": true,
+          "span_le_52": true,
+          "clashes_le_10": false
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "family": "core3",
+      "hotspots": [
+        "A343",
+        "A347",
+        "A350"
+      ],
+      "seed": 20261404,
+      "elapsed_ms": 5326,
+      "pdb": "structures/rfdiffusion/nvidia_local_343_window/core3/core3_seed_20261404.pdb",
+      "qc": {
+        "binder_chain": "B",
+        "target_chain": "A",
+        "binder_length": 54,
+        "target_length": 60,
+        "contacts": [
+          361
+        ],
+        "preferred_contacts": [],
+        "risk_contacts": [],
+        "edge_contacts": [],
+        "radius_of_gyration_A": 14.368,
+        "max_CA_span_A": 45.474,
+        "severe_clashes_lt_2A": 0,
+        "checks": {
+          "binder_45_60": true,
+          "preferred_ge_2": false,
+          "risk_eq_0": true,
+          "edge_contacts_le_1": true,
+          "rg_le_16_5": true,
+          "span_le_52": true,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "family": "inner_pair",
+      "hotspots": [
+        "A344",
+        "A347"
+      ],
+      "seed": 20261405,
+      "elapsed_ms": 5432,
+      "pdb": "structures/rfdiffusion/nvidia_local_343_window/inner_pair/inner_pair_seed_20261405.pdb",
+      "qc": {
+        "binder_chain": "A",
+        "target_chain": "A",
+        "binder_length": 54,
+        "target_length": 54,
+        "contacts": [
+          330,
+          331,
+          332,
+          333,
+          334,
+          335,
+          336,
+          337,
+          338,
+          339,
+          340,
+          341,
+          342,
+          343,
+          344,
+          345,
+          346,
+          347,
+          348,
+          349,
+          350,
+          351,
+          352,
+          353,
+          354,
+          355,
+          356,
+          357,
+          358,
+          359,
+          360,
+          361,
+          362,
+          363,
+          364,
+          365,
+          366,
+          367,
+          368,
+          369,
+          370,
+          371,
+          372,
+          373,
+          374,
+          375,
+          376,
+          377,
+          378,
+          379,
+          380,
+          381,
+          382,
+          383
+        ],
+        "preferred_contacts": [
+          343,
+          344,
+          347,
+          350,
+          374
+        ],
+        "risk_contacts": [
+          348,
+          371
+        ],
+        "edge_contacts": [
+          330,
+          331,
+          332,
+          333,
+          334,
+          379,
+          380,
+          381,
+          382,
+          383
+        ],
+        "radius_of_gyration_A": 12.776,
+        "max_CA_span_A": 42.584,
+        "severe_clashes_lt_2A": 648,
+        "checks": {
+          "binder_45_60": true,
+          "preferred_ge_2": true,
+          "risk_eq_0": false,
+          "edge_contacts_le_1": false,
+          "rg_le_16_5": true,
+          "span_le_52": true,
+          "clashes_le_10": false
+        },
+        "scientific_pass": false
+      }
+    },
+    {
+      "family": "inner_pair",
+      "hotspots": [
+        "A344",
+        "A347"
+      ],
+      "seed": 20261406,
+      "elapsed_ms": 4617,
+      "pdb": "structures/rfdiffusion/nvidia_local_343_window/inner_pair/inner_pair_seed_20261406.pdb",
+      "qc": {
+        "binder_chain": "B",
+        "target_chain": "A",
+        "binder_length": 54,
+        "target_length": 58,
+        "contacts": [
+          358,
+          359,
+          379,
+          382,
+          383
+        ],
+        "preferred_contacts": [],
+        "risk_contacts": [],
+        "edge_contacts": [
+          379,
+          382,
+          383
+        ],
+        "radius_of_gyration_A": 14.375,
+        "max_CA_span_A": 45.523,
+        "severe_clashes_lt_2A": 0,
+        "checks": {
+          "binder_45_60": true,
+          "preferred_ge_2": false,
+          "risk_eq_0": true,
+          "edge_contacts_le_1": false,
+          "rg_le_16_5": true,
+          "span_le_52": true,
+          "clashes_le_10": true
+        },
+        "scientific_pass": false
+      }
+    }
+  ]
+}
