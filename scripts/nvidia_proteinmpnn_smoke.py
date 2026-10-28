@@ -15,8 +15,8 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 URL = "https://health.api.nvidia.com/v1/biology/ipd/proteinmpnn/predict"
-DEFAULT_BACKBONE = ROOT / "designs/family_A_conserved/smoke/rfdiffusion_backbone_002.pdb"
-OUTDIR = ROOT / "designs/family_A_conserved/proteinmpnn_002"
+DEFAULT_BACKBONE = ROOT / "designs/family_A_conserved/seeded_selection/selected_backbone.pdb"
+OUTDIR = ROOT / "designs/family_A_conserved/proteinmpnn_seeded"
 
 
 def post_json(url: str, payload: dict, api_key: str) -> dict:

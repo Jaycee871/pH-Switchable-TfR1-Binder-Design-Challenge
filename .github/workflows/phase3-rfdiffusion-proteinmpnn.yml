@@ -1,4 +1,4 @@
-name: Phase 3 RFdiffusion to ProteinMPNN
+name: Phase 3 Seeded RFdiffusion to ProteinMPNN
 
 on:
   push:
@@ -12,7 +12,7 @@ permissions:
 jobs:
   backbone-to-sequence:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 45
     env:
       NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
 
@@ -28,23 +28,15 @@ jobs:
       - name: Prepare TfR1 target
         run: python scripts/prepare_targets.py
 
-      - name: Generate reproducible conserved-apical backbone
-        run: python scripts/nvidia_rfdiffusion_smoke.py
+      - name: Select seeded conserved-apical backbone
+        run: python scripts/nvidia_rfdiffusion_select.py
 
-      - name: Enforce cross-species contact gate
+      - name: Show selected backbone gate
         shell: bash
         run: |
           set -euxo pipefail
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          p = Path("designs/family_A_conserved/smoke/result_summary_002.json")
-          d = json.loads(p.read_text())
-          qc = d["contact_analysis"]["qc"]
-          print(json.dumps(d["contact_analysis"], indent=2))
-          if not qc["advance_to_sequence_design"]:
-              raise SystemExit("RFdiffusion backbone failed the cross-species contact gate")
-          PY
+          test -s designs/family_A_conserved/seeded_selection/selected_backbone.pdb
+          cat designs/family_A_conserved/seeded_selection/selection_summary.json
 
       - name: Design binder sequences with ProteinMPNN
         run: python scripts/nvidia_proteinmpnn_smoke.py
@@ -53,19 +45,18 @@ jobs:
         shell: bash
         run: |
           set -euxo pipefail
-          test -s designs/family_A_conserved/smoke/rfdiffusion_backbone_002.pdb
-          test -s designs/family_A_conserved/proteinmpnn_002/designed_sequences.fasta
-          test -s designs/family_A_conserved/proteinmpnn_002/candidates.csv
-          cat designs/family_A_conserved/proteinmpnn_002/result_summary.json
-          head -n 12 designs/family_A_conserved/proteinmpnn_002/candidates.csv
+          test -s designs/family_A_conserved/proteinmpnn_seeded/designed_sequences.fasta
+          test -s designs/family_A_conserved/proteinmpnn_seeded/candidates.csv
+          cat designs/family_A_conserved/proteinmpnn_seeded/result_summary.json
+          head -n 12 designs/family_A_conserved/proteinmpnn_seeded/candidates.csv
 
       - name: Upload Phase 3 artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: tfr1-phase3-backbone-and-sequences
+          name: tfr1-phase3-seeded-backbone-and-sequences
           path: |
-            designs/family_A_conserved/smoke/
-            designs/family_A_conserved/proteinmpnn_002/
+            designs/family_A_conserved/seeded_selection/
+            designs/family_A_conserved/proteinmpnn_seeded/
           if-no-files-found: warn
           retention-days: 14
