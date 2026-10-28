@@ -1,0 +1,71 @@
+name: Phase 7A Validate K344 V2H Mutants
+
+on:
+  push:
+    paths:
+      - ".github/workflows/phase7a-validate-k344-v2h.yml"
+      - "scripts/nvidia_boltz2_validate_k344_v2h.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate-v2h:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      NVIDIA_API_KEY1: ${{ secrets.NVIDIA_API_KEY1 }}
+      NVIDIA_API_TOKEN: ${{ secrets.NVIDIA_API_TOKEN }}
+      NGC_API_KEY: ${{ secrets.NGC_API_KEY }}
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install structural parser
+        run: python -m pip install "biopython>=1.84"
+
+      - name: Validate two engineered V2H mutants
+        env:
+          RF_PDB: ${{ github.workspace }}/structures/rfdiffusion/compact_apical/selected_backbone.pdb
+        run: python scripts/nvidia_boltz2_validate_k344_v2h.py
+
+      - name: Inspect pose gates
+        shell: bash
+        run: |
+          set -euxo pipefail
+          test -s predictions/k344_v2h_validation/batch_summary.json
+          cat predictions/k344_v2h_validation/batch_summary.json
+
+      - name: Commit validation summaries and structures
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add predictions/k344_v2h_validation
+          if git diff --cached --quiet; then
+            echo "No Phase 7A changes."
+            exit 0
+          fi
+          git commit -m "Add Phase 7A K344 V2H structural validation"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Upload validation artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-phase7a-k344-v2h-validation
+          path: predictions/k344_v2h_validation/
+          if-no-files-found: warn
+          retention-days: 14
