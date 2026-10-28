@@ -1,0 +1,52 @@
+name: Phase 1 Target Preparation
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/prepare_targets.py"
+      - ".github/workflows/phase1-target-prep.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  target-prep:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Prepare TfR1 targets
+        run: python scripts/prepare_targets.py
+
+      - name: Validate outputs
+        shell: bash
+        run: |
+          set -euxo pipefail
+          test -s structures/11QC.pdb
+          test -s structures/11RN.pdb
+          test -s metadata/target_manifest.json
+          grep -q "P02786-1" metadata/target_manifest.json
+          grep -q "Q62351" metadata/target_manifest.json
+          wc -c structures/11QC.pdb structures/11RN.pdb
+          cat metadata/target_manifest.json
+
+      - name: Upload prepared target assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-phase1-target-assets
+          path: |
+            structures/11QC.pdb
+            structures/11RN.pdb
+            metadata/target_manifest.json
+            data/human_TfR1/human_TfR1_P02786_121-760.fasta
+            data/mouse_TfR1/mouse_TfR1_Q62351_123-763.fasta
+          if-no-files-found: error
+          retention-days: 14
