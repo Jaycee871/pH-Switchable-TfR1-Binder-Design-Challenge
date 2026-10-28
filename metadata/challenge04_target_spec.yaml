@@ -1,0 +1,56 @@
+challenge: "Anthropic x Adaptyv Protein Design Competition 2026 - Challenge 04"
+target: "TfR1 / CD71 / transferrin receptor protein 1"
+
+human:
+  uniprot: "P02786-1"
+  construct_residues: "121-760"
+  construct_length: 640
+  oligomeric_state: "homodimer"
+  structure_reference: "11QC"
+  structure_chains: ["A", "B"]
+  recommended_epitope: "apical domain"
+
+mouse:
+  uniprot: "Q62351"
+  construct_residues: "123-763"
+  construct_length: 641
+  oligomeric_state: "homodimer"
+
+objectives:
+  - "Human TfR1 binding at pH 7.4"
+  - "Mouse TfR1 cross-reactivity at pH 7.4"
+  - "Human TfR1 release / strongly reduced binding at pH 6.0"
+
+ranking_priority:
+  - "pH-selective binding"
+  - "mouse cross-reactivity"
+  - "human affinity"
+
+functional_epitope:
+  human_patch: "202-215, 348, 371"
+  anchor_region: "around Y211"
+  notes:
+    - "Avoid over-dependence on human-specific side chains when optimizing cross-species binding."
+    - "Proteinbase reports six of nine key apical-patch positions differ between human and mouse."
+    - "Use Proteinbase's structure-aware hotspot correspondence for ambiguous indel positions."
+
+official_hotspot_correspondence:
+  - {human: "D204", mouse: "Q207"}
+  - {human: "R208", mouse: "N211"}
+  - {human: "V210", mouse: "D213"}
+  - {human: "Y211", mouse: "P214"}
+  - {human: "L212", mouse: null}
+  - {human: "N348", mouse: "K350"}
+  - {human: "K371", mouse: "Q373"}
+
+design_states:
+  positive:
+    - "human_TfR1_pH7.4"
+    - "mouse_TfR1_pH7.4"
+  negative:
+    - "human_TfR1_pH6.0"
+
+sources:
+  challenge_page: "https://proteinbase.com/competitions/anthropic-adaptyv-2026/challenges/tfr1"
+  human_structure: "https://www.rcsb.org/structure/11QC"
+  mouse_uniprot_fasta: "https://rest.uniprot.org/uniprotkb/Q62351.fasta"
