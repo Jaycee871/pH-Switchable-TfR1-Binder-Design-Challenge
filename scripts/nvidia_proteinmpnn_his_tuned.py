@@ -274,7 +274,7 @@ def main() -> None:
                 "filter": {
                     "min_histidines": MIN_HISTIDINES,
                     "max_histidines": MAX_HISTIDINES,
-                    "requires_structured_cluster_histidine": true,
+                    "requires_structured_cluster_histidine": True,
                     "max_single_aa_fraction": MAX_SINGLE_AA_FRACTION,
                     "max_homopolymer_run": MAX_HOMOPOLYMER_RUN,
                     "submission_length_range": [SUBMISSION_MIN_AA, SUBMISSION_MAX_AA],
