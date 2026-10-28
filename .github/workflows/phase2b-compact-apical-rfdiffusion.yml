@@ -1,0 +1,49 @@
+name: Phase 2B Compact Apical RFdiffusion
+
+on:
+  push:
+    paths:
+      - ".github/workflows/phase2b-compact-apical-rfdiffusion.yml"
+      - "scripts/nvidia_rfdiffusion_compact_apical.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compact-apical:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Prepare target
+        run: python scripts/prepare_targets.py
+
+      - name: Generate and gate compact apical backbones
+        run: python scripts/nvidia_rfdiffusion_compact_apical.py
+
+      - name: Validate selected backbone
+        shell: bash
+        run: |
+          set -euxo pipefail
+          test -s designs/family_A_conserved/compact_apical_backbones/selected_backbone.pdb
+          cat designs/family_A_conserved/compact_apical_backbones/selection_summary.json
+
+      - name: Upload all attempts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-compact-apical-rfdiffusion
+          path: designs/family_A_conserved/compact_apical_backbones/
+          if-no-files-found: warn
+          retention-days: 14
