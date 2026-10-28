@@ -22,10 +22,23 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Check whether Kaggle outputs are present
+        id: have_outputs
+        shell: bash
+        run: |
+          if find predictions/rfdiffusion_pilot_v1/kaggle -type f -name 'design_*.pdb' -print -quit 2>/dev/null | grep -q .; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "Kaggle RFdiffusion outputs have not been synced yet; gate is armed and will run after the output commit."
+          fi
+
       - name: Gate synced Kaggle RFdiffusion backbones
+        if: steps.have_outputs.outputs.present == 'true'
         run: python scripts/select_kaggle_backbones.py
 
       - name: Commit strict-gate outputs
+        if: steps.have_outputs.outputs.present == 'true'
         shell: bash
         run: |
           set -euo pipefail
