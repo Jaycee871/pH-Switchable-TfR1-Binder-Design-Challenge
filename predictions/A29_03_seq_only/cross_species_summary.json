@@ -1,0 +1,71 @@
+{
+  "candidate_id": "TFR1_A29_MPNN_03",
+  "binder_sequence": "ALDEEVEKLLKEVQALEKEVAALKKKKKELEEKAKKEKNEEAEKIKEEAKKLGKEKEEKEEKLKELEKKLSEKAKKYGDKLEEEKKK",
+  "binder_length": 87,
+  "species": {
+    "human": {
+      "target_length": 640,
+      "binder_length": 87,
+      "confidence_scores": [
+        0.7512149810791016
+      ],
+      "structure_count": 1,
+      "metric_keys": [
+        "affinity_prediction_time_seconds",
+        "artifact_write_time_seconds",
+        "dataloader_setup_time_seconds",
+        "input_preparation_time_seconds",
+        "model_forward_time_seconds",
+        "model_inference_time_seconds",
+        "postprocess_time_seconds",
+        "postprocessing_time_seconds",
+        "response_construction_time_seconds",
+        "total_time_seconds"
+      ],
+      "metrics": {
+        "total_time_seconds": 5.63586985366419,
+        "input_preparation_time_seconds": 0.0,
+        "dataloader_setup_time_seconds": 0.0,
+        "model_inference_time_seconds": 5.2907722550444305,
+        "postprocessing_time_seconds": 5.554407835006714e-05,
+        "affinity_prediction_time_seconds": 0.0,
+        "response_construction_time_seconds": 0.0,
+        "artifact_write_time_seconds": 0.2173156449571252,
+        "postprocess_time_seconds": 0.23347686417400837,
+        "model_forward_time_seconds": 5.057295390870422
+      }
+    },
+    "mouse": {
+      "target_length": 641,
+      "binder_length": 87,
+      "confidence_scores": [
+        0.4430822432041168
+      ],
+      "structure_count": 1,
+      "metric_keys": [
+        "affinity_prediction_time_seconds",
+        "artifact_write_time_seconds",
+        "dataloader_setup_time_seconds",
+        "input_preparation_time_seconds",
+        "model_forward_time_seconds",
+        "model_inference_time_seconds",
+        "postprocess_time_seconds",
+        "postprocessing_time_seconds",
+        "response_construction_time_seconds",
+        "total_time_seconds"
+      ],
+      "metrics": {
+        "total_time_seconds": 5.2807040507905185,
+        "input_preparation_time_seconds": 0.0,
+        "dataloader_setup_time_seconds": 0.0,
+        "model_inference_time_seconds": 4.907270343974233,
+        "postprocessing_time_seconds": 5.997205153107643e-05,
+        "affinity_prediction_time_seconds": 0.0,
+        "response_construction_time_seconds": 0.0,
+        "artifact_write_time_seconds": 0.2168772779405117,
+        "postprocess_time_seconds": 0.23319658683612943,
+        "model_forward_time_seconds": 4.674073757138103
+      }
+    }
+  }
+}
