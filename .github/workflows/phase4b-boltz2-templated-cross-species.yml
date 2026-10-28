@@ -1,0 +1,69 @@
+name: Phase 4B Templated Boltz2 Cross-Species
+
+on:
+  push:
+    paths:
+      - ".github/workflows/phase4b-boltz2-templated-cross-species.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  boltz2-templated:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Prepare target FASTAs
+        run: python scripts/prepare_targets.py
+
+      - name: Recover RFdiffusion seed 20261029
+        uses: actions/download-artifact@v4
+        with:
+          name: tfr1-phase3-seeded-backbone-and-sequences
+          path: recovered
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: 40681815723
+
+      - name: Build sequence-compatible complex template
+        env:
+          RF_PDB: ${{ github.workspace }}/recovered/seeded_selection/rfdiffusion_seed_20261029.pdb
+          TEMPLATE_PDB: ${{ github.workspace }}/predictions/templates/A29_03_rf_seed20261029_template.pdb
+        run: python scripts/make_rf_complex_template.py
+
+      - name: Run templated human and mouse Boltz2
+        env:
+          TEMPLATE_PDB: ${{ github.workspace }}/predictions/templates/A29_03_rf_seed20261029_template.pdb
+        run: python scripts/nvidia_boltz2_templated_cross_species.py
+
+      - name: Validate outputs
+        shell: bash
+        run: |
+          set -euxo pipefail
+          test -s predictions/templates/A29_03_rf_seed20261029_template.pdb
+          test -s predictions/family_A_A29_03_templated/human/structure_1.cif
+          test -s predictions/family_A_A29_03_templated/mouse/structure_1.cif
+          cat predictions/family_A_A29_03_templated/cross_species_summary.json
+
+      - name: Upload templated predictions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-A29-03-boltz2-templated-human-mouse
+          path: |
+            predictions/templates/A29_03_rf_seed20261029_template.pdb
+            predictions/family_A_A29_03_templated/
+          if-no-files-found: warn
+          retention-days: 14
