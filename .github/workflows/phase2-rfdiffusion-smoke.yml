@@ -1,0 +1,50 @@
+name: Phase 2 RFdiffusion Smoke Test
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/nvidia_rfdiffusion_smoke.py"
+      - ".github/workflows/phase2-rfdiffusion-smoke.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  rfdiffusion-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Prepare target assets
+        run: python scripts/prepare_targets.py
+
+      - name: Run one hosted RFdiffusion backbone
+        run: python scripts/nvidia_rfdiffusion_smoke.py
+
+      - name: Validate generated backbone
+        shell: bash
+        run: |
+          set -euxo pipefail
+          test -s designs/family_A_conserved/smoke/rfdiffusion_backbone_001.pdb
+          test -s designs/family_A_conserved/smoke/result_summary.json
+          cat designs/family_A_conserved/smoke/result_summary.json
+
+      - name: Upload smoke-test result
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfr1-rfdiffusion-smoke
+          path: |
+            designs/family_A_conserved/smoke/
+          if-no-files-found: error
+          retention-days: 14
