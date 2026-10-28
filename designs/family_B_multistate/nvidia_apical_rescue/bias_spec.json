@@ -1,0 +1,17 @@
+{
+  "alphabet": "ACDEFGHIKLMNPQRSTVWYX",
+  "primary_tolerance": [
+    74,
+    75,
+    76
+  ],
+  "support": [
+    73,
+    77
+  ],
+  "g347_contact": [
+    71
+  ],
+  "preferred_residues": "AGQNST",
+  "rationale": "neutral tolerance across conserved L209 and human V210 / mouse D213"
+}

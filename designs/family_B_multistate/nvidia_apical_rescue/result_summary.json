@@ -1,0 +1,13 @@
+{
+  "candidate_count": 16,
+  "prefilter_pass_count": 2,
+  "pose_screen_ids": [
+    "TFR1_XS343_14",
+    "TFR1_XS343_12"
+  ],
+  "primary_tolerance_positions": [
+    74,
+    75,
+    76
+  ]
+}
