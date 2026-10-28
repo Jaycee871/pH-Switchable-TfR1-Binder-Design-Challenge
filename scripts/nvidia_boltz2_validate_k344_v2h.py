@@ -128,6 +128,23 @@ def post_json(payload: dict, api_key: str, max_attempts: int = 5) -> dict:
                 print(f"Boltz2 429 attempt {attempt}; retrying after {sleep_s}s", flush=True)
                 time.sleep(sleep_s)
                 continue
+            transient_422 = (
+                exc.code == 422
+                and (
+                    "InfrastructureError" in detail
+                    or "AcceleratorError" in detail
+                    or "CUDA error" in detail
+                )
+            )
+            if transient_422 and attempt < max_attempts:
+                sleep_s = 30 * attempt
+                print(
+                    f"Boltz2 infrastructure 422 attempt {attempt}; "
+                    f"retrying after {sleep_s}s",
+                    flush=True,
+                )
+                time.sleep(sleep_s)
+                continue
             if exc.code in {500, 502, 503, 504} and attempt < max_attempts:
                 sleep_s = 20 * attempt
                 print(f"Boltz2 HTTP {exc.code} attempt {attempt}; retrying after {sleep_s}s", flush=True)
