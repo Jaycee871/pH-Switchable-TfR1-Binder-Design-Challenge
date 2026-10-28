@@ -24,7 +24,7 @@ TARGETS = {
     "mouse": ROOT / "data/mouse_TfR1/mouse_TfR1_Q62351_123-763.fasta",
 }
 
-DEFAULT_TEMPLATE = ROOT / "predictions/templates/A29_03_rf_seed20261029_template.pdb"
+DEFAULT_TEMPLATE = ROOT / "predictions/templates/A29_03_rf_seed20261029_template.cif"
 
 
 def parse_fasta(path: Path) -> str:
@@ -83,7 +83,7 @@ def main() -> None:
                     "structural_templates": [
                         {
                             "structure": template,
-                            "format": "pdb",
+                            "format": "cif",
                             "name": "rfseed20261029_target",
                             "chain_id": "A",
                         }
@@ -96,7 +96,7 @@ def main() -> None:
                     "structural_templates": [
                         {
                             "structure": template,
-                            "format": "pdb",
+                            "format": "cif",
                             "name": "rfseed20261029_binder",
                             "chain_id": "B",
                         }
@@ -130,6 +130,14 @@ def main() -> None:
             "target_length": len(target),
             "binder_length": len(BINDER),
             "confidence_scores": result.get("confidence_scores", []),
+            "ptm_scores": result.get("ptm_scores", []),
+            "iptm_scores": result.get("iptm_scores", []),
+            "protein_iptm_scores": result.get("protein_iptm_scores", []),
+            "complex_plddt_scores": result.get("complex_plddt_scores", []),
+            "complex_iplddt_scores": result.get("complex_iplddt_scores", []),
+            "complex_pde_scores": result.get("complex_pde_scores", []),
+            "complex_ipde_scores": result.get("complex_ipde_scores", []),
+            "pair_chains_iptm_scores": result.get("pair_chains_iptm_scores", []),
             "structure_count": len(structures),
             "metrics": result.get("metrics", {}),
         }
