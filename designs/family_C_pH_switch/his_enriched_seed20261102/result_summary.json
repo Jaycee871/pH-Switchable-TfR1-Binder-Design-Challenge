@@ -1,0 +1,161 @@
+{
+  "phase": "6",
+  "candidate_count": 24,
+  "candidate_lengths": [
+    57
+  ],
+  "input_rows_excluded": 1,
+  "core_positions": [
+    1,
+    2,
+    5,
+    41,
+    45
+  ],
+  "rim_positions": [
+    3,
+    4,
+    6,
+    44
+  ],
+  "outer_positions": [
+    37,
+    38,
+    40,
+    42,
+    46,
+    48,
+    49,
+    52,
+    55,
+    56
+  ],
+  "histidine_bias": {
+    "core": 4.0,
+    "rim": 3.0,
+    "outer": 1.5
+  },
+  "histidine_counts": [
+    8,
+    8,
+    8,
+    8,
+    10,
+    10,
+    8,
+    9,
+    7,
+    5,
+    8,
+    9,
+    4,
+    6,
+    10,
+    9,
+    10,
+    9,
+    6,
+    10,
+    7,
+    9,
+    8,
+    9
+  ],
+  "histidine_count_min": 4,
+  "histidine_count_max": 10,
+  "histidine_count_mean": 8.12,
+  "designs_with_zero_histidine": 0,
+  "interface_histidine_counts": [
+    7,
+    8,
+    7,
+    7,
+    9,
+    9,
+    7,
+    8,
+    7,
+    4,
+    7,
+    8,
+    3,
+    5,
+    9,
+    8,
+    8,
+    9,
+    6,
+    9,
+    7,
+    7,
+    8,
+    8
+  ],
+  "min_histidines_required": 3,
+  "passing_count": 18,
+  "passing_ids": [
+    "TFR1_H57_01",
+    "TFR1_H57_03",
+    "TFR1_H57_04",
+    "TFR1_H57_07",
+    "TFR1_H57_08",
+    "TFR1_H57_09",
+    "TFR1_H57_10",
+    "TFR1_H57_11",
+    "TFR1_H57_12",
+    "TFR1_H57_13",
+    "TFR1_H57_14",
+    "TFR1_H57_16",
+    "TFR1_H57_17",
+    "TFR1_H57_19",
+    "TFR1_H57_21",
+    "TFR1_H57_22",
+    "TFR1_H57_23",
+    "TFR1_H57_24"
+  ],
+  "rejected": [
+    {
+      "candidate_id": "TFR1_H57_02",
+      "histidine_count": 8,
+      "composition_flags": "homopolymer_run_6"
+    },
+    {
+      "candidate_id": "TFR1_H57_05",
+      "histidine_count": 10,
+      "composition_flags": "homopolymer_run_6"
+    },
+    {
+      "candidate_id": "TFR1_H57_06",
+      "histidine_count": 10,
+      "composition_flags": "homopolymer_run_6"
+    },
+    {
+      "candidate_id": "TFR1_H57_15",
+      "histidine_count": 10,
+      "composition_flags": "homopolymer_run_6"
+    },
+    {
+      "candidate_id": "TFR1_H57_18",
+      "histidine_count": 9,
+      "composition_flags": "homopolymer_run_6"
+    },
+    {
+      "candidate_id": "TFR1_H57_20",
+      "histidine_count": 10,
+      "composition_flags": "homopolymer_run_6"
+    }
+  ],
+  "core_position_occupancy": {
+    "1": "HHHHHHHHHHHHHHHHHHHHHHHH",
+    "2": "VHVVHHVVVVVVVVHHVHVHVVVV",
+    "5": "HHHHHHHHHHHHHHHHHHHHHHHH",
+    "41": "HSHHHHHHHHHHSHHHHHHHHHHH",
+    "45": "HHHLHHHHHLLHHHHHHHHHHLHH"
+  },
+  "rim_position_occupancy": {
+    "3": "EHEHHHHHHEHHEEHHHHEHHHHH",
+    "4": "HHHHHHHHHHHHEDHDHHHHHHHH",
+    "6": "HHHHHHRHHEHHERHHHHRHRHHH",
+    "44": "HHHHHHHHEEHHVHHHHHHHHHHH"
+  }
+}

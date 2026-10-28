@@ -1,0 +1,61 @@
+{
+  "phase": "6",
+  "endpoint": "https://health.api.nvidia.com/v1/biology/ipd/proteinmpnn/predict",
+  "backbone": "/home/runner/work/pH-Switchable-TfR1-Binder-Design-Challenge/pH-Switchable-TfR1-Binder-Design-Challenge/structures/rfdiffusion/compact_apical/selected_backbone.pdb",
+  "backbone_source": "structures/rfdiffusion/compact_apical/selected_backbone.pdb (RFdiffusion seed 20261102, run 40685364707, scientific_pass=true)",
+  "designed_chain": "A",
+  "fixed_target_chain": "B",
+  "binder_length": 57,
+  "num_seq_per_target": 12,
+  "sampling_temp": [
+    0.1,
+    0.2
+  ],
+  "use_soluble_model": false,
+  "omit_AAs": [
+    "C"
+  ],
+  "random_seed": 20261106,
+  "core_positions": [
+    1,
+    2,
+    5,
+    41,
+    45
+  ],
+  "rim_positions": [
+    3,
+    4,
+    6,
+    44
+  ],
+  "outer_positions": [
+    37,
+    38,
+    40,
+    42,
+    46,
+    48,
+    49,
+    52,
+    55,
+    56
+  ],
+  "histidine_bias": {
+    "core": 4.0,
+    "rim": 3.0,
+    "outer": 1.5,
+    "charge_penalty_core": -1.0,
+    "charge_penalty_rim": -0.6,
+    "rationale": "Phase 3D used +0.60 to +1.25 for H and produced zero histidines in 12/12 designs. Bias adds to logits, so +4.0 is ~exp(4)=55x odds; chosen as the smallest round magnitude well above the value already shown to fail, while remaining a bias rather than a hard constraint."
+  },
+  "filter": {
+    "min_histidines": 3,
+    "max_single_aa_fraction": 0.5,
+    "max_homopolymer_run": 5,
+    "submission_length_range": [
+      10,
+      250
+    ]
+  }
+}
