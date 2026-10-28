@@ -1,0 +1,213 @@
+{
+  "phase": "6B",
+  "candidate_count": 24,
+  "candidate_lengths": [
+    57
+  ],
+  "input_rows_excluded": 1,
+  "core_positions": [
+    2,
+    5,
+    41,
+    45
+  ],
+  "rim_positions": [
+    44
+  ],
+  "outer_positions": [],
+  "histidine_bias": {
+    "core": 2.0,
+    "rim": 1.3,
+    "outer": 0.0
+  },
+  "histidine_counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "histidine_count_min": 0,
+  "histidine_count_max": 0,
+  "histidine_count_mean": 0.0,
+  "designs_with_zero_histidine": 24,
+  "interface_histidine_counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "min_histidines_required": 2,
+  "passing_count": 0,
+  "passing_ids": [],
+  "rejected": [
+    {
+      "candidate_id": "TFR1_HT57_01",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_3"
+    },
+    {
+      "candidate_id": "TFR1_HT57_02",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_3"
+    },
+    {
+      "candidate_id": "TFR1_HT57_03",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_5"
+    },
+    {
+      "candidate_id": "TFR1_HT57_04",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_HT57_05",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_5"
+    },
+    {
+      "candidate_id": "TFR1_HT57_06",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_3"
+    },
+    {
+      "candidate_id": "TFR1_HT57_07",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_4"
+    },
+    {
+      "candidate_id": "TFR1_HT57_08",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_4"
+    },
+    {
+      "candidate_id": "TFR1_HT57_09",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_4"
+    },
+    {
+      "candidate_id": "TFR1_HT57_10",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_4"
+    },
+    {
+      "candidate_id": "TFR1_HT57_11",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_5"
+    },
+    {
+      "candidate_id": "TFR1_HT57_12",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_4"
+    },
+    {
+      "candidate_id": "TFR1_HT57_13",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_HT57_14",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_5"
+    },
+    {
+      "candidate_id": "TFR1_HT57_15",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_4"
+    },
+    {
+      "candidate_id": "TFR1_HT57_16",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_4"
+    },
+    {
+      "candidate_id": "TFR1_HT57_17",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_3"
+    },
+    {
+      "candidate_id": "TFR1_HT57_18",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_3"
+    },
+    {
+      "candidate_id": "TFR1_HT57_19",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_3"
+    },
+    {
+      "candidate_id": "TFR1_HT57_20",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_4"
+    },
+    {
+      "candidate_id": "TFR1_HT57_21",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_3"
+    },
+    {
+      "candidate_id": "TFR1_HT57_22",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_4"
+    },
+    {
+      "candidate_id": "TFR1_HT57_23",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_3"
+    },
+    {
+      "candidate_id": "TFR1_HT57_24",
+      "histidine_count": 0,
+      "composition_flags": "homopolymer_run_5"
+    }
+  ],
+  "core_position_occupancy": {
+    "2": "VVVVVVVVVVVVVVVVVVVVVVVV",
+    "5": "NNNNNNNNNNNNNNNSNNNNNSNN",
+    "41": "SSSSSSSSSSSSSSSASSSSSSSS",
+    "45": "LLLLLLLLLLLLLLLLLLLLLLLL"
+  },
+  "rim_position_occupancy": {
+    "44": "EEEEKEEKEEEEVEEEEEKEEEEK"
+  }
+}

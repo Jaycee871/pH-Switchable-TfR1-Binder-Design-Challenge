@@ -1,0 +1,48 @@
+{
+  "phase": "6B",
+  "endpoint": "https://health.api.nvidia.com/v1/biology/ipd/proteinmpnn/predict",
+  "backbone": "/home/runner/work/pH-Switchable-TfR1-Binder-Design-Challenge/pH-Switchable-TfR1-Binder-Design-Challenge/structures/rfdiffusion/compact_apical/selected_backbone.pdb",
+  "backbone_source": "structures/rfdiffusion/compact_apical/selected_backbone.pdb (RFdiffusion seed 20261102, run 40685364707, scientific_pass=true)",
+  "designed_chain": "A",
+  "fixed_target_chain": "B",
+  "binder_length": 57,
+  "num_seq_per_target": 12,
+  "sampling_temp": [
+    0.1,
+    0.2
+  ],
+  "use_soluble_model": false,
+  "omit_AAs": [
+    "C"
+  ],
+  "random_seed": 20261106,
+  "core_positions": [
+    2,
+    5,
+    41,
+    45
+  ],
+  "rim_positions": [
+    44
+  ],
+  "outer_positions": [],
+  "histidine_bias": {
+    "core": 2.0,
+    "rim": 1.3,
+    "outer": 0.0,
+    "charge_penalty_core": -0.35,
+    "charge_penalty_rim": -0.2,
+    "rationale": "Phase 3D used <=+1.25 and produced zero H; Phase 6 used +4/+3 and saturated the interface. This round tests the intermediate +2.0/+1.3 window at a non-contiguous subset (2,5,41,44,45), preserving structural choice and avoiding the Phase-6 N-terminal poly-His artifact."
+  },
+  "filter": {
+    "min_histidines": 2,
+    "max_histidines": 5,
+    "requires_structured_cluster_histidine": true,
+    "max_single_aa_fraction": 0.5,
+    "max_homopolymer_run": 2,
+    "submission_length_range": [
+      10,
+      250
+    ]
+  }
+}
