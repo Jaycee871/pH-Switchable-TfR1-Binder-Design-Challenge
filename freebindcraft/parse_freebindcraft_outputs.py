@@ -106,10 +106,9 @@ def contact_metrics(path: Path):
 
 def find_accepted_pdb(design_dir: Path, design: str):
     accepted = design_dir / "Accepted"
-    candidates = [
-        accepted / f"{design}.pdb",
-        *accepted.glob(f"**/{design}.pdb") if accepted.exists() else [],
-    ]
+    candidates = [accepted / f"{design}.pdb"]
+    if accepted.exists():
+        candidates.extend(accepted.glob(f"**/{design}.pdb"))
     for p in candidates:
         if p.exists():
             return p
