@@ -1,0 +1,135 @@
+{
+  "artifact_id": 12819931444,
+  "workflow_run": 40693795296,
+  "note": "RFdiffusion output target residues were renumbered. Corrected gate remaps target output residue IDs back to human apical-domain numbering with human = output - target_first + 189. The pilot's own geometry_pass is not used as a scientific gate.",
+  "gate": {
+    "min_preferred_contacts": 2,
+    "max_risk_contacts": 1,
+    "max_radius_of_gyration_A": 18,
+    "max_CA_span_A": 60,
+    "max_severe_clashes_lt_2A": 10
+  },
+  "candidates": [
+    {
+      "family": "cross_species_edge_5",
+      "design": "design_0",
+      "binder_length": 82,
+      "contacts": [
+        291,
+        343,
+        347
+      ],
+      "preferred": [
+        343,
+        347
+      ],
+      "risk": [],
+      "rg_A": 18.812,
+      "ca_span_A": 64.808,
+      "clashes": 0,
+      "scientific_pass": false
+    },
+    {
+      "family": "cross_species_edge_5",
+      "design": "design_1",
+      "binder_length": 97,
+      "contacts": [
+        209,
+        210
+      ],
+      "preferred": [
+        209
+      ],
+      "risk": [
+        210
+      ],
+      "rg_A": 22.9,
+      "ca_span_A": 82.923,
+      "clashes": 0,
+      "scientific_pass": false
+    },
+    {
+      "family": "cross_species_loop_5",
+      "design": "design_0",
+      "binder_length": 94,
+      "contacts": [
+        196,
+        209,
+        210
+      ],
+      "preferred": [
+        209
+      ],
+      "risk": [
+        210
+      ],
+      "rg_A": 22.825,
+      "ca_span_A": 81.514,
+      "clashes": 0,
+      "scientific_pass": false
+    },
+    {
+      "family": "cross_species_loop_5",
+      "design": "design_1",
+      "binder_length": 96,
+      "contacts": [
+        209,
+        210,
+        212
+      ],
+      "preferred": [
+        209
+      ],
+      "risk": [
+        210,
+        212
+      ],
+      "rg_A": 14.083,
+      "ca_span_A": 45.01,
+      "clashes": 0,
+      "scientific_pass": false
+    },
+    {
+      "family": "functional_patch_mixed_5",
+      "design": "design_0",
+      "binder_length": 98,
+      "contacts": [
+        210,
+        343,
+        347
+      ],
+      "preferred": [
+        343,
+        347
+      ],
+      "risk": [
+        210
+      ],
+      "rg_A": 17.427,
+      "ca_span_A": 68.065,
+      "clashes": 0,
+      "scientific_pass": false
+    },
+    {
+      "family": "functional_patch_mixed_5",
+      "design": "design_1",
+      "binder_length": 93,
+      "contacts": [
+        210
+      ],
+      "preferred": [],
+      "risk": [
+        210
+      ],
+      "rg_A": 12.889,
+      "ca_span_A": 41.758,
+      "clashes": 0,
+      "scientific_pass": false
+    }
+  ],
+  "passing_count": 0,
+  "near_misses": [
+    "cross_species_edge_5/design_0: preferred 343/347, no risk contacts, but Rg 18.812 A and CA span 64.808 A exceed compactness gates.",
+    "functional_patch_mixed_5/design_0: preferred 343/347 with one risk contact 210 and acceptable Rg 17.427 A, but CA span 68.065 A exceeds the 60 A gate."
+  ]
+}
