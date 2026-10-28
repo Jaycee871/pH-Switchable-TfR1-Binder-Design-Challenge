@@ -1,0 +1,8 @@
+human_residue,mouse_residue,relationship,design_interpretation,source
+D204,Q207,nonconservative,"Do not use as a sole anchor; favor tolerant/backbone-mediated contacts",Proteinbase
+R208,N211,nonconservative,"Avoid salt-bridge dependence specific to human Arg208",Proteinbase
+V210,D213,nonconservative,"Strong chemistry change; treat as cross-species risk position",Proteinbase
+Y211,P214,nonconservative,"Central hotspot but poor side-chain conservation; avoid obligatory aromatic packing",Proteinbase
+L212,,no_direct_counterpart,"Avoid geometry that requires human L212",Proteinbase
+N348,K350,nonconservative,"Favor interface geometry tolerant to polar/positive substitution",Proteinbase
+K371,Q373,nonconservative,"Avoid obligatory Lys-specific salt bridge",Proteinbase
