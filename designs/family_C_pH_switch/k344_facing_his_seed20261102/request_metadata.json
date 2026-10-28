@@ -1,0 +1,43 @@
+{
+  "phase": "6C",
+  "endpoint": "https://health.api.nvidia.com/v1/biology/ipd/proteinmpnn/predict",
+  "backbone": "/home/runner/work/pH-Switchable-TfR1-Binder-Design-Challenge/pH-Switchable-TfR1-Binder-Design-Challenge/structures/rfdiffusion/compact_apical/selected_backbone.pdb",
+  "backbone_source": "structures/rfdiffusion/compact_apical/selected_backbone.pdb (RFdiffusion seed 20261102, run 40685364707, scientific_pass=true)",
+  "designed_chain": "A",
+  "fixed_target_chain": "B",
+  "binder_length": 57,
+  "num_seq_per_target": 12,
+  "sampling_temp": [
+    0.1,
+    0.2
+  ],
+  "use_soluble_model": false,
+  "omit_AAs": [
+    "C"
+  ],
+  "random_seed": 20261106,
+  "core_positions": [
+    2
+  ],
+  "rim_positions": [],
+  "outer_positions": [],
+  "histidine_bias": {
+    "core": 4.0,
+    "rim": 0.0,
+    "outer": 0.0,
+    "charge_penalty_core": -0.5,
+    "charge_penalty_rim": 0.0,
+    "rationale": "Phase 6B showed +2.0 at distributed sites returns zero H. Phase 6 showed position 2 can accept H under +4.0 without requiring the N-terminal 1-6 poly-His block. This round biases position 2 only because it faces conserved K344/K346 and therefore has a specific acid-triggered repulsion hypothesis."
+  },
+  "filter": {
+    "min_histidines": 1,
+    "max_histidines": 3,
+    "required_histidine_position": 2,
+    "max_single_aa_fraction": 0.5,
+    "max_homopolymer_run": 5,
+    "submission_length_range": [
+      10,
+      250
+    ]
+  }
+}

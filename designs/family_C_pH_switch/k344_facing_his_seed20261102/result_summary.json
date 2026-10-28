@@ -1,0 +1,203 @@
+{
+  "phase": "6",
+  "candidate_count": 24,
+  "candidate_lengths": [
+    57
+  ],
+  "input_rows_excluded": 1,
+  "core_positions": [
+    2
+  ],
+  "rim_positions": [],
+  "outer_positions": [],
+  "histidine_bias": {
+    "core": 4.0,
+    "rim": 0.0,
+    "outer": 0.0
+  },
+  "histidine_counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "histidine_count_min": 0,
+  "histidine_count_max": 0,
+  "histidine_count_mean": 0.0,
+  "designs_with_zero_histidine": 24,
+  "interface_histidine_counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "min_histidines_required": 1,
+  "passing_count": 0,
+  "passing_ids": [],
+  "rejected": [
+    {
+      "candidate_id": "TFR1_K344H57_01",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_02",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_03",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_04",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_05",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_06",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_07",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_08",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_09",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_10",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_11",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_12",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_13",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_14",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_15",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_16",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_17",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_18",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_19",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_20",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_21",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_22",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_23",
+      "histidine_count": 0,
+      "composition_flags": ""
+    },
+    {
+      "candidate_id": "TFR1_K344H57_24",
+      "histidine_count": 0,
+      "composition_flags": ""
+    }
+  ],
+  "core_position_occupancy": {
+    "2": "VVVVVVVVVVVVVVVVVVVVVVVV"
+  },
+  "rim_position_occupancy": {}
+}
