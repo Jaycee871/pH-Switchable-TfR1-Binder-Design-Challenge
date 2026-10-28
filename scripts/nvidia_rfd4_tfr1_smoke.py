@@ -36,32 +36,32 @@ HOTSPOT_SELECTIONS = [
 
 
 def build_payload(target_text: str) -> dict:
+    # Hosted NIM condition_spec expects the design specification itself here;
+    # unlike a local multi-example YAML file, do NOT wrap it in an example-name key.
     spec = {
-        EXAMPLE_ID: {
-            "input": TARGET.name,
-            "contig": f"{BINDER_LENGTH}, /0, A190-400",
-            "conditions": {
-                "C_CRDGRP": {
-                    "1": [
-                        {
-                            "select": (
-                                "sel('A/*/*/[N,CA,C,O]') "
-                                "and not has_nan_coord()"
-                            )
-                        }
-                    ]
-                },
-                "C_SEQ": {
-                    "true": [{"select": "sel('A')"}]
-                },
-                "C_HOT": {
-                    "true": [
-                        {"select": selection}
-                        for selection in HOTSPOT_SELECTIONS
-                    ]
-                },
+        "input": TARGET.name,
+        "contig": f"{BINDER_LENGTH}, /0, A190-400",
+        "conditions": {
+            "C_CRDGRP": {
+                "1": [
+                    {
+                        "select": (
+                            "sel('A/*/*/[N,CA,C,O]') "
+                            "and not has_nan_coord()"
+                        )
+                    }
+                ]
             },
-        }
+            "C_SEQ": {
+                "true": [{"select": "sel('A')"}]
+            },
+            "C_HOT": {
+                "true": [
+                    {"select": selection}
+                    for selection in HOTSPOT_SELECTIONS
+                ]
+            },
+        },
     }
 
     return {
