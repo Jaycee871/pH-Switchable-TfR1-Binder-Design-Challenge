@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - ".github/workflows/phase3c-proteinmpnn-standard.yml"
+      - "scripts/nvidia_proteinmpnn_interface.py"
   workflow_dispatch:
 
 permissions:
