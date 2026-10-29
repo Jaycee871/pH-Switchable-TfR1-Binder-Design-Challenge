@@ -1,69 +1,0 @@
-Downloading tfr1_apical_189_383_chainA.pdb to /tmp/fbc_running_output
-  0%|          | 0.00/118k [00:00<?, ?B/s]100%|██████████| 118k/118k [00:00<00:00, 38.9MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_apical_189_383_chainA.pdb
-Downloading advanced_smoke.json to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1
-  0%|          | 0.00/1.81k [00:00<?, ?B/s]100%|██████████| 1.81k/1.81k [00:00<00:00, 12.5MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/advanced_smoke.json
-Downloading TFR1_FBC343_l58_s277952.pdb to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/LowConfidence
-  0%|          | 0.00/155k [00:00<?, ?B/s]100%|██████████| 155k/155k [00:00<00:00, 1.45MB/s]100%|██████████| 155k/155k [00:00<00:00, 1.45MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/LowConfidence/TFR1_FBC343_l58_s277952.pdb
-Downloading TFR1_FBC343_l60_s178683.pdb to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/LowConfidence
-  0%|          | 0.00/155k [00:00<?, ?B/s]100%|██████████| 155k/155k [00:00<00:00, 1.32MB/s]100%|██████████| 155k/155k [00:00<00:00, 1.32MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/LowConfidence/TFR1_FBC343_l60_s178683.pdb
-Downloading TFR1_FBC343_l64_s570488.pdb to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/LowConfidence
-  0%|          | 0.00/160k [00:00<?, ?B/s]100%|██████████| 160k/160k [00:00<00:00, 6.89MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/LowConfidence/TFR1_FBC343_l64_s570488.pdb
-Downloading TFR1_FBC343_l70_s209542.pdb to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/LowConfidence
-  0%|          | 0.00/164k [00:00<?, ?B/s]100%|██████████| 164k/164k [00:00<00:00, 1.50MB/s]100%|██████████| 164k/164k [00:00<00:00, 1.50MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/LowConfidence/TFR1_FBC343_l70_s209542.pdb
-Downloading TFR1_FBC343_l70_s396028.pdb to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/LowConfidence
-  0%|          | 0.00/165k [00:00<?, ?B/s]100%|██████████| 165k/165k [00:00<00:00, 23.0MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/LowConfidence/TFR1_FBC343_l70_s396028.pdb
-Downloading TFR1_FBC343_l67_s385919.pdb to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/Relaxed
-  0%|          | 0.00/326k [00:00<?, ?B/s]100%|██████████| 326k/326k [00:00<00:00, 1.79MB/s]100%|██████████| 326k/326k [00:00<00:00, 1.79MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/Relaxed/TFR1_FBC343_l67_s385919.pdb
-Downloading TFR1_FBC343_l70_s574476.pdb to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/Relaxed
-  0%|          | 0.00/326k [00:00<?, ?B/s]100%|██████████| 326k/326k [00:00<00:00, 3.81MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/Relaxed/TFR1_FBC343_l70_s574476.pdb
-Downloading TFR1_FBC343_l73_s257087.pdb to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/Relaxed
-  0%|          | 0.00/330k [00:00<?, ?B/s]100%|██████████| 330k/330k [00:00<00:00, 1.74MB/s]100%|██████████| 330k/330k [00:00<00:00, 1.73MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/Relaxed/TFR1_FBC343_l73_s257087.pdb
-Downloading failure_csv.csv to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs
-  0%|          | 0.00/1.09k [00:00<?, ?B/s]100%|██████████| 1.09k/1.09k [00:00<00:00, 8.18MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/failure_csv.csv
-Downloading final_design_stats.csv to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs
-  0%|          | 0.00/3.85k [00:00<?, ?B/s]100%|██████████| 3.85k/3.85k [00:00<00:00, 20.9MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/final_design_stats.csv
-Downloading mpnn_design_stats.csv to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs
-  0%|          | 0.00/3.85k [00:00<?, ?B/s]100%|██████████| 3.85k/3.85k [00:00<00:00, 26.0MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/mpnn_design_stats.csv
-Downloading rejected_mpnn_full_stats.csv to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs
-  0%|          | 0.00/3.66k [00:00<?, ?B/s]100%|██████████| 3.66k/3.66k [00:00<00:00, 26.8MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/rejected_mpnn_full_stats.csv
-Downloading trajectory_stats.csv to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs
-  0%|          | 0.00/2.32k [00:00<?, ?B/s]100%|██████████| 2.32k/2.32k [00:00<00:00, 15.7MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/designs/trajectory_stats.csv
-Downloading driver_library_probe.txt to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1
-  0%|          | 0.00/134 [00:00<?, ?B/s]100%|██████████| 134/134 [00:00<00:00, 1.16MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/driver_library_probe.txt
-Downloading target_settings.json to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1
-  0%|          | 0.00/307 [00:00<?, ?B/s]100%|██████████| 307/307 [00:00<00:00, 2.69MB/s]
-
-Output file downloaded to /tmp/fbc_running_output/tfr1_freebindcraft_smoke_v1/target_settings.json
-Kernel log downloaded to /tmp/fbc_running_output/tfr1-freebindcraft-smoke-v1.log 
