@@ -1,0 +1,61 @@
+name: Phase 4O Validate FreeBindCraft V6 Dual-State MPNN
+
+on:
+  push:
+    paths:
+      - "scripts/nvidia_boltz2_validate_fbc_v6_dual_state.py"
+      - ".github/workflows/phase4o-validate-fbc-v6-dual-state.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      NVIDIA_API_KEY1: ${{ secrets.NVIDIA_API_KEY1 }}
+      NVIDIA_API_TOKEN: ${{ secrets.NVIDIA_API_TOKEN }}
+      NGC_API_KEY: ${{ secrets.NGC_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Biopython
+        run: python -m pip install "biopython>=1.85"
+
+      - name: Validate dual-state MPNN candidates
+        run: python scripts/nvidia_boltz2_validate_fbc_v6_dual_state.py
+
+      - name: Inspect
+        run: |
+          cat predictions/freebindcraft_v6_dual_state_pose_screen/batch_summary.json
+          cat predictions/freebindcraft_v6_dual_state_pose_screen/pose_pass_ids.json
+
+      - name: Commit results
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add predictions/freebindcraft_v6_dual_state_pose_screen
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add Phase 4O dual-state MPNN pose validation"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tfr1-phase4o-dual-state-mpnn
+          path: predictions/freebindcraft_v6_dual_state_pose_screen/
+          if-no-files-found: warn
+          retention-days: 14
