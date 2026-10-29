@@ -1,0 +1,34 @@
+{
+  "contexts": [
+    {
+      "name": "human_tfr1_apical",
+      "hotspots": [
+        343,
+        344,
+        347,
+        350
+      ]
+    },
+    {
+      "name": "mouse_tfr1_apical",
+      "hotspots": [
+        345,
+        346,
+        349,
+        352
+      ]
+    }
+  ],
+  "binder_length": 60,
+  "trajectory_count": 1,
+  "selection_method": "best_i_ptm",
+  "design_iterations": {
+    "soft": 30,
+    "temporary": 20,
+    "hard": 10,
+    "greedy": 5
+  },
+  "selection_csv_exists": true,
+  "selection_fasta_exists": true,
+  "elapsed_min": 78.2
+}

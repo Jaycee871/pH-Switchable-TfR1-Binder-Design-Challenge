@@ -1,0 +1,2 @@
+design_index,design_id,selection_status,termination,iteration,frame_index,stage,score,sequence,length,seed,worst_target_i_pae,worst_target_i_ptm,worst_target_context,strongest_offtarget_i_pae,strongest_offtarget_i_pae_clipped,strongest_offtarget_context,offtarget_i_pae_cap,error
+0,human_tfr1_apical_t00000_l60_s190640,selected,LowConfidence,78,78,ste,0.1433560699224472,PPPPLPPAKSPGEAYHRERNLKREAELEAKVAGGEKLTPWEEKELERLKARRAEYMAEAA,60,190640,,0.1433560699224472,human_tfr1_apical,,,,,
