@@ -1,6 +1,11 @@
 name: Phase 4J Select and Validate FreeBindCraft V4
 
 on:
+  workflow_run:
+    workflows:
+      - "Kaggle TfR1 FreeBindCraft V4 Single Attempt"
+    types:
+      - completed
   push:
     paths:
       - "phase4j_v4/TRIGGER"
@@ -26,6 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
 
       - uses: actions/setup-python@v5
