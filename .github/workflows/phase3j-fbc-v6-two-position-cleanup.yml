@@ -1,0 +1,54 @@
+name: Phase 3J FreeBindCraft V6 Two-Position Cleanup
+
+on:
+  push:
+    paths:
+      - "scripts/nvidia_proteinmpnn_fbc_v6_two_position_cleanup.py"
+      - ".github/workflows/phase3j-fbc-v6-two-position-cleanup.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  design:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      NVIDIA_API_KEY1: ${{ secrets.NVIDIA_API_KEY1 }}
+      NVIDIA_API_TOKEN: ${{ secrets.NVIDIA_API_TOKEN }}
+      NGC_API_KEY: ${{ secrets.NGC_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run strict B46/B47 ProteinMPNN cleanup
+        run: python scripts/nvidia_proteinmpnn_fbc_v6_two_position_cleanup.py
+
+      - name: Inspect
+        run: |
+          cat designs/family_B_multistate/fbc_v6_two_position_cleanup/result_summary.json
+          cat designs/family_B_multistate/fbc_v6_two_position_cleanup/pose_screen_candidates.csv
+
+      - name: Commit outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add designs/family_B_multistate/fbc_v6_two_position_cleanup
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add v6 two-position cross-species cleanup sequences"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tfr1-fbc-v6-two-position-cleanup
+          path: designs/family_B_multistate/fbc_v6_two_position_cleanup/
+          if-no-files-found: warn
+          retention-days: 14
