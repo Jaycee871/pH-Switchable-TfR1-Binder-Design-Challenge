@@ -1,0 +1,56 @@
+name: Phase 3I FreeBindCraft L67 Cross-Species Rescue
+
+on:
+  push:
+    paths:
+      - "scripts/nvidia_proteinmpnn_fbc_l67_cross_species_rescue.py"
+      - ".github/workflows/phase3i-fbc-l67-cross-species-rescue.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  design:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      NVIDIA_API_KEY1: ${{ secrets.NVIDIA_API_KEY1 }}
+      NVIDIA_API_TOKEN: ${{ secrets.NVIDIA_API_TOKEN }}
+      NGC_API_KEY: ${{ secrets.NGC_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run targeted l67 cross-species ProteinMPNN rescue
+        run: python scripts/nvidia_proteinmpnn_fbc_l67_cross_species_rescue.py
+
+      - name: Inspect rescue candidates
+        run: |
+          cat designs/family_B_multistate/fbc_l67_cross_species_rescue/result_summary.json
+          cat designs/family_B_multistate/fbc_l67_cross_species_rescue/pose_screen_candidates.csv
+
+      - name: Commit rescue outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add designs/family_B_multistate/fbc_l67_cross_species_rescue
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Add targeted FreeBindCraft l67 cross-species rescue sequences"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tfr1-fbc-l67-cross-species-rescue
+          path: designs/family_B_multistate/fbc_l67_cross_species_rescue/
+          if-no-files-found: warn
+          retention-days: 14
