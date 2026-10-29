@@ -297,8 +297,8 @@ def main():
             flags.append("changed_fixed_noninterface_position")
         if charge_fraction>0.55:
             flags.append("charge_fraction_gt_0.55")
-        if longest_run(binder)>4:
-            flags.append("homopolymer_run_gt_4")
+        if longest_run(binder) > longest_run(parent):
+            flags.append("homopolymer_run_worse_than_parent")
         if binder.count("C"):
             flags.append("contains_cysteine")
 
