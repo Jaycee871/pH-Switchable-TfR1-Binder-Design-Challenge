@@ -1,0 +1,56 @@
+name: Sync Existing FreeBindCraft V5 Output
+
+on:
+  push:
+    paths:
+      - ".github/workflows/sync-existing-freebindcraft-v5.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Download existing Kaggle v5 output
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet --upgrade kaggle
+          rm -rf /tmp/tfr1_fbc_v5_sync
+          mkdir -p /tmp/tfr1_fbc_v5_sync
+          KERNEL="packkwanlow/tfr1-freebindcraft-v5-binary-hotspot"
+          kaggle kernels status "$KERNEL"
+          kaggle kernels output "$KERNEL" -p /tmp/tfr1_fbc_v5_sync -o
+          kaggle kernels logs "$KERNEL" > /tmp/tfr1_fbc_v5_sync/kaggle-run.log || true
+
+          DEST="freebindcraft/kaggle_v5_binary_results"
+          rm -rf "$DEST"
+          mkdir -p "$DEST"
+          cp -R /tmp/tfr1_fbc_v5_sync/tfr1_freebindcraft_smoke_v5_binary/. "$DEST/"
+          cp /tmp/tfr1_fbc_v5_sync/kaggle-run.log "$DEST/" || true
+          find "$DEST" -type f -printf '%p %s bytes\n' | sort
+
+      - name: Commit raw v5 output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add freebindcraft/kaggle_v5_binary_results
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Sync raw FreeBindCraft v5 binary-hotspot output"
+          git pull --rebase origin main
+          git push origin HEAD:main
