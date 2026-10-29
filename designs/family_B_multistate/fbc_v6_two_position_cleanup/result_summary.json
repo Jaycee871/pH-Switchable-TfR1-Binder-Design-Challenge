@@ -1,0 +1,16 @@
+{
+  "candidate_count": 7,
+  "unique_candidate_count": 7,
+  "prefilter_pass_count": 3,
+  "pose_screen_ids": [
+    "TFR1_FBC_V6_XS_02",
+    "TFR1_FBC_V6_XS_08",
+    "TFR1_FBC_V6_XS_26"
+  ],
+  "pose_screen_46_47": {
+    "TFR1_FBC_V6_XS_02": "SS",
+    "TFR1_FBC_V6_XS_08": "SN",
+    "TFR1_FBC_V6_XS_26": "ST"
+  },
+  "note": "Only B46/B47 are allowed to change. Full human/mouse pose validation is mandatory; no pH claim is made."
+}

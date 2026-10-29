@@ -1,0 +1,8 @@
+candidate_id,sequence,mpnn_score,global_score,temperature,B46,B47,changed_positions,only_46_47_changed,B44_anchor,B45_anchor,histidine_count,prefilter_flags,prefilter_pass,header
+TFR1_FBC_V6_XS_01,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDPNTGYIIVHTYKVNS,1.7950,1.3713,0.1,P,N,46;47,True,R,D,2,B46_not_small_neutral,False,"T=0.1, sample=1, score=1.7950, global_score=1.3713, seq_recovery=0.0000"
+TFR1_FBC_V6_XS_02,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDSSTGYIIVHTYKVNS,2.6994,1.3675,0.1,S,S,46;47,True,R,D,2,,True,"T=0.1, sample=2, score=2.6994, global_score=1.3675, seq_recovery=0.0000"
+TFR1_FBC_V6_XS_03,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDPQTGYIIVHTYKVNS,1.9618,1.3706,0.1,P,Q,46;47,True,R,D,2,B46_not_small_neutral,False,"T=0.1, sample=3, score=1.9618, global_score=1.3706, seq_recovery=0.0000"
+TFR1_FBC_V6_XS_08,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDSNTGYIIVHTYKVNS,2.8656,1.3579,0.1,S,N,46;47,True,R,D,2,,True,"T=0.1, sample=8, score=2.8656, global_score=1.3579, seq_recovery=0.0000"
+TFR1_FBC_V6_XS_15,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDPTTGYIIVHTYKVNS,1.9394,1.3778,0.2,P,T,46;47,True,R,D,2,B46_not_small_neutral,False,"T=0.2, sample=3, score=1.9394, global_score=1.3778, seq_recovery=0.0000"
+TFR1_FBC_V6_XS_23,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDPSTGYIIVHTYKVNS,2.0114,1.3932,0.2,P,S,46;47,True,R,D,2,B46_not_small_neutral,False,"T=0.2, sample=11, score=2.0114, global_score=1.3932, seq_recovery=0.0000"
+TFR1_FBC_V6_XS_26,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDSTTGYIIVHTYKVNS,2.8905,1.3743,0.3,S,T,46;47,True,R,D,2,,True,"T=0.3, sample=2, score=2.8905, global_score=1.3743, seq_recovery=0.0000"

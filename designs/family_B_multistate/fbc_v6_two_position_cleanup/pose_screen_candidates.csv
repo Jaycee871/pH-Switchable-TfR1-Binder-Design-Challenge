@@ -1,0 +1,4 @@
+candidate_id,sequence,mpnn_score,global_score,temperature,B46,B47,changed_positions,only_46_47_changed,B44_anchor,B45_anchor,histidine_count,prefilter_flags,prefilter_pass,header
+TFR1_FBC_V6_XS_02,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDSSTGYIIVHTYKVNS,2.6994,1.3675,0.1,S,S,46;47,True,R,D,2,,True,"T=0.1, sample=2, score=2.6994, global_score=1.3675, seq_recovery=0.0000"
+TFR1_FBC_V6_XS_08,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDSNTGYIIVHTYKVNS,2.8656,1.3579,0.1,S,N,46;47,True,R,D,2,,True,"T=0.1, sample=8, score=2.8656, global_score=1.3579, seq_recovery=0.0000"
+TFR1_FBC_V6_XS_26,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDSTTGYIIVHTYKVNS,2.8905,1.3743,0.3,S,T,46;47,True,R,D,2,,True,"T=0.3, sample=2, score=2.8905, global_score=1.3743, seq_recovery=0.0000"
