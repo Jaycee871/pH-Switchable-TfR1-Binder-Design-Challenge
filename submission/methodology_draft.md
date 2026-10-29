@@ -131,3 +131,39 @@ change design strategy rather than being hidden or overridden by a favourable me
 All submitted proteins are de novo designs. Known TfR binders and published pH-sensitive
 TfR studies are used only to define biological constraints, interpret mechanisms and
 calibrate evaluation logic; no known binder sequence is used as a starting scaffold.
+
+
+## Update — FreeBindCraft v3 harvest and hard-hotspot v4
+
+The cancelled v3 Kaggle smoke yielded eight trajectory structures (three relaxed and
+five low-confidence). Independent 5 A contact analysis, with the FreeBindCraft target
+chain correctly remapped from output residues 1-195 back to human TfR1 189-383, found
+only one trajectory that truly engaged the requested conserved hotspot region:
+
+- `TFR1_FBC343_l67_s385919`
+- local preferred contacts: human 231 and 350
+- hotspot-core contact: human 350
+- explicit species-risk contacts: none
+
+Full-ectodomain validation preserved 231/350 in the human complex but still failed:
+human protein ipTM = 0.393. The mouse prediction collapsed outside the apical domain
+(protein ipTM = 0.196), with zero homologous epitope overlap.
+
+The higher-scoring v3 trajectory `l70_s574476` did not contact the requested hotspot
+at all, despite FreeBindCraft trajectory i_pTM = 0.69. This discrepancy was traced to
+the default ColabDesign inter-chain contact objective: hotspot positions are correctly
+parsed, but the default `i_con` cutoff is 20 A with two contacts per hotspot position.
+That is a soft optimisation preference, not a 5 A geometric constraint.
+
+v4 therefore changes the optimisation objective rather than hotspot syntax:
+
+- fixed binder length: 60 aa
+- one attempt only
+- hotspot residues: 343/344/347/350
+- inter-chain contact cutoff: 8 A
+- inter-chain contact-loss weight: 2.0
+- contacts per hotspot position: 2
+- independent post-run 5 A hotspot gate required before any full human/mouse Boltz-2 call
+
+This is intended to test whether stronger geometric pressure can convert the valid
+hotspot specification into an actual interface, while keeping compute bounded.
