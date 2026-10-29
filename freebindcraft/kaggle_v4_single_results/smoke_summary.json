@@ -1,0 +1,43 @@
+{
+  "target": "11QC chain A residues 189-383",
+  "hotspots": [
+    343,
+    344,
+    347,
+    350
+  ],
+  "binder_lengths": [
+    60,
+    60
+  ],
+  "smoke_max_trajectories": 1,
+  "hard_max_attempts": 1,
+  "hotspot_objective": {
+    "weights_con_inter": 2.0,
+    "inter_contact_distance_A": 8.0,
+    "inter_contact_number": 2
+  },
+  "accepted_pdb_count": 0,
+  "stats": {
+    "trajectory_stats.csv": {
+      "rows": 0,
+      "bytes": 598
+    },
+    "mpnn_design_stats.csv": {
+      "rows": 0,
+      "bytes": 3939
+    },
+    "final_design_stats.csv": {
+      "rows": 0,
+      "bytes": 3944
+    },
+    "failure_csv.csv": {
+      "rows": 1,
+      "bytes": 1116
+    }
+  },
+  "output_file_count": 6,
+  "trajectory_local_gates": [],
+  "any_true_hotspot_gate_pass": false,
+  "environment_test_completed": true
+}
