@@ -1,0 +1,1143 @@
+[{"stream_name":"stdout","time":1.2991933900000001,"data":"+ nvidia-smi\n"}
+,{"stream_name":"stdout","time":1.329307525,"data":"Thu Oct 29 06:12:00 2026       \n"}
+,{"stream_name":"stdout","time":1.329328963,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":1.3293332119999999,"data":"| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |\n"}
+,{"stream_name":"stdout","time":1.329336708,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.32934029,"data":"| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n"}
+,{"stream_name":"stdout","time":1.329343652,"data":"| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n"}
+,{"stream_name":"stdout","time":1.329347077,"data":"|                                         |                        |               MIG M. |\n"}
+,{"stream_name":"stdout","time":1.329350604,"data":"|=========================================+========================+======================|\n"}
+,{"stream_name":"stdout","time":1.3898785,"data":"|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":1.389899805,"data":"| N/A   44C    P8             10W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":1.389904638,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":1.389908702,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.389912267,"data":"|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":1.389915858,"data":"| N/A   44C    P8             10W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":1.389925518,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":1.389928104,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.390585603,"data":"\n"}
+,{"stream_name":"stdout","time":1.390598568,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":1.390603067,"data":"| Processes:                                                                              |\n"}
+,{"stream_name":"stdout","time":1.3906066369999999,"data":"|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n"}
+,{"stream_name":"stdout","time":1.390610324,"data":"|        ID   ID                                                               Usage      |\n"}
+,{"stream_name":"stdout","time":1.390613697,"data":"|=========================================================================================|\n"}
+,{"stream_name":"stdout","time":1.392137883,"data":"|  No running processes found                                                             |\n"}
+,{"stream_name":"stdout","time":1.392150822,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":1.7138436179999998,"data":"Host Python 3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]\n"}
+,{"stream_name":"stdout","time":1.713965266,"data":"Downloading Miniconda\n"}
+,{"stream_name":"stdout","time":2.9875806430000003,"data":"+ bash /kaggle/temp/tfr1_freebindcraft/miniconda.sh -b -p /kaggle/temp/tfr1_freebindcraft/miniconda\n"}
+,{"stream_name":"stdout","time":3.068560211,"data":"PREFIX=/kaggle/temp/tfr1_freebindcraft/miniconda\n"}
+,{"stream_name":"stdout","time":3.603895884,"data":"Unpacking bootstrapper...\n"}
+,{"stream_name":"stdout","time":3.7103876529999997,"data":"Unpacking payload...\n"}
+,{"stream_name":"stdout","time":14.010388786,"data":"\n"}
+,{"stream_name":"stdout","time":14.010414513,"data":"Installing base environment...\n"}
+,{"stream_name":"stdout","time":14.010418703,"data":"\n"}
+,{"stream_name":"stdout","time":16.357509449,"data":"Preparing transaction: ...working... done\n"}
+,{"stream_name":"stdout","time":23.737992633,"data":"Executing transaction: ...working... done\n"}
+,{"stream_name":"stdout","time":25.797905872,"data":"installation finished.\n"}
+,{"stream_name":"stdout","time":25.798295646,"data":"WARNING:\n"}
+,{"stream_name":"stdout","time":25.798317359,"data":"    You currently have a PYTHONPATH environment variable set. This may cause\n"}
+,{"stream_name":"stdout","time":25.798322914,"data":"    unexpected behavior when running the Python interpreter in Miniconda3.\n"}
+,{"stream_name":"stdout","time":25.798327367,"data":"    For best results, please verify that your PYTHONPATH only points to\n"}
+,{"stream_name":"stdout","time":25.79833158,"data":"    directories of packages that are compatible with the Python interpreter\n"}
+,{"stream_name":"stdout","time":25.798335958,"data":"    in Miniconda3: /kaggle/temp/tfr1_freebindcraft/miniconda\n"}
+,{"stream_name":"stdout","time":25.799376141,"data":"+ git clone --depth 1 --branch master https://github.com/cytokineking/FreeBindCraft.git /kaggle/temp/tfr1_freebindcraft/FreeBindCraft\n"}
+,{"stream_name":"stderr","time":25.82314189,"data":"Cloning into '/kaggle/temp/tfr1_freebindcraft/FreeBindCraft'...\n"}
+,{"stream_name":"stdout","time":31.441017297,"data":"+ bash install_bindcraft.sh --pkg_manager conda --env-name BindCraft --no-pyrosetta --skip-gpu-check\n"}
+,{"stream_name":"stdout","time":36.009238434,"data":"Retrieving notices: ...working... done\n"}
+,{"stream_name":"stdout","time":36.022422727,"data":"Channels:\n"}
+,{"stream_name":"stdout","time":36.022447772,"data":" - conda-forge\n"}
+,{"stream_name":"stdout","time":36.022454321,"data":"Platform: linux-64\n"}
+,{"stream_name":"stdout","time":37.806085598,"data":"Collecting package metadata (repodata.json): ...working... done\n"}
+,{"stream_name":"stdout","time":38.392807138,"data":"Solving environment: ...working... done\n"}
+,{"stream_name":"stdout","time":38.97932917,"data":"\n"}
+,{"stream_name":"stdout","time":38.979355598,"data":"## Package Plan ##\n"}
+,{"stream_name":"stdout","time":38.97936116,"data":"\n"}
+,{"stream_name":"stdout","time":38.979365657,"data":"  environment location: /kaggle/temp/tfr1_freebindcraft/miniconda/envs/BindCraft\n"}
+,{"stream_name":"stdout","time":38.979370366,"data":"\n"}
+,{"stream_name":"stdout","time":38.97937458,"data":"  added / updated specs:\n"}
+,{"stream_name":"stdout","time":38.979378844,"data":"    - ffmpeg\n"}
+,{"stream_name":"stdout","time":38.979383137,"data":"    - libgfortran5\n"}
+,{"stream_name":"stdout","time":38.979387382,"data":"    - pip\n"}
+,{"stream_name":"stdout","time":38.979392012,"data":"    - python=3.12\n"}
+,{"stream_name":"stdout","time":38.979396366,"data":"\n"}
+,{"stream_name":"stdout","time":38.979400466,"data":"\n"}
+,{"stream_name":"stdout","time":38.979404631,"data":"The following packages will be downloaded:\n"}
+,{"stream_name":"stdout","time":38.979409056,"data":"\n"}
+,{"stream_name":"stdout","time":38.979414923,"data":"    package                    |            build\n"}
+,{"stream_name":"stdout","time":38.979429315,"data":"    ---------------------------|-----------------\n"}
+,{"stream_name":"stdout","time":38.979433765,"data":"    _openmp_mutex-4.5          |           20_gnu          28 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979437812,"data":"    alsa-lib-1.2.16.1          |       h7cc23a3_1         581 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979442316,"data":"    aom-3.14.1                 | pl5321h57e6904_2         3.1 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979446529,"data":"    bzip2-1.0.8                |      hda65f42_10         252 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.97945087,"data":"    ca-certificates-2026.10.23 |       hbd8a1cb_0         127 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979454584,"data":"    cairo-1.18.6               |       h3c89d7e_0         984 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979458122,"data":"    dbus-1.16.2                |       he8c428d_2         439 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979461684,"data":"    ffmpeg-9.0.2               | gpl_h584299d_905        13.1 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979465189,"data":"    font-ttf-dejavu-sans-mono-2.37|       hab24e00_0         388 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979468783,"data":"    font-ttf-inconsolata-3.000 |       h77eed37_0          94 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979472336,"data":"    font-ttf-source-code-pro-2.038|       h77eed37_0         684 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.97947607,"data":"    font-ttf-ubuntu-0.83       |       h77eed37_3         1.5 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979479558,"data":"    fontconfig-2.18.3          |       h4db4eae_1         289 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.97948307,"data":"    fonts-conda-ecosystem-1    |                0           4 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979486517,"data":"    fonts-conda-forge-1        |       hc364b38_1           4 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979490018,"data":"    freetype-2.14.3            |       ha770c72_2         171 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.97949346,"data":"    fribidi-1.0.17             |       h7cc23a3_0          63 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979497022,"data":"    gdk-pixbuf-2.44.8          |       h68053f1_2         568 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979500564,"data":"    glslang-16.6.0             |       h980caa0_0         1.4 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979504131,"data":"    gmp-6.3.0                  |       hfd2156b_3         482 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979509449,"data":"    graphite2-1.3.15           |       h54a6638_1         100 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979532746,"data":"    icu-78.3                   |  py310h44b86e0_2        13.8 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.97953707,"data":"    intel-gmmlib-22.10.2       |       h7148c6a_0         983 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979541355,"data":"    intel-media-driver-26.1.6  |       hecca717_0         8.4 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979545522,"data":"    lame-4.0                   |       h770b6ad_1         297 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979549467,"data":"    lcms2-2.19.1               |       h9073bf1_3         248 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979553535,"data":"    ld_impl_linux-64-2.46.1    |default_hbd61a6d_103         725 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979563801,"data":"    lerc-4.2.0                 |       hdb68285_0         265 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979568067,"data":"    level-zero-1.34.0          |       h7148c6a_0         775 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.9795722,"data":"    libabseil-20260526.0       | cxx17_h0dc7533_3         1.4 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979576571,"data":"    libass-0.17.5              |       h3b6f6bf_1         152 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979580817,"data":"    libbrotlicommon-1.2.1      |       h39a168f_0          78 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979584479,"data":"    libbrotlidec-1.2.1         |       ha411449_0          34 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979587988,"data":"    libbrotlienc-1.2.1         |       h018ffa1_0         291 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979591493,"data":"    libcap-2.78                |       h084b8d7_1         121 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979595013,"data":"    libdav1d7-1.5.4            |       hebe6cf0_4         747 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979598469,"data":"    libdeflate-1.25            |       hd45a770_1          72 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979602009,"data":"    libdovi-3.4.0              |       h39d0f39_1         396 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979605583,"data":"    libdrm-2.4.129             |       h7cc23a3_0         306 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979609113,"data":"    libegl-1.7.0               |       ha4b6fd6_5          46 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979612677,"data":"    libexpat-2.9.0             |       hd2095e1_0          77 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979616231,"data":"    libffi-3.7.0               |       h81df57d_1          66 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979619739,"data":"    libflac-1.5.0              |       he200343_1         415 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979623943,"data":"    libfreetype-2.14.3         |       ha770c72_2           8 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.97962828,"data":"    libfreetype6-2.14.3        |       h5e6c136_2         379 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979632397,"data":"    libgcc-16.2.0              |       ha9f2e26_7         1.0 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979636808,"data":"    libgfortran5-16.2.0        |       h6b99dfc_7         2.4 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979640901,"data":"    libgl-1.7.0                |       ha4b6fd6_5         129 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979645784,"data":"    libglib-2.90.0             |       h569388d_0         4.6 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979649975,"data":"    libglvnd-1.7.0             |       ha4b6fd6_5         131 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979654103,"data":"    libglx-1.7.0               |       ha4b6fd6_5          78 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.97965828,"data":"    libgomp-16.2.0             |       he0feb66_7         626 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979662337,"data":"    libharfbuzz-15.0.0         |       h23af247_0         1.6 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979666548,"data":"    libharfbuzz-devel-15.0.0   |       h23af247_0         2.4 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979675257,"data":"    libhwloc-2.15.0            |default_hd7c4d0c_1001         2.3 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979679779,"data":"    libhwy-1.4.0               |       h57c4cff_2         1.4 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979683702,"data":"    libiconv-1.18              |       h0cb94f2_3         771 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979687847,"data":"    libjpeg-turbo-3.2.1        |       h7cc23a3_0         639 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979692052,"data":"    libjxl-0.12.0              |       heb2dce7_4         1.8 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979696385,"data":"    liblzma-5.8.3              |       hb03c661_1         110 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979700487,"data":"    libnsl-2.0.1               |       hb9d3cd8_1          33 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979704547,"data":"    libogg-1.3.5               |       hd0c01bc_1         213 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979708725,"data":"    libopenvino-2026.4.1       |       hbb11d60_0         6.7 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979712928,"data":"    libopenvino-auto-batch-plugin-2026.4.1|       ha1dfb6f_0         114 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979716691,"data":"    libopenvino-auto-plugin-2026.4.1|       ha1dfb6f_0         271 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979720948,"data":"    libopenvino-gguf-frontend-2026.4.1|       ha1dfb6f_0         662 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979724899,"data":"    libopenvino-hetero-plugin-2026.4.1|       h44d2802_0         240 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979729071,"data":"    libopenvino-intel-cpu-plugin-2026.4.1|       hbb11d60_0        13.6 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979733258,"data":"    libopenvino-intel-gpu-plugin-2026.4.1|       hbb11d60_0        11.8 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979737476,"data":"    libopenvino-intel-npu-plugin-2026.4.1|       hbb11d60_0         2.9 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.97974151,"data":"    libopenvino-ir-frontend-2026.4.1|       h44d2802_0         220 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979745658,"data":"    libopenvino-onnx-frontend-2026.4.1|       he88238d_0         2.2 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979749846,"data":"    libopenvino-paddle-frontend-2026.4.1|       he88238d_0         677 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979754903,"data":"    libopenvino-pytorch-frontend-2026.4.1|       ha9a73ca_0         1.3 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979758988,"data":"    libopenvino-tensorflow-frontend-2026.4.1|       ha81ce1e_0         1.2 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.979762886,"data":"    libopenvino-tensorflow-lite-frontend-2026.4.1|       ha9a73ca_0         503 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980210653,"data":"    libopus-1.6.1              |       hebe6cf0_1         322 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980219506,"data":"    libpango-1.58.2            |       hce4e988_3         335 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980223869,"data":"    libpango-devel-1.58.2      |       h317d9d0_3         206 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980227725,"data":"    libpciaccess-0.19          |       hb03c661_1          29 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980231726,"data":"    libplacebo-7.360.1         |       h9669efe_2         541 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980242677,"data":"    libpng-1.6.59              |       h922cc85_0         309 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.98024725,"data":"    libprotobuf-7.35.1         |       h622638d_3         3.6 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980251284,"data":"    libpython-3.12.16          |ha57cdbe_0_cpython         8.4 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980255163,"data":"    librsvg-2.62.4             |       ha427ee3_0         4.5 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980258848,"data":"    libsndfile-1.2.2           |       hbc6d301_3         379 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980262441,"data":"    libsqlite-3.54.1           |       h13e7031_0         961 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980266105,"data":"    libstdcxx-16.2.0           |       h934c35e_7         6.3 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.98026944,"data":"    libsystemd0-262.1          |       h26e0ef7_0         561 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980273264,"data":"    libtiff-4.7.2              |       hcc2c06a_1         449 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980277229,"data":"    libudev1-262.1             |       h26e0ef7_0         181 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980280804,"data":"    libunwind-1.8.3            |       hd2e8b67_1          76 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980284049,"data":"    liburing-2.14              |       h4dbf13b_1         155 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980288063,"data":"    libusb-1.0.30              |       h0d1bbbc_1          89 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.98029182,"data":"    libuuid-2.42.4             |       hcfc3c73_0          34 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980295443,"data":"    libva-2.24.1               |       hb83e432_1         220 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980298804,"data":"    libvorbis-1.3.7            |       h54a6638_2         279 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980301949,"data":"    libvpl-2.16.0              |       h54a6638_0         281 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980305698,"data":"    libvpx-1.17.0              |       hd2095e1_0         1.1 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980311328,"data":"    libvulkan-loader-1.4.357.0 |       h0e34353_2         202 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980314916,"data":"    libwebp-base-1.6.0         |       hd42ef1d_1         418 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980318424000004,"data":"    libxcb-1.17.0              |       hb83e432_2         386 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980321901,"data":"    libxcrypt-4.4.38           |       h280c20c_0         100 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980325419,"data":"    libxkbcommon-1.13.2        |       h59c2f34_2         923 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980328902,"data":"    libxml2-2.15.4             |       h7df9aa5_1          45 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980332424,"data":"    libxml2-16-2.15.4          |       hf3af7cc_1         556 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980335897,"data":"    libzlib-1.3.2              |       h25fd6f3_3          62 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980339471,"data":"    mpg123-1.33.7              |       h877a99e_1         480 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980342951,"data":"    ncurses-6.6                |       hdb14827_1         890 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980350063,"data":"    ocl-icd-2.3.4              |       hb03c661_1         107 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980353673,"data":"    opencl-headers-2025.06.13  |       hecca717_0          54 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980358062,"data":"    openh264-2.6.0             |       h8c49934_2         720 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980361716,"data":"    openssl-3.6.5              |       h781a0a9_0         3.0 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980366109,"data":"    packaging-26.3             |     pyhc364b38_0         114 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980369856,"data":"    pango-1.58.2               |       h2f58602_3          15 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980376963,"data":"    pcre2-10.47                |       h8b3dc9c_1         1.2 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980380663,"data":"    pip-26.2.2                 |     pyh8b19718_0         1.1 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980384597,"data":"    pixman-0.46.4              |       h54a6638_3         368 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980388463,"data":"    pthread-stubs-0.4          |    h7cc23a3_1004           9 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980391882,"data":"    pugixml-1.15               |       h3f63f65_0         116 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980395273,"data":"    pulseaudio-client-17.0     |       hb10c1b2_4         737 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980398704,"data":"    python-3.12.16             |h5f976f7_0_cpython        21.9 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980402061,"data":"    readline-8.3               |       hd6e31c0_1         341 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980405396,"data":"    sdl2-2.32.56               |       h54a6638_0         575 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.98040877,"data":"    sdl3-3.4.18                |       h5330f5c_0         2.1 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980412691,"data":"    setuptools-84.2.1          |     pyhe730653_0         554 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980416062,"data":"    shaderc-2026.4             |       hcebf71c_1         111 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.98041939,"data":"    snappy-1.2.2               |       h34e00bb_2          45 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980422639,"data":"    spirv-tools-2026.4         |       h7148c6a_2         2.3 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980426241,"data":"    svt-av1-4.2.0              |       hd2095e1_1         2.6 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980429646,"data":"    tbb-2023.1.0               |       haa8c3ee_2         182 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.98043293,"data":"    tk-8.6.13                  | noxft_h1df4ec4_4         3.4 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980436294,"data":"    tzdata-2026e               |       h5d301ff_0         116 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980439871,"data":"    wayland-1.26.0             |       hc1c935e_2         332 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980443204,"data":"    wayland-protocols-1.49     |       hd8ed1ab_0         144 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980446458,"data":"    wheel-0.48.0               |     pyhd8ed1ab_0          34 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980459694,"data":"    x264-1!164.3095            | pl5321h63c0a64_3         764 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980463391,"data":"    x265-3.5                   |       h73f68a7_4         2.1 MB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980465703,"data":"    xkeyboard-config-2.48      |       hebe6cf0_1         431 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980467969,"data":"    xorg-libice-1.1.2          |       h280c20c_0          61 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980470235,"data":"    xorg-libsm-1.2.6           |       h0d788c3_1          30 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.98047249,"data":"    xorg-libx11-1.8.14         |       hb83e432_0         827 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980474746,"data":"    xorg-libxau-1.0.12         |       h7cc23a3_2          18 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980477086,"data":"    xorg-libxcursor-1.2.3      |       h7cc23a3_1          34 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.98047935,"data":"    xorg-libxdmcp-1.1.5        |       h7cc23a3_2          22 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980481608,"data":"    xorg-libxext-1.3.7         |       h7cc23a3_1          52 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980483869,"data":"    xorg-libxfixes-6.0.2       |       h7cc23a3_1          21 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980486132,"data":"    xorg-libxi-1.8.4           |       h7cc23a3_0          48 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980488387,"data":"    xorg-libxrandr-1.5.5       |       h7cc23a3_1          30 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980490668,"data":"    xorg-libxrender-0.9.13     |       h7cc23a3_0          34 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980492932,"data":"    xorg-libxscrnsaver-1.2.4   |       hb9d3cd8_0          14 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980495435,"data":"    xorg-libxtst-1.2.6         |       h7cc23a3_0          34 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980497794,"data":"    zstd-1.5.7                 |       hb78ec9c_7         587 KB  conda-forge\n"}
+,{"stream_name":"stdout","time":38.980500148,"data":"    ------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":38.980502427,"data":"                                           Total:       196.8 MB\n"}
+,{"stream_name":"stdout","time":38.980504695,"data":"\n"}
+,{"stream_name":"stdout","time":38.980506814,"data":"The following NEW packages will be INSTALLED:\n"}
+,{"stream_name":"stdout","time":38.980509039,"data":"\n"}
+,{"stream_name":"stdout","time":38.980511155,"data":"  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-20_gnu \n"}
+,{"stream_name":"stdout","time":38.980513433,"data":"  alsa-lib           conda-forge/linux-64::alsa-lib-1.2.16.1-h7cc23a3_1 \n"}
+,{"stream_name":"stdout","time":38.9805157,"data":"  aom                conda-forge/linux-64::aom-3.14.1-pl5321h57e6904_2 \n"}
+,{"stream_name":"stdout","time":38.980518033,"data":"  bzip2              conda-forge/linux-64::bzip2-1.0.8-hda65f42_10 \n"}
+,{"stream_name":"stdout","time":38.980520276,"data":"  ca-certificates    conda-forge/noarch::ca-certificates-2026.10.23-hbd8a1cb_0 \n"}
+,{"stream_name":"stdout","time":38.98052258,"data":"  cairo              conda-forge/linux-64::cairo-1.18.6-h3c89d7e_0 \n"}
+,{"stream_name":"stdout","time":38.980524818,"data":"  dbus               conda-forge/linux-64::dbus-1.16.2-he8c428d_2 \n"}
+,{"stream_name":"stdout","time":38.980527057,"data":"  ffmpeg             conda-forge/linux-64::ffmpeg-9.0.2-gpl_h584299d_905 \n"}
+,{"stream_name":"stdout","time":38.980531296,"data":"  font-ttf-dejavu-s~ conda-forge/noarch::font-ttf-dejavu-sans-mono-2.37-hab24e00_0 \n"}
+,{"stream_name":"stdout","time":38.980533691,"data":"  font-ttf-inconsol~ conda-forge/noarch::font-ttf-inconsolata-3.000-h77eed37_0 \n"}
+,{"stream_name":"stdout","time":38.980535968,"data":"  font-ttf-source-c~ conda-forge/noarch::font-ttf-source-code-pro-2.038-h77eed37_0 \n"}
+,{"stream_name":"stdout","time":38.980538244,"data":"  font-ttf-ubuntu    conda-forge/noarch::font-ttf-ubuntu-0.83-h77eed37_3 \n"}
+,{"stream_name":"stdout","time":38.980540503,"data":"  fontconfig         conda-forge/linux-64::fontconfig-2.18.3-h4db4eae_1 \n"}
+,{"stream_name":"stdout","time":38.98054276,"data":"  fonts-conda-ecosy~ conda-forge/noarch::fonts-conda-ecosystem-1-0 \n"}
+,{"stream_name":"stdout","time":38.980545006,"data":"  fonts-conda-forge  conda-forge/noarch::fonts-conda-forge-1-hc364b38_1 \n"}
+,{"stream_name":"stdout","time":38.980547262,"data":"  freetype           conda-forge/linux-64::freetype-2.14.3-ha770c72_2 \n"}
+,{"stream_name":"stdout","time":38.980549506,"data":"  fribidi            conda-forge/linux-64::fribidi-1.0.17-h7cc23a3_0 \n"}
+,{"stream_name":"stdout","time":38.980551746,"data":"  gdk-pixbuf         conda-forge/linux-64::gdk-pixbuf-2.44.8-h68053f1_2 \n"}
+,{"stream_name":"stdout","time":38.980554016,"data":"  glslang            conda-forge/linux-64::glslang-16.6.0-h980caa0_0 \n"}
+,{"stream_name":"stdout","time":38.980556275,"data":"  gmp                conda-forge/linux-64::gmp-6.3.0-hfd2156b_3 \n"}
+,{"stream_name":"stdout","time":38.980558624,"data":"  graphite2          conda-forge/linux-64::graphite2-1.3.15-h54a6638_1 \n"}
+,{"stream_name":"stdout","time":38.980560898,"data":"  icu                conda-forge/linux-64::icu-78.3-py310h44b86e0_2 \n"}
+,{"stream_name":"stdout","time":38.98056314,"data":"  intel-gmmlib       conda-forge/linux-64::intel-gmmlib-22.10.2-h7148c6a_0 \n"}
+,{"stream_name":"stdout","time":38.98056713,"data":"  intel-media-driver conda-forge/linux-64::intel-media-driver-26.1.6-hecca717_0 \n"}
+,{"stream_name":"stdout","time":38.980569461,"data":"  lame               conda-forge/linux-64::lame-4.0-h770b6ad_1 \n"}
+,{"stream_name":"stdout","time":38.980571706,"data":"  lcms2              conda-forge/linux-64::lcms2-2.19.1-h9073bf1_3 \n"}
+,{"stream_name":"stdout","time":38.980573949,"data":"  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.46.1-default_hbd61a6d_103 \n"}
+,{"stream_name":"stdout","time":38.980576235,"data":"  lerc               conda-forge/linux-64::lerc-4.2.0-hdb68285_0 \n"}
+,{"stream_name":"stdout","time":38.980578471,"data":"  level-zero         conda-forge/linux-64::level-zero-1.34.0-h7148c6a_0 \n"}
+,{"stream_name":"stdout","time":38.980580729,"data":"  libabseil          conda-forge/linux-64::libabseil-20260526.0-cxx17_h0dc7533_3 \n"}
+,{"stream_name":"stdout","time":38.980582996,"data":"  libass             conda-forge/linux-64::libass-0.17.5-h3b6f6bf_1 \n"}
+,{"stream_name":"stdout","time":38.980585241,"data":"  libbrotlicommon    conda-forge/linux-64::libbrotlicommon-1.2.1-h39a168f_0 \n"}
+,{"stream_name":"stdout","time":38.980587486,"data":"  libbrotlidec       conda-forge/linux-64::libbrotlidec-1.2.1-ha411449_0 \n"}
+,{"stream_name":"stdout","time":38.980589724,"data":"  libbrotlienc       conda-forge/linux-64::libbrotlienc-1.2.1-h018ffa1_0 \n"}
+,{"stream_name":"stdout","time":38.980591978,"data":"  libcap             conda-forge/linux-64::libcap-2.78-h084b8d7_1 \n"}
+,{"stream_name":"stdout","time":38.980594221,"data":"  libdav1d7          conda-forge/linux-64::libdav1d7-1.5.4-hebe6cf0_4 \n"}
+,{"stream_name":"stdout","time":38.980598283,"data":"  libdeflate         conda-forge/linux-64::libdeflate-1.25-hd45a770_1 \n"}
+,{"stream_name":"stdout","time":38.980600629,"data":"  libdovi            conda-forge/linux-64::libdovi-3.4.0-h39d0f39_1 \n"}
+,{"stream_name":"stdout","time":38.980602884,"data":"  libdrm             conda-forge/linux-64::libdrm-2.4.129-h7cc23a3_0 \n"}
+,{"stream_name":"stdout","time":38.980605144,"data":"  libegl             conda-forge/linux-64::libegl-1.7.0-ha4b6fd6_5 \n"}
+,{"stream_name":"stdout","time":38.980607392,"data":"  libexpat           conda-forge/linux-64::libexpat-2.9.0-hd2095e1_0 \n"}
+,{"stream_name":"stdout","time":38.980609648,"data":"  libffi             conda-forge/linux-64::libffi-3.7.0-h81df57d_1 \n"}
+,{"stream_name":"stdout","time":38.980611885,"data":"  libflac            conda-forge/linux-64::libflac-1.5.0-he200343_1 \n"}
+,{"stream_name":"stdout","time":38.980614133,"data":"  libfreetype        conda-forge/linux-64::libfreetype-2.14.3-ha770c72_2 \n"}
+,{"stream_name":"stdout","time":38.980616396,"data":"  libfreetype6       conda-forge/linux-64::libfreetype6-2.14.3-h5e6c136_2 \n"}
+,{"stream_name":"stdout","time":38.980618663,"data":"  libgcc             conda-forge/linux-64::libgcc-16.2.0-ha9f2e26_7 \n"}
+,{"stream_name":"stdout","time":38.980620913,"data":"  libgfortran5       conda-forge/linux-64::libgfortran5-16.2.0-h6b99dfc_7 \n"}
+,{"stream_name":"stdout","time":38.980623173,"data":"  libgl              conda-forge/linux-64::libgl-1.7.0-ha4b6fd6_5 \n"}
+,{"stream_name":"stdout","time":38.980625421,"data":"  libglib            conda-forge/linux-64::libglib-2.90.0-h569388d_0 \n"}
+,{"stream_name":"stdout","time":38.980627753,"data":"  libglvnd           conda-forge/linux-64::libglvnd-1.7.0-ha4b6fd6_5 \n"}
+,{"stream_name":"stdout","time":38.980630001,"data":"  libglx             conda-forge/linux-64::libglx-1.7.0-ha4b6fd6_5 \n"}
+,{"stream_name":"stdout","time":38.980632248,"data":"  libgomp            conda-forge/linux-64::libgomp-16.2.0-he0feb66_7 \n"}
+,{"stream_name":"stdout","time":38.980634761,"data":"  libharfbuzz        conda-forge/linux-64::libharfbuzz-15.0.0-h23af247_0 \n"}
+,{"stream_name":"stdout","time":38.98063712,"data":"  libharfbuzz-devel  conda-forge/linux-64::libharfbuzz-devel-15.0.0-h23af247_0 \n"}
+,{"stream_name":"stdout","time":38.980639404,"data":"  libhwloc           conda-forge/linux-64::libhwloc-2.15.0-default_hd7c4d0c_1001 \n"}
+,{"stream_name":"stdout","time":38.980641684,"data":"  libhwy             conda-forge/linux-64::libhwy-1.4.0-h57c4cff_2 \n"}
+,{"stream_name":"stdout","time":38.980643928,"data":"  libiconv           conda-forge/linux-64::libiconv-1.18-h0cb94f2_3 \n"}
+,{"stream_name":"stdout","time":38.98064627,"data":"  libjpeg-turbo      conda-forge/linux-64::libjpeg-turbo-3.2.1-h7cc23a3_0 \n"}
+,{"stream_name":"stdout","time":38.980648532000004,"data":"  libjxl             conda-forge/linux-64::libjxl-0.12.0-heb2dce7_4 \n"}
+,{"stream_name":"stdout","time":38.98065086,"data":"  liblzma            conda-forge/linux-64::liblzma-5.8.3-hb03c661_1 \n"}
+,{"stream_name":"stdout","time":38.9806531,"data":"  libnsl             conda-forge/linux-64::libnsl-2.0.1-hb9d3cd8_1 \n"}
+,{"stream_name":"stdout","time":38.980655342,"data":"  libogg             conda-forge/linux-64::libogg-1.3.5-hd0c01bc_1 \n"}
+,{"stream_name":"stdout","time":38.98065758,"data":"  libopenvino        conda-forge/linux-64::libopenvino-2026.4.1-hbb11d60_0 \n"}
+,{"stream_name":"stdout","time":38.98065993,"data":"  libopenvino-auto-~ conda-forge/linux-64::libopenvino-auto-batch-plugin-2026.4.1-ha1dfb6f_0 \n"}
+,{"stream_name":"stdout","time":38.980662222,"data":"  libopenvino-auto-~ conda-forge/linux-64::libopenvino-auto-plugin-2026.4.1-ha1dfb6f_0 \n"}
+,{"stream_name":"stdout","time":38.980666183,"data":"  libopenvino-gguf-~ conda-forge/linux-64::libopenvino-gguf-frontend-2026.4.1-ha1dfb6f_0 \n"}
+,{"stream_name":"stdout","time":38.980668569,"data":"  libopenvino-heter~ conda-forge/linux-64::libopenvino-hetero-plugin-2026.4.1-h44d2802_0 \n"}
+,{"stream_name":"stdout","time":38.980670861,"data":"  libopenvino-intel~ conda-forge/linux-64::libopenvino-intel-cpu-plugin-2026.4.1-hbb11d60_0 \n"}
+,{"stream_name":"stdout","time":38.980673162,"data":"  libopenvino-intel~ conda-forge/linux-64::libopenvino-intel-gpu-plugin-2026.4.1-hbb11d60_0 \n"}
+,{"stream_name":"stdout","time":38.980675442,"data":"  libopenvino-intel~ conda-forge/linux-64::libopenvino-intel-npu-plugin-2026.4.1-hbb11d60_0 \n"}
+,{"stream_name":"stdout","time":38.980677721,"data":"  libopenvino-ir-fr~ conda-forge/linux-64::libopenvino-ir-frontend-2026.4.1-h44d2802_0 \n"}
+,{"stream_name":"stdout","time":38.98067999,"data":"  libopenvino-onnx-~ conda-forge/linux-64::libopenvino-onnx-frontend-2026.4.1-he88238d_0 \n"}
+,{"stream_name":"stdout","time":38.9806823,"data":"  libopenvino-paddl~ conda-forge/linux-64::libopenvino-paddle-frontend-2026.4.1-he88238d_0 \n"}
+,{"stream_name":"stdout","time":38.980684587,"data":"  libopenvino-pytor~ conda-forge/linux-64::libopenvino-pytorch-frontend-2026.4.1-ha9a73ca_0 \n"}
+,{"stream_name":"stdout","time":38.980686912,"data":"  libopenvino-tenso~ conda-forge/linux-64::libopenvino-tensorflow-frontend-2026.4.1-ha81ce1e_0 \n"}
+,{"stream_name":"stdout","time":38.980689248,"data":"  libopenvino-tenso~ conda-forge/linux-64::libopenvino-tensorflow-lite-frontend-2026.4.1-ha9a73ca_0 \n"}
+,{"stream_name":"stdout","time":38.980691717,"data":"  libopus            conda-forge/linux-64::libopus-1.6.1-hebe6cf0_1 \n"}
+,{"stream_name":"stdout","time":38.98069425,"data":"  libpango           conda-forge/linux-64::libpango-1.58.2-hce4e988_3 \n"}
+,{"stream_name":"stdout","time":38.980696519,"data":"  libpango-devel     conda-forge/linux-64::libpango-devel-1.58.2-h317d9d0_3 \n"}
+,{"stream_name":"stdout","time":38.980698785,"data":"  libpciaccess       conda-forge/linux-64::libpciaccess-0.19-hb03c661_1 \n"}
+,{"stream_name":"stdout","time":38.980701032,"data":"  libplacebo         conda-forge/linux-64::libplacebo-7.360.1-h9669efe_2 \n"}
+,{"stream_name":"stdout","time":38.980703287,"data":"  libpng             conda-forge/linux-64::libpng-1.6.59-h922cc85_0 \n"}
+,{"stream_name":"stdout","time":38.980705556,"data":"  libprotobuf        conda-forge/linux-64::libprotobuf-7.35.1-h622638d_3 \n"}
+,{"stream_name":"stdout","time":38.980707879,"data":"  libpython          conda-forge/linux-64::libpython-3.12.16-ha57cdbe_0_cpython \n"}
+,{"stream_name":"stdout","time":38.980710257,"data":"  librsvg            conda-forge/linux-64::librsvg-2.62.4-ha427ee3_0 \n"}
+,{"stream_name":"stdout","time":38.980712517,"data":"  libsndfile         conda-forge/linux-64::libsndfile-1.2.2-hbc6d301_3 \n"}
+,{"stream_name":"stdout","time":38.980714851,"data":"  libsqlite          conda-forge/linux-64::libsqlite-3.54.1-h13e7031_0 \n"}
+,{"stream_name":"stdout","time":38.980717107,"data":"  libstdcxx          conda-forge/linux-64::libstdcxx-16.2.0-h934c35e_7 \n"}
+,{"stream_name":"stdout","time":38.980719356,"data":"  libsystemd0        conda-forge/linux-64::libsystemd0-262.1-h26e0ef7_0 \n"}
+,{"stream_name":"stdout","time":38.980721605,"data":"  libtiff            conda-forge/linux-64::libtiff-4.7.2-hcc2c06a_1 \n"}
+,{"stream_name":"stdout","time":38.980723912,"data":"  libudev1           conda-forge/linux-64::libudev1-262.1-h26e0ef7_0 \n"}
+,{"stream_name":"stdout","time":38.98072616,"data":"  libunwind          conda-forge/linux-64::libunwind-1.8.3-hd2e8b67_1 \n"}
+,{"stream_name":"stdout","time":38.980730046,"data":"  liburing           conda-forge/linux-64::liburing-2.14-h4dbf13b_1 \n"}
+,{"stream_name":"stdout","time":38.980732401,"data":"  libusb             conda-forge/linux-64::libusb-1.0.30-h0d1bbbc_1 \n"}
+,{"stream_name":"stdout","time":38.980734737,"data":"  libuuid            conda-forge/linux-64::libuuid-2.42.4-hcfc3c73_0 \n"}
+,{"stream_name":"stdout","time":38.980736997,"data":"  libva              conda-forge/linux-64::libva-2.24.1-hb83e432_1 \n"}
+,{"stream_name":"stdout","time":38.980739283,"data":"  libvorbis          conda-forge/linux-64::libvorbis-1.3.7-h54a6638_2 \n"}
+,{"stream_name":"stdout","time":38.980741539,"data":"  libvpl             conda-forge/linux-64::libvpl-2.16.0-h54a6638_0 \n"}
+,{"stream_name":"stdout","time":38.980743864,"data":"  libvpx             conda-forge/linux-64::libvpx-1.17.0-hd2095e1_0 \n"}
+,{"stream_name":"stdout","time":38.980746112,"data":"  libvulkan-loader   conda-forge/linux-64::libvulkan-loader-1.4.357.0-h0e34353_2 \n"}
+,{"stream_name":"stdout","time":38.980748404,"data":"  libwebp-base       conda-forge/linux-64::libwebp-base-1.6.0-hd42ef1d_1 \n"}
+,{"stream_name":"stdout","time":38.980750664,"data":"  libxcb             conda-forge/linux-64::libxcb-1.17.0-hb83e432_2 \n"}
+,{"stream_name":"stdout","time":38.980752901,"data":"  libxcrypt          conda-forge/linux-64::libxcrypt-4.4.38-h280c20c_0 \n"}
+,{"stream_name":"stdout","time":38.98075515,"data":"  libxkbcommon       conda-forge/linux-64::libxkbcommon-1.13.2-h59c2f34_2 \n"}
+,{"stream_name":"stdout","time":38.980757424,"data":"  libxml2            conda-forge/linux-64::libxml2-2.15.4-h7df9aa5_1 \n"}
+,{"stream_name":"stdout","time":38.980759995,"data":"  libxml2-16         conda-forge/linux-64::libxml2-16-2.15.4-hf3af7cc_1 \n"}
+,{"stream_name":"stdout","time":38.980762279,"data":"  libzlib            conda-forge/linux-64::libzlib-1.3.2-h25fd6f3_3 \n"}
+,{"stream_name":"stdout","time":38.980764535,"data":"  mpg123             conda-forge/linux-64::mpg123-1.33.7-h877a99e_1 \n"}
+,{"stream_name":"stdout","time":38.98077167,"data":"  ncurses            conda-forge/linux-64::ncurses-6.6-hdb14827_1 \n"}
+,{"stream_name":"stdout","time":38.98077393,"data":"  ocl-icd            conda-forge/linux-64::ocl-icd-2.3.4-hb03c661_1 \n"}
+,{"stream_name":"stdout","time":38.98077616,"data":"  opencl-headers     conda-forge/linux-64::opencl-headers-2025.06.13-hecca717_0 \n"}
+,{"stream_name":"stdout","time":38.980778449,"data":"  openh264           conda-forge/linux-64::openh264-2.6.0-h8c49934_2 \n"}
+,{"stream_name":"stdout","time":38.9807807,"data":"  openssl            conda-forge/linux-64::openssl-3.6.5-h781a0a9_0 \n"}
+,{"stream_name":"stdout","time":38.980782942,"data":"  packaging          conda-forge/noarch::packaging-26.3-pyhc364b38_0 \n"}
+,{"stream_name":"stdout","time":38.980785192,"data":"  pango              conda-forge/linux-64::pango-1.58.2-h2f58602_3 \n"}
+,{"stream_name":"stdout","time":38.980806425,"data":"  pcre2              conda-forge/linux-64::pcre2-10.47-h8b3dc9c_1 \n"}
+,{"stream_name":"stdout","time":38.980810469,"data":"  pip                conda-forge/noarch::pip-26.2.2-pyh8b19718_0 \n"}
+,{"stream_name":"stdout","time":38.980814067,"data":"  pixman             conda-forge/linux-64::pixman-0.46.4-h54a6638_3 \n"}
+,{"stream_name":"stdout","time":38.980817854,"data":"  pthread-stubs      conda-forge/linux-64::pthread-stubs-0.4-h7cc23a3_1004 \n"}
+,{"stream_name":"stdout","time":38.980821786,"data":"  pugixml            conda-forge/linux-64::pugixml-1.15-h3f63f65_0 \n"}
+,{"stream_name":"stdout","time":38.980825395,"data":"  pulseaudio-client  conda-forge/linux-64::pulseaudio-client-17.0-hb10c1b2_4 \n"}
+,{"stream_name":"stdout","time":38.980829882,"data":"  python             conda-forge/linux-64::python-3.12.16-h5f976f7_0_cpython \n"}
+,{"stream_name":"stdout","time":38.980836589,"data":"  readline           conda-forge/linux-64::readline-8.3-hd6e31c0_1 \n"}
+,{"stream_name":"stdout","time":38.980840604,"data":"  sdl2               conda-forge/linux-64::sdl2-2.32.56-h54a6638_0 \n"}
+,{"stream_name":"stdout","time":38.980844424,"data":"  sdl3               conda-forge/linux-64::sdl3-3.4.18-h5330f5c_0 \n"}
+,{"stream_name":"stdout","time":38.980848066,"data":"  setuptools         conda-forge/noarch::setuptools-84.2.1-pyhe730653_0 \n"}
+,{"stream_name":"stdout","time":38.98085184,"data":"  shaderc            conda-forge/linux-64::shaderc-2026.4-hcebf71c_1 \n"}
+,{"stream_name":"stdout","time":38.980855785,"data":"  snappy             conda-forge/linux-64::snappy-1.2.2-h34e00bb_2 \n"}
+,{"stream_name":"stdout","time":38.980859676,"data":"  spirv-tools        conda-forge/linux-64::spirv-tools-2026.4-h7148c6a_2 \n"}
+,{"stream_name":"stdout","time":38.98086332,"data":"  svt-av1            conda-forge/linux-64::svt-av1-4.2.0-hd2095e1_1 \n"}
+,{"stream_name":"stdout","time":38.980867375,"data":"  tbb                conda-forge/linux-64::tbb-2023.1.0-haa8c3ee_2 \n"}
+,{"stream_name":"stdout","time":38.980870771,"data":"  tk                 conda-forge/linux-64::tk-8.6.13-noxft_h1df4ec4_4 \n"}
+,{"stream_name":"stdout","time":38.980874792,"data":"  tzdata             conda-forge/noarch::tzdata-2026e-h5d301ff_0 \n"}
+,{"stream_name":"stdout","time":38.980878634,"data":"  wayland            conda-forge/linux-64::wayland-1.26.0-hc1c935e_2 \n"}
+,{"stream_name":"stdout","time":38.980884192,"data":"  wayland-protocols  conda-forge/noarch::wayland-protocols-1.49-hd8ed1ab_0 \n"}
+,{"stream_name":"stdout","time":38.980889228,"data":"  wheel              conda-forge/noarch::wheel-0.48.0-pyhd8ed1ab_0 \n"}
+,{"stream_name":"stdout","time":38.980893254,"data":"  x264               conda-forge/linux-64::x264-1!164.3095-pl5321h63c0a64_3 \n"}
+,{"stream_name":"stdout","time":38.980897274,"data":"  x265               conda-forge/linux-64::x265-3.5-h73f68a7_4 \n"}
+,{"stream_name":"stdout","time":38.98090153,"data":"  xkeyboard-config   conda-forge/linux-64::xkeyboard-config-2.48-hebe6cf0_1 \n"}
+,{"stream_name":"stdout","time":38.98090524,"data":"  xorg-libice        conda-forge/linux-64::xorg-libice-1.1.2-h280c20c_0 \n"}
+,{"stream_name":"stdout","time":38.980908775,"data":"  xorg-libsm         conda-forge/linux-64::xorg-libsm-1.2.6-h0d788c3_1 \n"}
+,{"stream_name":"stdout","time":38.98091259,"data":"  xorg-libx11        conda-forge/linux-64::xorg-libx11-1.8.14-hb83e432_0 \n"}
+,{"stream_name":"stdout","time":38.980916764,"data":"  xorg-libxau        conda-forge/linux-64::xorg-libxau-1.0.12-h7cc23a3_2 \n"}
+,{"stream_name":"stdout","time":38.98092058,"data":"  xorg-libxcursor    conda-forge/linux-64::xorg-libxcursor-1.2.3-h7cc23a3_1 \n"}
+,{"stream_name":"stdout","time":38.980924216,"data":"  xorg-libxdmcp      conda-forge/linux-64::xorg-libxdmcp-1.1.5-h7cc23a3_2 \n"}
+,{"stream_name":"stdout","time":38.980927597,"data":"  xorg-libxext       conda-forge/linux-64::xorg-libxext-1.3.7-h7cc23a3_1 \n"}
+,{"stream_name":"stdout","time":38.980931021,"data":"  xorg-libxfixes     conda-forge/linux-64::xorg-libxfixes-6.0.2-h7cc23a3_1 \n"}
+,{"stream_name":"stdout","time":38.98093496,"data":"  xorg-libxi         conda-forge/linux-64::xorg-libxi-1.8.4-h7cc23a3_0 \n"}
+,{"stream_name":"stdout","time":38.980938819,"data":"  xorg-libxrandr     conda-forge/linux-64::xorg-libxrandr-1.5.5-h7cc23a3_1 \n"}
+,{"stream_name":"stdout","time":38.980942585,"data":"  xorg-libxrender    conda-forge/linux-64::xorg-libxrender-0.9.13-h7cc23a3_0 \n"}
+,{"stream_name":"stdout","time":38.98095158,"data":"  xorg-libxscrnsaver conda-forge/linux-64::xorg-libxscrnsaver-1.2.4-hb9d3cd8_0 \n"}
+,{"stream_name":"stdout","time":38.98095514,"data":"  xorg-libxtst       conda-forge/linux-64::xorg-libxtst-1.2.6-h7cc23a3_0 \n"}
+,{"stream_name":"stdout","time":38.980958642,"data":"  zstd               conda-forge/linux-64::zstd-1.5.7-hb78ec9c_7 \n"}
+,{"stream_name":"stdout","time":38.980962118,"data":"\n"}
+,{"stream_name":"stdout","time":38.980965387,"data":"\n"}
+,{"stream_name":"stdout","time":38.980968591999996,"data":"\n"}
+,{"stream_name":"stdout","time":43.767617867,"data":"Downloading and Extracting Packages: ...working... done\n"}
+,{"stream_name":"stdout","time":44.134399756,"data":"Preparing transaction: ...working... done\n"}
+,{"stream_name":"stdout","time":45.776859384,"data":"Verifying transaction: ...working... done\n"}
+,{"stream_name":"stderr","time":51.659742229,"data":"WARNING conda.conda_pypi.main:notify_conda_pypi_tip(158): \n"}
+,{"stream_name":"stderr","time":51.659770506,"data":"  Did you know? You can install many PyPI packages with conda\n"}
+,{"stream_name":"stderr","time":51.659776378,"data":"  using conda-pypi. Get started:\n"}
+,{"stream_name":"stderr","time":51.659780082,"data":"    https://bit.ly/4xXYt0B\n"}
+,{"stream_name":"stderr","time":51.659783848000004,"data":"\n"}
+,{"stream_name":"stdout","time":51.65973706,"data":"Executing transaction: ...working... \n"}
+,{"stream_name":"stdout","time":51.659795528,"data":"done\n"}
+,{"stream_name":"stdout","time":52.429853091,"data":"#\n"}
+,{"stream_name":"stdout","time":52.429884863,"data":"# To activate this environment, use\n"}
+,{"stream_name":"stdout","time":52.429893052,"data":"#\n"}
+,{"stream_name":"stdout","time":52.429895555,"data":"#     $ conda activate BindCraft\n"}
+,{"stream_name":"stdout","time":52.429898035,"data":"#\n"}
+,{"stream_name":"stdout","time":52.429900222,"data":"# To deactivate an active environment, use\n"}
+,{"stream_name":"stdout","time":52.429902757,"data":"#\n"}
+,{"stream_name":"stdout","time":52.429905077,"data":"#     $ conda deactivate\n"}
+,{"stream_name":"stdout","time":52.429907339,"data":"\n"}
+,{"stream_name":"stdout","time":53.239843612,"data":"Installing the pinned pip CUDA profile into /kaggle/temp/tfr1_freebindcraft/miniconda/envs/BindCraft\n"}
+,{"stream_name":"stdout","time":54.908209246,"data":"Collecting colabdesign @ git+https://github.com/sokrypton/ColabDesign.git@8fd167defd1b0f98e29f00584ff4f3987e6935dc (from -r installation/linux-cuda12-requirements.txt (line 21))\n"}
+,{"stream_name":"stdout","time":54.908716138,"data":"  Cloning https://github.com/sokrypton/ColabDesign.git (to revision 8fd167defd1b0f98e29f00584ff4f3987e6935dc) to /tmp/pip-install-0on3a_k3/colabdesign_efc8cf6e437d470d8288d718234225dd\n"}
+,{"stream_name":"stderr","time":54.911322914,"data":"  Running command git clone --filter=blob:none --quiet https://github.com/sokrypton/ColabDesign.git /tmp/pip-install-0on3a_k3/colabdesign_efc8cf6e437d470d8288d718234225dd\n"}
+,{"stream_name":"stderr","time":57.498078223,"data":"  Running command git rev-parse -q --verify '8fd167defd1b0f98e29f00584ff4f3987e6935dc^{commit}'\n"}
+,{"stream_name":"stderr","time":57.501249416,"data":"  8fd167defd1b0f98e29f00584ff4f3987e6935dc\n"}
+,{"stream_name":"stdout","time":57.504651326,"data":"  Resolved https://github.com/sokrypton/ColabDesign.git to commit 8fd167defd1b0f98e29f00584ff4f3987e6935dc\n"}
+,{"stream_name":"stdout","time":57.509442022,"data":"  Installing build dependencies: started\n"}
+,{"stream_name":"stdout","time":60.207999138,"data":"  Installing build dependencies: finished with status 'done'\n"}
+,{"stream_name":"stdout","time":60.208804895,"data":"  Getting requirements to build wheel: started\n"}
+,{"stream_name":"stdout","time":60.582797805,"data":"  Getting requirements to build wheel: finished with status 'done'\n"}
+,{"stream_name":"stdout","time":60.584055302,"data":"  Preparing metadata (pyproject.toml): started\n"}
+,{"stream_name":"stdout","time":60.795554129,"data":"  Preparing metadata (pyproject.toml): finished with status 'done'\n"}
+,{"stream_name":"stdout","time":60.798665965,"data":"Collecting pdbfixer @ git+https://github.com/openmm/pdbfixer.git@5e658a4fb8d2b90d65ca8408c845cbf104ce7099 (from -r installation/linux-cuda12-requirements.txt (line 115))\n"}
+,{"stream_name":"stdout","time":60.799290675,"data":"  Cloning https://github.com/openmm/pdbfixer.git (to revision 5e658a4fb8d2b90d65ca8408c845cbf104ce7099) to /tmp/pip-install-0on3a_k3/pdbfixer_e654d32a3df1479abc1cd216b2a01d2a\n"}
+,{"stream_name":"stderr","time":60.801936447,"data":"  Running command git clone --filter=blob:none --quiet https://github.com/openmm/pdbfixer.git /tmp/pip-install-0on3a_k3/pdbfixer_e654d32a3df1479abc1cd216b2a01d2a\n"}
+,{"stream_name":"stderr","time":61.670086064,"data":"  Running command git rev-parse -q --verify '5e658a4fb8d2b90d65ca8408c845cbf104ce7099^{commit}'\n"}
+,{"stream_name":"stderr","time":61.672476039,"data":"  5e658a4fb8d2b90d65ca8408c845cbf104ce7099\n"}
+,{"stream_name":"stdout","time":61.675103412,"data":"  Resolved https://github.com/openmm/pdbfixer.git to commit 5e658a4fb8d2b90d65ca8408c845cbf104ce7099\n"}
+,{"stream_name":"stdout","time":61.679006642,"data":"  Installing build dependencies: started\n"}
+,{"stream_name":"stdout","time":62.758520363,"data":"  Installing build dependencies: finished with status 'done'\n"}
+,{"stream_name":"stdout","time":62.759360478,"data":"  Getting requirements to build wheel: started\n"}
+,{"stream_name":"stdout","time":63.164303152,"data":"  Getting requirements to build wheel: finished with status 'done'\n"}
+,{"stream_name":"stdout","time":63.165523605,"data":"  Preparing metadata (pyproject.toml): started\n"}
+,{"stream_name":"stdout","time":63.383882617,"data":"  Preparing metadata (pyproject.toml): finished with status 'done'\n"}
+,{"stream_name":"stdout","time":63.491555011,"data":"Collecting absl-py==2.5.1 (from -r installation/linux-cuda12-requirements.txt (line 3))\n"}
+,{"stream_name":"stdout","time":63.543328478,"data":"  Downloading absl_py-2.5.1-py3-none-any.whl.metadata (3.3 kB)\n"}
+,{"stream_name":"stdout","time":63.594493195,"data":"Collecting aiofiles==25.1.0 (from -r installation/linux-cuda12-requirements.txt (line 4))\n"}
+,{"stream_name":"stdout","time":63.603506335,"data":"  Downloading aiofiles-25.1.0-py3-none-any.whl.metadata (6.3 kB)\n"}
+,{"stream_name":"stdout","time":63.662973469,"data":"Collecting anyio==4.15.1 (from -r installation/linux-cuda12-requirements.txt (line 5))\n"}
+,{"stream_name":"stdout","time":63.67187137,"data":"  Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)\n"}
+,{"stream_name":"stdout","time":63.737043131,"data":"Collecting argon2-cffi==25.1.0 (from -r installation/linux-cuda12-requirements.txt (line 6))\n"}
+,{"stream_name":"stdout","time":63.745772865,"data":"  Downloading argon2_cffi-25.1.0-py3-none-any.whl.metadata (4.1 kB)\n"}
+,{"stream_name":"stdout","time":63.798757368,"data":"Collecting argon2-cffi-bindings==26.1.0 (from -r installation/linux-cuda12-requirements.txt (line 7))\n"}
+,{"stream_name":"stdout","time":63.807614747,"data":"  Downloading argon2_cffi_bindings-26.1.0-cp310-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (7.5 kB)\n"}
+,{"stream_name":"stdout","time":63.863438032,"data":"Collecting arrow==1.4.0 (from -r installation/linux-cuda12-requirements.txt (line 8))\n"}
+,{"stream_name":"stdout","time":63.872488084,"data":"  Downloading arrow-1.4.0-py3-none-any.whl.metadata (7.7 kB)\n"}
+,{"stream_name":"stdout","time":63.939718275,"data":"Collecting asttokens==3.0.2 (from -r installation/linux-cuda12-requirements.txt (line 9))\n"}
+,{"stream_name":"stdout","time":63.94905243,"data":"  Downloading asttokens-3.0.2-py3-none-any.whl.metadata (5.7 kB)\n"}
+,{"stream_name":"stdout","time":63.999319262,"data":"Collecting async-lru==2.4.0 (from -r installation/linux-cuda12-requirements.txt (line 10))\n"}
+,{"stream_name":"stdout","time":64.008507444,"data":"  Downloading async_lru-2.4.0-py3-none-any.whl.metadata (10 kB)\n"}
+,{"stream_name":"stdout","time":64.058923558,"data":"Collecting attrs==26.1.0 (from -r installation/linux-cuda12-requirements.txt (line 11))\n"}
+,{"stream_name":"stdout","time":64.067952783,"data":"  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)\n"}
+,{"stream_name":"stdout","time":64.126948624,"data":"Collecting babel==2.18.0 (from -r installation/linux-cuda12-requirements.txt (line 12))\n"}
+,{"stream_name":"stdout","time":64.136105139,"data":"  Downloading babel-2.18.0-py3-none-any.whl.metadata (2.2 kB)\n"}
+,{"stream_name":"stdout","time":64.192268419,"data":"Collecting beautifulsoup4==4.15.0 (from -r installation/linux-cuda12-requirements.txt (line 13))\n"}
+,{"stream_name":"stdout","time":64.202266418,"data":"  Downloading beautifulsoup4-4.15.0-py3-none-any.whl.metadata (3.8 kB)\n"}
+,{"stream_name":"stdout","time":64.298053049,"data":"Collecting biopython==1.88 (from -r installation/linux-cuda12-requirements.txt (line 14))\n"}
+,{"stream_name":"stdout","time":64.308627461,"data":"  Downloading biopython-1.88-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (13 kB)\n"}
+,{"stream_name":"stdout","time":64.359503543,"data":"Collecting bleach==6.4.0 (from -r installation/linux-cuda12-requirements.txt (line 15))\n"}
+,{"stream_name":"stdout","time":64.369463535,"data":"  Downloading bleach-6.4.0-py3-none-any.whl.metadata (32 kB)\n"}
+,{"stream_name":"stdout","time":64.43554591,"data":"Collecting certifi==2026.7.22 (from -r installation/linux-cuda12-requirements.txt (line 16))\n"}
+,{"stream_name":"stdout","time":64.444620735,"data":"  Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)\n"}
+,{"stream_name":"stdout","time":64.681598867,"data":"Collecting cffi==2.1.1 (from -r installation/linux-cuda12-requirements.txt (line 17))\n"}
+,{"stream_name":"stdout","time":64.692043233,"data":"  Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)\n"}
+,{"stream_name":"stdout","time":64.960405127,"data":"Collecting charset-normalizer==3.5.2 (from -r installation/linux-cuda12-requirements.txt (line 18))\n"}
+,{"stream_name":"stdout","time":64.97038988,"data":"  Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)\n"}
+,{"stream_name":"stdout","time":65.029106936,"data":"Collecting chex==0.1.92 (from -r installation/linux-cuda12-requirements.txt (line 19))\n"}
+,{"stream_name":"stdout","time":65.04166925,"data":"  Downloading chex-0.1.92-py3-none-any.whl.metadata (19 kB)\n"}
+,{"stream_name":"stdout","time":65.094825266,"data":"Collecting cloudpickle==3.1.2 (from -r installation/linux-cuda12-requirements.txt (line 20))\n"}
+,{"stream_name":"stdout","time":65.104166464,"data":"  Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)\n"}
+,{"stream_name":"stdout","time":65.143376178,"data":"Collecting comm==0.2.3 (from -r installation/linux-cuda12-requirements.txt (line 22))\n"}
+,{"stream_name":"stdout","time":65.152714849,"data":"  Downloading comm-0.2.3-py3-none-any.whl.metadata (3.7 kB)\n"}
+,{"stream_name":"stdout","time":65.304371031,"data":"Collecting contourpy==1.4.0 (from -r installation/linux-cuda12-requirements.txt (line 23))\n"}
+,{"stream_name":"stdout","time":65.321102785,"data":"  Downloading contourpy-1.4.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)\n"}
+,{"stream_name":"stdout","time":65.363042219,"data":"Collecting cycler==0.12.1 (from -r installation/linux-cuda12-requirements.txt (line 24))\n"}
+,{"stream_name":"stdout","time":65.372353663,"data":"  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)\n"}
+,{"stream_name":"stdout","time":65.567062401,"data":"Collecting debugpy==1.8.22 (from -r installation/linux-cuda12-requirements.txt (line 25))\n"}
+,{"stream_name":"stdout","time":65.576262397,"data":"  Downloading debugpy-1.8.22-cp312-cp312-manylinux_2_34_x86_64.whl.metadata (1.4 kB)\n"}
+,{"stream_name":"stdout","time":65.614624029,"data":"Collecting defusedxml==0.7.1 (from -r installation/linux-cuda12-requirements.txt (line 26))\n"}
+,{"stream_name":"stdout","time":65.623651558,"data":"  Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)\n"}
+,{"stream_name":"stdout","time":65.667041061,"data":"Collecting dm-haiku==0.0.17 (from -r installation/linux-cuda12-requirements.txt (line 27))\n"}
+,{"stream_name":"stdout","time":65.677612934,"data":"  Downloading dm_haiku-0.0.17-py3-none-any.whl.metadata (19 kB)\n"}
+,{"stream_name":"stdout","time":65.73917996,"data":"Collecting dm-tree==0.1.10 (from -r installation/linux-cuda12-requirements.txt (line 28))\n"}
+,{"stream_name":"stdout","time":65.749762365,"data":"  Downloading dm_tree-0.1.10-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (2.6 kB)\n"}
+,{"stream_name":"stdout","time":65.798878723,"data":"Collecting etils==1.14.0 (from -r installation/linux-cuda12-requirements.txt (line 29))\n"}
+,{"stream_name":"stdout","time":65.808083481,"data":"  Downloading etils-1.14.0-py3-none-any.whl.metadata (6.5 kB)\n"}
+,{"stream_name":"stdout","time":65.85959708,"data":"Collecting executing==2.3.0 (from -r installation/linux-cuda12-requirements.txt (line 30))\n"}
+,{"stream_name":"stdout","time":65.869528402,"data":"  Downloading executing-2.3.0-py3-none-any.whl.metadata (9.1 kB)\n"}
+,{"stream_name":"stdout","time":65.914160645,"data":"Collecting fastjsonschema==2.22.2 (from -r installation/linux-cuda12-requirements.txt (line 31))\n"}
+,{"stream_name":"stdout","time":65.922864648,"data":"  Downloading fastjsonschema-2.22.2-py3-none-any.whl.metadata (2.1 kB)\n"}
+,{"stream_name":"stdout","time":65.966035708,"data":"Collecting ffmpeg-python==0.2.0 (from -r installation/linux-cuda12-requirements.txt (line 32))\n"}
+,{"stream_name":"stdout","time":65.975043139,"data":"  Downloading ffmpeg_python-0.2.0-py3-none-any.whl.metadata (1.7 kB)\n"}
+,{"stream_name":"stdout","time":66.039577268,"data":"Collecting flax==0.12.10 (from -r installation/linux-cuda12-requirements.txt (line 33))\n"}
+,{"stream_name":"stdout","time":66.050473574,"data":"  Downloading flax-0.12.10-py3-none-any.whl.metadata (11 kB)\n"}
+,{"stream_name":"stdout","time":66.411849862,"data":"Collecting fonttools==4.67.0 (from -r installation/linux-cuda12-requirements.txt (line 34))\n"}
+,{"stream_name":"stdout","time":66.42203505,"data":"  Downloading fonttools-4.67.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (137 kB)\n"}
+,{"stream_name":"stdout","time":66.495190705,"data":"Collecting fqdn==1.6.0 (from -r installation/linux-cuda12-requirements.txt (line 35))\n"}
+,{"stream_name":"stdout","time":66.504367986,"data":"  Downloading fqdn-1.6.0-py3-none-any.whl.metadata (9.4 kB)\n"}
+,{"stream_name":"stdout","time":66.600813483,"data":"Collecting freesasa==2.2.1 (from -r installation/linux-cuda12-requirements.txt (line 36))\n"}
+,{"stream_name":"stdout","time":66.610389239,"data":"  Downloading freesasa-2.2.1.tar.gz (270 kB)\n"}
+,{"stream_name":"stdout","time":66.677790907,"data":"  Installing build dependencies: started\n"}
+,{"stream_name":"stdout","time":67.637534359,"data":"  Installing build dependencies: finished with status 'done'\n"}
+,{"stream_name":"stdout","time":67.638418605,"data":"  Getting requirements to build wheel: started\n"}
+,{"stream_name":"stdout","time":67.954146689,"data":"  Getting requirements to build wheel: finished with status 'done'\n"}
+,{"stream_name":"stdout","time":67.955465893,"data":"  Installing backend dependencies: started\n"}
+,{"stream_name":"stdout","time":70.170344866,"data":"  Installing backend dependencies: finished with status 'done'\n"}
+,{"stream_name":"stdout","time":70.17140805,"data":"  Preparing metadata (pyproject.toml): started\n"}
+,{"stream_name":"stdout","time":70.572896199,"data":"  Preparing metadata (pyproject.toml): finished with status 'done'\n"}
+,{"stream_name":"stdout","time":70.620475766,"data":"Collecting fsspec==2026.9.0 (from -r installation/linux-cuda12-requirements.txt (line 37))\n"}
+,{"stream_name":"stdout","time":70.629702813,"data":"  Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)\n"}
+,{"stream_name":"stdout","time":70.696048164,"data":"Collecting future==1.0.0 (from -r installation/linux-cuda12-requirements.txt (line 38))\n"}
+,{"stream_name":"stdout","time":70.704847346,"data":"  Downloading future-1.0.0-py3-none-any.whl.metadata (4.0 kB)\n"}
+,{"stream_name":"stdout","time":70.747426854,"data":"Collecting h11==0.16.0 (from -r installation/linux-cuda12-requirements.txt (line 39))\n"}
+,{"stream_name":"stdout","time":70.756708016,"data":"  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)\n"}
+,{"stream_name":"stdout","time":70.806834588,"data":"Collecting httpcore==1.0.9 (from -r installation/linux-cuda12-requirements.txt (line 40))\n"}
+,{"stream_name":"stdout","time":70.81621998,"data":"  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)\n"}
+,{"stream_name":"stdout","time":70.870621598,"data":"Collecting httpx==0.28.1 (from -r installation/linux-cuda12-requirements.txt (line 41))\n"}
+,{"stream_name":"stdout","time":70.879255064,"data":"  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)\n"}
+,{"stream_name":"stdout","time":70.933563854,"data":"Collecting humanize==4.16.0 (from -r installation/linux-cuda12-requirements.txt (line 42))\n"}
+,{"stream_name":"stdout","time":70.942515272,"data":"  Downloading humanize-4.16.0-py3-none-any.whl.metadata (8.0 kB)\n"}
+,{"stream_name":"stdout","time":70.991969703,"data":"Collecting idna==3.20 (from -r installation/linux-cuda12-requirements.txt (line 43))\n"}
+,{"stream_name":"stdout","time":71.000769041,"data":"  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)\n"}
+,{"stream_name":"stdout","time":71.050967059,"data":"Collecting immutabledict==4.3.1 (from -r installation/linux-cuda12-requirements.txt (line 44))\n"}
+,{"stream_name":"stdout","time":71.05962923,"data":"  Downloading immutabledict-4.3.1-py3-none-any.whl.metadata (3.5 kB)\n"}
+,{"stream_name":"stdout","time":71.135667065,"data":"Collecting ipykernel==7.4.0 (from -r installation/linux-cuda12-requirements.txt (line 45))\n"}
+,{"stream_name":"stdout","time":71.144777307,"data":"  Downloading ipykernel-7.4.0-py3-none-any.whl.metadata (3.4 kB)\n"}
+,{"stream_name":"stdout","time":71.255595097,"data":"Collecting ipython==9.17.1 (from -r installation/linux-cuda12-requirements.txt (line 46))\n"}
+,{"stream_name":"stdout","time":71.265435072,"data":"  Downloading ipython-9.17.1-py3-none-any.whl.metadata (4.6 kB)\n"}
+,{"stream_name":"stdout","time":71.32029562,"data":"Collecting ipython-pygments-lexers==1.1.1 (from -r installation/linux-cuda12-requirements.txt (line 47))\n"}
+,{"stream_name":"stdout","time":71.329235044,"data":"  Downloading ipython_pygments_lexers-1.1.1-py3-none-any.whl.metadata (1.1 kB)\n"}
+,{"stream_name":"stdout","time":71.399870481,"data":"Collecting ipywidgets==8.1.9 (from -r installation/linux-cuda12-requirements.txt (line 48))\n"}
+,{"stream_name":"stdout","time":71.409752107,"data":"  Downloading ipywidgets-8.1.9-py3-none-any.whl.metadata (2.4 kB)\n"}
+,{"stream_name":"stdout","time":71.456028491,"data":"Collecting isoduration==20.11.0 (from -r installation/linux-cuda12-requirements.txt (line 49))\n"}
+,{"stream_name":"stdout","time":71.46524628,"data":"  Downloading isoduration-20.11.0-py3-none-any.whl.metadata (5.7 kB)\n"}
+,{"stream_name":"stdout","time":71.532817357,"data":"Collecting jax==0.11.2 (from jax[cuda12]==0.11.2-\u003e-r installation/linux-cuda12-requirements.txt (line 50))\n"}
+,{"stream_name":"stdout","time":71.542635146,"data":"  Downloading jax-0.11.2-py3-none-any.whl.metadata (13 kB)\n"}
+,{"stream_name":"stdout","time":71.598184793,"data":"Collecting jax-cuda12-pjrt==0.11.2 (from -r installation/linux-cuda12-requirements.txt (line 51))\n"}
+,{"stream_name":"stdout","time":71.671259091,"data":"  Downloading jax_cuda12_pjrt-0.11.2-py3-none-manylinux_2_27_x86_64.whl.metadata (580 bytes)\n"}
+,{"stream_name":"stdout","time":71.754276633,"data":"Collecting jax-cuda12-plugin==0.11.2 (from -r installation/linux-cuda12-requirements.txt (line 52))\n"}
+,{"stream_name":"stdout","time":71.764570101,"data":"  Downloading jax_cuda12_plugin-0.11.2-cp312-cp312-manylinux_2_27_x86_64.whl.metadata (2.0 kB)\n"}
+,{"stream_name":"stdout","time":71.890312112,"data":"Collecting jaxlib==0.11.2 (from -r installation/linux-cuda12-requirements.txt (line 53))\n"}
+,{"stream_name":"stdout","time":71.900938513,"data":"  Downloading jaxlib-0.11.2-cp312-cp312-manylinux_2_27_x86_64.whl.metadata (1.3 kB)\n"}
+,{"stream_name":"stdout","time":71.950898925,"data":"Collecting jedi==0.20.1 (from -r installation/linux-cuda12-requirements.txt (line 54))\n"}
+,{"stream_name":"stdout","time":71.959954761,"data":"  Downloading jedi-0.20.1-py2.py3-none-any.whl.metadata (23 kB)\n"}
+,{"stream_name":"stdout","time":72.016216508,"data":"Collecting jinja2==3.1.6 (from -r installation/linux-cuda12-requirements.txt (line 55))\n"}
+,{"stream_name":"stdout","time":72.024878398,"data":"  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)\n"}
+,{"stream_name":"stdout","time":72.062798225,"data":"Collecting jmp==0.0.4 (from -r installation/linux-cuda12-requirements.txt (line 56))\n"}
+,{"stream_name":"stdout","time":72.073305408,"data":"  Downloading jmp-0.0.4-py3-none-any.whl.metadata (8.9 kB)\n"}
+,{"stream_name":"stdout","time":72.131527544,"data":"Collecting joblib==1.6.0 (from -r installation/linux-cuda12-requirements.txt (line 57))\n"}
+,{"stream_name":"stdout","time":72.141303788,"data":"  Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)\n"}
+,{"stream_name":"stdout","time":72.190872008,"data":"Collecting json5==0.17.3 (from -r installation/linux-cuda12-requirements.txt (line 58))\n"}
+,{"stream_name":"stdout","time":72.199649742,"data":"  Downloading json5-0.17.3-py3-none-any.whl.metadata (27 kB)\n"}
+,{"stream_name":"stdout","time":72.243299875,"data":"Collecting jsonpointer==3.2.1 (from -r installation/linux-cuda12-requirements.txt (line 59))\n"}
+,{"stream_name":"stdout","time":72.254264666,"data":"  Downloading jsonpointer-3.2.1-py3-none-any.whl.metadata (2.6 kB)\n"}
+,{"stream_name":"stdout","time":72.315465953,"data":"Collecting jsonschema==4.26.0 (from -r installation/linux-cuda12-requirements.txt (line 60))\n"}
+,{"stream_name":"stdout","time":72.324977764,"data":"  Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)\n"}
+,{"stream_name":"stdout","time":72.37431142,"data":"Collecting jsonschema-specifications==2025.9.1 (from -r installation/linux-cuda12-requirements.txt (line 61))\n"}
+,{"stream_name":"stdout","time":72.383570994,"data":"  Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)\n"}
+,{"stream_name":"stdout","time":72.4284348,"data":"Collecting jupyter==1.1.1 (from -r installation/linux-cuda12-requirements.txt (line 62))\n"}
+,{"stream_name":"stdout","time":72.43747187,"data":"  Downloading jupyter-1.1.1-py2.py3-none-any.whl.metadata (2.0 kB)\n"}
+,{"stream_name":"stdout","time":72.486687053,"data":"Collecting jupyter-builder==1.2.3 (from -r installation/linux-cuda12-requirements.txt (line 63))\n"}
+,{"stream_name":"stdout","time":72.500092899,"data":"  Downloading jupyter_builder-1.2.3-py3-none-any.whl.metadata (7.8 kB)\n"}
+,{"stream_name":"stdout","time":72.564120648,"data":"Collecting jupyter-client==8.10.0 (from -r installation/linux-cuda12-requirements.txt (line 64))\n"}
+,{"stream_name":"stdout","time":72.572975265,"data":"  Downloading jupyter_client-8.10.0-py3-none-any.whl.metadata (8.5 kB)\n"}
+,{"stream_name":"stdout","time":72.627007695,"data":"Collecting jupyter-console==6.6.3 (from -r installation/linux-cuda12-requirements.txt (line 65))\n"}
+,{"stream_name":"stdout","time":72.636151292,"data":"  Downloading jupyter_console-6.6.3-py3-none-any.whl.metadata (5.8 kB)\n"}
+,{"stream_name":"stdout","time":72.687777652,"data":"Collecting jupyter-core==5.9.1 (from -r installation/linux-cuda12-requirements.txt (line 66))\n"}
+,{"stream_name":"stdout","time":72.696566898,"data":"  Downloading jupyter_core-5.9.1-py3-none-any.whl.metadata (1.5 kB)\n"}
+,{"stream_name":"stdout","time":72.737877073,"data":"Collecting jupyter-events==0.12.1 (from -r installation/linux-cuda12-requirements.txt (line 67))\n"}
+,{"stream_name":"stdout","time":72.746972095,"data":"  Downloading jupyter_events-0.12.1-py3-none-any.whl.metadata (5.8 kB)\n"}
+,{"stream_name":"stdout","time":72.797867092,"data":"Collecting jupyter-lsp==2.3.1 (from -r installation/linux-cuda12-requirements.txt (line 68))\n"}
+,{"stream_name":"stdout","time":72.806979807,"data":"  Downloading jupyter_lsp-2.3.1-py3-none-any.whl.metadata (1.8 kB)\n"}
+,{"stream_name":"stdout","time":72.879880998,"data":"Collecting jupyter-server==2.21.1 (from -r installation/linux-cuda12-requirements.txt (line 69))\n"}
+,{"stream_name":"stdout","time":72.889065767,"data":"  Downloading jupyter_server-2.21.1-py3-none-any.whl.metadata (8.5 kB)\n"}
+,{"stream_name":"stdout","time":72.941653957,"data":"Collecting jupyter-server-terminals==0.5.4 (from -r installation/linux-cuda12-requirements.txt (line 70))\n"}
+,{"stream_name":"stdout","time":72.950629762,"data":"  Downloading jupyter_server_terminals-0.5.4-py3-none-any.whl.metadata (5.9 kB)\n"}
+,{"stream_name":"stdout","time":73.102203567,"data":"Collecting jupyterlab==4.6.4 (from -r installation/linux-cuda12-requirements.txt (line 71))\n"}
+,{"stream_name":"stdout","time":73.111974807,"data":"  Downloading jupyterlab-4.6.4-py3-none-any.whl.metadata (16 kB)\n"}
+,{"stream_name":"stdout","time":73.156255534,"data":"Collecting jupyterlab-pygments==0.3.0 (from -r installation/linux-cuda12-requirements.txt (line 72))\n"}
+,{"stream_name":"stdout","time":73.165574499,"data":"  Downloading jupyterlab_pygments-0.3.0-py3-none-any.whl.metadata (4.4 kB)\n"}
+,{"stream_name":"stdout","time":73.234617347,"data":"Collecting jupyterlab-server==2.28.1 (from -r installation/linux-cuda12-requirements.txt (line 73))\n"}
+,{"stream_name":"stdout","time":73.243585707,"data":"  Downloading jupyterlab_server-2.28.1-py3-none-any.whl.metadata (5.8 kB)\n"}
+,{"stream_name":"stdout","time":73.307704705,"data":"Collecting jupyterlab-widgets==3.0.17 (from -r installation/linux-cuda12-requirements.txt (line 74))\n"}
+,{"stream_name":"stdout","time":73.316805424,"data":"  Downloading jupyterlab_widgets-3.0.17-py3-none-any.whl.metadata (20 kB)\n"}
+,{"stream_name":"stdout","time":73.480229958,"data":"Collecting kiwisolver==1.5.1 (from -r installation/linux-cuda12-requirements.txt (line 75))\n"}
+,{"stream_name":"stdout","time":73.489515126,"data":"  Downloading kiwisolver-1.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)\n"}
+,{"stream_name":"stdout","time":73.539101737,"data":"Collecting lark==1.3.1 (from -r installation/linux-cuda12-requirements.txt (line 76))\n"}
+,{"stream_name":"stdout","time":73.547935811,"data":"  Downloading lark-1.3.1-py3-none-any.whl.metadata (1.8 kB)\n"}
+,{"stream_name":"stdout","time":73.599437573,"data":"Collecting markdown-it-py==4.2.0 (from -r installation/linux-cuda12-requirements.txt (line 77))\n"}
+,{"stream_name":"stdout","time":73.609055028,"data":"  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)\n"}
+,{"stream_name":"stdout","time":73.775718698,"data":"Collecting markupsafe==3.0.4 (from -r installation/linux-cuda12-requirements.txt (line 78))\n"}
+,{"stream_name":"stdout","time":73.784868076,"data":"  Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)\n"}
+,{"stream_name":"stdout","time":74.062545831,"data":"Collecting matplotlib==3.11.2 (from -r installation/linux-cuda12-requirements.txt (line 79))\n"}
+,{"stream_name":"stdout","time":74.072104384,"data":"  Downloading matplotlib-3.11.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (80 kB)\n"}
+,{"stream_name":"stdout","time":74.143543066,"data":"Collecting matplotlib-inline==0.2.2 (from -r installation/linux-cuda12-requirements.txt (line 80))\n"}
+,{"stream_name":"stdout","time":74.152439973,"data":"  Downloading matplotlib_inline-0.2.2-py3-none-any.whl.metadata (2.4 kB)\n"}
+,{"stream_name":"stdout","time":74.190270908,"data":"Collecting mdurl==0.1.2 (from -r installation/linux-cuda12-requirements.txt (line 81))\n"}
+,{"stream_name":"stdout","time":74.199237374,"data":"  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)\n"}
+,{"stream_name":"stdout","time":74.25157306,"data":"Collecting mistune==3.3.4 (from -r installation/linux-cuda12-requirements.txt (line 82))\n"}
+,{"stream_name":"stdout","time":74.261705503,"data":"  Downloading mistune-3.3.4-py3-none-any.whl.metadata (1.9 kB)\n"}
+,{"stream_name":"stdout","time":74.301789513,"data":"Collecting ml-collections==1.1.0 (from -r installation/linux-cuda12-requirements.txt (line 83))\n"}
+,{"stream_name":"stdout","time":74.31065241,"data":"  Downloading ml_collections-1.1.0-py3-none-any.whl.metadata (22 kB)\n"}
+,{"stream_name":"stdout","time":74.385950558,"data":"Collecting ml-dtypes==0.6.0 (from -r installation/linux-cuda12-requirements.txt (line 84))\n"}
+,{"stream_name":"stdout","time":74.395092527,"data":"  Downloading ml_dtypes-0.6.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)\n"}
+,{"stream_name":"stdout","time":74.575434422,"data":"Collecting msgpack==1.2.3 (from -r installation/linux-cuda12-requirements.txt (line 85))\n"}
+,{"stream_name":"stdout","time":74.585942512,"data":"  Downloading msgpack-1.2.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)\n"}
+,{"stream_name":"stdout","time":74.634741019,"data":"Collecting nbclient==0.11.0 (from -r installation/linux-cuda12-requirements.txt (line 86))\n"}
+,{"stream_name":"stdout","time":74.643592908,"data":"  Downloading nbclient-0.11.0-py3-none-any.whl.metadata (7.3 kB)\n"}
+,{"stream_name":"stdout","time":74.706345416,"data":"Collecting nbconvert==7.17.2 (from -r installation/linux-cuda12-requirements.txt (line 87))\n"}
+,{"stream_name":"stdout","time":74.716701364,"data":"  Downloading nbconvert-7.17.2-py3-none-any.whl.metadata (8.4 kB)\n"}
+,{"stream_name":"stdout","time":74.766640532,"data":"Collecting nbformat==5.11.1 (from -r installation/linux-cuda12-requirements.txt (line 88))\n"}
+,{"stream_name":"stdout","time":74.775620705,"data":"  Downloading nbformat-5.11.1-py3-none-any.whl.metadata (3.7 kB)\n"}
+,{"stream_name":"stdout","time":74.815845055,"data":"Collecting nest-asyncio2==1.7.4 (from -r installation/linux-cuda12-requirements.txt (line 89))\n"}
+,{"stream_name":"stdout","time":74.824982145,"data":"  Downloading nest_asyncio2-1.7.4-py3-none-any.whl.metadata (7.0 kB)\n"}
+,{"stream_name":"stdout","time":74.904257383,"data":"Collecting notebook==7.6.3 (from -r installation/linux-cuda12-requirements.txt (line 90))\n"}
+,{"stream_name":"stdout","time":74.913314943,"data":"  Downloading notebook-7.6.3-py3-none-any.whl.metadata (10 kB)\n"}
+,{"stream_name":"stdout","time":74.958695724,"data":"Collecting notebook-shim==0.2.4 (from -r installation/linux-cuda12-requirements.txt (line 91))\n"}
+,{"stream_name":"stdout","time":74.967605669,"data":"  Downloading notebook_shim-0.2.4-py3-none-any.whl.metadata (4.0 kB)\n"}
+,{"stream_name":"stdout","time":75.388866823,"data":"Collecting numpy==2.5.4 (from -r installation/linux-cuda12-requirements.txt (line 92))\n"}
+,{"stream_name":"stdout","time":75.397973672,"data":"  Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)\n"}
+,{"stream_name":"stdout","time":75.44994171,"data":"Collecting nvidia-cublas-cu12==12.9.2.10 (from -r installation/linux-cuda12-requirements.txt (line 93))\n"}
+,{"stream_name":"stdout","time":75.459722863,"data":"  Downloading nvidia_cublas_cu12-12.9.2.10-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)\n"}
+,{"stream_name":"stdout","time":75.524478835,"data":"Collecting nvidia-cuda-cccl-cu12==12.9.27 (from -r installation/linux-cuda12-requirements.txt (line 94))\n"}
+,{"stream_name":"stdout","time":75.537155957,"data":"  Downloading nvidia_cuda_cccl_cu12-12.9.27-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)\n"}
+,{"stream_name":"stdout","time":75.578862801,"data":"Collecting nvidia-cuda-cupti-cu12==12.9.79 (from -r installation/linux-cuda12-requirements.txt (line 95))\n"}
+,{"stream_name":"stdout","time":75.589126759,"data":"  Downloading nvidia_cuda_cupti_cu12-12.9.79-py3-none-manylinux_2_25_x86_64.whl.metadata (1.8 kB)\n"}
+,{"stream_name":"stdout","time":75.630728442,"data":"Collecting nvidia-cuda-nvcc-cu12==12.9.86 (from -r installation/linux-cuda12-requirements.txt (line 96))\n"}
+,{"stream_name":"stdout","time":75.640915612,"data":"  Downloading nvidia_cuda_nvcc_cu12-12.9.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)\n"}
+,{"stream_name":"stdout","time":75.686847367,"data":"Collecting nvidia-cuda-nvrtc-cu12==12.9.86 (from -r installation/linux-cuda12-requirements.txt (line 97))\n"}
+,{"stream_name":"stdout","time":75.69645756,"data":"  Downloading nvidia_cuda_nvrtc_cu12-12.9.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)\n"}
+,{"stream_name":"stdout","time":75.737009658,"data":"Collecting nvidia-cuda-runtime-cu12==12.9.79 (from -r installation/linux-cuda12-requirements.txt (line 98))\n"}
+,{"stream_name":"stdout","time":75.747223679,"data":"  Downloading nvidia_cuda_runtime_cu12-12.9.79-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)\n"}
+,{"stream_name":"stdout","time":75.799685204,"data":"Collecting nvidia-cudnn-cu12==9.27.0.42 (from -r installation/linux-cuda12-requirements.txt (line 99))\n"}
+,{"stream_name":"stdout","time":75.809454472,"data":"  Downloading nvidia_cudnn_cu12-9.27.0.42-py3-none-manylinux_2_27_x86_64.whl.metadata (1.9 kB)\n"}
+,{"stream_name":"stdout","time":75.850554427,"data":"Collecting nvidia-cufft-cu12==11.4.1.4 (from -r installation/linux-cuda12-requirements.txt (line 100))\n"}
+,{"stream_name":"stdout","time":75.860718536,"data":"  Downloading nvidia_cufft_cu12-11.4.1.4-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)\n"}
+,{"stream_name":"stdout","time":75.91022206,"data":"Collecting nvidia-cusolver-cu12==11.7.5.82 (from -r installation/linux-cuda12-requirements.txt (line 101))\n"}
+,{"stream_name":"stdout","time":75.919489933,"data":"  Downloading nvidia_cusolver_cu12-11.7.5.82-py3-none-manylinux_2_27_x86_64.whl.metadata (1.9 kB)\n"}
+,{"stream_name":"stdout","time":75.967739667,"data":"Collecting nvidia-cusparse-cu12==12.5.10.65 (from -r installation/linux-cuda12-requirements.txt (line 102))\n"}
+,{"stream_name":"stdout","time":75.977777534,"data":"  Downloading nvidia_cusparse_cu12-12.5.10.65-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)\n"}
+,{"stream_name":"stdout","time":76.026594673,"data":"Collecting nvidia-nccl-cu12==2.32.3 (from -r installation/linux-cuda12-requirements.txt (line 103))\n"}
+,{"stream_name":"stdout","time":76.035326559,"data":"  Downloading nvidia_nccl_cu12-2.32.3-py3-none-manylinux_2_27_x86_64.whl.metadata (2.1 kB)\n"}
+,{"stream_name":"stdout","time":76.08497144,"data":"Collecting nvidia-nvjitlink-cu12==12.9.86 (from -r installation/linux-cuda12-requirements.txt (line 104))\n"}
+,{"stream_name":"stdout","time":76.095263352,"data":"  Downloading nvidia_nvjitlink_cu12-12.9.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)\n"}
+,{"stream_name":"stdout","time":76.138869102,"data":"Collecting nvidia-nvshmem-cu12==3.8.0 (from -r installation/linux-cuda12-requirements.txt (line 105))\n"}
+,{"stream_name":"stdout","time":76.14920026,"data":"  Downloading nvidia_nvshmem_cu12-3.8.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.2 kB)\n"}
+,{"stream_name":"stdout","time":76.243049735,"data":"Collecting openmm==8.6.1 (from openmm[cuda12]==8.6.1-\u003e-r installation/linux-cuda12-requirements.txt (line 106))\n"}
+,{"stream_name":"stdout","time":76.253003153,"data":"  Downloading openmm-8.6.1-cp312-cp312-manylinux_2_34_x86_64.whl.metadata (1.4 kB)\n"}
+,{"stream_name":"stdout","time":76.364591337,"data":"Collecting openmm-cuda-12==8.6.1 (from -r installation/linux-cuda12-requirements.txt (line 107))\n"}
+,{"stream_name":"stdout","time":76.375854484,"data":"  Downloading openmm_cuda_12-8.6.1-py3-none-manylinux_2_34_x86_64.whl.metadata (405 bytes)\n"}
+,{"stream_name":"stdout","time":76.414877648,"data":"Collecting opt-einsum==3.4.0 (from -r installation/linux-cuda12-requirements.txt (line 108))\n"}
+,{"stream_name":"stdout","time":76.423764134,"data":"  Downloading opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)\n"}
+,{"stream_name":"stdout","time":76.465667334,"data":"Collecting optax==0.2.8 (from -r installation/linux-cuda12-requirements.txt (line 109))\n"}
+,{"stream_name":"stdout","time":76.474971527,"data":"  Downloading optax-0.2.8-py3-none-any.whl.metadata (7.9 kB)\n"}
+,{"stream_name":"stdout","time":76.537832636,"data":"Collecting orbax-checkpoint==0.12.7 (from -r installation/linux-cuda12-requirements.txt (line 110))\n"}
+,{"stream_name":"stdout","time":76.54791216,"data":"  Downloading orbax_checkpoint-0.12.7-py3-none-any.whl.metadata (3.3 kB)\n"}
+,{"stream_name":"stdout","time":76.565692397,"data":"Requirement already satisfied: packaging==26.3 in /kaggle/temp/tfr1_freebindcraft/miniconda/envs/BindCraft/lib/python3.12/site-packages (from -r installation/linux-cuda12-requirements.txt (line 111)) (26.3)\n"}
+,{"stream_name":"stdout","time":76.848939922,"data":"Collecting pandas==3.0.6 (from -r installation/linux-cuda12-requirements.txt (line 112))\n"}
+,{"stream_name":"stdout","time":76.85838637,"data":"  Downloading pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)\n"}
+,{"stream_name":"stdout","time":76.929764587,"data":"Collecting pandocfilters==1.5.1 (from -r installation/linux-cuda12-requirements.txt (line 113))\n"}
+,{"stream_name":"stdout","time":76.938449574,"data":"  Downloading pandocfilters-1.5.1-py2.py3-none-any.whl.metadata (9.0 kB)\n"}
+,{"stream_name":"stdout","time":76.982012026,"data":"Collecting parso==0.8.7 (from -r installation/linux-cuda12-requirements.txt (line 114))\n"}
+,{"stream_name":"stdout","time":76.990757883,"data":"  Downloading parso-0.8.7-py2.py3-none-any.whl.metadata (8.2 kB)\n"}
+,{"stream_name":"stdout","time":77.032713508,"data":"Collecting pexpect==4.9.0 (from -r installation/linux-cuda12-requirements.txt (line 116))\n"}
+,{"stream_name":"stdout","time":77.041572779,"data":"  Downloading pexpect-4.9.0-py2.py3-none-any.whl.metadata (2.5 kB)\n"}
+,{"stream_name":"stdout","time":77.394477458,"data":"Collecting pillow==13.0.0 (from -r installation/linux-cuda12-requirements.txt (line 117))\n"}
+,{"stream_name":"stdout","time":77.403796019,"data":"  Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)\n"}
+,{"stream_name":"stdout","time":77.45931552,"data":"Collecting platformdirs==4.13.4 (from -r installation/linux-cuda12-requirements.txt (line 118))\n"}
+,{"stream_name":"stdout","time":77.469957033,"data":"  Downloading platformdirs-4.13.4-py3-none-any.whl.metadata (5.5 kB)\n"}
+,{"stream_name":"stdout","time":77.518559808,"data":"Collecting prometheus-client==0.26.0 (from -r installation/linux-cuda12-requirements.txt (line 119))\n"}
+,{"stream_name":"stdout","time":77.527669406,"data":"  Downloading prometheus_client-0.26.0-py3-none-any.whl.metadata (2.1 kB)\n"}
+,{"stream_name":"stdout","time":77.601578356,"data":"Collecting prompt-toolkit==3.0.53 (from -r installation/linux-cuda12-requirements.txt (line 120))\n"}
+,{"stream_name":"stdout","time":77.610879912,"data":"  Downloading prompt_toolkit-3.0.53-py3-none-any.whl.metadata (6.4 kB)\n"}
+,{"stream_name":"stdout","time":77.907181317,"data":"Collecting protobuf==7.36.2 (from -r installation/linux-cuda12-requirements.txt (line 121))\n"}
+,{"stream_name":"stdout","time":77.916057179,"data":"  Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)\n"}
+,{"stream_name":"stdout","time":78.067345086,"data":"Collecting psutil==7.2.2 (from -r installation/linux-cuda12-requirements.txt (line 122))\n"}
+,{"stream_name":"stdout","time":78.076446662,"data":"  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)\n"}
+,{"stream_name":"stdout","time":78.119809366,"data":"Collecting ptyprocess==0.7.0 (from -r installation/linux-cuda12-requirements.txt (line 123))\n"}
+,{"stream_name":"stdout","time":78.128552781,"data":"  Downloading ptyprocess-0.7.0-py2.py3-none-any.whl.metadata (1.3 kB)\n"}
+,{"stream_name":"stdout","time":78.166544373,"data":"Collecting pure-eval==0.2.4 (from -r installation/linux-cuda12-requirements.txt (line 124))\n"}
+,{"stream_name":"stdout","time":78.175577633,"data":"  Downloading pure_eval-0.2.4-py3-none-any.whl.metadata (6.4 kB)\n"}
+,{"stream_name":"stdout","time":78.222718486,"data":"Collecting py3dmol==2.5.5 (from -r installation/linux-cuda12-requirements.txt (line 125))\n"}
+,{"stream_name":"stdout","time":78.231569093,"data":"  Downloading py3dmol-2.5.5-py2.py3-none-any.whl.metadata (2.1 kB)\n"}
+,{"stream_name":"stdout","time":78.276218373,"data":"Collecting pycparser==3.11 (from -r installation/linux-cuda12-requirements.txt (line 126))\n"}
+,{"stream_name":"stdout","time":78.284898818,"data":"  Downloading pycparser-3.11-py3-none-any.whl.metadata (8.2 kB)\n"}
+,{"stream_name":"stdout","time":78.511367524,"data":"Collecting pygments==2.21.0 (from -r installation/linux-cuda12-requirements.txt (line 127))\n"}
+,{"stream_name":"stdout","time":78.520607281,"data":"  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)\n"}
+,{"stream_name":"stdout","time":78.597593424,"data":"Collecting pyparsing==3.3.3 (from -r installation/linux-cuda12-requirements.txt (line 128))\n"}
+,{"stream_name":"stdout","time":78.6065904,"data":"  Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)\n"}
+,{"stream_name":"stdout","time":78.657639764,"data":"Collecting python-dateutil==2.9.0.post0 (from -r installation/linux-cuda12-requirements.txt (line 129))\n"}
+,{"stream_name":"stdout","time":78.667871781,"data":"  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)\n"}
+,{"stream_name":"stdout","time":78.719032241,"data":"Collecting python-json-logger==4.2.0 (from -r installation/linux-cuda12-requirements.txt (line 130))\n"}
+,{"stream_name":"stdout","time":78.727951072,"data":"  Downloading python_json_logger-4.2.0-py3-none-any.whl.metadata (2.9 kB)\n"}
+,{"stream_name":"stdout","time":78.821605374,"data":"Collecting pyyaml==6.0.3 (from -r installation/linux-cuda12-requirements.txt (line 131))\n"}
+,{"stream_name":"stdout","time":78.831211964,"data":"  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)\n"}
+,{"stream_name":"stdout","time":79.321218019,"data":"Collecting pyzmq==27.2.0 (from -r installation/linux-cuda12-requirements.txt (line 132))\n"}
+,{"stream_name":"stdout","time":79.330217517,"data":"  Downloading pyzmq-27.2.0-cp312-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)\n"}
+,{"stream_name":"stdout","time":79.39266247,"data":"Collecting referencing==0.37.0 (from -r installation/linux-cuda12-requirements.txt (line 133))\n"}
+,{"stream_name":"stdout","time":79.401911695,"data":"  Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)\n"}
+,{"stream_name":"stdout","time":79.465817736,"data":"Collecting requests==2.34.2 (from -r installation/linux-cuda12-requirements.txt (line 134))\n"}
+,{"stream_name":"stdout","time":79.474721547,"data":"  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)\n"}
+,{"stream_name":"stdout","time":79.520908346,"data":"Collecting rfc3339-validator==0.1.4 (from -r installation/linux-cuda12-requirements.txt (line 135))\n"}
+,{"stream_name":"stdout","time":79.530016183,"data":"  Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl.metadata (1.5 kB)\n"}
+,{"stream_name":"stdout","time":79.576289392,"data":"Collecting rfc3986-validator==0.1.1 (from -r installation/linux-cuda12-requirements.txt (line 136))\n"}
+,{"stream_name":"stdout","time":79.585096125,"data":"  Downloading rfc3986_validator-0.1.1-py2.py3-none-any.whl.metadata (1.7 kB)\n"}
+,{"stream_name":"stdout","time":79.625026676,"data":"Collecting rfc3987-syntax==1.1.0 (from -r installation/linux-cuda12-requirements.txt (line 137))\n"}
+,{"stream_name":"stdout","time":79.635533595,"data":"  Downloading rfc3987_syntax-1.1.0-py3-none-any.whl.metadata (7.7 kB)\n"}
+,{"stream_name":"stdout","time":79.714345759,"data":"Collecting rich==15.0.0 (from -r installation/linux-cuda12-requirements.txt (line 138))\n"}
+,{"stream_name":"stdout","time":79.7231654,"data":"  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)\n"}
+,{"stream_name":"stdout","time":80.259672479,"data":"Collecting rpds-py==2026.9.1 (from -r installation/linux-cuda12-requirements.txt (line 139))\n"}
+,{"stream_name":"stdout","time":80.269072662,"data":"  Downloading rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)\n"}
+,{"stream_name":"stdout","time":80.536447595,"data":"Collecting scipy==1.18.1 (from -r installation/linux-cuda12-requirements.txt (line 140))\n"}
+,{"stream_name":"stdout","time":80.545694846,"data":"  Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)\n"}
+,{"stream_name":"stdout","time":80.616205861,"data":"Collecting seaborn==0.13.2 (from -r installation/linux-cuda12-requirements.txt (line 141))\n"}
+,{"stream_name":"stdout","time":80.624832195,"data":"  Downloading seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)\n"}
+,{"stream_name":"stdout","time":80.66730393899999,"data":"Collecting send2trash==2.1.0 (from -r installation/linux-cuda12-requirements.txt (line 142))\n"}
+,{"stream_name":"stdout","time":80.67619378,"data":"  Downloading send2trash-2.1.0-py3-none-any.whl.metadata (4.1 kB)\n"}
+,{"stream_name":"stdout","time":80.942584386,"data":"Collecting simplejson==4.2.0 (from -r installation/linux-cuda12-requirements.txt (line 143))\n"}
+,{"stream_name":"stdout","time":80.952062219,"data":"  Downloading simplejson-4.2.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.8 kB)\n"}
+,{"stream_name":"stdout","time":81.001284995,"data":"Collecting six==1.17.0 (from -r installation/linux-cuda12-requirements.txt (line 144))\n"}
+,{"stream_name":"stdout","time":81.010468159,"data":"  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)\n"}
+,{"stream_name":"stdout","time":81.063526352,"data":"Collecting soupsieve==3.0.3 (from -r installation/linux-cuda12-requirements.txt (line 145))\n"}
+,{"stream_name":"stdout","time":81.074195055,"data":"  Downloading soupsieve-3.0.3-py3-none-any.whl.metadata (4.4 kB)\n"}
+,{"stream_name":"stdout","time":81.124504026,"data":"Collecting stack-data==0.6.3 (from -r installation/linux-cuda12-requirements.txt (line 146))\n"}
+,{"stream_name":"stdout","time":81.133508035,"data":"  Downloading stack_data-0.6.3-py3-none-any.whl.metadata (18 kB)\n"}
+,{"stream_name":"stdout","time":81.18279819,"data":"Collecting tabulate==0.10.0 (from -r installation/linux-cuda12-requirements.txt (line 147))\n"}
+,{"stream_name":"stdout","time":81.193346169,"data":"  Downloading tabulate-0.10.0-py3-none-any.whl.metadata (40 kB)\n"}
+,{"stream_name":"stdout","time":81.376797659,"data":"Collecting tensorstore==0.1.85 (from -r installation/linux-cuda12-requirements.txt (line 148))\n"}
+,{"stream_name":"stdout","time":81.386891937,"data":"  Downloading tensorstore-0.1.85-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)\n"}
+,{"stream_name":"stdout","time":81.438568685,"data":"Collecting terminado==0.18.1 (from -r installation/linux-cuda12-requirements.txt (line 149))\n"}
+,{"stream_name":"stdout","time":81.448437314,"data":"  Downloading terminado-0.18.1-py3-none-any.whl.metadata (5.8 kB)\n"}
+,{"stream_name":"stdout","time":81.495511891,"data":"Collecting tinycss2==1.5.1 (from -r installation/linux-cuda12-requirements.txt (line 150))\n"}
+,{"stream_name":"stdout","time":81.504475848,"data":"  Downloading tinycss2-1.5.1-py3-none-any.whl.metadata (3.0 kB)\n"}
+,{"stream_name":"stdout","time":81.551078541,"data":"Collecting toolz==1.2.0 (from -r installation/linux-cuda12-requirements.txt (line 151))\n"}
+,{"stream_name":"stdout","time":81.560104544,"data":"  Downloading toolz-1.2.0-py3-none-any.whl.metadata (5.2 kB)\n"}
+,{"stream_name":"stdout","time":81.668306744,"data":"Collecting tornado==6.5.10 (from -r installation/linux-cuda12-requirements.txt (line 152))\n"}
+,{"stream_name":"stdout","time":81.679540912,"data":"  Downloading tornado-6.5.10-cp39-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (2.8 kB)\n"}
+,{"stream_name":"stdout","time":81.759532854,"data":"Collecting tqdm==4.70.1 (from -r installation/linux-cuda12-requirements.txt (line 153))\n"}
+,{"stream_name":"stdout","time":81.768758148,"data":"  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)\n"}
+,{"stream_name":"stdout","time":81.834285714,"data":"Collecting traitlets==5.16.1 (from -r installation/linux-cuda12-requirements.txt (line 154))\n"}
+,{"stream_name":"stdout","time":81.843913255,"data":"  Downloading traitlets-5.16.1-py3-none-any.whl.metadata (10 kB)\n"}
+,{"stream_name":"stdout","time":81.898163047,"data":"Collecting treescope==0.1.10 (from -r installation/linux-cuda12-requirements.txt (line 155))\n"}
+,{"stream_name":"stdout","time":81.907677277,"data":"  Downloading treescope-0.1.10-py3-none-any.whl.metadata (6.6 kB)\n"}
+,{"stream_name":"stdout","time":81.957732025,"data":"Collecting typing-extensions==4.16.0 (from -r installation/linux-cuda12-requirements.txt (line 156))\n"}
+,{"stream_name":"stdout","time":81.966752328,"data":"  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)\n"}
+,{"stream_name":"stdout","time":82.014955931,"data":"Collecting tzdata==2026.5 (from -r installation/linux-cuda12-requirements.txt (line 157))\n"}
+,{"stream_name":"stdout","time":82.024194152,"data":"  Downloading tzdata-2026.5-py2.py3-none-any.whl.metadata (1.4 kB)\n"}
+,{"stream_name":"stdout","time":82.067809906,"data":"Collecting uri-template==1.3.0 (from -r installation/linux-cuda12-requirements.txt (line 158))\n"}
+,{"stream_name":"stdout","time":82.07717463,"data":"  Downloading uri_template-1.3.0-py3-none-any.whl.metadata (8.8 kB)\n"}
+,{"stream_name":"stdout","time":82.134075324,"data":"Collecting urllib3==2.8.0 (from -r installation/linux-cuda12-requirements.txt (line 159))\n"}
+,{"stream_name":"stdout","time":82.143053559,"data":"  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)\n"}
+,{"stream_name":"stdout","time":82.244850251,"data":"Collecting uvloop==0.23.0 (from -r installation/linux-cuda12-requirements.txt (line 160))\n"}
+,{"stream_name":"stdout","time":82.255453401,"data":"  Downloading uvloop-0.23.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.1 kB)\n"}
+,{"stream_name":"stdout","time":82.315965237,"data":"Collecting wcwidth==0.9.2 (from -r installation/linux-cuda12-requirements.txt (line 161))\n"}
+,{"stream_name":"stdout","time":82.328173948,"data":"  Downloading wcwidth-0.9.2-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (23 kB)\n"}
+,{"stream_name":"stdout","time":82.370414438,"data":"Collecting webcolors==25.10.0 (from -r installation/linux-cuda12-requirements.txt (line 162))\n"}
+,{"stream_name":"stdout","time":82.379990017,"data":"  Downloading webcolors-25.10.0-py3-none-any.whl.metadata (2.2 kB)\n"}
+,{"stream_name":"stdout","time":82.417549878,"data":"Collecting webencodings==0.6.1 (from -r installation/linux-cuda12-requirements.txt (line 163))\n"}
+,{"stream_name":"stdout","time":82.42677172,"data":"  Downloading webencodings-0.6.1-py3-none-any.whl.metadata (3.4 kB)\n"}
+,{"stream_name":"stdout","time":82.476696235,"data":"Collecting websocket-client==1.9.2 (from -r installation/linux-cuda12-requirements.txt (line 164))\n"}
+,{"stream_name":"stdout","time":82.485750309,"data":"  Downloading websocket_client-1.9.2-py3-none-any.whl.metadata (8.3 kB)\n"}
+,{"stream_name":"stdout","time":82.553396266,"data":"Collecting widgetsnbextension==4.0.16 (from -r installation/linux-cuda12-requirements.txt (line 165))\n"}
+,{"stream_name":"stdout","time":82.562239907,"data":"  Downloading widgetsnbextension-4.0.16-py3-none-any.whl.metadata (1.6 kB)\n"}
+,{"stream_name":"stdout","time":83.246241207,"data":"Collecting wrapt==2.5.1 (from -r installation/linux-cuda12-requirements.txt (line 166))\n"}
+,{"stream_name":"stdout","time":83.255515505,"data":"  Downloading wrapt-2.5.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (7.6 kB)\n"}
+,{"stream_name":"stdout","time":83.306454401,"data":"Collecting zipp==4.1.1 (from -r installation/linux-cuda12-requirements.txt (line 167))\n"}
+,{"stream_name":"stdout","time":83.315642967,"data":"  Downloading zipp-4.1.1-py3-none-any.whl.metadata (3.6 kB)\n"}
+,{"stream_name":"stdout","time":83.79391368,"data":"Downloading absl_py-2.5.1-py3-none-any.whl (137 kB)\n"}
+,{"stream_name":"stdout","time":83.82807575,"data":"Downloading aiofiles-25.1.0-py3-none-any.whl (14 kB)\n"}
+,{"stream_name":"stdout","time":83.848289574,"data":"Downloading anyio-4.15.1-py3-none-any.whl (132 kB)\n"}
+,{"stream_name":"stdout","time":83.881592061,"data":"Downloading argon2_cffi-25.1.0-py3-none-any.whl (14 kB)\n"}
+,{"stream_name":"stdout","time":83.901460704,"data":"Downloading argon2_cffi_bindings-26.1.0-cp310-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (26 kB)\n"}
+,{"stream_name":"stdout","time":83.92596783,"data":"Downloading arrow-1.4.0-py3-none-any.whl (68 kB)\n"}
+,{"stream_name":"stdout","time":83.95299073,"data":"Downloading asttokens-3.0.2-py3-none-any.whl (28 kB)\n"}
+,{"stream_name":"stdout","time":84.419488491,"data":"Downloading async_lru-2.4.0-py3-none-any.whl (10 kB)\n"}
+,{"stream_name":"stdout","time":84.446148674,"data":"Downloading attrs-26.1.0-py3-none-any.whl (67 kB)\n"}
+,{"stream_name":"stdout","time":84.473957327,"data":"Downloading babel-2.18.0-py3-none-any.whl (10.2 MB)\n"}
+,{"stream_name":"stdout","time":84.602449581,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 84.6 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":84.612257673,"data":"Downloading beautifulsoup4-4.15.0-py3-none-any.whl (109 kB)\n"}
+,{"stream_name":"stdout","time":84.639711847,"data":"Downloading biopython-1.88-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.2 MB)\n"}
+,{"stream_name":"stdout","time":84.691346634,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 61.5 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":84.700620603,"data":"Downloading bleach-6.4.0-py3-none-any.whl (165 kB)\n"}
+,{"stream_name":"stdout","time":84.725297454,"data":"Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)\n"}
+,{"stream_name":"stdout","time":84.748619916,"data":"Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)\n"}
+,{"stream_name":"stdout","time":84.774497224,"data":"Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)\n"}
+,{"stream_name":"stdout","time":84.800163448,"data":"Downloading chex-0.1.92-py3-none-any.whl (102 kB)\n"}
+,{"stream_name":"stdout","time":84.830533473,"data":"Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)\n"}
+,{"stream_name":"stdout","time":84.85524338,"data":"Downloading comm-0.2.3-py3-none-any.whl (7.3 kB)\n"}
+,{"stream_name":"stdout","time":84.879671552,"data":"Downloading contourpy-1.4.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (383 kB)\n"}
+,{"stream_name":"stdout","time":84.906979236,"data":"Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)\n"}
+,{"stream_name":"stdout","time":84.930804985,"data":"Downloading debugpy-1.8.22-cp312-cp312-manylinux_2_34_x86_64.whl (4.0 MB)\n"}
+,{"stream_name":"stdout","time":84.990243655,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.0/4.0 MB 68.1 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":84.99985096,"data":"Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)\n"}
+,{"stream_name":"stdout","time":85.027337135,"data":"Downloading dm_haiku-0.0.17-py3-none-any.whl (377 kB)\n"}
+,{"stream_name":"stdout","time":85.053271824,"data":"Downloading dm_tree-0.1.10-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (186 kB)\n"}
+,{"stream_name":"stdout","time":85.077176087,"data":"Downloading etils-1.14.0-py3-none-any.whl (172 kB)\n"}
+,{"stream_name":"stdout","time":85.101067287,"data":"Downloading executing-2.3.0-py3-none-any.whl (29 kB)\n"}
+,{"stream_name":"stdout","time":85.121332836,"data":"Downloading fastjsonschema-2.22.2-py3-none-any.whl (27 kB)\n"}
+,{"stream_name":"stdout","time":85.142201535,"data":"Downloading ffmpeg_python-0.2.0-py3-none-any.whl (25 kB)\n"}
+,{"stream_name":"stdout","time":85.169396924,"data":"Downloading flax-0.12.10-py3-none-any.whl (532 kB)\n"}
+,{"stream_name":"stdout","time":85.191849162,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 532.5/532.5 kB 13.8 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":85.200999403,"data":"Downloading fonttools-4.67.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.4 MB)\n"}
+,{"stream_name":"stdout","time":85.275501276,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 72.5 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":85.284551913,"data":"Downloading fqdn-1.6.0-py3-none-any.whl (12 kB)\n"}
+,{"stream_name":"stdout","time":85.309534012,"data":"Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)\n"}
+,{"stream_name":"stdout","time":85.335163204,"data":"Downloading future-1.0.0-py3-none-any.whl (491 kB)\n"}
+,{"stream_name":"stdout","time":85.364859511,"data":"Downloading h11-0.16.0-py3-none-any.whl (37 kB)\n"}
+,{"stream_name":"stdout","time":85.39161197,"data":"Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)\n"}
+,{"stream_name":"stdout","time":85.41579339,"data":"Downloading httpx-0.28.1-py3-none-any.whl (73 kB)\n"}
+,{"stream_name":"stdout","time":85.439105453,"data":"Downloading humanize-4.16.0-py3-none-any.whl (137 kB)\n"}
+,{"stream_name":"stdout","time":85.467576563,"data":"Downloading idna-3.20-py3-none-any.whl (69 kB)\n"}
+,{"stream_name":"stdout","time":85.49182652,"data":"Downloading immutabledict-4.3.1-py3-none-any.whl (5.0 kB)\n"}
+,{"stream_name":"stdout","time":85.512437139,"data":"Downloading ipykernel-7.4.0-py3-none-any.whl (123 kB)\n"}
+,{"stream_name":"stdout","time":85.53618401,"data":"Downloading ipython-9.17.1-py3-none-any.whl (639 kB)\n"}
+,{"stream_name":"stdout","time":85.560634118,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 639.0/639.0 kB 19.3 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":85.569734472,"data":"Downloading prompt_toolkit-3.0.53-py3-none-any.whl (392 kB)\n"}
+,{"stream_name":"stdout","time":85.596272965,"data":"Downloading ipython_pygments_lexers-1.1.1-py3-none-any.whl (8.1 kB)\n"}
+,{"stream_name":"stdout","time":85.62590032,"data":"Downloading ipywidgets-8.1.9-py3-none-any.whl (140 kB)\n"}
+,{"stream_name":"stdout","time":85.650849676,"data":"Downloading jupyterlab_widgets-3.0.17-py3-none-any.whl (217 kB)\n"}
+,{"stream_name":"stdout","time":85.676716799,"data":"Downloading widgetsnbextension-4.0.16-py3-none-any.whl (2.2 MB)\n"}
+,{"stream_name":"stdout","time":85.716826186,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 52.3 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":85.726993487,"data":"Downloading isoduration-20.11.0-py3-none-any.whl (11 kB)\n"}
+,{"stream_name":"stdout","time":85.754988051,"data":"Downloading jax-0.11.2-py3-none-any.whl (3.3 MB)\n"}
+,{"stream_name":"stdout","time":85.812839179,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 55.9 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":85.827422116,"data":"Downloading jaxlib-0.11.2-cp312-cp312-manylinux_2_27_x86_64.whl (89.9 MB)\n"}
+,{"stream_name":"stdout","time":86.976509896,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 MB 78.2 MB/s  0:00:01\n"}
+,{"stream_name":"stdout","time":86.986710936,"data":"Downloading jax_cuda12_pjrt-0.11.2-py3-none-manylinux_2_27_x86_64.whl (188.2 MB)\n"}
+,{"stream_name":"stdout","time":89.36196953,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 188.2/188.2 MB 79.2 MB/s  0:00:02\n"}
+,{"stream_name":"stdout","time":89.37337694,"data":"Downloading jax_cuda12_plugin-0.11.2-cp312-cp312-manylinux_2_27_x86_64.whl (8.6 MB)\n"}
+,{"stream_name":"stdout","time":89.624980747,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.6/8.6 MB 33.7 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":89.63418917,"data":"Downloading jedi-0.20.1-py2.py3-none-any.whl (4.9 MB)\n"}
+,{"stream_name":"stdout","time":89.690969146,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 86.0 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":89.700103816,"data":"Downloading parso-0.8.7-py2.py3-none-any.whl (107 kB)\n"}
+,{"stream_name":"stdout","time":89.724305805,"data":"Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)\n"}
+,{"stream_name":"stdout","time":89.752164889,"data":"Downloading jmp-0.0.4-py3-none-any.whl (18 kB)\n"}
+,{"stream_name":"stdout","time":89.773014046,"data":"Downloading joblib-1.6.0-py3-none-any.whl (306 kB)\n"}
+,{"stream_name":"stdout","time":89.799075518,"data":"Downloading json5-0.17.3-py3-none-any.whl (34 kB)\n"}
+,{"stream_name":"stdout","time":89.825219892,"data":"Downloading jsonpointer-3.2.1-py3-none-any.whl (8.3 kB)\n"}
+,{"stream_name":"stdout","time":89.846762138,"data":"Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)\n"}
+,{"stream_name":"stdout","time":89.875962415,"data":"Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)\n"}
+,{"stream_name":"stdout","time":89.895362833,"data":"Downloading jupyter-1.1.1-py2.py3-none-any.whl (2.7 kB)\n"}
+,{"stream_name":"stdout","time":89.916403297,"data":"Downloading jupyter_builder-1.2.3-py3-none-any.whl (947 kB)\n"}
+,{"stream_name":"stdout","time":89.940347073,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 947.5/947.5 kB 33.0 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":89.949379186,"data":"Downloading jupyter_client-8.10.0-py3-none-any.whl (110 kB)\n"}
+,{"stream_name":"stdout","time":89.973547722,"data":"Downloading jupyter_console-6.6.3-py3-none-any.whl (24 kB)\n"}
+,{"stream_name":"stdout","time":89.99928227,"data":"Downloading jupyter_core-5.9.1-py3-none-any.whl (29 kB)\n"}
+,{"stream_name":"stdout","time":90.024182193,"data":"Downloading jupyter_events-0.12.1-py3-none-any.whl (19 kB)\n"}
+,{"stream_name":"stdout","time":90.049306068,"data":"Downloading jupyter_lsp-2.3.1-py3-none-any.whl (77 kB)\n"}
+,{"stream_name":"stdout","time":90.075191053,"data":"Downloading jupyter_server-2.21.1-py3-none-any.whl (394 kB)\n"}
+,{"stream_name":"stdout","time":90.110267224,"data":"Downloading jupyter_server_terminals-0.5.4-py3-none-any.whl (13 kB)\n"}
+,{"stream_name":"stdout","time":90.135028076,"data":"Downloading jupyterlab-4.6.4-py3-none-any.whl (17.2 MB)\n"}
+,{"stream_name":"stdout","time":90.312085821,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.2/17.2 MB 97.2 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":90.321404864,"data":"Downloading jupyterlab_server-2.28.1-py3-none-any.whl (60 kB)\n"}
+,{"stream_name":"stdout","time":90.346258725,"data":"Downloading jupyterlab_pygments-0.3.0-py3-none-any.whl (15 kB)\n"}
+,{"stream_name":"stdout","time":90.368826691,"data":"Downloading kiwisolver-1.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.5 MB)\n"}
+,{"stream_name":"stdout","time":90.399469695,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 44.2 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":90.408243764,"data":"Downloading lark-1.3.1-py3-none-any.whl (113 kB)\n"}
+,{"stream_name":"stdout","time":90.43899234,"data":"Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)\n"}
+,{"stream_name":"stdout","time":90.465188103,"data":"Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)\n"}
+,{"stream_name":"stdout","time":90.490584601,"data":"Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)\n"}
+,{"stream_name":"stdout","time":90.516154844,"data":"Downloading matplotlib-3.11.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.9 MB)\n"}
+,{"stream_name":"stdout","time":90.625029236,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 90.9 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":90.634494553,"data":"Downloading matplotlib_inline-0.2.2-py3-none-any.whl (9.5 kB)\n"}
+,{"stream_name":"stdout","time":90.65517261,"data":"Downloading mistune-3.3.4-py3-none-any.whl (66 kB)\n"}
+,{"stream_name":"stdout","time":90.678857861,"data":"Downloading ml_collections-1.1.0-py3-none-any.whl (76 kB)\n"}
+,{"stream_name":"stdout","time":90.703943515,"data":"Downloading ml_dtypes-0.6.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (409 kB)\n"}
+,{"stream_name":"stdout","time":90.731621857,"data":"Downloading msgpack-1.2.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (472 kB)\n"}
+,{"stream_name":"stdout","time":90.759948733,"data":"Downloading nbclient-0.11.0-py3-none-any.whl (25 kB)\n"}
+,{"stream_name":"stdout","time":90.784526927,"data":"Downloading nbconvert-7.17.2-py3-none-any.whl (262 kB)\n"}
+,{"stream_name":"stdout","time":90.811391026,"data":"Downloading nbformat-5.11.1-py3-none-any.whl (79 kB)\n"}
+,{"stream_name":"stdout","time":90.83692797,"data":"Downloading nest_asyncio2-1.7.4-py3-none-any.whl (8.5 kB)\n"}
+,{"stream_name":"stdout","time":90.861667232,"data":"Downloading notebook-7.6.3-py3-none-any.whl (5.5 MB)\n"}
+,{"stream_name":"stdout","time":90.928983837,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 82.2 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":90.93825896,"data":"Downloading notebook_shim-0.2.4-py3-none-any.whl (13 kB)\n"}
+,{"stream_name":"stdout","time":90.967956215,"data":"Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)\n"}
+,{"stream_name":"stdout","time":91.135908424,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 99.9 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":91.150772974,"data":"Downloading nvidia_cublas_cu12-12.9.2.10-py3-none-manylinux_2_27_x86_64.whl (581.2 MB)\n"}
+,{"stream_name":"stdout","time":99.840654403,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 581.2/581.2 MB 43.1 MB/s  0:00:08\n"}
+,{"stream_name":"stdout","time":99.853400311,"data":"Downloading nvidia_cuda_cccl_cu12-12.9.27-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.2 MB)\n"}
+,{"stream_name":"stdout","time":101.539995563,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 1.7 MB/s  0:00:01\n"}
+,{"stream_name":"stdout","time":101.555723655,"data":"Downloading nvidia_cuda_cupti_cu12-12.9.79-py3-none-manylinux_2_25_x86_64.whl (10.8 MB)\n"}
+,{"stream_name":"stdout","time":101.700193602,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.8/10.8 MB 74.4 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":101.718761042,"data":"Downloading nvidia_cuda_nvcc_cu12-12.9.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (40.5 MB)\n"}
+,{"stream_name":"stdout","time":102.214363769,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.5/40.5 MB 81.8 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":102.228380787,"data":"Downloading nvidia_cuda_nvrtc_cu12-12.9.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (89.6 MB)\n"}
+,{"stream_name":"stdout","time":103.454110398,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.6/89.6 MB 73.1 MB/s  0:00:01\n"}
+,{"stream_name":"stdout","time":103.465932496,"data":"Downloading nvidia_cuda_runtime_cu12-12.9.79-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.5 MB)\n"}
+,{"stream_name":"stdout","time":103.535382948,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 50.0 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":103.54968115,"data":"Downloading nvidia_cudnn_cu12-9.27.0.42-py3-none-manylinux_2_27_x86_64.whl (766.2 MB)\n"}
+,{"stream_name":"stdout","time":120.472259356,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 766.2/766.2 MB 24.9 MB/s  0:00:16\n"}
+,{"stream_name":"stdout","time":120.487456238,"data":"Downloading nvidia_cufft_cu12-11.4.1.4-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (200.9 MB)\n"}
+,{"stream_name":"stdout","time":125.211710661,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.9/200.9 MB 42.5 MB/s  0:00:04\n"}
+,{"stream_name":"stdout","time":125.224687412,"data":"Downloading nvidia_cusolver_cu12-11.7.5.82-py3-none-manylinux_2_27_x86_64.whl (338.1 MB)\n"}
+,{"stream_name":"stdout","time":131.470702617,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 338.1/338.1 MB 53.8 MB/s  0:00:06\n"}
+,{"stream_name":"stdout","time":131.482929164,"data":"Downloading nvidia_cusparse_cu12-12.5.10.65-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (366.5 MB)\n"}
+,{"stream_name":"stdout","time":139.610350267,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 366.5/366.5 MB 36.9 MB/s  0:00:08\n"}
+,{"stream_name":"stdout","time":139.625237261,"data":"Downloading nvidia_nccl_cu12-2.32.3-py3-none-manylinux_2_27_x86_64.whl (351.5 MB)\n"}
+,{"stream_name":"stdout","time":146.495259025,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 351.5/351.5 MB 49.1 MB/s  0:00:06\n"}
+,{"stream_name":"stdout","time":146.509998334,"data":"Downloading nvidia_nvjitlink_cu12-12.9.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (39.7 MB)\n"}
+,{"stream_name":"stdout","time":149.146206348,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.7/39.7 MB 15.0 MB/s  0:00:02\n"}
+,{"stream_name":"stdout","time":149.162381877,"data":"Downloading nvidia_nvshmem_cu12-3.8.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (280.8 MB)\n"}
+,{"stream_name":"stdout","time":155.466763288,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 280.8/280.8 MB 43.6 MB/s  0:00:06\n"}
+,{"stream_name":"stdout","time":155.47854121,"data":"Downloading openmm-8.6.1-cp312-cp312-manylinux_2_34_x86_64.whl (14.4 MB)\n"}
+,{"stream_name":"stdout","time":155.714959159,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.4/14.4 MB 60.8 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":155.801510357,"data":"Downloading openmm_cuda_12-8.6.1-py3-none-manylinux_2_34_x86_64.whl (2.3 MB)\n"}
+,{"stream_name":"stdout","time":155.850175217,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 44.3 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":155.860392773,"data":"Downloading opt_einsum-3.4.0-py3-none-any.whl (71 kB)\n"}
+,{"stream_name":"stdout","time":155.893602327,"data":"Downloading optax-0.2.8-py3-none-any.whl (402 kB)\n"}
+,{"stream_name":"stdout","time":155.92960273,"data":"Downloading orbax_checkpoint-0.12.7-py3-none-any.whl (1.4 MB)\n"}
+,{"stream_name":"stdout","time":155.971551351,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 29.4 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":155.981669132,"data":"Downloading pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.8 MB)\n"}
+,{"stream_name":"stdout","time":156.153577585,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.8/10.8 MB 62.6 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":156.164416314,"data":"Downloading pandocfilters-1.5.1-py2.py3-none-any.whl (8.7 kB)\n"}
+,{"stream_name":"stdout","time":156.191556309,"data":"Downloading pexpect-4.9.0-py2.py3-none-any.whl (63 kB)\n"}
+,{"stream_name":"stdout","time":156.217538133,"data":"Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)\n"}
+,{"stream_name":"stdout","time":156.337920598,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 59.8 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":156.348831488,"data":"Downloading platformdirs-4.13.4-py3-none-any.whl (32 kB)\n"}
+,{"stream_name":"stdout","time":156.379837566,"data":"Downloading prometheus_client-0.26.0-py3-none-any.whl (64 kB)\n"}
+,{"stream_name":"stdout","time":156.410245839,"data":"Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)\n"}
+,{"stream_name":"stdout","time":156.439173101,"data":"Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)\n"}
+,{"stream_name":"stdout","time":156.467389614,"data":"Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)\n"}
+,{"stream_name":"stdout","time":156.4890702,"data":"Downloading pure_eval-0.2.4-py3-none-any.whl (11 kB)\n"}
+,{"stream_name":"stdout","time":156.511035312,"data":"Downloading py3dmol-2.5.5-py2.py3-none-any.whl (7.2 kB)\n"}
+,{"stream_name":"stdout","time":156.534232391,"data":"Downloading pycparser-3.11-py3-none-any.whl (51 kB)\n"}
+,{"stream_name":"stdout","time":156.565437953,"data":"Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)\n"}
+,{"stream_name":"stdout","time":156.599919879,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 31.7 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":156.61143416,"data":"Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)\n"}
+,{"stream_name":"stdout","time":156.641960779,"data":"Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)\n"}
+,{"stream_name":"stdout","time":156.675342972,"data":"Downloading python_json_logger-4.2.0-py3-none-any.whl (14 kB)\n"}
+,{"stream_name":"stdout","time":156.701638332,"data":"Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)\n"}
+,{"stream_name":"stdout","time":156.733604108,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 19.1 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":156.743797885,"data":"Downloading pyzmq-27.2.0-cp312-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (872 kB)\n"}
+,{"stream_name":"stdout","time":156.772920842,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 872.3/872.3 kB 23.8 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":156.78276303,"data":"Downloading referencing-0.37.0-py3-none-any.whl (26 kB)\n"}
+,{"stream_name":"stdout","time":156.811761746,"data":"Downloading requests-2.34.2-py3-none-any.whl (73 kB)\n"}
+,{"stream_name":"stdout","time":156.837970202,"data":"Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)\n"}
+,{"stream_name":"stdout","time":156.86969865,"data":"Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl (3.5 kB)\n"}
+,{"stream_name":"stdout","time":156.891567924,"data":"Downloading rfc3986_validator-0.1.1-py2.py3-none-any.whl (4.2 kB)\n"}
+,{"stream_name":"stdout","time":156.917110247,"data":"Downloading rfc3987_syntax-1.1.0-py3-none-any.whl (8.0 kB)\n"}
+,{"stream_name":"stdout","time":156.943105525,"data":"Downloading rich-15.0.0-py3-none-any.whl (310 kB)\n"}
+,{"stream_name":"stdout","time":156.972192972,"data":"Downloading rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (371 kB)\n"}
+,{"stream_name":"stdout","time":157.00547421,"data":"Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)\n"}
+,{"stream_name":"stdout","time":157.520397386,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 68.6 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":157.530651041,"data":"Downloading seaborn-0.13.2-py3-none-any.whl (294 kB)\n"}
+,{"stream_name":"stdout","time":157.55958269,"data":"Downloading send2trash-2.1.0-py3-none-any.whl (17 kB)\n"}
+,{"stream_name":"stdout","time":157.585196169,"data":"Downloading simplejson-4.2.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (198 kB)\n"}
+,{"stream_name":"stdout","time":157.613980167,"data":"Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)\n"}
+,{"stream_name":"stdout","time":157.642124269,"data":"Downloading soupsieve-3.0.3-py3-none-any.whl (41 kB)\n"}
+,{"stream_name":"stdout","time":157.668356039,"data":"Downloading stack_data-0.6.3-py3-none-any.whl (24 kB)\n"}
+,{"stream_name":"stdout","time":157.695019199,"data":"Downloading tabulate-0.10.0-py3-none-any.whl (39 kB)\n"}
+,{"stream_name":"stdout","time":157.722543617,"data":"Downloading tensorstore-0.1.85-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (21.6 MB)\n"}
+,{"stream_name":"stdout","time":158.028254562,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.6/21.6 MB 70.5 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":158.038675257,"data":"Downloading terminado-0.18.1-py3-none-any.whl (14 kB)\n"}
+,{"stream_name":"stdout","time":158.064040691,"data":"Downloading tinycss2-1.5.1-py3-none-any.whl (28 kB)\n"}
+,{"stream_name":"stdout","time":158.090168579,"data":"Downloading toolz-1.2.0-py3-none-any.whl (60 kB)\n"}
+,{"stream_name":"stdout","time":158.116251718,"data":"Downloading tornado-6.5.10-cp39-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (467 kB)\n"}
+,{"stream_name":"stdout","time":158.152628778,"data":"Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)\n"}
+,{"stream_name":"stdout","time":158.17875002,"data":"Downloading traitlets-5.16.1-py3-none-any.whl (86 kB)\n"}
+,{"stream_name":"stdout","time":158.208045624,"data":"Downloading treescope-0.1.10-py3-none-any.whl (182 kB)\n"}
+,{"stream_name":"stdout","time":158.234911084,"data":"Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)\n"}
+,{"stream_name":"stdout","time":158.260447227,"data":"Downloading tzdata-2026.5-py2.py3-none-any.whl (347 kB)\n"}
+,{"stream_name":"stdout","time":158.293385313,"data":"Downloading uri_template-1.3.0-py3-none-any.whl (11 kB)\n"}
+,{"stream_name":"stdout","time":158.315044537,"data":"Downloading uvloop-0.23.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.5 MB)\n"}
+,{"stream_name":"stdout","time":158.385990739,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 62.8 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":158.399871536,"data":"Downloading wcwidth-0.9.2-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (769 kB)\n"}
+,{"stream_name":"stdout","time":158.427272592,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 769.8/769.8 kB 20.7 MB/s  0:00:00\n"}
+,{"stream_name":"stdout","time":158.437103205,"data":"Downloading webcolors-25.10.0-py3-none-any.whl (14 kB)\n"}
+,{"stream_name":"stdout","time":158.463175145,"data":"Downloading webencodings-0.6.1-py3-none-any.whl (8.7 kB)\n"}
+,{"stream_name":"stdout","time":158.484590388,"data":"Downloading websocket_client-1.9.2-py3-none-any.whl (95 kB)\n"}
+,{"stream_name":"stdout","time":158.509888688,"data":"Downloading wrapt-2.5.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (250 kB)\n"}
+,{"stream_name":"stdout","time":158.535425077,"data":"Downloading zipp-4.1.1-py3-none-any.whl (10 kB)\n"}
+,{"stream_name":"stdout","time":168.499749963,"data":"Building wheels for collected packages: colabdesign, pdbfixer, freesasa\n"}
+,{"stream_name":"stdout","time":168.505687797,"data":"  Building wheel for colabdesign (pyproject.toml): started\n"}
+,{"stream_name":"stdout","time":171.712953257,"data":"  Building wheel for colabdesign (pyproject.toml): finished with status 'done'\n"}
+,{"stream_name":"stdout","time":171.84728513,"data":"  Created wheel for colabdesign: filename=colabdesign-1.1.3-py3-none-any.whl size=49868196 sha256=d6adeeb3533ff3d64aaa7c223f8a1c225625c0fb55798f765e93f40675c1c701\n"}
+,{"stream_name":"stdout","time":171.847626328,"data":"  Stored in directory: /root/.cache/pip/wheels/fb/04/e9/6ecd089c2f09e935305e49d0763530fbb113abd05ee0b57773\n"}
+,{"stream_name":"stdout","time":171.855841696,"data":"  Building wheel for pdbfixer (pyproject.toml): started\n"}
+,{"stream_name":"stdout","time":172.282499776,"data":"  Building wheel for pdbfixer (pyproject.toml): finished with status 'done'\n"}
+,{"stream_name":"stdout","time":172.285050264,"data":"  Created wheel for pdbfixer: filename=pdbfixer-1.12.0-py3-none-any.whl size=682422 sha256=99bb162a60f6469c1e378df159dca482272ac022e3abddaca79bd9e74b0451d0\n"}
+,{"stream_name":"stdout","time":172.28535466,"data":"  Stored in directory: /root/.cache/pip/wheels/7f/2a/61/8fa063f88a62b2cb57ee14b5a80e02ad7df0ea076eaa6252bc\n"}
+,{"stream_name":"stdout","time":172.288468924,"data":"  Building wheel for freesasa (pyproject.toml): started\n"}
+,{"stream_name":"stdout","time":186.468671782,"data":"  Building wheel for freesasa (pyproject.toml): finished with status 'done'\n"}
+,{"stream_name":"stdout","time":186.470398294,"data":"  Created wheel for freesasa: filename=freesasa-2.2.1-cp312-cp312-linux_x86_64.whl size=317308 sha256=f886f275fbdb432e9cbe85758f10bf8487a195e0ae896244cfb89a94b2786cbe\n"}
+,{"stream_name":"stdout","time":186.470689142,"data":"  Stored in directory: /root/.cache/pip/wheels/d5/ba/ad/c7be874883ac321912d0442a2e8ff4208d0c3bf3bf94952387\n"}
+,{"stream_name":"stdout","time":186.472903409,"data":"Successfully built colabdesign pdbfixer freesasa\n"}
+,{"stream_name":"stdout","time":186.892638215,"data":"Installing collected packages: py3dmol, pure-eval, ptyprocess, jax-cuda12-pjrt, freesasa, zipp, wrapt, widgetsnbextension, websocket-client, webencodings, webcolors, wcwidth, uvloop, urllib3, uri-template, tzdata, typing-extensions, traitlets, tqdm, tornado, toolz, tabulate, soupsieve, six, simplejson, send2trash, rpds-py, rfc3986-validator, pyzmq, pyyaml, python-json-logger, pyparsing, pygments, pycparser, psutil, protobuf, prometheus-client, platformdirs, pillow, pexpect, parso, pandocfilters, opt-einsum, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-nvcc-cu12, nvidia-cuda-cupti-cu12, nvidia-cuda-cccl-cu12, numpy, nest-asyncio2, msgpack, mistune, mdurl, markupsafe, lark, kiwisolver, jupyterlab-widgets, jupyterlab-pygments, jsonpointer, json5, jax-cuda12-plugin, immutabledict, idna, humanize, h11, future, fsspec, fqdn, fonttools, fastjsonschema, executing, etils, defusedxml, debugpy, cycler, comm, cloudpickle, charset-normalizer, certifi, babel, attrs, async-lru, asttokens, aiofiles, absl-py, treescope, tinycss2, terminado, stack-data, scipy, rfc3987-syntax, rfc3339-validator, requests, referencing, python-dateutil, prompt-toolkit, openmm, nvidia-nvshmem-cu12, nvidia-cusparse-cu12, nvidia-cufft-cu12, nvidia-cublas-cu12, ml-dtypes, ml-collections, matplotlib-inline, markdown-it-py, jupyter-core, joblib, jmp, jinja2, jedi, ipython-pygments-lexers, httpcore, ffmpeg-python, dm-tree, contourpy, cffi, bleach, biopython, beautifulsoup4, anyio, tensorstore, rich, pdbfixer, pandas, openmm-cuda-12, nvidia-cusolver-cu12, nvidia-cudnn-cu12, matplotlib, jupyter-server-terminals, jupyter-client, jupyter-builder, jsonschema-specifications, jaxlib, ipython, httpx, dm-haiku, arrow, argon2-cffi-bindings, seaborn, jsonschema, jax, isoduration, ipywidgets, ipykernel, argon2-cffi, orbax-checkpoint, optax, nbformat, jupyter-console, chex, nbclient, jupyter-events, flax, colabdesign, nbconvert, jupyter-server, notebook-shim, jupyterlab-server, jupyter-lsp, jupyterlab, notebook, jupyter\n"}
+,{"stream_name":"stdout","time":273.993494919,"data":"\n"}
+,{"stream_name":"stdout","time":274.005528556,"data":"Successfully installed absl-py-2.5.1 aiofiles-25.1.0 anyio-4.15.1 argon2-cffi-25.1.0 argon2-cffi-bindings-26.1.0 arrow-1.4.0 asttokens-3.0.2 async-lru-2.4.0 attrs-26.1.0 babel-2.18.0 beautifulsoup4-4.15.0 biopython-1.88 bleach-6.4.0 certifi-2026.7.22 cffi-2.1.1 charset-normalizer-3.5.2 chex-0.1.92 cloudpickle-3.1.2 colabdesign-1.1.3 comm-0.2.3 contourpy-1.4.0 cycler-0.12.1 debugpy-1.8.22 defusedxml-0.7.1 dm-haiku-0.0.17 dm-tree-0.1.10 etils-1.14.0 executing-2.3.0 fastjsonschema-2.22.2 ffmpeg-python-0.2.0 flax-0.12.10 fonttools-4.67.0 fqdn-1.6.0 freesasa-2.2.1 fsspec-2026.9.0 future-1.0.0 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 humanize-4.16.0 idna-3.20 immutabledict-4.3.1 ipykernel-7.4.0 ipython-9.17.1 ipython-pygments-lexers-1.1.1 ipywidgets-8.1.9 isoduration-20.11.0 jax-0.11.2 jax-cuda12-pjrt-0.11.2 jax-cuda12-plugin-0.11.2 jaxlib-0.11.2 jedi-0.20.1 jinja2-3.1.6 jmp-0.0.4 joblib-1.6.0 json5-0.17.3 jsonpointer-3.2.1 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 jupyter-1.1.1 jupyter-builder-1.2.3 jupyter-client-8.10.0 jupyter-console-6.6.3 jupyter-core-5.9.1 jupyter-events-0.12.1 jupyter-lsp-2.3.1 jupyter-server-2.21.1 jupyter-server-terminals-0.5.4 jupyterlab-4.6.4 jupyterlab-pygments-0.3.0 jupyterlab-server-2.28.1 jupyterlab-widgets-3.0.17 kiwisolver-1.5.1 lark-1.3.1 markdown-it-py-4.2.0 markupsafe-3.0.4 matplotlib-3.11.2 matplotlib-inline-0.2.2 mdurl-0.1.2 mistune-3.3.4 ml-collections-1.1.0 ml-dtypes-0.6.0 msgpack-1.2.3 nbclient-0.11.0 nbconvert-7.17.2 nbformat-5.11.1 nest-asyncio2-1.7.4 notebook-7.6.3 notebook-shim-0.2.4 numpy-2.5.4 nvidia-cublas-cu12-12.9.2.10 nvidia-cuda-cccl-cu12-12.9.27 nvidia-cuda-cupti-cu12-12.9.79 nvidia-cuda-nvcc-cu12-12.9.86 nvidia-cuda-nvrtc-cu12-12.9.86 nvidia-cuda-runtime-cu12-12.9.79 nvidia-cudnn-cu12-9.27.0.42 nvidia-cufft-cu12-11.4.1.4 nvidia-cusolver-cu12-11.7.5.82 nvidia-cusparse-cu12-12.5.10.65 nvidia-nccl-cu12-2.32.3 nvidia-nvjitlink-cu12-12.9.86 nvidia-nvshmem-cu12-3.8.0 openmm-8.6.1 openmm-cuda-12-8.6.1 opt-einsum-3.4.0 optax-0.2.8 orbax-checkpoint-0.12.7 pandas-3.0.6 pandocfilters-1.5.1 parso-0.8.7 pdbfixer-1.12.0 pexpect-4.9.0 pillow-13.0.0 platformdirs-4.13.4 prometheus-client-0.26.0 prompt-toolkit-3.0.53 protobuf-7.36.2 psutil-7.2.2 ptyprocess-0.7.0 pure-eval-0.2.4 py3dmol-2.5.5 pycparser-3.11 pygments-2.21.0 pyparsing-3.3.3 python-dateutil-2.9.0.post0 python-json-logger-4.2.0 pyyaml-6.0.3 pyzmq-27.2.0 referencing-0.37.0 requests-2.34.2 rfc3339-validator-0.1.4 rfc3986-validator-0.1.1 rfc3987-syntax-1.1.0 rich-15.0.0 rpds-py-2026.9.1 scipy-1.18.1 seaborn-0.13.2 send2trash-2.1.0 simplejson-4.2.0 six-1.17.0 soupsieve-3.0.3 stack-data-0.6.3 tabulate-0.10.0 tensorstore-0.1.85 terminado-0.18.1 tinycss2-1.5.1 toolz-1.2.0 tornado-6.5.10 tqdm-4.70.1 traitlets-5.16.1 treescope-0.1.10 typing-extensions-4.16.0 tzdata-2026.5 uri-template-1.3.0 urllib3-2.8.0 uvloop-0.23.0 wcwidth-0.9.2 webcolors-25.10.0 webencodings-0.6.1 websocket-client-1.9.2 widgetsnbextension-4.0.16 wrapt-2.5.1 zipp-4.1.1\n"}
+,{"stream_name":"stdout","time":274.987392167,"data":"No broken requirements found.\n"}
+,{"stream_name":"stderr","time":275.085462013,"data":"  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n"}
+,{"stream_name":"stderr","time":275.085486894,"data":"                                 Dload  Upload   Total   Spent    Left  Speed\n"}
+,{"stream_name":"stderr","time":294.473679886,"data":"\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0 5329M    0 52.8M    0     0   168M      0  0:00:31 --:--:--  0:00:31  168M\r  6 5329M    6  325M    0     0   245M      0  0:00:21  0:00:01  0:00:20  245M\r 11 5329M   11  626M    0     0   271M      0  0:00:19  0:00:02  0:00:17  271M\r 17 5329M   17  924M    0     0   278M      0  0:00:19  0:00:03  0:00:16  278M\r 22 5329M   22 1215M    0     0   280M      0  0:00:18  0:00:04  0:00:14  280M\r 28 5329M   28 1507M    0     0   284M      0  0:00:18  0:00:05  0:00:13  291M\r 34 5329M   34 1826M    0     0   289M      0  0:00:18  0:00:06  0:00:12  300M\r 39 5329M   39 2123M    0     0   289M      0  0:00:18  0:00:07  0:00:11  297M\r 45 5329M   45 2414M    0     0   290M      0  0:00:18  0:00:08  0:00:10  297M\r 50 5329M   50 2678M    0     0   287M      0  0:00:18  0:00:09  0:00:09  294M\r 55 5329M   55 2972M    0     0   287M      0  0:00:18  0:00:10  0:00:08  291M\r 60 5329M   60 3247M    0     0   287M      0  0:00:18  0:00:11  0:00:07  284M\r 65 5329M   65 3492M    0     0   283M      0  0:00:18  0:00:12  0:00:06  275M\r 70 5329M   70 3772M    0     0   283M      0  0:00:18  0:00:13  0:00:05  271M\r 76 5329M   76 4054M    0     0   283M      0  0:00:18  0:00:14  0:00:04  274M\r 81 5329M   81 4344M    0     0   283M      0  0:00:18  0:00:15  0:00:03  275M\r 87 5329M   87 4636M    0     0   284M      0  0:00:18  0:00:16  0:00:02  277M\r 92 5329M   92 4935M    0     0   284M      0  0:00:18  0:00:17  0:00:01  287M\r 95 5329M   95 5109M    0     0   279M      0  0:00:19  0:00:18  0:00:01  268M\r 99 5329M   99 5317M    0     0   274M      0  0:00:19  0:00:19 --:--:--  251M\r100 5329M  100 5329M    0     0   274M      0  0:00:19  0:00:19 --:--:--  240M\n"}
+,{"stream_name":"stdout","time":338.087426954,"data":"{\n"}
+,{"stream_name":"stdout","time":338.087458131,"data":"  \"packages\": {\n"}
+,{"stream_name":"stdout","time":338.087463906,"data":"    \"jax\": \"0.11.2\",\n"}
+,{"stream_name":"stdout","time":338.087468306,"data":"    \"jaxlib\": \"0.11.2\",\n"}
+,{"stream_name":"stdout","time":338.087472575,"data":"    \"jax-cuda12-plugin\": \"0.11.2\",\n"}
+,{"stream_name":"stdout","time":338.087476848,"data":"    \"numpy\": \"2.5.4\",\n"}
+,{"stream_name":"stdout","time":338.08748121,"data":"    \"flax\": \"0.12.10\",\n"}
+,{"stream_name":"stdout","time":338.087485391,"data":"    \"colabdesign\": \"1.1.3\",\n"}
+,{"stream_name":"stdout","time":338.087489591,"data":"    \"openmm\": \"8.6.1\"\n"}
+,{"stream_name":"stdout","time":338.087493801,"data":"  },\n"}
+,{"stream_name":"stdout","time":338.087497728,"data":"  \"pyrosetta_installed\": false,\n"}
+,{"stream_name":"stdout","time":338.08750211,"data":"  \"gpu_execution_checked\": false,\n"}
+,{"stream_name":"stdout","time":338.087506258,"data":"  \"nvidia_driver_versions\": []\n"}
+,{"stream_name":"stdout","time":338.087516007,"data":"}\n"}
+,{"stream_name":"stdout","time":338.375235091,"data":"\n"}
+,{"stream_name":"stdout","time":338.375266679,"data":"Installed in /kaggle/temp/tfr1_freebindcraft/miniconda/envs/BindCraft in 307 seconds.\n"}
+,{"stream_name":"stdout","time":338.375272668,"data":"Activate with: conda activate BindCraft\n"}
+,{"stream_name":"stdout","time":338.375277724,"data":"GPU execution has not been checked; run extras/check_linux_installation.py on the GPU host.\n"}
+,{"stream_name":"stdout","time":338.376416343,"data":"Patched FreeBindCraft i_con to binary=True\n"}
+,{"stream_name":"stdout","time":338.434826241,"data":"Driver library probe:\n"}
+,{"stream_name":"stdout","time":338.434865856,"data":"\n"}
+,{"stream_name":"stdout","time":338.43548655,"data":"Patched FreeBindCraft driver path: /usr/local/nvidia/lib64\n"}
+,{"stream_name":"stdout","time":338.435649135,"data":"+ /kaggle/temp/tfr1_freebindcraft/miniconda/bin/conda run --no-capture-output -n BindCraft python -c import os, jax; print('LD_LIBRARY_PATH:', os.environ.get('LD_LIBRARY_PATH')); print('JAX devices:', jax.devices()); assert any(d.platform == 'gpu' for d in jax.devices()), 'JAX GPU backend unavailable'\n"}
+,{"stream_name":"stdout","time":345.590633332,"data":"LD_LIBRARY_PATH: /usr/local/nvidia/lib64\n"}
+,{"stream_name":"stdout","time":345.590666161,"data":"JAX devices: [CudaDevice(id=0), CudaDevice(id=1)]\n"}
+,{"stream_name":"stdout","time":347.772096004,"data":"+ /kaggle/temp/tfr1_freebindcraft/miniconda/bin/conda run --no-capture-output -n BindCraft python -u /kaggle/temp/tfr1_freebindcraft/FreeBindCraft/bindcraft.py --settings /kaggle/working/tfr1_freebindcraft_smoke_v5_binary/target_settings.json --filters /kaggle/temp/tfr1_freebindcraft/FreeBindCraft/settings_filters/relaxed_filters.json --advanced /kaggle/working/tfr1_freebindcraft_smoke_v5_binary/advanced_smoke.json --no-pyrosetta --no-plots --no-animations --verbose --rank-by ipSAE --max-attempts 1 --seed 20261029\n"}
+,{"stream_name":"stdout","time":351.89448808,"data":"Open files limits OK (soft=1048576, hard=1048576)\n"}
+,{"stream_name":"stdout","time":351.894602608,"data":"Made DAlphaBall.gcc executable\n"}
+,{"stream_name":"stdout","time":352.629471274,"data":"Available JAX devices:\n"}
+,{"stream_name":"stdout","time":352.629500163,"data":"Tesla T41: gpu\n"}
+,{"stream_name":"stdout","time":352.629504283,"data":"Tesla T42: gpu\n"}
+,{"stream_name":"stderr","time":352.773827989,"data":"2026-10-29 06:17:52,148 DEBUG functions.generic_utils: [GenUtils] Directories prepared in 0.00s\n"}
+,{"stream_name":"stderr","time":352.783016867,"data":"2026-10-29 06:17:52,157 DEBUG functions.generic_utils: [GenUtils] Created CSV /kaggle/working/tfr1_freebindcraft_smoke_v5_binary/designs/trajectory_stats.csv in 0.01s\n"}
+,{"stream_name":"stderr","time":352.786632619,"data":"2026-10-29 06:17:52,161 DEBUG functions.generic_utils: [GenUtils] Created CSV /kaggle/working/tfr1_freebindcraft_smoke_v5_binary/designs/mpnn_design_stats.csv in 0.00s\n"}
+,{"stream_name":"stderr","time":352.78942268,"data":"2026-10-29 06:17:52,164 DEBUG functions.generic_utils: [GenUtils] Created CSV /kaggle/working/tfr1_freebindcraft_smoke_v5_binary/designs/final_design_stats.csv in 0.00s\n"}
+,{"stream_name":"stderr","time":352.793232345,"data":"2026-10-29 06:17:52,167 DEBUG functions.generic_utils: [GenUtils] Initialized failure CSV in 0.00s\n"}
+,{"stream_name":"stdout","time":352.797660409,"data":"Running in PyRosetta-free mode as requested by --no-pyrosetta flag.\n"}
+,{"stream_name":"stderr","time":352.797664059,"data":"2026-10-29 06:17:52,172 DEBUG functions.generic_utils: [GenUtils] Created CSV /kaggle/working/tfr1_freebindcraft_smoke_v5_binary/designs/rejected_mpnn_full_stats.csv in 0.00s\n"}
+,{"stream_name":"stdout","time":352.797770303,"data":"Running binder design for target target_settings\n"}
+,{"stream_name":"stdout","time":352.797779671,"data":"Design settings used: advanced_smoke\n"}
+,{"stream_name":"stdout","time":352.797783564,"data":"Filtering designs based on relaxed_filters\n"}
+,{"stream_name":"stderr","time":352.797950407,"data":"2026-10-29 06:17:52,172 DEBUG functions.generic_utils: [GenUtils] Accepted count below target; check in 0.00s\n"}
+,{"stream_name":"stdout","time":352.799380103,"data":"Starting trajectory: TFR1_FBC343_V5_l60_s289817\n"}
+,{"stream_name":"stderr","time":358.097113922,"data":"2026-10-29 06:17:57,471 DEBUG functions.colabdesign_utils: [AF2] Initialised binder model in 5.30s\n"}
+,{"stream_name":"stderr","time":358.590147252,"data":"2026-10-29 06:17:57,964 DEBUG functions.colabdesign_utils: [AF2] Prepared inputs in 0.49s\n"}
+,{"stream_name":"stdout","time":358.590181087,"data":"Stage 1: Test Logits\n"}
+,{"stream_name":"stdout","time":464.401650869,"data":"1 models [3] recycles 1 hard 0 soft 0.02 temp 1 loss 19.51 helix 1.78 pae 0.83 i_pae 0.89 con 4.67 i_con 4.99 plddt 0.24 ptm 0.71 i_ptm 0.10 rg 12.01\n"}
+,{"stream_name":"stdout","time":481.937159911,"data":"2 models [4] recycles 1 hard 0 soft 0.04 temp 1 loss 16.70 helix 1.30 pae 0.78 i_pae 0.82 con 4.56 i_con 5.82 plddt 0.27 ptm 0.71 i_ptm 0.14 rg 0.83\n"}
+,{"stream_name":"stdout","time":500.848986458,"data":"3 models [3] recycles 1 hard 0 soft 0.05 temp 1 loss 17.32 helix 1.20 pae 0.73 i_pae 0.79 con 4.26 i_con 6.19 plddt 0.30 ptm 0.72 i_ptm 0.18 rg 1.27\n"}
+,{"stream_name":"stdout","time":521.782837349,"data":"4 models [4] recycles 1 hard 0 soft 0.07 temp 1 loss 16.86 helix 0.77 pae 0.72 i_pae 0.79 con 4.18 i_con 5.84 plddt 0.39 ptm 0.72 i_ptm 0.16 rg 1.79\n"}
+,{"stream_name":"stdout","time":543.635400629,"data":"5 models [4] recycles 1 hard 0 soft 0.09 temp 1 loss 15.21 helix 0.72 pae 0.74 i_pae 0.83 con 4.14 i_con 5.13 plddt 0.40 ptm 0.70 i_ptm 0.11 rg 1.22\n"}
+,{"stream_name":"stdout","time":564.045234742,"data":"6 models [1] recycles 1 hard 0 soft 0.11 temp 1 loss 15.73 helix 1.04 pae 0.78 i_pae 0.86 con 4.64 i_con 4.90 plddt 0.35 ptm 0.71 i_ptm 0.11 rg 2.65\n"}
+,{"stream_name":"stdout","time":584.264798879,"data":"7 models [1] recycles 1 hard 0 soft 0.13 temp 1 loss 15.25 helix 1.20 pae 0.70 i_pae 0.76 con 4.19 i_con 5.10 plddt 0.35 ptm 0.73 i_ptm 0.19 rg 1.79\n"}
+,{"stream_name":"stdout","time":605.106341523,"data":"8 models [1] recycles 1 hard 0 soft 0.14 temp 1 loss 15.38 helix 1.04 pae 0.68 i_pae 0.75 con 4.03 i_con 5.18 plddt 0.38 ptm 0.73 i_ptm 0.20 rg 2.04\n"}
+,{"stream_name":"stdout","time":626.280777777,"data":"9 models [4] recycles 1 hard 0 soft 0.16 temp 1 loss 15.00 helix 1.12 pae 0.75 i_pae 0.82 con 4.22 i_con 5.17 plddt 0.33 ptm 0.71 i_ptm 0.13 rg 0.60\n"}
+,{"stream_name":"stdout","time":647.224618735,"data":"10 models [3] recycles 1 hard 0 soft 0.18 temp 1 loss 15.38 helix 1.35 pae 0.78 i_pae 0.84 con 4.32 i_con 4.92 plddt 0.32 ptm 0.71 i_ptm 0.12 rg 2.68\n"}
+,{"stream_name":"stdout","time":668.077330083,"data":"11 models [3] recycles 1 hard 0 soft 0.20 temp 1 loss 15.22 helix 0.93 pae 0.76 i_pae 0.85 con 4.18 i_con 5.08 plddt 0.41 ptm 0.71 i_ptm 0.11 rg 1.54\n"}
+,{"stream_name":"stdout","time":688.901304258,"data":"12 models [0] recycles 1 hard 0 soft 0.22 temp 1 loss 15.44 helix 0.85 pae 0.76 i_pae 0.84 con 4.64 i_con 4.64 plddt 0.40 ptm 0.69 i_ptm 0.10 rg 3.09\n"}
+,{"stream_name":"stdout","time":709.757057551,"data":"13 models [0] recycles 1 hard 0 soft 0.23 temp 1 loss 14.79 helix 1.31 pae 0.78 i_pae 0.86 con 4.66 i_con 4.07 plddt 0.38 ptm 0.70 i_ptm 0.10 rg 4.60\n"}
+,{"stream_name":"stdout","time":730.828964774,"data":"14 models [3] recycles 1 hard 0 soft 0.25 temp 1 loss 14.04 helix 1.25 pae 0.78 i_pae 0.85 con 4.39 i_con 3.98 plddt 0.35 ptm 0.71 i_ptm 0.11 rg 3.79\n"}
+,{"stream_name":"stdout","time":751.961143473,"data":"15 models [4] recycles 1 hard 0 soft 0.27 temp 1 loss 14.28 helix 1.02 pae 0.74 i_pae 0.82 con 4.12 i_con 4.45 plddt 0.40 ptm 0.71 i_ptm 0.13 rg 2.58\n"}
+,{"stream_name":"stdout","time":773.11398292,"data":"16 models [4] recycles 1 hard 0 soft 0.29 temp 1 loss 12.87 helix 1.08 pae 0.76 i_pae 0.83 con 4.21 i_con 3.79 plddt 0.38 ptm 0.70 i_ptm 0.11 rg 2.16\n"}
+,{"stream_name":"stdout","time":794.242694017,"data":"17 models [4] recycles 1 hard 0 soft 0.31 temp 1 loss 13.58 helix 1.53 pae 0.79 i_pae 0.84 con 4.52 i_con 3.30 plddt 0.35 ptm 0.70 i_ptm 0.11 rg 5.92\n"}
+,{"stream_name":"stdout","time":815.349061287,"data":"18 models [3] recycles 1 hard 0 soft 0.32 temp 1 loss 14.36 helix 1.55 pae 0.77 i_pae 0.80 con 4.55 i_con 3.64 plddt 0.38 ptm 0.72 i_ptm 0.14 rg 6.14\n"}
+,{"stream_name":"stdout","time":836.432521677,"data":"19 models [0] recycles 1 hard 0 soft 0.34 temp 1 loss 14.37 helix 1.73 pae 0.79 i_pae 0.84 con 4.49 i_con 3.90 plddt 0.37 ptm 0.70 i_ptm 0.11 rg 5.08\n"}
+,{"stream_name":"stdout","time":857.5654531,"data":"20 models [0] recycles 1 hard 0 soft 0.36 temp 1 loss 14.11 helix 1.48 pae 0.78 i_pae 0.84 con 4.60 i_con 3.80 plddt 0.39 ptm 0.70 i_ptm 0.11 rg 4.50\n"}
+,{"stream_name":"stdout","time":878.731190456,"data":"21 models [4] recycles 1 hard 0 soft 0.38 temp 1 loss 13.49 helix 1.64 pae 0.76 i_pae 0.83 con 4.21 i_con 4.30 plddt 0.35 ptm 0.70 i_ptm 0.11 rg 1.58\n"}
+,{"stream_name":"stdout","time":899.899272092,"data":"22 models [1] recycles 1 hard 0 soft 0.40 temp 1 loss 13.15 helix 1.70 pae 0.77 i_pae 0.84 con 4.51 i_con 3.68 plddt 0.34 ptm 0.71 i_ptm 0.13 rg 3.13\n"}
+,{"stream_name":"stdout","time":921.0684095,"data":"23 models [4] recycles 1 hard 0 soft 0.41 temp 1 loss 11.91 helix 1.58 pae 0.78 i_pae 0.83 con 4.40 i_con 2.97 plddt 0.34 ptm 0.70 i_ptm 0.11 rg 3.74\n"}
+,{"stream_name":"stdout","time":942.201744643,"data":"24 models [3] recycles 1 hard 0 soft 0.43 temp 1 loss 12.77 helix 1.67 pae 0.76 i_pae 0.83 con 4.21 i_con 3.60 plddt 0.34 ptm 0.71 i_ptm 0.12 rg 3.30\n"}
+,{"stream_name":"stdout","time":963.341845918,"data":"25 models [4] recycles 1 hard 0 soft 0.45 temp 1 loss 11.15 helix 1.62 pae 0.77 i_pae 0.82 con 4.20 i_con 2.77 plddt 0.37 ptm 0.70 i_ptm 0.12 rg 3.40\n"}
+,{"stream_name":"stdout","time":984.32826248,"data":"26 models [1] recycles 1 hard 0 soft 0.47 temp 1 loss 11.08 helix 1.85 pae 0.78 i_pae 0.83 con 4.33 i_con 2.65 plddt 0.36 ptm 0.72 i_ptm 0.12 rg 3.63\n"}
+,{"stream_name":"stdout","time":1005.327844957,"data":"27 models [0] recycles 1 hard 0 soft 0.49 temp 1 loss 12.32 helix 1.73 pae 0.79 i_pae 0.85 con 4.44 i_con 3.08 plddt 0.33 ptm 0.69 i_ptm 0.10 rg 4.22\n"}
+,{"stream_name":"stdout","time":1026.265982359,"data":"28 models [1] recycles 1 hard 0 soft 0.50 temp 1 loss 12.64 helix 1.81 pae 0.77 i_pae 0.85 con 4.34 i_con 3.62 plddt 0.36 ptm 0.72 i_ptm 0.11 rg 2.62\n"}
+,{"stream_name":"stdout","time":1047.183525579,"data":"29 models [1] recycles 1 hard 0 soft 0.52 temp 1 loss 12.57 helix 1.76 pae 0.80 i_pae 0.87 con 4.38 i_con 3.22 plddt 0.34 ptm 0.71 i_ptm 0.09 rg 4.26\n"}
+,{"stream_name":"stdout","time":1068.094583758,"data":"30 models [2] recycles 1 hard 0 soft 0.54 temp 1 loss 15.93 helix 1.71 pae 0.79 i_pae 0.85 con 4.44 i_con 4.71 plddt 0.33 ptm 0.69 i_ptm 0.11 rg 5.05\n"}
+,{"stream_name":"stdout","time":1088.982658461,"data":"31 models [2] recycles 1 hard 0 soft 0.56 temp 1 loss 13.46 helix 1.84 pae 0.76 i_pae 0.82 con 4.34 i_con 4.31 plddt 0.33 ptm 0.69 i_ptm 0.13 rg 1.28\n"}
+,{"stream_name":"stdout","time":1109.870476294,"data":"32 models [4] recycles 1 hard 0 soft 0.58 temp 1 loss 11.38 helix 1.70 pae 0.78 i_pae 0.82 con 4.27 i_con 3.02 plddt 0.34 ptm 0.70 i_ptm 0.11 rg 2.57\n"}
+,{"stream_name":"stdout","time":1130.795476809,"data":"33 models [1] recycles 1 hard 0 soft 0.59 temp 1 loss 11.43 helix 1.74 pae 0.78 i_pae 0.84 con 4.21 i_con 3.07 plddt 0.36 ptm 0.71 i_ptm 0.10 rg 2.63\n"}
+,{"stream_name":"stdout","time":1151.773901551,"data":"34 models [4] recycles 1 hard 0 soft 0.61 temp 1 loss 10.31 helix 1.82 pae 0.78 i_pae 0.81 con 4.19 i_con 2.66 plddt 0.35 ptm 0.70 i_ptm 0.12 rg 2.00\n"}
+,{"stream_name":"stdout","time":1172.77689494,"data":"35 models [0] recycles 1 hard 0 soft 0.63 temp 1 loss 12.83 helix 1.62 pae 0.79 i_pae 0.84 con 4.49 i_con 3.23 plddt 0.32 ptm 0.70 i_ptm 0.11 rg 4.51\n"}
+,{"stream_name":"stdout","time":1193.873833065,"data":"36 models [3] recycles 1 hard 0 soft 0.65 temp 1 loss 12.77 helix 1.71 pae 0.77 i_pae 0.85 con 4.19 i_con 3.68 plddt 0.32 ptm 0.72 i_ptm 0.11 rg 2.93\n"}
+,{"stream_name":"stdout","time":1214.9853066,"data":"37 models [4] recycles 1 hard 0 soft 0.67 temp 1 loss 9.68 helix 2.17 pae 0.74 i_pae 0.79 con 3.45 i_con 2.82 plddt 0.42 ptm 0.70 i_ptm 0.12 rg 1.76\n"}
+,{"stream_name":"stdout","time":1236.074988312,"data":"38 models [4] recycles 1 hard 0 soft 0.68 temp 1 loss 9.76 helix 2.08 pae 0.76 i_pae 0.80 con 3.63 i_con 2.78 plddt 0.38 ptm 0.70 i_ptm 0.10 rg 1.65\n"}
+,{"stream_name":"stdout","time":1257.256581896,"data":"39 models [0] recycles 1 hard 0 soft 0.70 temp 1 loss 9.02 helix 1.69 pae 0.72 i_pae 0.73 con 3.95 i_con 2.16 plddt 0.41 ptm 0.72 i_ptm 0.15 rg 1.89\n"}
+,{"stream_name":"stdout","time":1278.299281622,"data":"40 models [2] recycles 1 hard 0 soft 0.72 temp 1 loss 10.98 helix 1.58 pae 0.77 i_pae 0.76 con 4.39 i_con 2.28 plddt 0.37 ptm 0.70 i_ptm 0.14 rg 4.91\n"}
+,{"stream_name":"stdout","time":1299.284427513,"data":"41 models [2] recycles 1 hard 0 soft 0.74 temp 1 loss 12.97 helix 1.71 pae 0.79 i_pae 0.84 con 4.01 i_con 3.41 plddt 0.36 ptm 0.69 i_ptm 0.11 rg 5.28\n"}
+,{"stream_name":"stdout","time":1320.226035674,"data":"42 models [4] recycles 1 hard 0 soft 0.76 temp 1 loss 8.99 helix 2.00 pae 0.74 i_pae 0.78 con 3.64 i_con 2.39 plddt 0.37 ptm 0.70 i_ptm 0.12 rg 1.61\n"}
+,{"stream_name":"stdout","time":1341.154659753,"data":"43 models [0] recycles 1 hard 0 soft 0.77 temp 1 loss 9.73 helix 1.70 pae 0.67 i_pae 0.67 con 4.22 i_con 1.96 plddt 0.43 ptm 0.73 i_ptm 0.32 rg 4.11\n"}
+,{"stream_name":"stdout","time":1362.037751069,"data":"44 models [3] recycles 1 hard 0 soft 0.79 temp 1 loss 12.74 helix 2.28 pae 0.79 i_pae 0.88 con 3.82 i_con 4.37 plddt 0.33 ptm 0.71 i_ptm 0.10 rg 0.76\n"}
+,{"stream_name":"stdout","time":1382.901497721,"data":"45 models [2] recycles 1 hard 0 soft 0.81 temp 1 loss 10.84 helix 2.09 pae 0.71 i_pae 0.77 con 3.83 i_con 3.28 plddt 0.37 ptm 0.69 i_ptm 0.16 rg 1.45\n"}
+,{"stream_name":"stdout","time":1403.770025587,"data":"46 models [0] recycles 1 hard 0 soft 0.83 temp 1 loss 9.70 helix 2.09 pae 0.71 i_pae 0.74 con 3.81 i_con 2.26 plddt 0.43 ptm 0.70 i_ptm 0.17 rg 3.76\n"}
+,{"stream_name":"stdout","time":1424.645872044,"data":"47 models [1] recycles 1 hard 0 soft 0.85 temp 1 loss 9.82 helix 2.05 pae 0.72 i_pae 0.76 con 3.79 i_con 2.57 plddt 0.42 ptm 0.73 i_ptm 0.16 rg 2.49\n"}
+,{"stream_name":"stdout","time":1445.507394179,"data":"48 models [3] recycles 1 hard 0 soft 0.86 temp 1 loss 10.26 helix 1.80 pae 0.76 i_pae 0.81 con 3.86 i_con 2.85 plddt 0.36 ptm 0.72 i_ptm 0.11 rg 1.74\n"}
+,{"stream_name":"stdout","time":1466.459867917,"data":"49 models [4] recycles 1 hard 0 soft 0.88 temp 1 loss 9.88 helix 2.05 pae 0.76 i_pae 0.81 con 3.64 i_con 2.86 plddt 0.38 ptm 0.70 i_ptm 0.11 rg 1.49\n"}
+,{"stream_name":"stdout","time":1487.498065893,"data":"50 models [0] recycles 1 hard 0 soft 0.90 temp 1 loss 10.20 helix 2.19 pae 0.76 i_pae 0.83 con 3.77 i_con 2.78 plddt 0.37 ptm 0.69 i_ptm 0.10 rg 2.45\n"}
+,{"stream_name":"stderr","time":1487.498478224,"data":"2026-10-29 06:36:46,873 DEBUG functions.colabdesign_utils: [AF2] Stage 1 logits in 1128.91s\n"}
+,{"stream_name":"stderr","time":1487.507252683,"data":"2026-10-29 06:36:46,881 DEBUG functions.generic_utils: [GenUtils] Updated failure CSV in 0.01s\n"}
+,{"stream_name":"stdout","time":1487.507346972,"data":"Initial trajectory pLDDT too low to continue: 0.37\n"}
+,{"stream_name":"stderr","time":1487.523763751,"data":"2026-10-29 06:36:46,898 DEBUG functions.colabdesign_utils: [AF2] Saved trajectory PDB in 0.02s\n"}
+,{"stream_name":"stdout","time":1487.547632494,"data":"Severe clashes detected, skipping analysis and MPNN optimisation\n"}
+,{"stream_name":"stdout","time":1487.547651487,"data":"\n"}
+,{"stream_name":"stderr","time":1487.547663227,"data":"2026-10-29 06:36:46,922 DEBUG functions.generic_utils: [GenUtils] Updated failure CSV in 0.00s\n"}
+,{"stream_name":"stdout","time":1487.548024078,"data":"Starting trajectory took: 0 hours, 18 minutes, 54 seconds\n"}
+,{"stream_name":"stdout","time":1487.548039337,"data":"\n"}
+,{"stream_name":"stdout","time":1487.802030643,"data":"Attempt limit of 1 reached, stopping execution.\n"}
+,{"stream_name":"stdout","time":1487.802065875,"data":"Finished run. Script execution for 1 attempted trajectories took: 0 hours, 18 minutes, 55 seconds\n"}
+,{"stream_name":"stderr","time":1487.802030646,"data":"2026-10-29 06:36:47,176 DEBUG functions.generic_utils: [GenUtils] Accepted count below target; check in 0.00s\n"}
+,{"stream_name":"stdout","time":1489.611733469,"data":"{\n"}
+,{"stream_name":"stdout","time":1489.611763344,"data":"  \"target\": \"11QC chain A residues 189-383\",\n"}
+,{"stream_name":"stdout","time":1489.611769021,"data":"  \"hotspots\": [\n"}
+,{"stream_name":"stdout","time":1489.611772852,"data":"    343,\n"}
+,{"stream_name":"stdout","time":1489.611776487,"data":"    344,\n"}
+,{"stream_name":"stdout","time":1489.611784473,"data":"    347,\n"}
+,{"stream_name":"stdout","time":1489.611787086,"data":"    350\n"}
+,{"stream_name":"stdout","time":1489.611789529,"data":"  ],\n"}
+,{"stream_name":"stdout","time":1489.611791913,"data":"  \"binder_lengths\": [\n"}
+,{"stream_name":"stdout","time":1489.611794428,"data":"    60,\n"}
+,{"stream_name":"stdout","time":1489.611796782,"data":"    60\n"}
+,{"stream_name":"stdout","time":1489.611799186,"data":"  ],\n"}
+,{"stream_name":"stdout","time":1489.611801507,"data":"  \"smoke_max_trajectories\": 1,\n"}
+,{"stream_name":"stdout","time":1489.611803997,"data":"  \"hard_max_attempts\": 1,\n"}
+,{"stream_name":"stdout","time":1489.611806465,"data":"  \"hotspot_objective\": {\n"}
+,{"stream_name":"stdout","time":1489.61180893,"data":"    \"weights_con_inter\": 2.0,\n"}
+,{"stream_name":"stdout","time":1489.611811551,"data":"    \"inter_contact_distance_A\": 8.0,\n"}
+,{"stream_name":"stdout","time":1489.611814041,"data":"    \"inter_contact_number\": 2\n"}
+,{"stream_name":"stdout","time":1489.611816487,"data":"  },\n"}
+,{"stream_name":"stdout","time":1489.611818864,"data":"  \"accepted_pdb_count\": 0,\n"}
+,{"stream_name":"stdout","time":1489.611821297,"data":"  \"stats\": {\n"}
+,{"stream_name":"stdout","time":1489.611824087,"data":"    \"trajectory_stats.csv\": {\n"}
+,{"stream_name":"stdout","time":1489.611837743,"data":"      \"rows\": 0,\n"}
+,{"stream_name":"stdout","time":1489.611841857,"data":"      \"bytes\": 598\n"}
+,{"stream_name":"stdout","time":1489.61184596,"data":"    },\n"}
+,{"stream_name":"stdout","time":1489.611850145,"data":"    \"mpnn_design_stats.csv\": {\n"}
+,{"stream_name":"stdout","time":1489.611854425,"data":"      \"rows\": 0,\n"}
+,{"stream_name":"stdout","time":1489.611858366,"data":"      \"bytes\": 3939\n"}
+,{"stream_name":"stdout","time":1489.611862645,"data":"    },\n"}
+,{"stream_name":"stdout","time":1489.611866585,"data":"    \"final_design_stats.csv\": {\n"}
+,{"stream_name":"stdout","time":1489.611870456,"data":"      \"rows\": 0,\n"}
+,{"stream_name":"stdout","time":1489.611874506,"data":"      \"bytes\": 3944\n"}
+,{"stream_name":"stdout","time":1489.611878538,"data":"    },\n"}
+,{"stream_name":"stdout","time":1489.611882214,"data":"    \"failure_csv.csv\": {\n"}
+,{"stream_name":"stdout","time":1489.611885904,"data":"      \"rows\": 1,\n"}
+,{"stream_name":"stdout","time":1489.611889834,"data":"      \"bytes\": 1116\n"}
+,{"stream_name":"stdout","time":1489.611893316,"data":"    }\n"}
+,{"stream_name":"stdout","time":1489.611897323,"data":"  },\n"}
+,{"stream_name":"stdout","time":1489.611901018,"data":"  \"output_file_count\": 6,\n"}
+,{"stream_name":"stdout","time":1489.61190502,"data":"  \"trajectory_local_gates\": [],\n"}
+,{"stream_name":"stdout","time":1489.611909277,"data":"  \"any_true_hotspot_gate_pass\": false,\n"}
+,{"stream_name":"stdout","time":1489.611913643,"data":"  \"environment_test_completed\": true\n"}
+,{"stream_name":"stdout","time":1489.611917845,"data":"}\n"}
+,{"stream_name":"stdout","time":1489.643443186,"data":"elapsed_min=24.8\n"}
+,{"stream_name":"stderr","time":1492.209768956,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1492.209795255,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1492.635280528,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1492.635317012,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1494.743150232,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1495.846077554,"data":"[NbConvertApp] Writing 335815 bytes to __results__.html\n"}
+]

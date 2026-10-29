@@ -1,0 +1,1 @@
+Changed i_con binary=False to binary=True in functions/colabdesign_utils.py
