@@ -1,0 +1,137 @@
+{
+  "candidate_id": "human_tfr1_apical_t00000_l60_s767446",
+  "binder_sequence": "SPSIISTTTTTYTVHGKQVTRIRTTINPGETITPKPGEKQMVGPDNETGNTIVHIYKVNS",
+  "odin_selection": {
+    "design_index": "0",
+    "iteration": "91",
+    "stage": "ste",
+    "score": "0.7664527297019958",
+    "worst_target_i_ptm": "0.7664527297019958",
+    "worst_target_context": "human_tfr1_apical"
+  },
+  "validation_mode": "sequence_only_full_ectodomain_boltz2",
+  "species": {
+    "human": {
+      "confidence": 0.714404821395874,
+      "ptm": 0.8625206351280212,
+      "protein_iptm": 0.1295500099658966,
+      "complex_plddt": 0.860618531703949,
+      "complex_iplddt": 0.8568113446235657,
+      "complex_pde": 0.8436430096626282,
+      "complex_ipde": 14.753461837768555,
+      "contacts": {
+        "target_contacts_uniprot": [
+          320,
+          633,
+          636,
+          637,
+          638,
+          640,
+          760
+        ],
+        "binder_contact_positions": [
+          15,
+          16,
+          17,
+          39
+        ],
+        "preferred_contacts": [],
+        "risk_contacts": [],
+        "preferred_core_retained": false
+      },
+      "apical_contact": true,
+      "pose_gate": {
+        "min_protein_iptm": 0.5,
+        "requires_preferred_contact": true,
+        "pass": false
+      }
+    },
+    "mouse": {
+      "confidence": 0.4087996184825897,
+      "ptm": 0.3766106069087982,
+      "protein_iptm": 0.1419726461172104,
+      "complex_plddt": 0.47550636529922485,
+      "complex_iplddt": 0.5127846002578735,
+      "complex_pde": 4.419569492340088,
+      "complex_ipde": 16.01405906677246,
+      "contacts": {
+        "target_contacts_uniprot": [
+          153,
+          156,
+          158,
+          159,
+          160,
+          161,
+          162,
+          165,
+          168,
+          169,
+          182,
+          183,
+          184,
+          185,
+          186,
+          328,
+          518,
+          519,
+          520,
+          521,
+          522,
+          523,
+          524,
+          525,
+          526,
+          527,
+          528,
+          567,
+          568,
+          570,
+          571,
+          572,
+          573
+        ],
+        "binder_contact_positions": [
+          8,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          17,
+          19,
+          21,
+          23,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          46,
+          47,
+          54,
+          56,
+          57,
+          58
+        ],
+        "preferred_contacts": [],
+        "risk_contacts": [],
+        "preferred_core_retained": false
+      },
+      "apical_contact": true,
+      "pose_gate": {
+        "min_protein_iptm": 0.5,
+        "requires_preferred_contact": true,
+        "pass": false
+      }
+    }
+  },
+  "cross_species_epitope": {
+    "human_mouse_homologous_overlap_human_numbering": [],
+    "overlap_count": 0,
+    "jaccard": 0.0,
+    "same_epitope_pass": false
+  },
+  "cross_species_pose_pass": false
+}
