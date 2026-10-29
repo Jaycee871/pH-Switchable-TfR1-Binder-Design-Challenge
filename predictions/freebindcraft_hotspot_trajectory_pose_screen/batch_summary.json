@@ -1,0 +1,110 @@
+{
+  "TFR1_FBC343_l67_s385919": {
+    "candidate_id": "TFR1_FBC343_l67_s385919",
+    "backbone_id": "FBC343_l67_s385919",
+    "source_backbone": "freebindcraft/kaggle_smoke_v1_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/Relaxed/TFR1_FBC343_l67_s385919.pdb",
+    "binder_sequence": "TKTPPDWYLRYRIHNTSKIAYRLYRRIDSAVKSGNLGVAKRYKSRMWRVHPAMAKTVFTTRYPDVFG",
+    "mpnn_score": null,
+    "species": {
+      "human": {
+        "confidence": 0.7215916514396667,
+        "ptm": 0.6570778489112854,
+        "protein_iptm": 0.39312586188316345,
+        "complex_plddt": 0.8037080764770508,
+        "complex_iplddt": 0.8176032304763794,
+        "complex_pde": 2.0698022842407227,
+        "complex_ipde": 14.13630199432373,
+        "contacts": {
+          "target_contacts_uniprot": [
+            205,
+            231,
+            247,
+            248,
+            249,
+            253,
+            350,
+            351,
+            352,
+            365,
+            366,
+            369
+          ],
+          "binder_contact_positions": [
+            5,
+            7,
+            8,
+            10,
+            11,
+            14,
+            15,
+            21,
+            25
+          ],
+          "preferred_contacts": [
+            231,
+            350
+          ],
+          "risk_contacts": [],
+          "preferred_core_retained": true
+        },
+        "apical_contact": true,
+        "pose_gate": {
+          "min_protein_iptm": 0.5,
+          "requires_preferred_contact": true,
+          "pass": false
+        }
+      },
+      "mouse": {
+        "confidence": 0.5353838801383972,
+        "ptm": 0.6020660400390625,
+        "protein_iptm": 0.1958484798669815,
+        "complex_plddt": 0.6202676892280579,
+        "complex_iplddt": 0.6178378462791443,
+        "complex_pde": 2.089123249053955,
+        "complex_ipde": 13.671121597290039,
+        "contacts": {
+          "target_contacts_uniprot": [
+            398,
+            444,
+            445,
+            446,
+            447,
+            448,
+            599,
+            602,
+            603,
+            606,
+            761,
+            762,
+            763
+          ],
+          "binder_contact_positions": [
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            11
+          ],
+          "preferred_contacts": [],
+          "risk_contacts": [],
+          "preferred_core_retained": false
+        },
+        "apical_contact": false,
+        "pose_gate": {
+          "min_protein_iptm": 0.5,
+          "requires_preferred_contact": true,
+          "pass": false
+        }
+      }
+    },
+    "cross_species_epitope": {
+      "human_mouse_homologous_overlap_human_numbering": [],
+      "overlap_count": 0,
+      "jaccard": 0.0,
+      "same_epitope_pass": false
+    },
+    "cross_species_pose_pass": false
+  }
+}
