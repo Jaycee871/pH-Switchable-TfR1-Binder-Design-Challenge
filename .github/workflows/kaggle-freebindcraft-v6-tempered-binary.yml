@@ -1,0 +1,126 @@
+name: Kaggle TfR1 FreeBindCraft V6 Tempered Binary
+
+on:
+  push:
+    paths:
+      - "kaggle/freebindcraft_v6_tempered_binary/TRIGGER"
+  workflow_dispatch:
+
+concurrency:
+  group: tfr1-kaggle-freebindcraft-v6-tempered-binary
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Kaggle CLI
+        run: python -m pip install --upgrade kaggle
+
+      - name: Push and monitor v6 tempered-binary run
+        id: kaggle
+        continue-on-error: true
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p v6_outputs
+          test -n "${KAGGLE_API_TOKEN:-}"
+
+          KERNEL="packkwanlow/tfr1-freebindcraft-v6-tempered-binary"
+          DIR="kaggle/freebindcraft_v6_tempered_binary"
+
+          kaggle kernels push -p "$DIR" --accelerator NvidiaTeslaT4 --timeout 12600
+
+          doneflag=0
+          for i in $(seq 1 210); do
+            status="$(kaggle kernels status "$KERNEL" 2>&1 || true)"
+            echo "[poll $i] $status"
+
+            if echo "$status" | grep -Eqi 'complete|completed'; then
+              doneflag=1
+              break
+            fi
+
+            if echo "$status" | grep -Eqi 'error|failed|cancelled'; then
+              kaggle kernels logs "$KERNEL" > v6_outputs/kaggle-run.log || true
+              break
+            fi
+
+            sleep 60
+          done
+
+          kaggle kernels output "$KERNEL" -p v6_outputs -o || true
+          kaggle kernels logs "$KERNEL" > v6_outputs/kaggle-run.log || true
+          find v6_outputs -type f -printf '%p %s bytes\n' | sort
+
+          if [[ "$doneflag" != 1 ]]; then
+            echo "Kernel did not report completed state." >&2
+            exit 1
+          fi
+
+      - name: Record status
+        if: always()
+        run: |
+          mkdir -p v6_outputs
+          {
+            echo "kaggle_outcome=${{ steps.kaggle.outcome }}"
+            echo "sha=$GITHUB_SHA"
+            date -u +"utc=%Y-%m-%dT%H:%M:%SZ"
+          } > v6_outputs/workflow-status.txt
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tfr1-freebindcraft-v6-tempered-binary
+          path: v6_outputs/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Sync v6 outputs
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+
+          DEST="freebindcraft/kaggle_v6_tempered_binary_results"
+          rm -rf "$DEST"
+          mkdir -p "$DEST"
+
+          if [[ -d v6_outputs/tfr1_freebindcraft_smoke_v6_tempered_binary ]]; then
+            cp -R v6_outputs/tfr1_freebindcraft_smoke_v6_tempered_binary/. "$DEST/"
+          fi
+
+          for f in v6_outputs/kaggle-run.log v6_outputs/workflow-status.txt; do
+            [[ ! -f "$f" ]] || cp "$f" "$DEST/"
+          done
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add "$DEST"
+          if git diff --cached --quiet; then exit 0; fi
+
+          git commit -m "Record TfR1 FreeBindCraft v6 tempered-binary run"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Fail if Kaggle run failed
+        if: steps.kaggle.outcome != 'success'
+        run: exit 1
