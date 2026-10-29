@@ -1,0 +1,9 @@
+{
+  "candidate_count": 16,
+  "prefilter_pass_count": 16,
+  "pose_screen_ids": [
+    "TFR1_FBC_L67_XS_07",
+    "TFR1_FBC_L67_XS_05"
+  ],
+  "note": "Fallback only; full human/mouse pose validation required before pH engineering."
+}

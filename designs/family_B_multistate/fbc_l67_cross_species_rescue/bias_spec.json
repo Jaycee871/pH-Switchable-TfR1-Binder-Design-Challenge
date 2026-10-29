@@ -1,0 +1,15 @@
+{
+  "primary_liability_positions": [
+    7,
+    8,
+    11
+  ],
+  "secondary_liability_positions": [
+    14,
+    18
+  ],
+  "conserved_anchor_position": 10,
+  "required_anchor_residue": "R",
+  "preferred_tolerant_residues": "AGQNST",
+  "rationale": "Reduce dependence on non-conserved human peripheral chemistry while preserving R10->E350/G351."
+}
