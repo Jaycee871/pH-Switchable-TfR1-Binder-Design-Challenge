@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
-"""Kaggle T4 smoke test for FreeBindCraft on the TfR1 apical domain.
-
-Goal: test whether a small TfR1 target (11QC chain A, residues 189-383)
-plus a 55-75 aa miniprotein can run FreeBindCraft on Kaggle T4.
-
-This is intentionally NOT a production design campaign.
-"""
+"""Kaggle T4 single-attempt hard-hotspot FreeBindCraft test for TfR1.\n\nThe environment is already proven to run. This v4 experiment tests whether\ntightening the hotspot contact objective (8 A rather than the default 20 A)\ncan place the actual 5 A interface on conserved TfR1 residues 343/344/347/350.\n"""
 
 from __future__ import annotations
 
@@ -183,10 +177,69 @@ def prepare_settings(target):
         "enable_rejection_check":False,
         "weights_iptm":0.10,
         "weights_rg":0.40,
+        "weights_con_inter":2.0,
+        "inter_contact_distance":8.0,
+        "inter_contact_number":2,
     })
     advanced_path=OUT/"advanced_smoke.json"
     advanced_path.write_text(json.dumps(advanced,indent=2)+"\n")
     return settings_path,advanced_path
+
+def _dist(a,b):
+    return ((a[0]-b[0])**2 + (a[1]-b[1])**2 + (a[2]-b[2])**2) ** 0.5
+
+def _local_hotspot_gate(pdb_path):
+    atoms=[]
+    residues={}
+    for line in pdb_path.read_text(errors="replace").splitlines():
+        if not line.startswith("ATOM") or len(line) < 54:
+            continue
+        atom=line[12:16].strip()
+        if atom.startswith("H"):
+            continue
+        ch=line[21].strip() or "_"
+        try:
+            resid=int(line[22:26])
+            xyz=(float(line[30:38]),float(line[38:46]),float(line[46:54]))
+        except ValueError:
+            continue
+        atoms.append((ch,resid,atom,xyz))
+        residues.setdefault(ch,set()).add(resid)
+
+    if "A" not in residues or "B" not in residues:
+        return {"pdb":str(pdb_path),"gate_error":"expected_chains_A_B"}
+
+    target_min=min(residues["A"])
+    renumbered=target_min < 180
+    to_human=(lambda r: r+188) if renumbered else (lambda r: r)
+    contacts=set()
+    clashes=0
+    ta=[x for x in atoms if x[0]=="A"]
+    ba=[x for x in atoms if x[0]=="B"]
+    for b in ba:
+        for t in ta:
+            d=_dist(b[3],t[3])
+            if d < 2.0:
+                clashes += 1
+            if d <= 5.0:
+                contacts.add(to_human(t[1]))
+
+    preferred={206,207,209,214,231,343,344,347,350,374}
+    core={343,344,347,350}
+    risk={204,208,210,211,212,348,371}
+    pref=sorted(contacts & preferred)
+    core_hits=sorted(contacts & core)
+    risk_hits=sorted(contacts & risk)
+    return {
+        "pdb":str(pdb_path.relative_to(OUT)),
+        "target_numbering":"1-195_to_human_plus188" if renumbered else "native",
+        "target_contacts_5A":sorted(contacts),
+        "preferred_contacts":pref,
+        "hotspot_core_contacts":core_hits,
+        "risk_contacts":risk_hits,
+        "severe_clashes_lt2A":clashes,
+        "true_hotspot_gate_pass":bool(core_hits) and len(pref)>=2 and len(risk_hits)<=1 and clashes<=10,
+    }
 
 def summarize():
     design_dir=OUT/"designs"
@@ -198,17 +251,34 @@ def summarize():
             lines=p.read_text(errors="replace").splitlines()
             stats[name]={"rows":max(0,len(lines)-1),"bytes":p.stat().st_size}
             shutil.copy2(p,OUT/name)
+
+    trajectory_gates=[]
+    for sub in ("Relaxed","LowConfidence"):
+        tdir=design_dir/"Trajectory"/sub
+        if tdir.exists():
+            for p in sorted(tdir.glob("*.pdb")):
+                rec=_local_hotspot_gate(p)
+                rec["trajectory_class"]=sub
+                trajectory_gates.append(rec)
+
     accepted=list(design_dir.glob("Accepted/**/*.pdb")) if design_dir.exists() else []
     summary={
         "target":"11QC chain A residues 189-383",
         "hotspots":[343,344,347,350],
         "binder_lengths":[60,60],
         "smoke_max_trajectories":1,
+        "hard_max_attempts":1,
+        "hotspot_objective":{
+            "weights_con_inter":2.0,
+            "inter_contact_distance_A":8.0,
+            "inter_contact_number":2
+        },
         "accepted_pdb_count":len(accepted),
         "stats":stats,
         "output_file_count":len(files),
+        "trajectory_local_gates":trajectory_gates,
+        "any_true_hotspot_gate_pass":any(x.get("true_hotspot_gate_pass") for x in trajectory_gates),
         "environment_test_completed":True,
-        "production_ready_if_no_oom":True,
     }
     (OUT/"smoke_summary.json").write_text(json.dumps(summary,indent=2)+"\n")
     print(json.dumps(summary,indent=2),flush=True)
