@@ -1,0 +1,71 @@
+name: Probe Running Kaggle Odin-Multi Log
+
+# Read-only probe of the live Odin-Multi kernel. Deliberately writes only to
+# analysis/odin_multi_live_probe/ so it can never touch
+# kaggle/odin_multi_tfr1_smoke/TRIGGER and cancel the run it is observing.
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: tfr1-probe-odin-multi
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Kaggle CLI
+        run: python -m pip install --quiet --upgrade kaggle
+      - name: Fetch current kernel status and logs
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          DEST=analysis/odin_multi_live_probe
+          mkdir -p "$DEST"
+          KERNEL="packkwanlow/tfr1-odin-multi-crossreactivity-smoke"
+          kaggle kernels status "$KERNEL" > "$DEST/status.txt" 2>&1 || true
+          kaggle kernels logs "$KERNEL" > "$DEST/live.log" 2>&1 || true
+
+          echo "--- status ---"
+          cat "$DEST/status.txt" || true
+
+          echo "--- Stage 0 input verification ---"
+          grep -aE "Stage 0|OK human_tfr1|OK mouse_tfr1|hotspot pair|FATAL" "$DEST/live.log" || \
+            echo "(no Stage 0 lines yet)"
+
+          echo "--- design progress ---"
+          grep -aoE "odin_multi\.py design|Trajectory|trajectory|iteration|soft |greedy |i_ptm|FileNotFoundError" \
+            "$DEST/live.log" | sort | uniq -c | sort -rn | head -20 || true
+
+          echo "--- tail ---"
+          tail -c 4000 "$DEST/live.log" || true
+      - name: Commit probe
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/odin_multi_live_probe
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Probe running Odin-Multi Kaggle log"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            sleep 2
+          done
+          exit 1
