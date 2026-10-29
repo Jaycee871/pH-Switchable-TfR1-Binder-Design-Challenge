@@ -36,11 +36,11 @@ from Bio.Align import substitution_matrices
 from Bio.PDB import MMCIFIO, MMCIFParser, NeighborSearch, PDBParser
 
 ROOT = Path(__file__).resolve().parents[1]
-CANDIDATES = ROOT / "designs/family_D_freebindcraft/v5_binary_hotspot_pose_screen/pose_screen_candidates.csv"
+CANDIDATES = ROOT / "designs/family_D_freebindcraft/v6_tempered_binary_pose_screen/pose_screen_candidates.csv"
 HUMAN_FASTA = ROOT / "data/human_TfR1/human_TfR1_P02786_121-760.fasta"
 MOUSE_FASTA = ROOT / "data/mouse_TfR1/mouse_TfR1_Q62351_123-763.fasta"
 MASK_CSV = ROOT / "analysis/apical_design_mask.csv"
-OUT = ROOT / "predictions/freebindcraft_v5_binary_hotspot_pose_screen"
+OUT = ROOT / "predictions/freebindcraft_v6_tempered_binary_pose_screen"
 URL = "https://health.api.nvidia.com/v1/biology/mit/boltz2/predict"
 
 HUMAN_START = 121
