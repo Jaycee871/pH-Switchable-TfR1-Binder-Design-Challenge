@@ -113,8 +113,21 @@ jobs:
           git add "$DEST"
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Record TfR1 Odin-Multi crossreactivity smoke"
-          git pull --rebase origin main
-          git push origin HEAD:main
+
+          # main may advance while the Kaggle job is running. Rebase-and-retry
+          # rather than failing the scientific run on a Git race.
+          pushed=0
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              pushed=1
+              break
+            fi
+            echo "Push race on attempt $attempt; retrying after fetch/rebase."
+            git fetch origin main
+            sleep 2
+          done
+          test "$pushed" = 1
 
       - name: Fail if Kaggle smoke failed
         if: steps.kaggle.outcome != 'success'
