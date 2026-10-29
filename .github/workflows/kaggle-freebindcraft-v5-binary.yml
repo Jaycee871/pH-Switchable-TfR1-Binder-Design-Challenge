@@ -39,7 +39,7 @@ jobs:
           set -euo pipefail
           mkdir -p v5_outputs
           test -n "${KAGGLE_API_TOKEN:-}"
-          KERNEL="packkwanlow/tfr1-freebindcraft-smoke-v5-binary"
+          KERNEL="packkwanlow/tfr1-freebindcraft-v5-binary-hotspot"
           DIR="kaggle/freebindcraft_smoke_v5_binary"
 
           kaggle kernels push -p "$DIR" --accelerator NvidiaTeslaT4 --timeout 9000
