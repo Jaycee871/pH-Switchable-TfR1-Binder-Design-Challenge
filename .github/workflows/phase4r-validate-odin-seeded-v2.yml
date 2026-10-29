@@ -1,0 +1,143 @@
+name: Phase 4R Validate Odin-Multi Seeded V2
+
+on:
+  workflow_run:
+    workflows:
+      - "Kaggle TfR1 Odin-Multi Seeded V2"
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      NVIDIA_API_KEY1: ${{ secrets.NVIDIA_API_KEY1 }}
+      NVIDIA_API_TOKEN: ${{ secrets.NVIDIA_API_TOKEN }}
+      NGC_API_KEY: ${{ secrets.NGC_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Check seeded-v2 selection
+        id: selection
+        shell: bash
+        run: |
+          if [[ -s odin_multi/kaggle_seeded_v2/selection.csv ]]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "No seeded-v2 selection available."
+          fi
+
+      - name: Install Biopython
+        if: steps.selection.outputs.present == 'true'
+        run: python -m pip install "biopython>=1.85"
+
+      - name: Validate all selected designs independently
+        if: steps.selection.outputs.present == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf predictions/odin_multi_seeded_v2_pose_screen
+          mkdir -p predictions/odin_multi_seeded_v2_pose_screen
+
+          N="$(python - <<'PY'
+import csv
+p="odin_multi/kaggle_seeded_v2/selection.csv"
+with open(p,newline="") as fh:
+    rows=[r for r in csv.DictReader(fh) if r.get("selection_status")=="selected"]
+print(min(3,len(rows)))
+PY
+)"
+          echo "Validating $N selected Odin designs"
+          if [[ "$N" -lt 1 ]]; then
+            echo "No selected designs to validate."
+            exit 1
+          fi
+
+          for rank in $(seq 0 $((N-1))); do
+            ODIN_SELECTION_PATH="odin_multi/kaggle_seeded_v2/selection.csv"             ODIN_SELECTION_RANK="$rank"             ODIN_VALIDATION_OUT="predictions/odin_multi_seeded_v2_pose_screen/rank_${rank}"               python scripts/nvidia_boltz2_validate_odin_multi_selected.py
+          done
+
+          python - <<'PY'
+import json
+from pathlib import Path
+
+root=Path("predictions/odin_multi_seeded_v2_pose_screen")
+results=[]
+for p in sorted(root.glob("rank_*/batch_summary.json")):
+    d=json.loads(p.read_text())
+    d["validation_dir"]=str(p.parent)
+    results.append(d)
+
+results.sort(
+    key=lambda d: min(
+        float(d["species"]["human"]["protein_iptm"] or 0),
+        float(d["species"]["mouse"]["protein_iptm"] or 0),
+    ),
+    reverse=True,
+)
+
+(root/"batch_summary.json").write_text(
+    json.dumps({"candidates":results},indent=2)+"\n"
+)
+winners=[d["candidate_id"] for d in results if d.get("cross_species_pose_pass")]
+(root/"pose_pass_ids.json").write_text(
+    json.dumps({"pose_pass_ids":winners},indent=2)+"\n"
+)
+
+print(json.dumps({
+    "ranked":[{
+        "id":d["candidate_id"],
+        "human_ipTM":d["species"]["human"]["protein_iptm"],
+        "mouse_ipTM":d["species"]["mouse"]["protein_iptm"],
+        "overlap":d["cross_species_epitope"]["overlap_count"],
+        "jaccard":d["cross_species_epitope"]["jaccard"],
+        "pass":d["cross_species_pose_pass"],
+    } for d in results],
+    "pose_pass_ids":winners,
+},indent=2))
+PY
+
+      - name: Commit validation
+        if: steps.selection.outputs.present == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add predictions/odin_multi_seeded_v2_pose_screen
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add Phase 4R seeded Odin-Multi independent validation"
+
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            git fetch origin main
+            sleep 2
+          done
+          exit 1
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tfr1-phase4r-odin-seeded-v2
+          path: predictions/odin_multi_seeded_v2_pose_screen/
+          if-no-files-found: warn
+          retention-days: 14
