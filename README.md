@@ -117,53 +117,114 @@ According to the competition rules:
 
 Additional computational metrics, predicted structures, methodology, and provenance will be retained to support design selection and reproducibility.
 
-## Current findings (2026-10-28)
+## Current findings (2026-10-30)
 
-Full detail in [`analysis/PHASE_STATUS_2026-10-28.md`](analysis/PHASE_STATUS_2026-10-28.md).
-All computational results have now been recovered from GitHub Actions artifacts and committed;
-see [`analysis/ARTIFACT_PROVENANCE.md`](analysis/ARTIFACT_PROVENANCE.md).
+The project has moved beyond the 2026-10-28 fixed-backbone stage. The central result is now
+clearer: **human apical binding is achievable, but no design has yet demonstrated a homologous
+mouse apical pose under independent full-ectodomain prediction.**
 
-**There is currently no submittable candidate.** Two conclusions drive the remaining work:
+### 1. FreeBindCraft v6 established a real human-side signal
 
-1. **Pose collapse is universal.** For every structurally validated design, the predicted human
-   interface lands at approximately residues 507-760 rather than the intended apical patch
-   (202-215 / 343-374). Interface pTM is 0.14-0.30 and the intended apical anchors are not
-   retained in any case, even when the RFdiffusion geometry is supplied to Boltz-2 as an
-   explicit mmCIF template. High overall confidence and complex pLDDT in these runs reflect
-   confident folding of the individual chains, not a correct docking pose.
+The tempered-binary v6 parent `TFR1_FBC343_V6_l60_s289817` is the strongest mechanistically
+credible human parent produced so far. In the independent Phase 4Q full-complex gate-override
+diagnostic it achieved:
 
-2. **Histidines now exist, but a pH switch has not been demonstrated.** None of the original
-   60+ designed sequences contained a histidine: the Phase 3D interface bias left histidine
-   *available* but never *rewarded* it, so ProteinMPNN never selected it. Phase 6
-   (run 40691292024) fixed that with a positive histidine bias and produced 24 designs carrying
-   4-10 histidines each, 18 of which pass the filter. The bias overshot, however: positions 1
-   and 5 are histidine in 24/24 designs, which is saturation rather than structural selection,
-   and the contiguous core/rim tiers produced an N-terminal poly-histidine stretch that
-   resembles an affinity tag more than a cooperative network. The recurring 41/44/45 `HLEHH`
-   motif is the one genuinely promising element. None of these sequences has been structurally
-   validated, and no pH 6.0 evaluation exists, so pH selectivity remains unproven.
-   See `analysis/PHASE6_HIS_ENRICHED_2026-10-28.md`.
+- human protein iPTM **0.690**;
+- preferred contacts **231, 347, 350**;
+- conserved core **347/350 retained**;
+- only one reproduced species-risk contact (**371**).
 
-A third point deserves emphasis because the raw numbers are misleading: `TFR1_C57_02` and
-`TFR1_C57_05` show the project's highest mouse interface pTM (0.425 / 0.433), but their predicted
-mouse interface (residues 148-200) is a **different surface** from their own predicted human
-interface (507-651). That is not cross-reactivity; it is two unrelated docking artifacts.
+This also showed that the earlier local geometry gate was partly over-conservative: three
+trajectory-level risk contacts (210/211/348) did not reproduce in the independent human
+full-complex prediction.
 
-### Still missing
+However, the same v6 parent failed mouse cross-reactivity decisively:
 
-- a validated binding pose for any candidate;
-- structural validation of the Phase 6 histidine designs (none has been predicted);
-- a re-run of Phase 6 at a lower, non-contiguous histidine bias (+4.0 saturated the interface);
-- a pH 6.0 negative-state evaluation (requires new code — nothing in the pipeline evaluates pH 6.0);
-- structural diversity (all designs trace back to just two backbones);
-- developability filters (pI, net charge, aggregation, low-complexity);
-- the submission CSV.
+- mouse protein iPTM **0.282**;
+- predicted mouse interface moved outside the homologous apical region;
+- homologous human/mouse contact overlap **0**.
 
-The only backbone to have passed its own gate is the compact apical **seed 20261102** (57 aa,
-preferred contacts 344 and 347, Rg 14.88 Å), which is the planned starting point for the next
-design round.
+See `analysis/PHASE_4Q_V6_PARENT_GATE_OVERRIDE_2026-10-29.md`.
 
-> **Deadline: 2026-11-01.** The submission window closes on November 1, 2026.
+### 2. Fixed-backbone sequence rescue is exhausted
+
+Two sequence-level rescue strategies were tested on the v6 backbone.
+
+**Phase 3J / 4N — strict B46/B47 cleanup**
+
+Only B46/B47 were redesigned while the remaining 58 residues were fixed. Human binding
+remained strong (protein iPTM approximately 0.70), and the best mouse score reached **0.492**,
+but the mouse prediction still left the homologous apical epitope and homologous overlap
+remained zero.
+
+**Phase 3K / 4O — tied human+mouse dual-state ProteinMPNN**
+
+The same sequence was constrained against explicit human and mouse structural states with
+all 60 binder positions tied across states. The best human candidate reached protein iPTM
+**0.734**, while mouse remained only **0.16-0.25** with homologous overlap **0**.
+
+Therefore the remaining bottleneck is not a small set of side chains. The v6 backbone/docking
+geometry itself is not a stable cross-species solution. Additional incremental ProteinMPNN
+variants of this backbone are closed.
+
+See `analysis/PHASE_4O_FIXED_BACKBONE_RESCUE_EXHAUSTED_2026-10-29.md`.
+
+### 3. Odin-Multi smoke proved the true multi-context pipeline, but not a candidate
+
+A true multi-context Odin-Multi design was then run with human and mouse TfR1 as simultaneous
+on-targets sharing one binder sequence. The complete GPU run succeeded, but its single random
+trajectory terminated **LowConfidence**.
+
+Odin selection:
+
+- selected worst-target iPTM: **0.143**;
+- the entire trajectory never entered a strong joint-binding basin;
+- maximum worst-target iPTM across saved frames was only approximately **0.157**.
+
+Independent sequence-only full-ectodomain Boltz-2 validation then failed both species:
+
+- human protein iPTM **0.255**, non-apical;
+- mouse protein iPTM **0.136**, non-apical;
+- homologous overlap count **2**, Jaccard **0.0488**;
+- `cross_species_pose_pass = false`.
+
+This is interpreted as a failed initialization / search trajectory, not evidence that
+multi-context optimization is intrinsically unsuitable.
+
+### 4. Current active campaign: Odin-Multi seeded v2
+
+The active v2 campaign uses the independently validated FreeBindCraft v6 sequence as the
+shared Odin-Multi warm-start instead of random initialization.
+
+Controlled changes:
+
+- human conserved core hotspots: **347 / 350**;
+- mouse homologues: **349 / 352**;
+- human gradient weight **1.0**;
+- mouse gradient weight **1.25**;
+- interface-contact weight **1.5**;
+- interface-PAE weight **0.15**;
+- iPTM weight **0.15**;
+- ProteinMPNN autoregressive prior reduced to **0.5**;
+- **3 independent trajectories**;
+- 60 logits / 30 soft / 15 STE iterations.
+
+The campaign selects each trajectory by `best_i_ptm`, maximizing its weakest on-target
+interface pTM. Phase 4R is already connected and will independently re-dock **all three**
+selected sequences against the full human and full mouse ectodomains using sequence-only
+Boltz-2. Odin's own optimized pose is not accepted as validation evidence.
+
+### Current scientific gate
+
+A candidate is not considered a neutral-pH cross-species parent unless independent validation
+shows, for both human and mouse:
+
+- protein iPTM >= 0.50;
+- retained apical / preferred contacts;
+- a homologous human-mouse epitope overlap (not merely good scores on different surfaces).
+
+**pH-switch engineering remains downstream of this gate.** Histidine / protonation work will
+not be promoted to a final candidate until a neutral-pH cross-species parent exists.
 
 ## Status
 
