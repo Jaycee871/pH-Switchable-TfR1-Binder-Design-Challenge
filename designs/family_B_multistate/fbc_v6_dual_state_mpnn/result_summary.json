@@ -1,7 +1,20 @@
 {
   "candidate_count": 30,
   "unique_candidate_count": 30,
-  "prefilter_pass_count": 0,
-  "pose_screen_ids": [],
-  "note": "True human+mouse tied-sequence multistate ProteinMPNN. Full independent Boltz-2 validation required."
+  "parent_longest_homopolymer_run": 5,
+  "corrected_prefilter_pass_count": 30,
+  "pose_screen_ids": [
+    "TFR1_FBC_V6_MS_08",
+    "TFR1_FBC_V6_MS_38",
+    "TFR1_FBC_V6_MS_15",
+    "TFR1_FBC_V6_MS_16"
+  ],
+  "pose_screen_scores": {
+    "TFR1_FBC_V6_MS_08": 0.6947,
+    "TFR1_FBC_V6_MS_38": 0.697,
+    "TFR1_FBC_V6_MS_15": 0.6997,
+    "TFR1_FBC_V6_MS_16": 0.7039
+  },
+  "correction": "The previous >4 homopolymer filter rejected a motif already present in the fixed parent sequence. Only candidate-introduced worsening is now rejected.",
+  "note": "Existing Phase 3K sequences re-selected without rerunning ProteinMPNN."
 }
