@@ -1,0 +1,33 @@
+{
+  "contexts": [
+    {
+      "name": "human_tfr1_apical",
+      "hotspots": [
+        347,
+        350
+      ],
+      "gradient_weight": 1.0
+    },
+    {
+      "name": "mouse_tfr1_apical",
+      "hotspots": [
+        349,
+        352
+      ],
+      "gradient_weight": 1.25
+    }
+  ],
+  "binder_length": 60,
+  "trajectory_count": 3,
+  "selection_method": "best_i_ptm",
+  "warm_start": "FreeBindCraft v6 sequence",
+  "design_iterations": {
+    "soft": 60,
+    "temporary": 30,
+    "hard": 15,
+    "greedy": 5
+  },
+  "selection_csv_exists": true,
+  "selection_fasta_exists": true,
+  "elapsed_min": 248.5
+}

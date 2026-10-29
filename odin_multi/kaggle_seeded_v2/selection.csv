@@ -1,0 +1,4 @@
+design_index,design_id,selection_status,termination,iteration,frame_index,stage,score,sequence,length,seed,worst_target_i_pae,worst_target_i_ptm,worst_target_context,strongest_offtarget_i_pae,strongest_offtarget_i_pae_clipped,strongest_offtarget_context,offtarget_i_pae_cap,error
+0,human_tfr1_apical_t00000_l60_s767446,selected,,91,91,ste,0.7664527297019958,SPSIISTTTTTYTVHGKQVTRIRTTINPGETITPKPGEKQMVGPDNETGNTIVHIYKVNS,60,767446,,0.7664527297019958,human_tfr1_apical,,,,,
+1,human_tfr1_apical_t00001_l60_s482896,selected,,103,103,ste,0.7474733591079712,SPTVISTTTTTYTVHGKKVTEIRTTINPGETIEPKPGEKQMTGRDPETGYTVVHTYIVNP,60,482896,,0.7474733591079712,human_tfr1_apical,,,,,
+2,human_tfr1_apical_t00002_l60_s734966,selected,,96,96,ste,0.7376497983932495,SPSIISSTTTTFTQHGKTVTRIRTTINPGEKIKPAPGEKQMVGPDNETGYTIVYIYKVNS,60,734966,,0.7376497983932495,human_tfr1_apical,,,,,
