@@ -42,9 +42,9 @@ def setup_conda():
     conda=MINICONDA/"bin/conda"
     if conda.exists():
         return conda
-    installer=TMP/"miniconda.sh"
+    installer=TMP/"miniforge.sh"
     urllib.request.urlretrieve(
-        "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh",
+        "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh",
         installer,
     )
     run(["bash",str(installer),"-b","-p",str(MINICONDA)])
@@ -85,12 +85,23 @@ def locate_driver_dirs():
 def setup_odin(conda):
     env=os.environ.copy()
     env["PATH"]=f"{MINICONDA}/bin:"+env.get("PATH","")
+    env.pop("PYTHONPATH", None)
+    env.pop("PYTHONHOME", None)
     if not ODIN.exists():
         run([
             "git","clone","--recurse-submodules","--depth","1",
             "https://github.com/DigBioLab/odin_multi.git",str(ODIN)
         ],env=env)
     marker=MINICONDA/"envs/Odin-Multi/bin/python"
+    channels = run(
+        [str(MINICONDA/"bin/conda"), "config", "--show", "channels"],
+        env=env, capture=True, check=False,
+    )
+    (OUT/"conda_channels.txt").write_text(
+        (channels.stdout or "") + (channels.stderr or ""),
+        encoding="utf-8",
+    )
+    print("Conda channels:\n" + (channels.stdout or ""), flush=True)
     if not marker.exists():
         run([
             "bash","install_odin_multi.sh",
