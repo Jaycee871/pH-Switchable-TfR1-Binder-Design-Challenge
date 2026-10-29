@@ -1,0 +1,105 @@
+name: Phase 4Q Validate FreeBindCraft V6 Gate Override
+
+# Diagnostic re-run of the Phase 4M candidate TFR1_FBC343_V6_l60_s289817, which
+# FAILED the strict local 5 A gate on species-risk contacts 210/211/348/371 and was
+# therefore never measured end-to-end. The downstream Boltz-2 gate is UNCHANGED;
+# only the upstream local pre-filter is bypassed. See
+# scripts/select_freebindcraft_v6_gate_override.py for the full rationale.
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: tfr1-phase4q-fbc-v6-gate-override
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      NVIDIA_API_KEY1: ${{ secrets.NVIDIA_API_KEY1 }}
+      NVIDIA_API_TOKEN: ${{ secrets.NVIDIA_API_TOKEN }}
+      NGC_API_KEY: ${{ secrets.NGC_API_KEY }}
+      FBC_V6_CANDIDATES_CSV: designs/family_D_freebindcraft/v6_gate_override_pose_screen/pose_screen_candidates.csv
+      FBC_V6_PREDICTIONS_DIR: predictions/freebindcraft_v6_gate_override_pose_screen
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Select v6 parent as gate override
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/select_freebindcraft_v6_gate_override.py
+          CSV="$FBC_V6_CANDIDATES_CSV"
+          test -s "$CSV"
+          test "$(wc -l < "$CSV")" -gt 1
+
+      - name: Install Biopython
+        run: python -m pip install "biopython>=1.85"
+
+      - name: Full human-mouse pose validation (gate override)
+        run: python scripts/nvidia_boltz2_validate_freebindcraft_v6_tempered_pose.py
+
+      - name: Inspect result
+        if: always()
+        shell: bash
+        run: |
+          cat designs/family_D_freebindcraft/v6_gate_override_pose_screen/selection_decision.json || true
+          cat "$FBC_V6_PREDICTIONS_DIR/batch_summary.json" || true
+          cat "$FBC_V6_PREDICTIONS_DIR/pose_pass_ids.json" || true
+
+      - name: Commit Phase 4Q outputs
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add designs/family_D_freebindcraft/v6_gate_override_pose_screen
+          if [[ -d "$FBC_V6_PREDICTIONS_DIR" ]]; then
+            git add "$FBC_V6_PREDICTIONS_DIR"
+          fi
+
+          if git diff --cached --quiet; then
+            echo "No Phase 4Q output changes."
+            exit 0
+          fi
+
+          git commit -m "Add Phase 4Q FreeBindCraft v6 gate-override validation"
+
+          pushed=0
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              pushed=1
+              break
+            fi
+            echo "Push race on attempt $attempt; retrying."
+            git fetch origin main
+            sleep 2
+          done
+          test "$pushed" = 1
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tfr1-phase4q-fbc-v6-gate-override
+          path: |
+            designs/family_D_freebindcraft/v6_gate_override_pose_screen/
+            predictions/freebindcraft_v6_gate_override_pose_screen/
+          if-no-files-found: warn
+          retention-days: 14

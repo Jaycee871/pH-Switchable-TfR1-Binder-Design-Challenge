@@ -1,0 +1,76 @@
+{
+  "phase": "4Q",
+  "mode": "GATE_OVERRIDE_DIAGNOSTIC",
+  "selected_candidate": "TFR1_FBC343_V6_l60_s289817",
+  "local_gate_pass": false,
+  "local_gate_failure_cause": "species_risk_contacts",
+  "local_risk_contacts": [
+    210,
+    211,
+    348,
+    371
+  ],
+  "local_hotspot_core_contacts": [
+    347,
+    350
+  ],
+  "local_preferred_contacts": [
+    231,
+    347,
+    350
+  ],
+  "severe_clashes_lt2A": 0,
+  "downstream_boltz2_gate": "UNCHANGED (identical to Phase 4F/4G/4M)",
+  "interpretation_warning": "This candidate did not clear the strict local pre-filter. Any pass here must be reported together with the species-risk liability (210/211/348/371), which is concentrated in binder B46=W and B47=E.",
+  "gate": {
+    "pdb": "designs/Trajectory/Relaxed/TFR1_FBC343_V6_l60_s289817.pdb",
+    "target_numbering": "1-195_to_human_plus188",
+    "target_contacts_5A": [
+      210,
+      211,
+      231,
+      243,
+      244,
+      245,
+      246,
+      247,
+      248,
+      249,
+      250,
+      274,
+      346,
+      347,
+      348,
+      349,
+      350,
+      351,
+      352,
+      354,
+      357,
+      364,
+      365,
+      366,
+      368,
+      369,
+      371
+    ],
+    "preferred_contacts": [
+      231,
+      347,
+      350
+    ],
+    "hotspot_core_contacts": [
+      347,
+      350
+    ],
+    "risk_contacts": [
+      210,
+      211,
+      348,
+      371
+    ],
+    "severe_clashes_lt2A": 0,
+    "true_hotspot_gate_pass": false,
+    "trajectory_class": "Relaxed"
+  }
+}

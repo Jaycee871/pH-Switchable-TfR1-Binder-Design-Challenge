@@ -36,11 +36,23 @@ from Bio.Align import substitution_matrices
 from Bio.PDB import MMCIFIO, MMCIFParser, NeighborSearch, PDBParser
 
 ROOT = Path(__file__).resolve().parents[1]
-CANDIDATES = ROOT / "designs/family_D_freebindcraft/v6_tempered_binary_pose_screen/pose_screen_candidates.csv"
+# Both paths are overridable so the identical gate can be re-used for the Phase 4Q
+# gate-override diagnostic without clobbering the Phase 4M record.
+CANDIDATES = Path(
+    os.environ.get(
+        "FBC_V6_CANDIDATES_CSV",
+        ROOT / "designs/family_D_freebindcraft/v6_tempered_binary_pose_screen/pose_screen_candidates.csv",
+    )
+)
 HUMAN_FASTA = ROOT / "data/human_TfR1/human_TfR1_P02786_121-760.fasta"
 MOUSE_FASTA = ROOT / "data/mouse_TfR1/mouse_TfR1_Q62351_123-763.fasta"
 MASK_CSV = ROOT / "analysis/apical_design_mask.csv"
-OUT = ROOT / "predictions/freebindcraft_v6_tempered_binary_pose_screen"
+OUT = Path(
+    os.environ.get(
+        "FBC_V6_PREDICTIONS_DIR",
+        ROOT / "predictions/freebindcraft_v6_tempered_binary_pose_screen",
+    )
+)
 URL = "https://health.api.nvidia.com/v1/biology/mit/boltz2/predict"
 
 HUMAN_START = 121
