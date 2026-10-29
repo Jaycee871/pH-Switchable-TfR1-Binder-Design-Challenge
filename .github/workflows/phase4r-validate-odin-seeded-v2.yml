@@ -40,41 +40,24 @@ jobs:
             echo "present=true" >> "$GITHUB_OUTPUT"
           else
             echo "present=false" >> "$GITHUB_OUTPUT"
-            echo "No seeded-v2 selection available."
+            echo "No seeded-v2 Odin selection available."
           fi
 
       - name: Install Biopython
         if: steps.selection.outputs.present == 'true'
         run: python -m pip install "biopython>=1.85"
 
-      - name: Validate all selected designs independently
+      - name: Validate selected seeded-v2 designs
         if: steps.selection.outputs.present == 'true'
-        shell: bash
-        run: |
-          set -euo pipefail
-          rm -rf predictions/odin_multi_seeded_v2_pose_screen
-          mkdir -p predictions/odin_multi_seeded_v2_pose_screen
+        run: python scripts/run_phase4r_odin_seeded_v2.py
 
-          N="$(python -c 'import csv; p="odin_multi/kaggle_seeded_v2/selection.csv"; rows=[r for r in csv.DictReader(open(p,newline="")) if r.get("selection_status")=="selected"]; print(min(3,len(rows)))')"
-          echo "Validating $N selected Odin designs"
-          if [[ "$N" -lt 1 ]]; then
-            echo "No selected designs to validate."
-            exit 1
-          fi
-
-          for rank in $(seq 0 $((N-1))); do
-            env               ODIN_SELECTION_PATH="odin_multi/kaggle_seeded_v2/selection.csv"               ODIN_SELECTION_RANK="$rank"               ODIN_VALIDATION_OUT="predictions/odin_multi_seeded_v2_pose_screen/rank_$rank"               python scripts/nvidia_boltz2_validate_odin_multi_selected.py
-          done
-
-          python scripts/aggregate_odin_seeded_v2_validation.py
-
-      - name: Inspect aggregate
+      - name: Inspect
         if: steps.selection.outputs.present == 'true'
         run: |
           cat predictions/odin_multi_seeded_v2_pose_screen/batch_summary.json
           cat predictions/odin_multi_seeded_v2_pose_screen/pose_pass_ids.json
 
-      - name: Commit validation
+      - name: Commit results
         if: steps.selection.outputs.present == 'true'
         shell: bash
         run: |
@@ -84,12 +67,9 @@ jobs:
           git add predictions/odin_multi_seeded_v2_pose_screen
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Add Phase 4R seeded Odin-Multi independent validation"
-
           for attempt in 1 2 3; do
             git pull --rebase origin main
-            if git push origin HEAD:main; then
-              exit 0
-            fi
+            if git push origin HEAD:main; then exit 0; fi
             git fetch origin main
             sleep 2
           done
