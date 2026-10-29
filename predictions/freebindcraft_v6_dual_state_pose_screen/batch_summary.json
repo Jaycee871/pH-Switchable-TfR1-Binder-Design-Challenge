@@ -1,0 +1,609 @@
+{
+  "TFR1_FBC_V6_MS_08": {
+    "candidate_id": "TFR1_FBC_V6_MS_08",
+    "backbone_id": "FBC343_V6_l60_s289817_dual_state_mpnn",
+    "source_backbone": "freebindcraft/kaggle_v6_tempered_binary_results/designs/Trajectory/Relaxed/TFR1_FBC343_V6_l60_s289817.pdb",
+    "binder_sequence": "SPSVISTTTTTYTWNGKQITKITTTINPGEKIEPAPGEKVSAGVDPETGYIVVHTYKENS",
+    "mpnn_score": "0.6947",
+    "changed_positions": "14;15;19;21;23;39;40;41;42;44;46;52;58",
+    "changed_count": "13",
+    "species": {
+      "human": {
+        "confidence": 0.7474247813224792,
+        "ptm": 0.7182994484901428,
+        "protein_iptm": 0.5833153128623962,
+        "complex_plddt": 0.7884520888328552,
+        "complex_iplddt": 0.8043750524520874,
+        "complex_pde": 1.792362093925476,
+        "complex_ipde": 9.36600112915039,
+        "contacts": {
+          "target_contacts_uniprot": [
+            204,
+            206,
+            208,
+            231,
+            243,
+            244,
+            245,
+            246,
+            247,
+            248,
+            249,
+            250,
+            251,
+            274,
+            350,
+            351,
+            366,
+            367,
+            368,
+            369,
+            370
+          ],
+          "binder_contact_positions": [
+            12,
+            14,
+            15,
+            17,
+            19,
+            20,
+            21,
+            37,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            52,
+            54,
+            56,
+            57,
+            58
+          ],
+          "preferred_contacts": [
+            206,
+            231,
+            350
+          ],
+          "risk_contacts": [
+            204,
+            208
+          ],
+          "preferred_core_retained": true
+        },
+        "apical_contact": true,
+        "pose_gate": {
+          "min_protein_iptm": 0.5,
+          "requires_preferred_contact": true,
+          "pass": true
+        }
+      },
+      "mouse": {
+        "confidence": 0.5285143256187439,
+        "ptm": 0.5094366073608398,
+        "protein_iptm": 0.16172413527965546,
+        "complex_plddt": 0.6202118992805481,
+        "complex_iplddt": 0.6259373426437378,
+        "complex_pde": 2.8277947902679443,
+        "complex_ipde": 14.575178146362305,
+        "contacts": {
+          "target_contacts_uniprot": [
+            389,
+            390,
+            393,
+            394,
+            396,
+            397,
+            398,
+            399,
+            437,
+            440,
+            441,
+            442,
+            443,
+            444,
+            445,
+            446,
+            606,
+            761
+          ],
+          "binder_contact_positions": [
+            12,
+            13,
+            14,
+            19,
+            21,
+            31,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            56,
+            58
+          ],
+          "preferred_contacts": [],
+          "risk_contacts": [],
+          "preferred_core_retained": false
+        },
+        "apical_contact": false,
+        "pose_gate": {
+          "min_protein_iptm": 0.5,
+          "requires_preferred_contact": true,
+          "pass": false
+        }
+      }
+    },
+    "cross_species_epitope": {
+      "human_mouse_homologous_overlap_human_numbering": [],
+      "overlap_count": 0,
+      "jaccard": 0.0,
+      "same_epitope_pass": false
+    },
+    "cross_species_pose_pass": false
+  },
+  "TFR1_FBC_V6_MS_38": {
+    "candidate_id": "TFR1_FBC_V6_MS_38",
+    "backbone_id": "FBC343_V6_l60_s289817_dual_state_mpnn",
+    "source_backbone": "freebindcraft/kaggle_v6_tempered_binary_results/designs/Trajectory/Relaxed/TFR1_FBC343_V6_l60_s289817.pdb",
+    "binder_sequence": "SPSVISTTTTTYTWNGKQITKITTTINPGEKIEPAPGEKISAGVDPETGYIVVHTYKENS",
+    "mpnn_score": "0.6970",
+    "changed_positions": "14;15;19;21;23;39;40;41;42;44;46;52;58",
+    "changed_count": "13",
+    "species": {
+      "human": {
+        "confidence": 0.7533628344535828,
+        "ptm": 0.7424848079681396,
+        "protein_iptm": 0.5982996821403503,
+        "complex_plddt": 0.7921286225318909,
+        "complex_iplddt": 0.8087191581726074,
+        "complex_pde": 1.6397041082382202,
+        "complex_ipde": 8.984174728393555,
+        "contacts": {
+          "target_contacts_uniprot": [
+            204,
+            206,
+            208,
+            231,
+            243,
+            244,
+            245,
+            246,
+            247,
+            248,
+            249,
+            250,
+            251,
+            274,
+            350,
+            351,
+            368,
+            369,
+            370
+          ],
+          "binder_contact_positions": [
+            12,
+            14,
+            15,
+            17,
+            19,
+            21,
+            37,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            52,
+            54,
+            56,
+            57,
+            58
+          ],
+          "preferred_contacts": [
+            206,
+            231,
+            350
+          ],
+          "risk_contacts": [
+            204,
+            208
+          ],
+          "preferred_core_retained": true
+        },
+        "apical_contact": true,
+        "pose_gate": {
+          "min_protein_iptm": 0.5,
+          "requires_preferred_contact": true,
+          "pass": true
+        }
+      },
+      "mouse": {
+        "confidence": 0.5101463198661804,
+        "ptm": 0.5118628740310669,
+        "protein_iptm": 0.16182243824005127,
+        "complex_plddt": 0.5972273349761963,
+        "complex_iplddt": 0.6013832092285156,
+        "complex_pde": 2.8509681224823,
+        "complex_ipde": 14.741642951965332,
+        "contacts": {
+          "target_contacts_uniprot": [
+            389,
+            390,
+            397,
+            398,
+            399,
+            400,
+            401,
+            403,
+            444,
+            445,
+            446,
+            447,
+            448,
+            606,
+            607,
+            608,
+            664,
+            760,
+            761,
+            763
+          ],
+          "binder_contact_positions": [
+            10,
+            12,
+            13,
+            14,
+            15,
+            21,
+            23,
+            29,
+            30,
+            31,
+            32,
+            39,
+            40,
+            41,
+            42,
+            44,
+            46,
+            51,
+            54,
+            56
+          ],
+          "preferred_contacts": [],
+          "risk_contacts": [],
+          "preferred_core_retained": false
+        },
+        "apical_contact": false,
+        "pose_gate": {
+          "min_protein_iptm": 0.5,
+          "requires_preferred_contact": true,
+          "pass": false
+        }
+      }
+    },
+    "cross_species_epitope": {
+      "human_mouse_homologous_overlap_human_numbering": [],
+      "overlap_count": 0,
+      "jaccard": 0.0,
+      "same_epitope_pass": false
+    },
+    "cross_species_pose_pass": false
+  },
+  "TFR1_FBC_V6_MS_15": {
+    "candidate_id": "TFR1_FBC_V6_MS_15",
+    "backbone_id": "FBC343_V6_l60_s289817_dual_state_mpnn",
+    "source_backbone": "freebindcraft/kaggle_v6_tempered_binary_results/designs/Trajectory/Relaxed/TFR1_FBC343_V6_l60_s289817.pdb",
+    "binder_sequence": "SPSVISTTTTTYTWNGKQITEIRTTINPGEKIEPAPGEKVSAGVDPETGYIVVHTYKENS",
+    "mpnn_score": "0.6997",
+    "changed_positions": "14;15;19;21;39;40;41;42;44;46;52;58",
+    "changed_count": "12",
+    "species": {
+      "human": {
+        "confidence": 0.7817260026931763,
+        "ptm": 0.7389671206474304,
+        "protein_iptm": 0.7340632081031799,
+        "complex_plddt": 0.7936416864395142,
+        "complex_iplddt": 0.8242284059524536,
+        "complex_pde": 1.6969629526138306,
+        "complex_ipde": 7.18229341506958,
+        "contacts": {
+          "target_contacts_uniprot": [
+            243,
+            244,
+            245,
+            246,
+            247,
+            248,
+            249,
+            250,
+            251,
+            274,
+            347,
+            348,
+            349,
+            350,
+            351,
+            352,
+            354,
+            365,
+            366,
+            368,
+            369,
+            370,
+            371
+          ],
+          "binder_contact_positions": [
+            8,
+            12,
+            14,
+            15,
+            19,
+            23,
+            39,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            52,
+            54,
+            56,
+            58
+          ],
+          "preferred_contacts": [
+            347,
+            350
+          ],
+          "risk_contacts": [
+            348,
+            371
+          ],
+          "preferred_core_retained": true
+        },
+        "apical_contact": true,
+        "pose_gate": {
+          "min_protein_iptm": 0.5,
+          "requires_preferred_contact": true,
+          "pass": true
+        }
+      },
+      "mouse": {
+        "confidence": 0.527267575263977,
+        "ptm": 0.6449122428894043,
+        "protein_iptm": 0.2508653998374939,
+        "complex_plddt": 0.5963680744171143,
+        "complex_iplddt": 0.6070243120193481,
+        "complex_pde": 1.9331730604171753,
+        "complex_ipde": 14.12947940826416,
+        "contacts": {
+          "target_contacts_uniprot": [
+            287,
+            288,
+            289,
+            290,
+            291,
+            495,
+            496,
+            564,
+            565,
+            566,
+            567,
+            568,
+            569,
+            571,
+            581,
+            582,
+            583,
+            584,
+            585,
+            588,
+            627,
+            628,
+            629,
+            630
+          ],
+          "binder_contact_positions": [
+            12,
+            13,
+            14,
+            15,
+            19,
+            21,
+            23,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            50,
+            51,
+            52,
+            54,
+            56,
+            57,
+            58
+          ],
+          "preferred_contacts": [],
+          "risk_contacts": [],
+          "preferred_core_retained": false
+        },
+        "apical_contact": true,
+        "pose_gate": {
+          "min_protein_iptm": 0.5,
+          "requires_preferred_contact": true,
+          "pass": false
+        }
+      }
+    },
+    "cross_species_epitope": {
+      "human_mouse_homologous_overlap_human_numbering": [],
+      "overlap_count": 0,
+      "jaccard": 0.0,
+      "same_epitope_pass": false
+    },
+    "cross_species_pose_pass": false
+  },
+  "TFR1_FBC_V6_MS_16": {
+    "candidate_id": "TFR1_FBC_V6_MS_16",
+    "backbone_id": "FBC343_V6_l60_s289817_dual_state_mpnn",
+    "source_backbone": "freebindcraft/kaggle_v6_tempered_binary_results/designs/Trajectory/Relaxed/TFR1_FBC343_V6_l60_s289817.pdb",
+    "binder_sequence": "SPSVISTTTTTYTWNGKQITKITTTINPGEKIEPAPGEKVSAGVDPETGYIVVHTYKVNS",
+    "mpnn_score": "0.7039",
+    "changed_positions": "14;15;19;21;23;39;40;41;42;44;46;52",
+    "changed_count": "12",
+    "species": {
+      "human": {
+        "confidence": 0.7761552333831787,
+        "ptm": 0.7940049767494202,
+        "protein_iptm": 0.6173725724220276,
+        "complex_plddt": 0.8158509135246277,
+        "complex_iplddt": 0.8270662426948547,
+        "complex_pde": 1.3334256410598755,
+        "complex_ipde": 8.46806812286377,
+        "contacts": {
+          "target_contacts_uniprot": [
+            204,
+            206,
+            208,
+            231,
+            243,
+            244,
+            245,
+            246,
+            247,
+            248,
+            249,
+            250,
+            251,
+            274,
+            350,
+            351,
+            368,
+            369,
+            370
+          ],
+          "binder_contact_positions": [
+            12,
+            14,
+            15,
+            19,
+            21,
+            23,
+            37,
+            39,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            52,
+            54,
+            56,
+            57,
+            58
+          ],
+          "preferred_contacts": [
+            206,
+            231,
+            350
+          ],
+          "risk_contacts": [
+            204,
+            208
+          ],
+          "preferred_core_retained": true
+        },
+        "apical_contact": true,
+        "pose_gate": {
+          "min_protein_iptm": 0.5,
+          "requires_preferred_contact": true,
+          "pass": true
+        }
+      },
+      "mouse": {
+        "confidence": 0.521116316318512,
+        "ptm": 0.6010227799415588,
+        "protein_iptm": 0.19150733947753906,
+        "complex_plddt": 0.603518545627594,
+        "complex_iplddt": 0.6184045076370239,
+        "complex_pde": 2.3105640411376953,
+        "complex_ipde": 14.02978515625,
+        "contacts": {
+          "target_contacts_uniprot": [
+            389,
+            390,
+            396,
+            397,
+            398,
+            399,
+            400,
+            441,
+            442,
+            443,
+            444,
+            445,
+            446,
+            447,
+            448,
+            606,
+            761
+          ],
+          "binder_contact_positions": [
+            12,
+            13,
+            14,
+            19,
+            21,
+            39,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            52,
+            54,
+            56,
+            58
+          ],
+          "preferred_contacts": [],
+          "risk_contacts": [],
+          "preferred_core_retained": false
+        },
+        "apical_contact": false,
+        "pose_gate": {
+          "min_protein_iptm": 0.5,
+          "requires_preferred_contact": true,
+          "pass": false
+        }
+      }
+    },
+    "cross_species_epitope": {
+      "human_mouse_homologous_overlap_human_numbering": [],
+      "overlap_count": 0,
+      "jaccard": 0.0,
+      "same_epitope_pass": false
+    },
+    "cross_species_pose_pass": false
+  }
+}
