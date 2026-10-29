@@ -1,0 +1,2 @@
+host_LD_LIBRARY_PATH=/usr/local/nvidia/lib64:/usr/local/cuda/lib64:/usr/local/cuda/lib64
+selected_driver_path=/usr/local/nvidia/lib64

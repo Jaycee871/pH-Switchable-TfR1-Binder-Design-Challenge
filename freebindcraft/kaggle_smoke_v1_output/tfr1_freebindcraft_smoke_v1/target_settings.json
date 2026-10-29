@@ -1,0 +1,12 @@
+{
+  "design_path": "/kaggle/working/tfr1_freebindcraft_smoke_v1/designs",
+  "binder_name": "TFR1_FBC343",
+  "starting_pdb": "/kaggle/working/tfr1_apical_189_383_chainA.pdb",
+  "chains": "A",
+  "target_hotspot_residues": "343,344,347,350",
+  "lengths": [
+    55,
+    75
+  ],
+  "number_of_final_designs": 1
+}
