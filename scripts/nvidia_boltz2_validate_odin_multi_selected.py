@@ -31,11 +31,11 @@ from Bio.Align import substitution_matrices
 from Bio.PDB import MMCIFParser, NeighborSearch
 
 ROOT = Path(__file__).resolve().parents[1]
-SELECTION = ROOT / "odin_multi/kaggle_crossreactivity_smoke/selection.csv"
+SELECTION = Path(os.getenv("ODIN_SELECTION_PATH", str(ROOT / "odin_multi/kaggle_crossreactivity_smoke/selection.csv")))
 HUMAN_FASTA = ROOT / "data/human_TfR1/human_TfR1_P02786_121-760.fasta"
 MOUSE_FASTA = ROOT / "data/mouse_TfR1/mouse_TfR1_Q62351_123-763.fasta"
 MASK_CSV = ROOT / "analysis/apical_design_mask.csv"
-OUT = ROOT / "predictions/odin_multi_crossreactivity_pose_screen"
+OUT = Path(os.getenv("ODIN_VALIDATION_OUT", str(ROOT / "predictions/odin_multi_crossreactivity_pose_screen")))
 URL = "https://health.api.nvidia.com/v1/biology/mit/boltz2/predict"
 
 HUMAN_START = 121
@@ -105,7 +105,14 @@ def read_selection():
     selected=[r for r in rows if (r.get("selection_status") or "").strip()=="selected"]
     if not selected:
         raise SystemExit("Odin selection.csv contains no selected design")
-    row=selected[0]
+    selected.sort(
+        key=lambda r: float(r.get("worst_target_i_ptm") or "-inf"),
+        reverse=True,
+    )
+    rank=int(os.getenv("ODIN_SELECTION_RANK","0"))
+    if rank < 0 or rank >= len(selected):
+        raise SystemExit(f"ODIN_SELECTION_RANK={rank} outside selected row count {len(selected)}")
+    row=selected[rank]
     seq=(row.get("sequence") or "").strip()
     if not seq or len(seq)!=60:
         raise RuntimeError(f"Unexpected Odin binder length: {len(seq)}")
