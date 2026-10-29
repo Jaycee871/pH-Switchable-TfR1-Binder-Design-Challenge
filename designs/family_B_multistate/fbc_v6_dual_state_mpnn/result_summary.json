@@ -1,0 +1,7 @@
+{
+  "candidate_count": 30,
+  "unique_candidate_count": 30,
+  "prefilter_pass_count": 0,
+  "pose_screen_ids": [],
+  "note": "True human+mouse tied-sequence multistate ProteinMPNN. Full independent Boltz-2 validation required."
+}
