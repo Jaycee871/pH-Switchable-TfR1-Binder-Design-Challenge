@@ -1,1 +1,1 @@
-packkwanlow/tfr1-freebindcraft-smoke-v1 has status "KernelWorkerStatus.RUNNING"
+packkwanlow/tfr1-freebindcraft-smoke-v1 has status "KernelWorkerStatus.CANCEL_ACKNOWLEDGED"
