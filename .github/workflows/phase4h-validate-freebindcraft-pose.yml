@@ -1,0 +1,61 @@
+name: Phase 4H Validate FreeBindCraft Trajectory Pose
+
+on:
+  push:
+    paths:
+      - "scripts/nvidia_boltz2_validate_freebindcraft_pose.py"
+      - "designs/family_D_freebindcraft/fbc_trajectory_pose_screen/pose_screen_candidates.csv"
+      - ".github/workflows/phase4h-validate-freebindcraft-pose.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: tfr1-phase4h-freebindcraft-pose
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      NVIDIA_API_KEY1: ${{ secrets.NVIDIA_API_KEY1 }}
+      NVIDIA_API_TOKEN: ${{ secrets.NVIDIA_API_TOKEN }}
+      NGC_API_KEY: ${{ secrets.NGC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install "biopython>=1.85"
+      - name: Validate FreeBindCraft trajectory candidate
+        run: python scripts/nvidia_boltz2_validate_freebindcraft_pose.py
+      - name: Inspect
+        if: always()
+        run: |
+          cat predictions/freebindcraft_trajectory_pose_screen/batch_summary.json || true
+          cat predictions/freebindcraft_trajectory_pose_screen/pose_pass_ids.json || true
+      - name: Commit results
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -d predictions/freebindcraft_trajectory_pose_screen || exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add predictions/freebindcraft_trajectory_pose_screen
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add Phase 4H FreeBindCraft trajectory pose validation"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tfr1-freebindcraft-trajectory-pose-screen
+          path: predictions/freebindcraft_trajectory_pose_screen/
+          if-no-files-found: warn
+          retention-days: 14

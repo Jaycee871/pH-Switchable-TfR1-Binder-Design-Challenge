@@ -1,0 +1,2 @@
+candidate_id,backbone_id,source_backbone,binder_chain,target_chain,binder_length,sequence,mpnn_score,histidine_count,source_stage,fbc_i_ptm,fbc_ptm,fbc_plddt,fbc_i_pae,prefilter_pass
+TFR1_FBC343_l70_s574476,FBC343_l70_s574476,freebindcraft/kaggle_smoke_v1_output/tfr1_freebindcraft_smoke_v1/designs/Trajectory/Relaxed/TFR1_FBC343_l70_s574476.pdb,B,A,70,MEVQTLAVAEMMEILKNPKTWWGYGRHPSGTNTGRWEIVFFTEQEDPRQDWEITVVEVEEEQWREFMAQT,,1,freebindcraft_trajectory_relaxed_not_final_filtered,0.69,0.85,0.79,0.29,True
