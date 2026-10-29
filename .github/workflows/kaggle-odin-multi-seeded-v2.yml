@@ -1,0 +1,127 @@
+name: Kaggle TfR1 Odin-Multi Seeded V2
+
+on:
+  push:
+    paths:
+      - "kaggle/odin_multi_seeded_v2/TRIGGER"
+  workflow_dispatch:
+
+concurrency:
+  group: tfr1-kaggle-odin-multi-seeded-v2
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 720
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Kaggle CLI
+        run: python -m pip install --upgrade kaggle
+
+      - name: Push and monitor seeded Odin-Multi v2
+        id: kaggle
+        continue-on-error: true
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p seeded_v2_outputs
+          KERNEL="packkwanlow/tfr1-odin-multi-seeded-v2"
+          DIR="kaggle/odin_multi_seeded_v2"
+
+          kaggle kernels push -p "$DIR" --accelerator NvidiaTeslaT4 --timeout 39600
+
+          doneflag=0
+          for i in $(seq 1 660); do
+            status="$(kaggle kernels status "$KERNEL" 2>&1 || true)"
+            echo "[poll $i] $status"
+            if echo "$status" | grep -Eqi 'complete|completed'; then
+              doneflag=1
+              break
+            fi
+            if echo "$status" | grep -Eqi 'error|failed|cancelled'; then
+              kaggle kernels logs "$KERNEL" > seeded_v2_outputs/kaggle-run.log || true
+              break
+            fi
+            sleep 60
+          done
+
+          kaggle kernels output "$KERNEL" -p seeded_v2_outputs -o || true
+          kaggle kernels logs "$KERNEL" > seeded_v2_outputs/kaggle-run.log || true
+          find seeded_v2_outputs -type f -printf '%p %s bytes\n' | sort
+
+          if [[ "$doneflag" != 1 ]]; then exit 1; fi
+
+      - name: Record status
+        if: always()
+        run: |
+          mkdir -p seeded_v2_outputs
+          {
+            echo "kaggle_outcome=${{ steps.kaggle.outcome }}"
+            echo "sha=$GITHUB_SHA"
+            date -u +"utc=%Y-%m-%dT%H:%M:%SZ"
+          } > seeded_v2_outputs/workflow-status.txt
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tfr1-odin-multi-seeded-v2
+          path: seeded_v2_outputs/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Sync compact seeded-v2 outputs
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+
+          DEST="odin_multi/kaggle_seeded_v2"
+          rm -rf "$DEST"
+          mkdir -p "$DEST"
+
+          if [[ -d seeded_v2_outputs/tfr1_odin_multi_seeded_v2 ]]; then
+            SRC="seeded_v2_outputs/tfr1_odin_multi_seeded_v2"
+            cp "$SRC/smoke_summary.json" "$DEST/" 2>/dev/null || true
+            cp "$SRC/selection.csv" "$DEST/" 2>/dev/null || true
+            cp "$SRC/selected_sequences.fasta" "$DEST/" 2>/dev/null || true
+            cp "$SRC/design_exit_code.txt" "$DEST/" 2>/dev/null || true
+            cp "$SRC/select_exit_code.txt" "$DEST/" 2>/dev/null || true
+            cp "$SRC/driver_probe.txt" "$DEST/" 2>/dev/null || true
+            cp "$SRC/odin_warm_start_patch.txt" "$DEST/" 2>/dev/null || true
+          fi
+          cp seeded_v2_outputs/kaggle-run.log "$DEST/" 2>/dev/null || true
+          cp seeded_v2_outputs/workflow-status.txt "$DEST/" 2>/dev/null || true
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$DEST"
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Record TfR1 Odin-Multi seeded v2"
+          pushed=0
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then pushed=1; break; fi
+            git fetch origin main
+            sleep 2
+          done
+          test "$pushed" = 1
+
+      - name: Fail if Kaggle campaign failed
+        if: steps.kaggle.outcome != 'success'
+        run: exit 1
