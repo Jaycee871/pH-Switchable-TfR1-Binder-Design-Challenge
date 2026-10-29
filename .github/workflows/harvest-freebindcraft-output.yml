@@ -1,0 +1,61 @@
+name: Harvest Kaggle FreeBindCraft Output
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Kaggle CLI
+        run: python -m pip install --quiet --upgrade kaggle
+      - name: Download kernel output
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          KERNEL="packkwanlow/tfr1-freebindcraft-smoke-v1"
+          DEST="freebindcraft/kaggle_smoke_v1_output"
+          rm -rf /tmp/fbc_out
+          mkdir -p /tmp/fbc_out "$DEST"
+          kaggle kernels status "$KERNEL" > "$DEST/kernel_status.txt" 2>&1 || true
+          kaggle kernels output "$KERNEL" -p /tmp/fbc_out -o > "$DEST/download.log" 2>&1 || true
+          # copy everything under 10 MB, preserving layout
+          cd /tmp/fbc_out
+          find . -type f -size -10M -print0 | while IFS= read -r -d '' f; do
+            mkdir -p "$GITHUB_WORKSPACE/$DEST/$(dirname "$f")"
+            cp "$f" "$GITHUB_WORKSPACE/$DEST/$f"
+          done
+          find . -type f -printf '%P %s bytes\n' | sort > "$GITHUB_WORKSPACE/$DEST/manifest.txt"
+          cd "$GITHUB_WORKSPACE"
+          cat "$DEST/kernel_status.txt"
+          echo "--- harvested ---"
+          find "$DEST" -type f -printf '%P %s bytes\n' | sort
+          echo "--- final_design_stats.csv ---"
+          find "$DEST" -name 'final_design_stats.csv' -exec cat {} \; || true
+          echo "--- trajectory_stats.csv ---"
+          find "$DEST" -name 'trajectory_stats.csv' -exec cat {} \; || true
+          echo "--- failure_csv.csv ---"
+          find "$DEST" -name 'failure_csv.csv' -exec cat {} \; || true
+      - name: Commit harvest
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add freebindcraft/kaggle_smoke_v1_output
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -m "Harvest partial FreeBindCraft Kaggle smoke outputs"
+          git pull --rebase origin main
+          git push origin HEAD:main
