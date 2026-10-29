@@ -27,6 +27,11 @@ The downstream Boltz-2 gate in
 `scripts/nvidia_boltz2_validate_freebindcraft_v6_tempered_pose.py` is NOT loosened by
 this script. Only the upstream local pre-filter is bypassed. A pose pass from this run
 is still a real pass; a failure is still a real failure.
+
+Note on `prefilter_pass`: the validator refuses to spend Boltz-2 budget on any row whose
+`prefilter_pass` is not truthy, so this script necessarily sets it True. That column is an
+execution flag, NOT a scientific claim. The real verdict is carried by `local_gate_pass`
+(False), `gate_override` (True) and `gate_override_reason`.
 """
 
 from __future__ import annotations
@@ -118,7 +123,11 @@ def main():
             "number for the best generator output (0 severe clashes, hotspot core "
             "347/350). Downstream Boltz-2 gate unchanged."
         ),
-        "prefilter_pass": "False",
+        # `prefilter_pass` is the validator's "cleared to spend Boltz-2 budget" flag, so
+        # it must be True for the diagnostic to run at all. The honest scientific record
+        # of the override lives in local_gate_pass / gate_override / gate_override_reason
+        # above, which are the fields to read when interpreting this candidate.
+        "prefilter_pass": "True",
     }
 
     out_csv = OUT / "pose_screen_candidates.csv"
