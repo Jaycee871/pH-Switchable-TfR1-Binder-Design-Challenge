@@ -38,6 +38,32 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Harvest v4 Kaggle outputs even after a failed/cancelled kernel
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet --upgrade kaggle
+          rm -rf /tmp/tfr1_fbc_v4
+          mkdir -p /tmp/tfr1_fbc_v4
+          KERNEL="packkwanlow/tfr1-freebindcraft-smoke-v4-single"
+          kaggle kernels status "$KERNEL" || true
+          kaggle kernels output "$KERNEL" -p /tmp/tfr1_fbc_v4 -o || true
+          kaggle kernels logs "$KERNEL" > /tmp/tfr1_fbc_v4/kaggle-run.log || true
+
+          DEST="freebindcraft/kaggle_v4_single_results"
+          mkdir -p "$DEST"
+          if [[ -d /tmp/tfr1_fbc_v4/tfr1_freebindcraft_smoke_v4_single ]]; then
+            rm -rf "$DEST"
+            mkdir -p "$DEST"
+            cp -R /tmp/tfr1_fbc_v4/tfr1_freebindcraft_smoke_v4_single/. "$DEST/"
+          fi
+          if [[ -f /tmp/tfr1_fbc_v4/kaggle-run.log ]]; then
+            cp /tmp/tfr1_fbc_v4/kaggle-run.log "$DEST/"
+          fi
+          find "$DEST" -maxdepth 5 -type f -printf '%p %s bytes\n' | sort || true
+
       - name: Select only a true-hotspot v4 trajectory
         id: select
         shell: bash
