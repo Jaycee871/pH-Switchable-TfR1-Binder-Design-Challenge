@@ -110,6 +110,13 @@ jobs:
             echo "No Phase 4J output changes."
             exit 0
           fi
+
+          # The harvest step may leave refreshed Kaggle files unstaged while
+          # the v4 workflow commits the same directory on main. Keep only the
+          # staged Phase 4J scientific outputs before rebasing.
+          git stash push --include-untracked --keep-index -m phase4j-harvest -- \
+            freebindcraft/kaggle_v4_single_results || true
+
           git commit -m "Add Phase 4J FreeBindCraft v4 hotspot validation"
           git pull --rebase origin main
           git push origin HEAD:main
