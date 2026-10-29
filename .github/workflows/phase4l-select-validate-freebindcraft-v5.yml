@@ -6,6 +6,9 @@ on:
       - "Kaggle TfR1 FreeBindCraft V5 Binary Hotspot"
     types:
       - completed
+  push:
+    paths:
+      - "phase4l_v5/TRIGGER"
   workflow_dispatch:
 
 concurrency:
@@ -44,7 +47,7 @@ jobs:
           python -m pip install --quiet --upgrade kaggle
           rm -rf /tmp/tfr1_fbc_v5
           mkdir -p /tmp/tfr1_fbc_v5
-          KERNEL="packkwanlow/tfr1-freebindcraft-smoke-v5-binary"
+          KERNEL="packkwanlow/tfr1-freebindcraft-v5-binary-hotspot"
           kaggle kernels status "$KERNEL" || true
           kaggle kernels output "$KERNEL" -p /tmp/tfr1_fbc_v5 -o || true
           kaggle kernels logs "$KERNEL" > /tmp/tfr1_fbc_v5/kaggle-run.log || true
