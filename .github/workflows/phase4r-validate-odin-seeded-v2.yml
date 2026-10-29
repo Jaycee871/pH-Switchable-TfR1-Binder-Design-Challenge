@@ -55,14 +55,7 @@ jobs:
           rm -rf predictions/odin_multi_seeded_v2_pose_screen
           mkdir -p predictions/odin_multi_seeded_v2_pose_screen
 
-          N="$(python - <<'PY'
-import csv
-p="odin_multi/kaggle_seeded_v2/selection.csv"
-with open(p,newline="") as fh:
-    rows=[r for r in csv.DictReader(fh) if r.get("selection_status")=="selected"]
-print(min(3,len(rows)))
-PY
-)"
+          N="$(python -c 'import csv; p="odin_multi/kaggle_seeded_v2/selection.csv"; rows=[r for r in csv.DictReader(open(p,newline="")) if r.get("selection_status")=="selected"]; print(min(3,len(rows)))')"
           echo "Validating $N selected Odin designs"
           if [[ "$N" -lt 1 ]]; then
             echo "No selected designs to validate."
@@ -70,48 +63,16 @@ PY
           fi
 
           for rank in $(seq 0 $((N-1))); do
-            ODIN_SELECTION_PATH="odin_multi/kaggle_seeded_v2/selection.csv"             ODIN_SELECTION_RANK="$rank"             ODIN_VALIDATION_OUT="predictions/odin_multi_seeded_v2_pose_screen/rank_${rank}"               python scripts/nvidia_boltz2_validate_odin_multi_selected.py
+            env               ODIN_SELECTION_PATH="odin_multi/kaggle_seeded_v2/selection.csv"               ODIN_SELECTION_RANK="$rank"               ODIN_VALIDATION_OUT="predictions/odin_multi_seeded_v2_pose_screen/rank_$rank"               python scripts/nvidia_boltz2_validate_odin_multi_selected.py
           done
 
-          python - <<'PY'
-import json
-from pathlib import Path
+          python scripts/aggregate_odin_seeded_v2_validation.py
 
-root=Path("predictions/odin_multi_seeded_v2_pose_screen")
-results=[]
-for p in sorted(root.glob("rank_*/batch_summary.json")):
-    d=json.loads(p.read_text())
-    d["validation_dir"]=str(p.parent)
-    results.append(d)
-
-results.sort(
-    key=lambda d: min(
-        float(d["species"]["human"]["protein_iptm"] or 0),
-        float(d["species"]["mouse"]["protein_iptm"] or 0),
-    ),
-    reverse=True,
-)
-
-(root/"batch_summary.json").write_text(
-    json.dumps({"candidates":results},indent=2)+"\n"
-)
-winners=[d["candidate_id"] for d in results if d.get("cross_species_pose_pass")]
-(root/"pose_pass_ids.json").write_text(
-    json.dumps({"pose_pass_ids":winners},indent=2)+"\n"
-)
-
-print(json.dumps({
-    "ranked":[{
-        "id":d["candidate_id"],
-        "human_ipTM":d["species"]["human"]["protein_iptm"],
-        "mouse_ipTM":d["species"]["mouse"]["protein_iptm"],
-        "overlap":d["cross_species_epitope"]["overlap_count"],
-        "jaccard":d["cross_species_epitope"]["jaccard"],
-        "pass":d["cross_species_pose_pass"],
-    } for d in results],
-    "pose_pass_ids":winners,
-},indent=2))
-PY
+      - name: Inspect aggregate
+        if: steps.selection.outputs.present == 'true'
+        run: |
+          cat predictions/odin_multi_seeded_v2_pose_screen/batch_summary.json
+          cat predictions/odin_multi_seeded_v2_pose_screen/pose_pass_ids.json
 
       - name: Commit validation
         if: steps.selection.outputs.present == 'true'
