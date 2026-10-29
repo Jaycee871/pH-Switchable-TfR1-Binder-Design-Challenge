@@ -5,7 +5,7 @@ on:
     paths:
       - "scripts/nvidia_boltz2_validate_freebindcraft_hotspot_pose.py"
       - "designs/family_D_freebindcraft/fbc_hotspot_trajectory_pose_screen/pose_screen_candidates.csv"
-      - ".github/workflows/phase4i-validate-freebindcraft-pose.yml"
+      - ".github/workflows/phase4i-validate-freebindcraft-hotspot-pose.yml"
   workflow_dispatch:
 
 concurrency:
