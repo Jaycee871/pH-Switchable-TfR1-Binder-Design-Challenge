@@ -1,0 +1,69 @@
+{
+  "confidence": 0.7887357473373413,
+  "ptm": 0.7677896618843079,
+  "protein_iptm": 0.6898922324180603,
+  "complex_plddt": 0.813446581363678,
+  "complex_iplddt": 0.8313181400299072,
+  "complex_pde": 1.539646863937378,
+  "complex_ipde": 8.242708206176758,
+  "contacts": {
+    "target_contacts_uniprot": [
+      231,
+      243,
+      244,
+      246,
+      247,
+      248,
+      249,
+      250,
+      274,
+      347,
+      349,
+      350,
+      351,
+      352,
+      354,
+      364,
+      365,
+      366,
+      368,
+      369,
+      371
+    ],
+    "binder_contact_positions": [
+      8,
+      12,
+      14,
+      15,
+      19,
+      21,
+      23,
+      39,
+      41,
+      42,
+      43,
+      44,
+      46,
+      47,
+      52,
+      54,
+      56,
+      58
+    ],
+    "preferred_contacts": [
+      231,
+      347,
+      350
+    ],
+    "risk_contacts": [
+      371
+    ],
+    "preferred_core_retained": true
+  },
+  "apical_contact": true,
+  "pose_gate": {
+    "min_protein_iptm": 0.5,
+    "requires_preferred_contact": true,
+    "pass": true
+  }
+}
