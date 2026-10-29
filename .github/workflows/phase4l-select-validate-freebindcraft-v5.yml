@@ -1,0 +1,127 @@
+name: Phase 4L Select and Validate FreeBindCraft V5 Binary
+
+on:
+  workflow_run:
+    workflows:
+      - "Kaggle TfR1 FreeBindCraft V5 Binary Hotspot"
+    types:
+      - completed
+  workflow_dispatch:
+
+concurrency:
+  group: tfr1-phase4l-freebindcraft-v5-binary
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  select-and-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      NVIDIA_API_KEY1: ${{ secrets.NVIDIA_API_KEY1 }}
+      NVIDIA_API_TOKEN: ${{ secrets.NVIDIA_API_TOKEN }}
+      NGC_API_KEY: ${{ secrets.NGC_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Harvest v5 Kaggle outputs
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet --upgrade kaggle
+          rm -rf /tmp/tfr1_fbc_v5
+          mkdir -p /tmp/tfr1_fbc_v5
+          KERNEL="packkwanlow/tfr1-freebindcraft-smoke-v5-binary"
+          kaggle kernels status "$KERNEL" || true
+          kaggle kernels output "$KERNEL" -p /tmp/tfr1_fbc_v5 -o || true
+          kaggle kernels logs "$KERNEL" > /tmp/tfr1_fbc_v5/kaggle-run.log || true
+
+          DEST="freebindcraft/kaggle_v5_binary_results"
+          mkdir -p "$DEST"
+          if [[ -d /tmp/tfr1_fbc_v5/tfr1_freebindcraft_smoke_v5_binary ]]; then
+            rm -rf "$DEST"
+            mkdir -p "$DEST"
+            cp -R /tmp/tfr1_fbc_v5/tfr1_freebindcraft_smoke_v5_binary/. "$DEST/"
+          fi
+          if [[ -f /tmp/tfr1_fbc_v5/kaggle-run.log ]]; then
+            cp /tmp/tfr1_fbc_v5/kaggle-run.log "$DEST/"
+          fi
+          find "$DEST" -maxdepth 5 -type f -printf '%p %s bytes\n' | sort || true
+
+      - name: Select only a true-hotspot v5 trajectory
+        id: select
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/select_freebindcraft_v5_binary_hotspot_candidate.py
+          CSV="designs/family_D_freebindcraft/v5_binary_hotspot_pose_screen/pose_screen_candidates.csv"
+          test -s "$CSV"
+          if [[ $(wc -l < "$CSV") -gt 1 ]]; then
+            echo "candidate=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "candidate=false" >> "$GITHUB_OUTPUT"
+            echo "No v5 binary-hotspot trajectory passed the independent 5A hotspot gate."
+          fi
+
+      - name: Install Biopython
+        if: steps.select.outputs.candidate == 'true'
+        run: python -m pip install "biopython>=1.85"
+
+      - name: Full human-mouse pose validation
+        if: steps.select.outputs.candidate == 'true'
+        run: python scripts/nvidia_boltz2_validate_freebindcraft_v5_binary_pose.py
+
+      - name: Inspect result
+        if: always()
+        shell: bash
+        run: |
+          cat designs/family_D_freebindcraft/v5_binary_hotspot_pose_screen/selection_decision.json || true
+          cat predictions/freebindcraft_v5_binary_hotspot_pose_screen/batch_summary.json || true
+          cat predictions/freebindcraft_v5_binary_hotspot_pose_screen/pose_pass_ids.json || true
+
+      - name: Commit Phase 4L outputs
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add designs/family_D_freebindcraft/v5_binary_hotspot_pose_screen
+          if [[ -d predictions/freebindcraft_v5_binary_hotspot_pose_screen ]]; then
+            git add predictions/freebindcraft_v5_binary_hotspot_pose_screen
+          fi
+          if git diff --cached --quiet; then
+            echo "No Phase 4L output changes."
+            exit 0
+          fi
+
+          git stash push --include-untracked --keep-index -m phase4l-harvest -- \
+            freebindcraft/kaggle_v5_binary_results || true
+
+          git commit -m "Add Phase 4L FreeBindCraft v5 binary-hotspot validation"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tfr1-phase4l-freebindcraft-v5-binary
+          path: |
+            designs/family_D_freebindcraft/v5_binary_hotspot_pose_screen/
+            predictions/freebindcraft_v5_binary_hotspot_pose_screen/
+          if-no-files-found: warn
+          retention-days: 14
