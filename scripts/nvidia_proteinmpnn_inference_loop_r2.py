@@ -274,7 +274,8 @@ def main():
         "tied_positions":"B_i == D_i for i=1..60",
         "new_histidine_allowed":False,
         "new_cysteine_allowed":False,
-        "reconciliation_positions":sorted(RECONCILIATION_POSITIONS),\n        "note":"R2 allows only the seven v6/F39 sequence differences to change; 53/60 positions are fixed.",
+        "reconciliation_positions":sorted(RECONCILIATION_POSITIONS),
+        "note":"R2 allows only the seven v6/F39 sequence differences to change; 53/60 positions are fixed.",
     },indent=2)+"\n")
 
     result=post(payload,key)
