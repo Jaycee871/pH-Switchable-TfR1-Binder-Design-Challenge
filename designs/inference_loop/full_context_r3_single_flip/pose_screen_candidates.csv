@@ -1,0 +1,8 @@
+candidate_id,sequence,source_parent,single_flip_position,mutation,changed_positions,changed_count,distance_from_f39,prefilter_pass,rationale
+TFR1_ILOOP_R3_T10E,SPSVISTTTETYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWETGYIIVHTYKVNS,v6,10,T10E,10,1,6,True,single F39-state residue introduced into validated human v6 parent
+TFR1_ILOOP_R3_Y14P,SPSVISTTTTTYTPHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWETGYIIVHTYKVNS,v6,14,Y14P,14,1,6,True,single F39-state residue introduced into validated human v6 parent
+TFR1_ILOOP_R3_R42P,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMPGRDWETGYIIVHTYKVNS,v6,42,R42P,42,1,6,True,single F39-state residue introduced into validated human v6 parent
+TFR1_ILOOP_R3_W46A,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDAETGYIIVHTYKVNS,v6,46,W46A,46,1,6,True,single F39-state residue introduced into validated human v6 parent
+TFR1_ILOOP_R3_E47D,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWDTGYIIVHTYKVNS,v6,47,E47D,47,1,6,True,single F39-state residue introduced into validated human v6 parent
+TFR1_ILOOP_R3_I51T,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWETGYTIVHTYKVNS,v6,51,I51T,51,1,6,True,single F39-state residue introduced into validated human v6 parent
+TFR1_ILOOP_R3_I52V,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWETGYIVVHTYKVNS,v6,52,I52V,52,1,6,True,single F39-state residue introduced into validated human v6 parent
