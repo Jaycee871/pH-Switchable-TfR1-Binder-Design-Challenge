@@ -1,0 +1,34 @@
+{
+  "candidate_count": 140,
+  "unique_candidate_count": 140,
+  "prefilter_pass_count": 140,
+  "human_screen_count": 12,
+  "human_screen_ids": [
+    "TFR1_ILOOP_IL4_246",
+    "TFR1_ILOOP_IL4_050",
+    "TFR1_ILOOP_IL4_017",
+    "TFR1_ILOOP_IL4_145",
+    "TFR1_ILOOP_IL4_154",
+    "TFR1_ILOOP_IL4_187",
+    "TFR1_ILOOP_IL4_043",
+    "TFR1_ILOOP_IL4_304",
+    "TFR1_ILOOP_IL4_281",
+    "TFR1_ILOOP_IL4_161",
+    "TFR1_ILOOP_IL4_310",
+    "TFR1_ILOOP_IL4_254"
+  ],
+  "mutation_counts": {
+    "TFR1_ILOOP_IL4_246": 12,
+    "TFR1_ILOOP_IL4_050": 12,
+    "TFR1_ILOOP_IL4_017": 13,
+    "TFR1_ILOOP_IL4_145": 12,
+    "TFR1_ILOOP_IL4_154": 12,
+    "TFR1_ILOOP_IL4_187": 12,
+    "TFR1_ILOOP_IL4_043": 12,
+    "TFR1_ILOOP_IL4_304": 11,
+    "TFR1_ILOOP_IL4_281": 12,
+    "TFR1_ILOOP_IL4_161": 11,
+    "TFR1_ILOOP_IL4_310": 14,
+    "TFR1_ILOOP_IL4_254": 11
+  }
+}

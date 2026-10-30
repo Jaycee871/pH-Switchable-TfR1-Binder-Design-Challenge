@@ -1,0 +1,95 @@
+{
+  "method": "human-anchor interface encoding from Phase 4Q full-human pose",
+  "structural_state": "predictions/freebindcraft_v6_gate_override_pose_screen/TFR1_FBC343_V6_l60_s289817/human/structure_1.cif",
+  "parent_sequence": "SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWETGYIIVHTYKVNS",
+  "design_positions": [
+    8,
+    12,
+    14,
+    15,
+    19,
+    21,
+    23,
+    39,
+    41,
+    42,
+    43,
+    44,
+    46,
+    47,
+    52,
+    54,
+    56,
+    58
+  ],
+  "fixed_positions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9,
+    10,
+    11,
+    13,
+    16,
+    17,
+    18,
+    20,
+    22,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    40,
+    45,
+    48,
+    49,
+    50,
+    51,
+    53,
+    55,
+    57,
+    59,
+    60
+  ],
+  "template_guided_state_metrics": {
+    "human_protein_iptm": 0.6898922324180603,
+    "preferred_contacts": [
+      231,
+      347,
+      350
+    ]
+  },
+  "sequence_only_parent_control": {
+    "human_protein_iptm": 0.3181271255016327,
+    "preferred_contacts": [],
+    "apical_fraction": 0.0
+  },
+  "no_new_histidine": true,
+  "no_new_cysteine": true,
+  "proteinmpnn_batches": [
+    {
+      "seed": 20261110,
+      "n": 40
+    },
+    {
+      "seed": 20261111,
+      "n": 40
+    }
+  ],
+  "next_gate": "template-free full-human Boltz-2"
+}
