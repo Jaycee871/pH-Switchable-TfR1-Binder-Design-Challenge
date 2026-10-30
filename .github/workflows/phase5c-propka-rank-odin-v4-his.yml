@@ -1,11 +1,9 @@
 name: Phase 5C PROPKA Rank Odin V4 Histidine Variants
 
 on:
-  workflow_run:
-    workflows:
-      - "Phase 5B Neutral Screen Odin V4 Histidine Variants"
-    types:
-      - completed
+  push:
+    paths:
+      - "predictions/odin_v4_histidine_neutral_screen/neutral_pose_pass_ids.json"
   workflow_dispatch:
 
 permissions:
