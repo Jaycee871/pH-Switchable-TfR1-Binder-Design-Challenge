@@ -1,0 +1,43 @@
+{
+  "protein_iptm": 0.2532818019390106,
+  "confidence": 0.7309317588806152,
+  "ptm": 0.8744455575942993,
+  "complex_plddt": 0.8503442406654358,
+  "complex_iplddt": 0.8370587229728699,
+  "contacts": {
+    "target_contacts_uniprot": [
+      615,
+      616,
+      618,
+      619,
+      623,
+      624,
+      626,
+      627,
+      643,
+      646,
+      650
+    ],
+    "binder_contact_positions": [
+      26,
+      27,
+      28,
+      29,
+      30,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51
+    ],
+    "preferred_contacts": [],
+    "risk_contacts": [],
+    "apical_contacts": [],
+    "apical_fraction": 0.0,
+    "preferred_core_retained": false
+  },
+  "pose_gate_pass": false
+}
