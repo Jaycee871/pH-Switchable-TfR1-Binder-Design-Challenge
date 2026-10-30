@@ -1,0 +1,4 @@
+candidate_id,sequence,mpnn_score,global_score,temperature,changed_positions,changed_count,distance_from_f39,charge_fraction,prefilter_flags,prefilter_pass,header
+TFR1_ILOOP_R3_E10,SPSVISTTTETYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWETGYIIVHTYKVNS,,,,10,1,6,0.2333,,True,controlled_pos10_only
+TFR1_ILOOP_R3_T51,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWETGYTIVHTYKVNS,,,,51,1,6,0.2167,,True,controlled_pos51_only
+TFR1_ILOOP_R3_E10_T51,SPSVISTTTETYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWETGYTIVHTYKVNS,,,,10;51,2,5,0.2333,,True,controlled_pos10_pos51
