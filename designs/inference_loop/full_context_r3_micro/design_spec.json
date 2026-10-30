@@ -1,0 +1,47 @@
+{
+  "method": "controlled two-position full-context micro-scan",
+  "parent_sequence": "SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWETGYIIVHTYKVNS",
+  "rationale": {
+    "v6_human_full_context": "protein iPTM 0.690; preferred 231/347/350",
+    "v6_F39_differences": [
+      10,
+      14,
+      42,
+      46,
+      47,
+      51,
+      52
+    ],
+    "human_v6_interface_differences": [
+      14,
+      42,
+      46,
+      47,
+      52
+    ],
+    "non_human_interface_differences": [
+      10,
+      51
+    ],
+    "decision": "Only positions 10 and 51 are mutated in R3 because they differ between v6 and F39 but are outside the validated human 5A interface."
+  },
+  "variants": {
+    "TFR1_ILOOP_R3_E10": {
+      "mutations": [
+        "T10E"
+      ]
+    },
+    "TFR1_ILOOP_R3_T51": {
+      "mutations": [
+        "I51T"
+      ]
+    },
+    "TFR1_ILOOP_R3_E10_T51": {
+      "mutations": [
+        "T10E",
+        "I51T"
+      ]
+    }
+  },
+  "control": "Existing v6 Phase 4Q result is the parent control; it is not re-computed unless needed."
+}
