@@ -28,10 +28,12 @@ still dominate the total gradient.
 ## Search
 
 - FreeBindCraft v6 60-aa sequence warm-start
-- 2 trajectories
+- 1 diagnostic trajectory
 - 60 logits / 30 soft / 15 STE / 5 greedy
 - 8 A target and off-target contact distance
 - selection: best_clipped_i_pae_ratio
 
-Phase 4S independently re-docks both selected sequences from sequence only against
+Phase 4S independently re-docks the selected sequence from sequence only against
 the full human and mouse ectodomains. Odin's own predicted pose is not validation.
+
+If the anti-escape objective improves full-target transfer, the same Odin run can be extended to additional trajectory indices without changing the immutable contexts or restarting completed work.
