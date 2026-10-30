@@ -1,0 +1,61 @@
+name: Phase IL0 Validate V6 Sequence-Only Control
+
+on:
+  push:
+    paths:
+      - "inference_loop_v6_control/TRIGGER"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      NVIDIA_API_KEY1: ${{ secrets.NVIDIA_API_KEY1 }}
+      NVIDIA_API_TOKEN: ${{ secrets.NVIDIA_API_TOKEN }}
+      NGC_API_KEY: ${{ secrets.NGC_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Preflight validator
+        run: python -m py_compile scripts/nvidia_boltz2_validate_v6_sequence_only_control.py
+
+      - name: Install Biopython
+        run: python -m pip install "biopython>=1.85"
+
+      - name: Run sequence-only full human-mouse control
+        run: python scripts/nvidia_boltz2_validate_v6_sequence_only_control.py
+
+      - name: Inspect
+        run: |
+          cat predictions/v6_sequence_only_control/batch_summary.json
+          cat predictions/v6_sequence_only_control/pose_pass_ids.json
+
+      - name: Commit control
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add predictions/v6_sequence_only_control
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add v6 sequence-only full-context control"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            sleep 2
+          done
+          exit 1
