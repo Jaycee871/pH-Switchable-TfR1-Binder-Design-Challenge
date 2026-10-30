@@ -1,1 +1,1 @@
-2026-10-30 anti-escape v3 retry 2: shell-safe preflight, unchanged design objective
+2026-10-30 anti-escape v3 runtime-budget repair: prior 110-step four-context design hit Kaggle 19800s limit at iteration 98; rerun 45 soft + 15 temporary + 10 hard + 5 greedy = 75 iterations. Same human/mouse targets, off-target decoys, warm start and selection method; Phase 4S sequence-only full-ectodomain validation unchanged.
