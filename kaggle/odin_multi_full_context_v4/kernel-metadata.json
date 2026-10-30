@@ -1,0 +1,15 @@
+{
+  "id": "packkwanlow/tfr1-odin-multi-full-context-v4",
+  "title": "TfR1 Odin Multi Full Context V4",
+  "code_file": "tfr1_odin_multi_full_context_v4.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}
