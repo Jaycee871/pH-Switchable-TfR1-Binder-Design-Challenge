@@ -6,7 +6,7 @@ The same binder sequence is optimized simultaneously against:
   - human TfR1 apical domain, conserved core hotspots 347/350
   - mouse TfR1 homologous apical domain, conserved core hotspots 349/352
 
-Two 60-aa trajectories are generated from the same verified v6 sequence warm-start. Human and mouse apical contexts are on-targets, while recurrent N-terminal and distal escape surfaces are explicit off-targets. Selection uses best_clipped_i_pae_ratio. Independent full-human/full-mouse Boltz-2 validation remains outside Odin-Multi.
+One diagnostic 60-aa trajectory is generated from the verified v6 sequence warm-start. Human and mouse apical contexts are on-targets, while recurrent N-terminal and distal escape surfaces are explicit off-targets. Selection uses best_clipped_i_pae_ratio. Independent full-human/full-mouse Boltz-2 validation remains outside Odin-Multi.
 """
 
 from __future__ import annotations
@@ -6948,7 +6948,7 @@ def main():
         "--context",str(paths["mouse_escape_target.json"]),str(paths["mouse_escape_loss.json"]),
         "--advanced",str(paths["general_anti_escape_v3.json"]),
         "--base-seed","20261105",
-        "--num-designs","2",
+        "--num-designs","1",
     ]
     proc=run(design_cmd,cwd=ODIN,env=env,check=False)
     (OUT/"design_exit_code.txt").write_text(str(proc.returncode)+"\n")
@@ -6976,7 +6976,7 @@ def main():
             {"name":"mouse_escape_decoys","role":"offtarget","regions":["123-188","500-763"],"gradient_weight":0.20},
         ],
         "binder_length":60,
-        "trajectory_count":2,
+        "trajectory_count":1,
         "selection_method":"best_clipped_i_pae_ratio",
         "warm_start":"FreeBindCraft v6 sequence",
         "design_iterations":{"soft":60,"temporary":30,"hard":15,"greedy":5},
