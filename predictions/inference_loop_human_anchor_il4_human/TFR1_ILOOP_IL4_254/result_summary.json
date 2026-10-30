@@ -1,0 +1,78 @@
+{
+  "candidate_id": "TFR1_ILOOP_IL4_254",
+  "binder_sequence": "SPSVISTTTTTYTLNGKQITEIRTTINPGEKIEPAPGEKQFTGVDNETGYIVVRTYKVNS",
+  "source": {
+    "candidate_id": "TFR1_ILOOP_IL4_254",
+    "sequence": "SPSVISTTTTTYTLNGKQITEIRTTINPGEKIEPAPGEKQFTGVDNETGYIVVRTYKVNS",
+    "mpnn_score": "0.8405",
+    "global_score": "1.5533",
+    "temperature": "0.18",
+    "changed_positions": "14;15;19;21;39;41;42;44;46;52;54",
+    "changed_count": "11",
+    "charge_fraction": "0.2",
+    "prefilter_flags": "",
+    "prefilter_pass": "True",
+    "header": "T=0.18, sample=14, score=0.8405, global_score=1.5533, seq_recovery=0.3889"
+  },
+  "human": {
+    "protein_iptm": 0.16071006655693054,
+    "confidence": 0.724446177482605,
+    "ptm": 0.8665816783905029,
+    "complex_plddt": 0.8653801679611206,
+    "complex_iplddt": 0.8398892879486084,
+    "contacts": {
+      "target_contacts_uniprot": [
+        318,
+        619,
+        622,
+        623,
+        626,
+        627,
+        629,
+        639,
+        640,
+        641,
+        643,
+        644,
+        646,
+        648,
+        650,
+        651,
+        720,
+        743,
+        757,
+        758,
+        759,
+        760
+      ],
+      "binder_contact_positions": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        21,
+        23,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        46,
+        54,
+        56
+      ],
+      "preferred_contacts": [],
+      "risk_contacts": [],
+      "apical_contacts": [
+        318
+      ],
+      "apical_fraction": 0.0455,
+      "preferred_core_retained": false
+    },
+    "pose_gate_pass": false
+  },
+  "human_anchor_score": 0.3442
+}

@@ -1,0 +1,55 @@
+{
+  "candidate_id": "TFR1_ILOOP_IL4_154",
+  "binder_sequence": "SPSVISTTTTTYTLNGKQITEIRTTINPGEKIEPAPGETQFEGVDNETGYIVVRTFKVNS",
+  "source": {
+    "candidate_id": "TFR1_ILOOP_IL4_154",
+    "sequence": "SPSVISTTTTTYTLNGKQITEIRTTINPGEKIEPAPGETQFEGVDNETGYIVVRTFKVNS",
+    "mpnn_score": "0.7891",
+    "global_score": "1.5665",
+    "temperature": "0.25",
+    "changed_positions": "14;15;19;21;39;41;42;44;46;52;54;56",
+    "changed_count": "12",
+    "charge_fraction": "0.2",
+    "prefilter_flags": "",
+    "prefilter_pass": "True",
+    "header": "T=0.25, sample=34, score=0.7891, global_score=1.5665, seq_recovery=0.3333"
+  },
+  "human": {
+    "protein_iptm": 0.2996557950973511,
+    "confidence": 0.7512694597244263,
+    "ptm": 0.8737571239471436,
+    "complex_plddt": 0.8641728758811951,
+    "complex_iplddt": 0.8581750392913818,
+    "contacts": {
+      "target_contacts_uniprot": [
+        619,
+        622,
+        623,
+        626,
+        629,
+        643,
+        646,
+        650
+      ],
+      "binder_contact_positions": [
+        1,
+        2,
+        3,
+        27,
+        28,
+        29,
+        30,
+        31,
+        48,
+        50
+      ],
+      "preferred_contacts": [],
+      "risk_contacts": [],
+      "apical_contacts": [],
+      "apical_fraction": 0.0,
+      "preferred_core_retained": false
+    },
+    "pose_gate_pass": false
+  },
+  "human_anchor_score": 0.5993
+}
