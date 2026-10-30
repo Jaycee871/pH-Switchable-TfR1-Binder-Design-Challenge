@@ -3217,7 +3217,7 @@ def prepare_inputs():
         "ensemble_discrete_stages":False,"design_algorithm":"3stage_ste","soft_iterations":45,"temporary_iterations":15,
         "hard_iterations":10,"greedy_iterations":5,"greedy_percentage":5,"use_early_stopping":False,"optimise_beta":True,
         "optimise_beta_extra_soft":0,"optimise_beta_extra_temp":0,"optimise_beta_recycles_design":3,
-        "mpnn_weights":"original","mpnn_use_ligand_context":False,"random_helicity":False,
+        "mpnn_weights":"original","mpnn_use_ligand_context":False,"random_helicity":False,"dssp_path":"",
         "save_design_animations":False,"save_design_trajectory_plots":False,"remove_unrelaxed_trajectory":False,"omit_AAs":"C"
     }
     objs=[("human_target.json",human_json),("mouse_target.json",mouse_json),("human_loss.json",human_loss),("mouse_loss.json",mouse_loss),("general_hard_negative_v5.json",general)]
@@ -3234,8 +3234,19 @@ def main():
     run(["nvidia-smi"],check=False)
     print("Host Python",sys.version,flush=True)
 
-    # Fail fast on packaging problems BEFORE the ~12 minute environment install.
+    # Fail fast on packaging / schema problems BEFORE the environment install.
     materialize_targets()
+    paths=prepare_inputs()
+    required_general={
+        "lengths","use_multimer_design","af_params_dir","dssp_path","omit_AAs",
+        "design_algorithm","soft_iterations","temporary_iterations","hard_iterations",
+        "greedy_iterations","num_recycles_design","sample_models",
+    }
+    general=json.loads(paths["general_hard_negative_v5.json"].read_text())
+    missing=sorted(required_general-set(general))
+    if missing:
+        raise SystemExit(f"FATAL: missing Odin advanced keys before install: {missing}")
+    print("[PREFLIGHT] Odin advanced schema keys present.",flush=True)
 
     conda=setup_conda()
     env=setup_odin(conda)
@@ -3256,7 +3267,6 @@ def main():
         "assert any(d.platform=='gpu' for d in jax.devices()), 'No JAX GPU'"
     ],cwd=ODIN,env=env)
 
-    paths=prepare_inputs()
     rundir=OUT/"run"
 
     design_cmd=[
