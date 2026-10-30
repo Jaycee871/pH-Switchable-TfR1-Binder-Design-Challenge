@@ -1,0 +1,75 @@
+name: Phase 4V Audit Odin Full-Context V4 Trajectory
+
+on:
+  workflow_run:
+    workflows:
+      - "Kaggle TfR1 Odin-Multi Full Context V4"
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install audit dependencies
+        run: python -m pip install --upgrade kaggle numpy
+
+      - name: Download complete existing V4 Kaggle output
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/odin_full_context_v4
+          mkdir -p /tmp/odin_full_context_v4
+          KERNEL="packkwanlow/tfr1-odin-multi-full-context-v4"
+          kaggle kernels status "$KERNEL"
+          kaggle kernels output "$KERNEL" -p /tmp/odin_full_context_v4 -o
+          find /tmp/odin_full_context_v4 -name trajectory.pickle -o -name auxiliary.pickle
+
+      - name: Audit full trajectory
+        run: |
+          python scripts/audit_odin_full_context_v4_trajectory.py \
+            --root /tmp/odin_full_context_v4 \
+            --out analysis/odin_full_context_v4_trajectory_audit
+
+      - name: Commit audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/odin_full_context_v4_trajectory_audit.*
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add Phase 4V Odin full-context trajectory audit"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            sleep 2
+          done
+          exit 1
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tfr1-phase4v-full-context-audit
+          path: analysis/odin_full_context_v4_trajectory_audit.*
+          if-no-files-found: warn
+          retention-days: 14
