@@ -1,11 +1,9 @@
 name: Phase 5B Neutral Screen Odin V4 Histidine Variants
 
 on:
-  workflow_run:
-    workflows:
-      - "Phase 5A Enumerate Odin V4 pH-Switch Variants"
-    types:
-      - completed
+  push:
+    paths:
+      - "designs/pH_switch/odin_full_context_v4_histidine_scan/histidine_variants.csv"
   workflow_dispatch:
 
 permissions:
