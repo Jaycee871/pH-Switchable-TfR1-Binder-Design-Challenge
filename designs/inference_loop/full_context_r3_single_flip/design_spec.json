@@ -1,0 +1,63 @@
+{
+  "method": "one-factor-at-a-time full-context inference-loop sensitivity screen",
+  "baseline_parent": "FreeBindCraft v6 full-human parent",
+  "baseline_sequence": "SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWETGYIIVHTYKVNS",
+  "comparison_endpoint": "Odin V3 early-logit F39 mouse-apical partial",
+  "comparison_sequence": "SPSVISTTTETYTPHGKQVTRIRTTINPGEKIEPAPGERQMPGRDADTGYTVVHTYKVNS",
+  "baseline_known_result": {
+    "human_protein_iptm": 0.69,
+    "human_core_contacts": [
+      347,
+      350
+    ],
+    "mouse_protein_iptm": 0.282,
+    "mouse_homologous_overlap": 0
+  },
+  "tested_single_flips": [
+    {
+      "position": 10,
+      "v6_residue": "T",
+      "f39_residue": "E",
+      "mutation": "T10E"
+    },
+    {
+      "position": 14,
+      "v6_residue": "Y",
+      "f39_residue": "P",
+      "mutation": "Y14P"
+    },
+    {
+      "position": 42,
+      "v6_residue": "R",
+      "f39_residue": "P",
+      "mutation": "R42P"
+    },
+    {
+      "position": 46,
+      "v6_residue": "W",
+      "f39_residue": "A",
+      "mutation": "W46A"
+    },
+    {
+      "position": 47,
+      "v6_residue": "E",
+      "f39_residue": "D",
+      "mutation": "E47D"
+    },
+    {
+      "position": 51,
+      "v6_residue": "I",
+      "f39_residue": "T",
+      "mutation": "I51T"
+    },
+    {
+      "position": 52,
+      "v6_residue": "I",
+      "f39_residue": "V",
+      "mutation": "I52V"
+    }
+  ],
+  "decision_rule": "Identify individual F39-state residues that improve full-mouse apical behavior while minimally degrading the validated human v6 state. Only beneficial single flips should enter pair/triple combination screening.",
+  "no_new_histidine": true,
+  "no_new_cysteine": true
+}
