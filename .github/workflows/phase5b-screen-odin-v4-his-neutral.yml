@@ -1,0 +1,90 @@
+name: Phase 5B Neutral Screen Odin V4 Histidine Variants
+
+on:
+  workflow_run:
+    workflows:
+      - "Phase 5A Enumerate Odin V4 pH-Switch Variants"
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      NVIDIA_API_KEY1: ${{ secrets.NVIDIA_API_KEY1 }}
+      NVIDIA_API_TOKEN: ${{ secrets.NVIDIA_API_TOKEN }}
+      NGC_API_KEY: ${{ secrets.NGC_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Check Phase 5A variants
+        id: gate
+        shell: bash
+        run: |
+          if [[ -s designs/pH_switch/odin_full_context_v4_histidine_scan/histidine_variants.csv ]]; then
+            N="$(($(wc -l < designs/pH_switch/odin_full_context_v4_histidine_scan/histidine_variants.csv)-1))"
+          else
+            N=0
+          fi
+          if [[ "$N" -gt 0 ]]; then
+            echo "passed=true" >> "$GITHUB_OUTPUT"
+            echo "variant_count=$N" >> "$GITHUB_OUTPUT"
+          else
+            echo "passed=false" >> "$GITHUB_OUTPUT"
+            echo "No Phase 5A variants; Phase 5B will not run."
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.passed == 'true'
+        with:
+          python-version: "3.11"
+
+      - name: Install Biopython
+        if: steps.gate.outputs.passed == 'true'
+        run: python -m pip install "biopython>=1.85"
+
+      - name: Full human-mouse neutral retention screen
+        if: steps.gate.outputs.passed == 'true'
+        run: python scripts/nvidia_boltz2_screen_odin_v4_histidine_neutral.py
+
+      - name: Inspect
+        if: steps.gate.outputs.passed == 'true'
+        run: |
+          cat predictions/odin_v4_histidine_neutral_screen/screen_summary.json
+          cat predictions/odin_v4_histidine_neutral_screen/neutral_pose_pass_ids.json
+
+      - name: Commit Phase 5B
+        if: steps.gate.outputs.passed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add predictions/odin_v4_histidine_neutral_screen
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add Phase 5B neutral-pH screen for Odin v4 His variants"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            sleep 2
+          done
+          exit 1
+
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.gate.outputs.passed == 'true'
+        with:
+          name: tfr1-phase5b-odin-v4-his-neutral
+          path: predictions/odin_v4_histidine_neutral_screen/
+          if-no-files-found: warn
+          retention-days: 14
