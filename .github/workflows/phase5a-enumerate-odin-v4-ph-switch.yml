@@ -1,0 +1,84 @@
+name: Phase 5A Enumerate Odin V4 pH-Switch Variants
+
+on:
+  workflow_run:
+    workflows:
+      - "Phase 4U Validate Odin Full-Context V4"
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  enumerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Check cross-species parent gate
+        id: gate
+        shell: bash
+        run: |
+          if [[ ! -s predictions/odin_full_context_v4_pose_screen/pose_pass_ids.json ]]; then
+            echo "passed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          N="$(python -c 'import json; p="predictions/odin_full_context_v4_pose_screen/pose_pass_ids.json"; print(len(json.load(open(p)).get("pose_pass_ids",[])))')"
+          if [[ "$N" -gt 0 ]]; then
+            echo "passed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "passed=false" >> "$GITHUB_OUTPUT"
+            echo "Phase 4U has no pose-pass parent; Phase 5A will not run."
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.passed == 'true'
+        with:
+          python-version: "3.11"
+
+      - name: Install Biopython
+        if: steps.gate.outputs.passed == 'true'
+        run: python -m pip install "biopython>=1.85"
+
+      - name: Enumerate mechanistic histidine variants
+        if: steps.gate.outputs.passed == 'true'
+        run: python scripts/enumerate_odin_v4_histidine_switches.py
+
+      - name: Inspect
+        if: steps.gate.outputs.passed == 'true'
+        run: |
+          cat designs/pH_switch/odin_full_context_v4_histidine_scan/summary.json
+          head -n 20 designs/pH_switch/odin_full_context_v4_histidine_scan/histidine_variants.csv
+
+      - name: Commit Phase 5A
+        if: steps.gate.outputs.passed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add designs/pH_switch/odin_full_context_v4_histidine_scan
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add Phase 5A Odin v4 histidine-switch hypotheses"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            sleep 2
+          done
+          exit 1
+
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.gate.outputs.passed == 'true'
+        with:
+          name: tfr1-phase5a-odin-v4-histidine-scan
+          path: designs/pH_switch/odin_full_context_v4_histidine_scan/
+          if-no-files-found: warn
+          retention-days: 14
