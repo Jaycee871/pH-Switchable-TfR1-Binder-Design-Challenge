@@ -1,0 +1,13 @@
+{
+  "candidate_count": 7,
+  "pose_screen_ids": [
+    "TFR1_ILOOP_R3_T10E",
+    "TFR1_ILOOP_R3_Y14P",
+    "TFR1_ILOOP_R3_R42P",
+    "TFR1_ILOOP_R3_W46A",
+    "TFR1_ILOOP_R3_E47D",
+    "TFR1_ILOOP_R3_I51T",
+    "TFR1_ILOOP_R3_I52V"
+  ],
+  "method": "seven single-flip v6->F39 full-context sensitivity screen"
+}
