@@ -1,0 +1,5 @@
+{
+  "purpose": "apples-to-apples baseline for R1-R3 sequence-only full ectodomain validation",
+  "sequence": "SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWETGYIIVHTYKVNS",
+  "comparison_note": "Phase 4Q v6 ipTM 0.690 was template-guided; this control removes all structural templates."
+}
