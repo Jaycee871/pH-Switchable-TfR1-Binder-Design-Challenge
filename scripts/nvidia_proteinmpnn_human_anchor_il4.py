@@ -24,7 +24,8 @@ import os
 import re
 import time
 from pathlib import Path
-from urllib.error import HTTPError
+from http.client import RemoteDisconnected
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 from Bio.PDB import MMCIFParser, PDBIO
@@ -66,6 +67,13 @@ def post(payload,key,max_attempts=5):
                 time.sleep(20*attempt)
                 continue
             raise RuntimeError(f"ProteinMPNN HTTP {exc.code}: {detail}") from exc
+        except (RemoteDisconnected, URLError, TimeoutError, ConnectionResetError) as exc:
+            if attempt<max_attempts:
+                delay=20*attempt
+                print(f"ProteinMPNN transport retry {attempt}: {exc}; sleep {delay}s",flush=True)
+                time.sleep(delay)
+                continue
+            raise RuntimeError(f"ProteinMPNN transport failure: {exc}") from exc
     raise RuntimeError("ProteinMPNN retries exhausted")
 
 
@@ -148,7 +156,7 @@ def main():
     payload={
         "input_pdb":pdb_text,
         "input_pdb_chains":["B"],
-        "num_seq_per_target":80,
+        "num_seq_per_target":40,
         "sampling_temp":[0.08,0.12,0.18,0.25],
         "use_soluble_model":False,
         "ca_only":False,
@@ -175,14 +183,23 @@ def main():
         },
         "no_new_histidine":True,
         "no_new_cysteine":True,
+        "proteinmpnn_batches":[{"seed":20261110,"n":40},{"seed":20261111,"n":40}],
         "next_gate":"template-free full-human Boltz-2",
     }
     (OUT/"design_spec.json").write_text(json.dumps(spec,indent=2)+"\n")
 
-    result=post(payload,key)
-    mfasta=result.get("mfasta","")
-    if not mfasta.strip():
-        raise RuntimeError("ProteinMPNN returned no mfasta")
+    mfasta_parts=[]
+    for batch_index,seed in enumerate((20261110,20261111),start=1):
+        payload["random_seed"]=seed
+        print(f"ProteinMPNN IL4 batch {batch_index}/2, seed={seed}, n=40",flush=True)
+        result=post(payload,key)
+        part=result.get("mfasta","")
+        if not part.strip():
+            raise RuntimeError(f"ProteinMPNN batch {batch_index} returned no mfasta")
+        (OUT/f"designed_sequences_batch_{batch_index}.fasta").write_text(part)
+        mfasta_parts.append(part.rstrip())
+
+    mfasta="\n".join(mfasta_parts)+"\n"
     (OUT/"designed_sequences.fasta").write_text(mfasta)
 
     records=[
