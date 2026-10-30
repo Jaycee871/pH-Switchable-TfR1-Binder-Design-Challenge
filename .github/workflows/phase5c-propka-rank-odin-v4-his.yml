@@ -1,0 +1,84 @@
+name: Phase 5C PROPKA Rank Odin V4 Histidine Variants
+
+on:
+  workflow_run:
+    workflows:
+      - "Phase 5B Neutral Screen Odin V4 Histidine Variants"
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rank:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Check neutral-pose His variants
+        id: gate
+        shell: bash
+        run: |
+          if [[ ! -s predictions/odin_v4_histidine_neutral_screen/neutral_pose_pass_ids.json ]]; then
+            echo "passed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          N="$(python -c 'import json; p="predictions/odin_v4_histidine_neutral_screen/neutral_pose_pass_ids.json"; print(len(json.load(open(p)).get("neutral_pose_pass_ids",[])))')"
+          if [[ "$N" -gt 0 ]]; then
+            echo "passed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "passed=false" >> "$GITHUB_OUTPUT"
+            echo "No neutral-pose His variants; Phase 5C will not run."
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.passed == 'true'
+        with:
+          python-version: "3.11"
+
+      - name: Install PROPKA and Biopython
+        if: steps.gate.outputs.passed == 'true'
+        run: python -m pip install --upgrade propka "biopython>=1.85"
+
+      - name: Rank engineered histidines by pKa window
+        if: steps.gate.outputs.passed == 'true'
+        run: python scripts/propka_rank_odin_v4_histidine_switches.py
+
+      - name: Inspect
+        if: steps.gate.outputs.passed == 'true'
+        run: |
+          cat analysis/odin_v4_histidine_propka/recommended_for_pH_testing.json
+          cat analysis/odin_v4_histidine_propka/ranking.csv
+
+      - name: Commit Phase 5C
+        if: steps.gate.outputs.passed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/odin_v4_histidine_propka
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add Phase 5C PROPKA ranking for Odin v4 His variants"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            sleep 2
+          done
+          exit 1
+
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.gate.outputs.passed == 'true'
+        with:
+          name: tfr1-phase5c-odin-v4-propka
+          path: analysis/odin_v4_histidine_propka/
+          if-no-files-found: warn
+          retention-days: 14
