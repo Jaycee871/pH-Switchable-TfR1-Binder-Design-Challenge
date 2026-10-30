@@ -1,0 +1,181 @@
+{
+  "candidates": [
+    {
+      "candidate_id": "TFR1_V6_SEQUENCE_ONLY_CONTROL",
+      "binder_sequence": "SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWETGYIIVHTYKVNS",
+      "source": {
+        "candidate_id": "TFR1_V6_SEQUENCE_ONLY_CONTROL",
+        "sequence": "SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWETGYIIVHTYKVNS",
+        "source_parent": "v6",
+        "single_flip_position": "",
+        "mutation": "",
+        "changed_positions": "0",
+        "changed_count": "0",
+        "distance_from_f39": "7",
+        "prefilter_pass": "True",
+        "rationale": "template-free sequence-only baseline for fair comparison with R1-R3"
+      },
+      "species": {
+        "human": {
+          "protein_iptm": 0.3181271255016327,
+          "confidence": 0.7469654083251953,
+          "ptm": 0.8664584755897522,
+          "complex_plddt": 0.8541749715805054,
+          "complex_iplddt": 0.8073137998580933,
+          "contacts": {
+            "target_contacts_uniprot": [
+              606,
+              607,
+              608,
+              609,
+              610,
+              612,
+              613,
+              616,
+              619,
+              620,
+              623,
+              646,
+              650,
+              657,
+              660,
+              661,
+              663,
+              664,
+              665,
+              666,
+              671,
+              675,
+              678
+            ],
+            "binder_contact_positions": [
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              18,
+              21,
+              23,
+              39,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              54,
+              56
+            ],
+            "preferred_contacts": [],
+            "risk_contacts": [],
+            "apical_contacts": [],
+            "apical_fraction": 0.0,
+            "preferred_core_retained": false
+          },
+          "pose_gate_pass": false
+        },
+        "mouse": {
+          "protein_iptm": 0.38025444746017456,
+          "confidence": 0.4506291449069977,
+          "ptm": 0.3963020443916321,
+          "complex_plddt": 0.46822279691696167,
+          "complex_iplddt": 0.5034708976745605,
+          "contacts": {
+            "target_contacts_uniprot": [
+              516,
+              517,
+              518,
+              519,
+              520,
+              522,
+              530,
+              531,
+              532,
+              565,
+              567,
+              568,
+              569,
+              570,
+              572,
+              573,
+              574,
+              629,
+              632,
+              633,
+              634,
+              636,
+              637,
+              638,
+              671,
+              674,
+              675,
+              676,
+              678
+            ],
+            "binder_contact_positions": [
+              12,
+              13,
+              14,
+              15,
+              17,
+              19,
+              21,
+              23,
+              39,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              52,
+              54,
+              56,
+              58
+            ],
+            "preferred_contacts": [],
+            "risk_contacts": [],
+            "apical_contacts": [],
+            "apical_fraction": 0.0,
+            "preferred_core_retained": false
+          },
+          "pose_gate_pass": false
+        }
+      },
+      "cross_species_epitope": {
+        "overlap_human_numbering": [
+          671,
+          675
+        ],
+        "overlap_count": 2,
+        "jaccard": 0.04,
+        "same_epitope_pass": false
+      },
+      "cross_species_pose_pass": false,
+      "search_score": 0.9663
+    }
+  ],
+  "ranked": [
+    {
+      "candidate_id": "TFR1_V6_SEQUENCE_ONLY_CONTROL",
+      "human_ipTM": 0.3181271255016327,
+      "mouse_ipTM": 0.38025444746017456,
+      "human_preferred": [],
+      "mouse_preferred": [],
+      "human_apical_fraction": 0.0,
+      "mouse_apical_fraction": 0.0,
+      "overlap_count": 2,
+      "jaccard": 0.04,
+      "search_score": 0.9663,
+      "pass": false
+    }
+  ],
+  "pose_pass_ids": [],
+  "best_partial_id": "TFR1_V6_SEQUENCE_ONLY_CONTROL"
+}
