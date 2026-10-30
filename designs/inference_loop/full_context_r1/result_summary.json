@@ -1,0 +1,18 @@
+{
+  "candidate_count": 72,
+  "unique_candidate_count": 72,
+  "prefilter_pass_count": 72,
+  "pose_screen_ids": [
+    "TFR1_ILOOP_R1_16",
+    "TFR1_ILOOP_R1_09",
+    "TFR1_ILOOP_R1_32",
+    "TFR1_ILOOP_R1_06"
+  ],
+  "pose_screen_mutation_counts": {
+    "TFR1_ILOOP_R1_16": 15,
+    "TFR1_ILOOP_R1_09": 12,
+    "TFR1_ILOOP_R1_32": 13,
+    "TFR1_ILOOP_R1_06": 15
+  },
+  "method": "full-context inference-state tied ProteinMPNN"
+}
