@@ -1,0 +1,18 @@
+{
+  "candidate_count": 11,
+  "unique_candidate_count": 11,
+  "prefilter_pass_count": 11,
+  "pose_screen_ids": [
+    "TFR1_ILOOP_R2_43",
+    "TFR1_ILOOP_R2_58",
+    "TFR1_ILOOP_R2_99",
+    "TFR1_ILOOP_R2_72"
+  ],
+  "pose_screen_mutation_counts": {
+    "TFR1_ILOOP_R2_43": 6,
+    "TFR1_ILOOP_R2_58": 5,
+    "TFR1_ILOOP_R2_99": 3,
+    "TFR1_ILOOP_R2_72": 6
+  },
+  "method": "sparse seven-position full-context reconciliation"
+}
