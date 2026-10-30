@@ -28,9 +28,16 @@ jobs:
           python-version: "3.11"
 
       - name: Preflight anti-escape runner
+        shell: bash
         run: |
-          python -m py_compile kaggle/odin_multi_anti_escape_v3/tfr1_odin_multi_anti_escape_v3.py
-          python -c 'from pathlib import Path; s=Path("kaggle/odin_multi_anti_escape_v3/tfr1_odin_multi_anti_escape_v3.py").read_text(); assert s.count("\\"--context\\"")==4; assert "\\"--num-designs\\",\\"1\\"" in s; assert "\\"best_clipped_i_pae_ratio\\"" in s; assert "EMBEDDED_ESCAPE_B64" in s; print("Anti-escape v3 static preflight passed.")'
+          set -euo pipefail
+          FILE="kaggle/odin_multi_anti_escape_v3/tfr1_odin_multi_anti_escape_v3.py"
+          python -m py_compile "$FILE"
+          test "$(grep -o -- '"--context"' "$FILE" | wc -l)" -eq 4
+          grep -Fq '"--num-designs","1"' "$FILE"
+          grep -Fq '"best_clipped_i_pae_ratio"' "$FILE"
+          grep -Fq 'EMBEDDED_ESCAPE_B64' "$FILE"
+          echo "Anti-escape v3 static preflight passed."
 
       - name: Install Kaggle CLI
         run: python -m pip install --upgrade kaggle
