@@ -1,0 +1,53 @@
+{
+  "contexts": [
+    {
+      "name": "human_tfr1_apical",
+      "role": "target",
+      "hotspots": [
+        347,
+        350
+      ],
+      "gradient_weight": 1.0
+    },
+    {
+      "name": "mouse_tfr1_apical",
+      "role": "target",
+      "hotspots": [
+        349,
+        352
+      ],
+      "gradient_weight": 1.25
+    },
+    {
+      "name": "human_escape_decoys",
+      "role": "offtarget",
+      "regions": [
+        "122-188",
+        "500-760"
+      ],
+      "gradient_weight": 0.2
+    },
+    {
+      "name": "mouse_escape_decoys",
+      "role": "offtarget",
+      "regions": [
+        "123-188",
+        "500-763"
+      ],
+      "gradient_weight": 0.2
+    }
+  ],
+  "binder_length": 60,
+  "trajectory_count": 2,
+  "selection_method": "best_clipped_i_pae_ratio",
+  "warm_start": "t0=v6; t1=F39",
+  "design_iterations": {
+    "soft": 45,
+    "temporary": 15,
+    "hard": 10,
+    "greedy": 5
+  },
+  "selection_csv_exists": true,
+  "selection_fasta_exists": true,
+  "elapsed_min": 283.2
+}
