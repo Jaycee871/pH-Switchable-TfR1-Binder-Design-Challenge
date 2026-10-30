@@ -1,0 +1,2 @@
+candidate_id,sequence,source_parent,single_flip_position,mutation,changed_positions,changed_count,distance_from_f39,prefilter_pass,rationale
+TFR1_V6_SEQUENCE_ONLY_CONTROL,SPSVISTTTTTYTYHGKQVTRIRTTINPGEKIEPAPGERQMRGRDWETGYIIVHTYKVNS,v6,,,0,0,7,True,template-free sequence-only baseline for fair comparison with R1-R3
