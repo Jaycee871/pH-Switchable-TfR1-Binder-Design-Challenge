@@ -1,0 +1,1 @@
+selected_driver_dirs=/usr/local/nvidia/lib64
