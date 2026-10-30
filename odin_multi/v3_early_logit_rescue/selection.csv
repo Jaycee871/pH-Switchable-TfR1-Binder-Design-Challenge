@@ -1,0 +1,5 @@
+design_index,design_id,selection_status,termination,iteration,frame_index,stage,score,sequence,length,seed,worst_target_i_pae,worst_target_i_ptm,worst_target_context,strongest_offtarget_i_pae,strongest_offtarget_i_pae_clipped,strongest_offtarget_context,offtarget_i_pae_cap,error
+0,ODIN_V3_LOGIT_F39,selected,,39,39,logits_argmax,1.899546,SPSVISTTTETYTPHGKQVTRIRTTINPGEKIEPAPGERQMPGRDADTGYTVVHTYKVNS,60,796307,7.896622,0.763590,mouse_tfr1_apical,27.060523,15.0,human_tfr1_escape_decoys,15.0,
+1,ODIN_V3_LOGIT_F37,selected,,37,37,logits_argmax,1.806081,SPSVISTTTTTYTPHGKEVTRIRTTINPGEKIEPAPGERQMPGRDVDTGYTVVHTYKVNS,60,796307,8.305276,0.761189,human_tfr1_apical,28.020272,15.0,mouse_tfr1_escape_decoys,15.0,
+2,ODIN_V3_LOGIT_F31,selected,,31,31,logits_argmax,1.556512,SPSVISTTTTTYTPHGKQVTRIRTTINPGEKIEPAPGEKQMVGRDVDTGYTVVHTYKVNS,60,796307,9.636930,0.715020,mouse_tfr1_apical,27.595738,15.0,human_tfr1_escape_decoys,15.0,
+3,ODIN_V3_LOGIT_F36,selected,,36,36,logits_argmax,1.624894,SPSVISTTTTTYTPHGKQVTRIRTTINPGEKIEPAPGERQMPGRDVDTGYTVVHTYKVNS,60,796307,9.231372,0.713094,mouse_tfr1_apical,27.642303,15.0,human_tfr1_escape_decoys,15.0,
