@@ -24,7 +24,7 @@
 
 - [ ] Review the top 20 order one final time after any remaining computation finishes.
 - [ ] Decide whether any late candidate clearly displaces a bottom-5 design.
-- [ ] Inspect TF4_004_V5_T1: it contains one cysteine; retain only if that liability is acceptable.
+- [ ] Inspect TF4_007_V5_T1: it contains one cysteine; retain only if that liability is acceptable.
 - [ ] Confirm the Proteinbase track/account used for this challenge.
 - [ ] Upload `tfr1_submission_upload_v0.csv`.
 - [ ] Add the GitHub repository as the method/provenance link.

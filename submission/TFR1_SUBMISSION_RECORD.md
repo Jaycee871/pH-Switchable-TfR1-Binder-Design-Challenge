@@ -2,6 +2,16 @@
 
 Date of record: 2026-10-31 (Asia/Taipei).
 
+> **Amendment — 2026-10-31 (Asia/Taipei).** After this record was first written, the two stale
+> `protein` values it describes below were updated to `single_chain` at the author's
+> instruction: `submission/TFR1_SUBMISSION_CHECKLIST.md` and
+> `submission/tfr1_submission_metadata_final_v1.csv` were both changed on 2026-10-31 and merged
+> as squash commit `e723912` (PR #2). The original text of this record is preserved unchanged
+> below, with bracketed amendment notes marking the two passages that no longer describe the
+> current state of the repository. What the repository looked like at submission time is
+> unaffected: `submission/tfr1_submission_as_submitted_2026-10-31.csv` remains authoritative for
+> `molecule_class`.
+
 ## What was submitted
 
 The Challenge 04 TfR1 entry was submitted to the **Anthropic × Adaptyv Protein Design
@@ -82,9 +92,13 @@ is between the submitted file and other documents in the repository:
   Asia/Taipei, roughly fifteen minutes before the submission confirmation was observed.
 - `submission/TFR1_SUBMISSION_CHECKLIST.md` — still contains the line
   "`molecule_class=protein` for all designs in this package". **This no longer describes what
-  was submitted.**
+  was submitted.** *[Amended 2026-10-31: no longer true of the current repository — this line
+  now reads `molecule_class=single_chain`, changed in `e723912` (PR #2). It was accurate as of
+  the date of record.]*
 - `submission/tfr1_submission_metadata_final_v1.csv` — still carries `molecule_class = protein`
-  in all 16 rows. **This no longer describes what was submitted.**
+  in all 16 rows. **This no longer describes what was submitted.** *[Amended 2026-10-31: no
+  longer true of the current repository — all 16 rows now carry `single_chain`, changed in
+  `e723912` (PR #2). It was accurate as of the date of record.]*
 - `submission/tfr1_submission_upload_v0.csv` and `tfr1_submission_metadata_v0.csv` — the
   superseded 20-design package; not consulted here.
 
@@ -92,6 +106,14 @@ These stale `protein` values are **left in place deliberately**. The point of th
 accurate account of what went out, not a retroactive tidy-up of the frozen package or of the
 history. Anyone reading the checklist or the metadata CSV should treat
 `tfr1_submission_as_submitted_2026-10-31.csv` as authoritative for `molecule_class`.
+
+*[Amended 2026-10-31 (Asia/Taipei): this paragraph described the position as of the date of
+record and is superseded. The author subsequently instructed that the checklist and the
+final-v1 metadata CSV be brought into line with what was submitted, and both were updated from
+`protein` to `single_chain` the same day, merged as squash commit `e723912` (PR #2). The two
+files named above therefore no longer carry stale `protein` values. The frozen upload CSV and
+`tfr1_submission_as_submitted_2026-10-31.csv` were not altered, and the latter remains
+authoritative for `molecule_class`.]*
 
 ## Internal validation status at time of submission
 
@@ -120,4 +142,4 @@ computationally validated cross-species or pH-switchable binders.
   separately-headed maintainer fact-check appendix.
 - `submission/TFR1_FINAL_V1_FREEZE_NOTE.md` — why the portfolio is 16 designs, not 20.
 - `submission/TFR1_METHODS_AND_PROVENANCE.md` — the longer technical methods and provenance note.
-- `submission/TFR1_SUBMISSION_CHECKLIST.md` — pre-upload checklist (note the stale `protein` line).
+- `submission/TFR1_SUBMISSION_CHECKLIST.md` — pre-upload checklist (the `protein` line noted here at the date of record was updated to `single_chain` on 2026-10-31; see the amendment above).
