@@ -5,7 +5,7 @@
 - [ ] Challenge 04 TfR1 is still open before uploading.
 - [ ] Use at most 20 designs for Track 2 / Track 3.
 - [ ] CSV contains `name`, `sequence`, `molecule_class`.
-- [ ] `molecule_class=protein` for all designs in this package.
+- [ ] `molecule_class=single_chain` for all designs in this package (changed from `protein` to `single_chain` on 2026-10-31 before submission).
 - [ ] Every sequence is unique.
 - [ ] Every sequence is 10–250 aa.
 - [ ] No C-terminal Twin-Strep tag is included in any submitted sequence.
