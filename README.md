@@ -240,7 +240,11 @@ not be promoted to a final candidate until a neutral-pH cross-species parent exi
   candidates; the pH 6.0 negative state is not implemented*
 - [ ] Rank and cluster candidates - *blocked: no candidate currently passes the interface pose
   gate, and no diversity clustering has been run*
-- [ ] Prepare final Proteinbase submission package - *not started; `submissions/` is empty*
+- [x] Prepare final Proteinbase submission package - *final-v1 is 16 designs; see
+  `submission/TFR1_FINAL_V1_FREEZE_NOTE.md`*
+- [x] Submit to Proteinbase Challenge 04 - *submitted 2026-10-31; "Submission successful"
+  observed on screen at 20:39 Asia/Taipei. No Proteinbase submission ID was captured. See
+  `submission/TFR1_SUBMISSION_RECORD.md`*
 
 ---
 
