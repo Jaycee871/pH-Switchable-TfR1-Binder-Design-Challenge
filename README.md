@@ -236,10 +236,12 @@ not be promoted to a final candidate until a neutral-pH cross-species parent exi
 - [x] Generate first design library (60+ sequences across the A29, BIAS and C57 families)
 - [x] Introduce histidine at the interface (Phase 6: 24 designs, 18 passing, 4-10 His each)
       - *caveat: the +4.0 bias saturated rather than selected, and the designs are unvalidated*
-- [ ] Run multi-state structural evaluation - *partial: human and mouse pH 7.4 done for 6
-  candidates; the pH 6.0 negative state is not implemented*
-- [ ] Rank and cluster candidates - *blocked: no candidate currently passes the interface pose
-  gate, and no diversity clustering has been run*
+- [ ] Run multi-state structural evaluation - *partial: human pH 7.4 done for all 16 final-v1
+  designs and mouse pH 7.4 for 15 of them; the pH 6.0 negative state is not implemented*
+- [x] Rank and cluster candidates - *ranked and clustered on multiple signals (human/mouse
+  protein iPTM, preferred-contact retention, homologous overlap and Jaccard, sequence liability
+  and redundancy) and a 16-design final-v1 portfolio was selected and submitted; no design
+  passed the Stage 4 cross-species pose gate*
 - [x] Prepare final Proteinbase submission package - *final-v1 is 16 designs; see
   `submission/TFR1_FINAL_V1_FREEZE_NOTE.md`*
 - [x] Submit to Proteinbase Challenge 04 - *submitted 2026-10-31; "Submission successful"
